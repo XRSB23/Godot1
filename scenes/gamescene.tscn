@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8m5dy2w8a44w"]
+
+[ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
+
+[node name="Gamescene" type="Node2D"]
+script = ExtResource("1_scxi1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="ButtonContainer" type="GridContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BubbleContainer" type="Node2D" parent="."]

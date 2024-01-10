@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkohxp01r1a8b"]
+
+[ext_resource type="Script" path="res://Scripts/Bubble.gd" id="1_q8uim"]
+[ext_resource type="Texture2D" uid="uid://dsallys8rqksd" path="res://Assets/Tileset_Proto.png" id="2_btiq2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o55xo"]
+radius = 50.0
+
+[node name="Bubble" type="RigidBody2D"]
+script = ExtResource("1_q8uim")
+
+[node name="BubbleSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_btiq2")
+region_enabled = true
+region_rect = Rect2(140, 12, 104, 99)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_o55xo")
