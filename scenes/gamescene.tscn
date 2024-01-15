@@ -1,18 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=3 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
+[ext_resource type="Script" path="res://Scripts/Sling.gd" id="2_jejid"]
 
 [node name="Gamescene" type="Node2D"]
 script = ExtResource("1_scxi1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-follow_viewport_enabled = true
 
 [node name="ButtonContainer" type="GridContainer" parent="CanvasLayer"]
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = 0.133
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -0.183998
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.132716
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+metadata/_edit_use_anchors_ = true
 
 [node name="BubbleContainer" type="Node2D" parent="."]
+
+[node name="Camera2DPlaceholder" type="Camera2D" parent="."]
+position = Vector2(358, 70)
+zoom = Vector2(0.5, 0.5)
+
+[node name="Sling" type="Node2D" parent="."]
+position = Vector2(-268, 362)
+script = ExtResource("2_jejid")
+shoot_strength = 3
+trajectory_points_amount = 30
+trajectory_max_range = 60.0
+
+[node name="Line2D" type="Line2D" parent="Sling"]
+
+[node name="Test" type="Marker2D" parent="."]
+position = Vector2(170, 473)
