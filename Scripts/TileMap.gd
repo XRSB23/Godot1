@@ -59,7 +59,6 @@ func save_level(n,t,a,res):
 		level.bubbles.append(level_data.BubbleColor[s])
 	res.levels[n] = level
 	ResourceSaver.save(res,"res://Resources/levels_resource.tres")
-	
 	print("level saved")
 
 func clear_ressource_data():
