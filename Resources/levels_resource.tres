@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="levelsResource" load_steps=5 format=3 uid="uid://bxj803axcek2h"]
+
+[ext_resource type="Script" path="res://Scripts/leveldata_class_script.gd" id="1_exx2j"]
+[ext_resource type="Script" path="res://Scripts/levels_resource_script.gd" id="1_ikie2"]
+
+[sub_resource type="Resource" id="Resource_ss1th"]
+script = ExtResource("1_exx2j")
+coord = Array[Vector2]([Vector2(256, 64), Vector2(320, 160), Vector2(192, 160), Vector2(256, 256), Vector2(192, 352), Vector2(256, 448), Vector2(320, 544), Vector2(384, 64), Vector2(512, 64), Vector2(640, 64), Vector2(768, 64), Vector2(832, 160), Vector2(768, 256), Vector2(896, 256), Vector2(832, 352), Vector2(896, 448), Vector2(768, 448), Vector2(832, 544), Vector2(704, 544), Vector2(576, 544), Vector2(448, 544), Vector2(192, -32), Vector2(320, -32), Vector2(448, -32), Vector2(576, -32), Vector2(704, -32), Vector2(832, -32), Vector2(448, 160), Vector2(384, 256), Vector2(448, 352), Vector2(512, 448), Vector2(512, 256), Vector2(576, 160), Vector2(704, 160), Vector2(640, 256), Vector2(576, 352), Vector2(704, 352), Vector2(640, 448), Vector2(320, 352), Vector2(384, 448), Vector2(128, 64), Vector2(64, 160), Vector2(128, 256), Vector2(64, -32)])
+bubbles = Array[int]([0, 6, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 0, 0, 0, 0, 0, 0])
+treshold = 0.5
+attempts = 9
+
+[sub_resource type="Resource" id="Resource_bfdpt"]
+script = ExtResource("1_exx2j")
+coord = Array[Vector2]([Vector2(256, 64), Vector2(320, 160), Vector2(192, 160), Vector2(256, 256), Vector2(192, 352), Vector2(256, 448), Vector2(320, 544), Vector2(384, 64), Vector2(512, 64), Vector2(640, 64), Vector2(768, 64), Vector2(832, 160), Vector2(768, 256), Vector2(896, 256), Vector2(832, 352), Vector2(896, 448), Vector2(768, 448), Vector2(832, 544), Vector2(704, 544), Vector2(576, 544), Vector2(448, 544), Vector2(192, -32), Vector2(320, -32), Vector2(448, -32), Vector2(576, -32), Vector2(704, -32), Vector2(832, -32), Vector2(448, 160), Vector2(384, 256), Vector2(448, 352), Vector2(512, 448), Vector2(512, 256), Vector2(576, 160), Vector2(704, 160), Vector2(640, 256), Vector2(576, 352), Vector2(704, 352), Vector2(640, 448), Vector2(320, 352), Vector2(384, 448), Vector2(128, 64), Vector2(64, 160), Vector2(128, 256), Vector2(64, -32)])
+bubbles = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+treshold = 0.5
+attempts = 9
+
+[resource]
+script = ExtResource("1_ikie2")
+levels = {
+"empty_map": SubResource("Resource_bfdpt"),
+"level_test": SubResource("Resource_ss1th")
+}
