@@ -1,8 +1,8 @@
 extends RigidBody2D
-class_name bubble
+class_name Bubble
 
 var game_scene 
-@onready var sprite = $BubbleSprite
+@onready var sprite :  SVGSprite2D = $SVGSprite2D
 @onready var collider = $CollisionShape2D
 var color : level_data.BubbleColor
 var velocity : Vector2 = Vector2.ZERO

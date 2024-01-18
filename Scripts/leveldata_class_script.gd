@@ -1,7 +1,7 @@
 class_name level_data
 extends Resource
 
-enum BubbleColor {Empty,Blue,Green,Red,Purple,Yellow,Orange,Skyblue}
+enum BubbleColor {Empty,Red,Orange,Yellow,Green,Cyan,Blue,Purple}
 
 @export var coord : Array[Vector2] 
 @export var bubbles : Array[BubbleColor]

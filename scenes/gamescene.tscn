@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=5 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
+[ext_resource type="Script" path="res://addons/merovi.svgtexture2d/SVGCamera2D.gd" id="2_iy3la"]
 [ext_resource type="Script" path="res://Scripts/Sling.gd" id="2_jejid"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swuy3"]
@@ -32,9 +33,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="BubbleContainer" type="Node2D" parent="."]
 
-[node name="Camera2DPlaceholder" type="Camera2D" parent="."]
-position = Vector2(358, 70)
-zoom = Vector2(0.5, 0.5)
+[node name="SVGCamera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.4, 0.4)
+script = ExtResource("2_iy3la")
 
 [node name="DeadZone" type="Area2D" parent="."]
 position = Vector2(56, 0)
