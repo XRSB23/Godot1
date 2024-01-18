@@ -24,6 +24,7 @@ class_name SVGSprite2D
 		_update_texture()
 
 func _ready():
+	scale = Vector2(0.2,0.2)
 	var camera = get_viewport().get_camera_2d()
 	if camera and camera is SVGCamera2D:
 		(camera as SVGCamera2D).zoom_changed.connect(_on_zoom_change)

@@ -111,4 +111,6 @@ func debug_assign_color(_bubble : Bubble):
 		level_data.BubbleColor.Blue: _bubble.sprite.frame = 6
 		level_data.BubbleColor.Purple: _bubble.sprite.frame = 7
 		_: print("Bubble " + _bubble.name + " does not have recognized color") 
+	
+	_bubble.particleSystem.Init(_bubble.color)
 		

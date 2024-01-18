@@ -1,0 +1,14 @@
+[remap]
+
+importer="merovi.svgtexture2d"
+type="SVGTexture2D"
+uid="uid://bwkmcghulkf8v"
+path="res://.godot/imported/Bubbles.svg-87314ac24e09233e959a48afe62838a4.sex"
+
+[deps]
+
+source_file="res://Art/Bubble/Bubbles.svg"
+dest_files=["res://.godot/imported/Bubbles.svg-87314ac24e09233e959a48afe62838a4.sex"]
+
+[params]
+
