@@ -100,24 +100,15 @@ func load_level(_level):
 func debug_display_hud(a):
 	debug_hud.text = "attempts : " + str(a)
 
-func debug_assign_color(_bubble):
-	var rect_size = Vector2(104,99)
-	var rect_pos = Vector2(12,12)
+func debug_assign_color(_bubble : Bubble):
 	match(_bubble.color):
-		level_data.BubbleColor.Empty:
-			pass
-		level_data.BubbleColor.Blue:
-			rect_pos += Vector2(128,0)
-		level_data.BubbleColor.Green:
-			rect_pos += Vector2(256,0)
-		level_data.BubbleColor.Red:
-			rect_pos += Vector2(384,0)
-		level_data.BubbleColor.Purple:
-			rect_pos += Vector2(0,128)
-		level_data.BubbleColor.Yellow:
-			rect_pos += Vector2(128,128)
-		level_data.BubbleColor.Orange:
-			rect_pos += Vector2(256,128)
-		level_data.BubbleColor.Skyblue:
-			rect_pos += Vector2(384,128)
-	_bubble.sprite.region_rect = Rect2(rect_pos,rect_size)
+		level_data.BubbleColor.Empty: pass
+		level_data.BubbleColor.Red: _bubble.sprite.frame = 1
+		level_data.BubbleColor.Orange: _bubble.sprite.frame = 2
+		level_data.BubbleColor.Yellow: _bubble.sprite.frame = 3
+		level_data.BubbleColor.Green: _bubble.sprite.frame = 4
+		level_data.BubbleColor.Cyan: _bubble.sprite.frame = 5
+		level_data.BubbleColor.Blue: _bubble.sprite.frame = 6
+		level_data.BubbleColor.Purple: _bubble.sprite.frame = 7
+		_: print("Bubble " + _bubble.name + " does not have recognized color") 
+		
