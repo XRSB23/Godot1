@@ -5,4 +5,4 @@
 [resource]
 resource_local_to_scene = true
 atlas = ExtResource("1_nqyqm")
-region = Rect2(0, 0, 290, 220)
+region = Rect2(621, 165, 289, 220)

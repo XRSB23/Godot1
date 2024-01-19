@@ -41,7 +41,9 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 func process_destruction(cells):
 	if cells.size()>= 3 :
 		for cell in cells :
-			grid_data[cell].queue_free()
+			grid_data[cell].OnDestroy()
+			await grid_data[cell].animTrigger
+			#grid_data[cell].queue_free()
 			grid_data[cell] = null
 
 
