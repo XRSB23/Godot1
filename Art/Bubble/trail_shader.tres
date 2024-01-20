@@ -1,0 +1,81 @@
+[gd_resource type="VisualShader" load_steps=7 format=3 uid="uid://c8odev4ooibqc"]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_srks0"]
+expanded_output_ports = [0]
+parameter_name = "TrailColor"
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_51jeg"]
+parameter_name = "TrailTexture"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_035bp"]
+expanded_output_ports = [0]
+source = 5
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_onqkd"]
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_kj84g"]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_63m4h"]
+operator = 2
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform vec4 TrailColor : source_color;
+uniform sampler2D TrailTexture;
+
+
+
+void fragment() {
+// ColorParameter:10
+	vec4 n_out10p0 = TrailColor;
+	float n_out10p1 = n_out10p0.r;
+	float n_out10p2 = n_out10p0.g;
+	float n_out10p3 = n_out10p0.b;
+
+
+// VectorCompose:7
+	vec3 n_out7p0 = vec3(n_out10p1, n_out10p2, n_out10p3);
+
+
+	vec4 n_out12p0;
+// Texture2D:12
+	n_out12p0 = texture(TrailTexture, UV);
+	float n_out12p1 = n_out12p0.r;
+	float n_out12p2 = n_out12p0.g;
+	float n_out12p3 = n_out12p0.b;
+	float n_out12p4 = n_out12p0.a;
+
+
+// VectorCompose:8
+	vec3 n_out8p0 = vec3(n_out12p1, n_out12p2, n_out12p3);
+
+
+// VectorOp:9
+	vec3 n_out9p0 = n_out7p0 * n_out8p0;
+
+
+// Output:0
+	COLOR.rgb = n_out9p0;
+	COLOR.a = n_out12p4;
+
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(940, 320)
+nodes/fragment/7/node = SubResource("VisualShaderNodeVectorCompose_onqkd")
+nodes/fragment/7/position = Vector2(620, 0)
+nodes/fragment/8/node = SubResource("VisualShaderNodeVectorCompose_kj84g")
+nodes/fragment/8/position = Vector2(620, 240)
+nodes/fragment/9/node = SubResource("VisualShaderNodeVectorOp_63m4h")
+nodes/fragment/9/position = Vector2(780, 80)
+nodes/fragment/10/node = SubResource("VisualShaderNodeColorParameter_srks0")
+nodes/fragment/10/position = Vector2(360, -100)
+nodes/fragment/11/node = SubResource("VisualShaderNodeTexture2DParameter_51jeg")
+nodes/fragment/11/position = Vector2(40, 80)
+nodes/fragment/12/node = SubResource("VisualShaderNodeTexture_035bp")
+nodes/fragment/12/position = Vector2(380, 240)
+nodes/fragment/connections = PackedInt32Array(7, 0, 9, 0, 8, 0, 9, 1, 9, 0, 0, 0, 10, 1, 7, 0, 10, 2, 7, 1, 10, 3, 7, 2, 11, 0, 12, 2, 12, 1, 8, 0, 12, 2, 8, 1, 12, 3, 8, 2, 12, 4, 0, 1)

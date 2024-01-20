@@ -32,16 +32,21 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 		if magnitude == null or l.length_squared() < magnitude :
 			magnitude = l.length_squared()
 			closest_empty_cell = empty_cell
+			
 	projectile.position = closest_empty_cell
 	grid_data[projectile.position] = projectile
 	projectile.call_deferred( "set_freeze_enabled",true )
+	
+	projectile.trail.enabled = false
+	
 	process_destruction(get_cells_to_destroy(projectile))
 	sling.call_deferred("load_ball")
 
 func process_destruction(cells):
 	if cells.size()>= 3 :
 		for cell in cells :
-			grid_data[cell].queue_free()
+			grid_data[cell].OnDestroy()
+			await grid_data[cell].animTrigger
 			grid_data[cell] = null
 
 
@@ -111,4 +116,8 @@ func debug_assign_color(_bubble : Bubble):
 		level_data.BubbleColor.Blue: _bubble.sprite.frame = 6
 		level_data.BubbleColor.Purple: _bubble.sprite.frame = 7
 		_: print("Bubble " + _bubble.name + " does not have recognized color") 
+	
+	_bubble.particleSystem.Init(_bubble.color)
+	_bubble.trail.material.set_shader_parameter ("TrailColor", _bubble.colorList[_bubble.color])
+	
 		
