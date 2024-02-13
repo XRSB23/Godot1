@@ -16,7 +16,8 @@ func _input(event):
 		var v : Vector2 = ball.position - get_global_mouse_position()
 		if event is InputEventMouseButton and event.pressed == false :
 			ball.set_ball_launchable(false)
-			ball.apply_impulse(v * shoot_strength )
+			#ball.apply_impulse(v * shoot_strength )
+			ball.shot_v = v*shoot_strength
 			line_r.clear_points()
 			ball = null
 		else: display_trajectory(v)
@@ -38,7 +39,7 @@ func init_sling(attempts:int):
 func load_ball():
 	ball = bubble_prefab.instantiate()
 	bubble_container.add_child(ball)
-	ball.position = self.position
+	ball.set_global_position(position)
 	ball.set_ball_launchable(true)
 	ball.color = RandColor()
 	ball.game_scene = game_scene

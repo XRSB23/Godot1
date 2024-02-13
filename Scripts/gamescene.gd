@@ -32,15 +32,21 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 		if magnitude == null or l.length_squared() < magnitude :
 			magnitude = l.length_squared()
 			closest_empty_cell = empty_cell
-			
+	print_debuuug(grid_bubble.position,projectile.position,closest_empty_cell,grid_bubble.color)
 	projectile.position = closest_empty_cell
 	grid_data[projectile.position] = projectile
-	projectile.call_deferred( "set_freeze_enabled",true )
-	
+	#projectile.call_deferred( "set_freeze_enabled",true )
 	projectile.trail.enabled = false
-	
 	process_destruction(get_cells_to_destroy(projectile))
 	sling.call_deferred("load_ball")
+
+func print_debuuug(v1,v2,v3,v4):
+	print("pos bille touchée :" + str(v1))
+	print("voisins disponibles :" ) 
+	print(get_neighbors(grid_data[v1],level_data.BubbleColor.Empty))
+	print("couleur bille touchée :" + str(v4))
+	print("pos projectile au contact :" + str(v2))
+	print("cellule valide la plus proche :" + str(v3))
 
 func process_destruction(cells):
 	if cells.size()>= 3 :
