@@ -9,27 +9,45 @@ var balls_amount : int
 var ball
 @export var shoot_strength : int
 @export var trajectory_points_amount :int #more = more laggy but more precise
+@export var min_drag : float
+@export var trajectory_correction_offset : float
+@export var max_trajectory_range : float
 
 
 func _input(event):
 	if ball != null and ball.is_dragging :
 		var v : Vector2 = ball.position - get_global_mouse_position()
-		if event is InputEventMouseButton and event.pressed == false :
-			ball.set_ball_launchable(false)
-			#ball.apply_impulse(v * shoot_strength )
-			ball.shot_v = v*shoot_strength
-			line_r.clear_points()
-			ball = null
-		else: display_trajectory(v)
+		if v.x > 0 :
+			if event is InputEventMouseButton and event.pressed == false :
+				if v.length() > min_drag :
+					shoot_ball(v)
+				else :
+					cancel_shot()
+			else: display_trajectory(v)
+		else : 
+			cancel_shot()
+
+func cancel_shot() :
+	ball.is_dragging = false
+	line_r.clear_points()
+
+func shoot_ball(v : Vector2):
+	ball.set_ball_launchable(false)
+	ball.shot_v = v*shoot_strength
+	line_r.clear_points()
+	ball = null
 
 func display_trajectory(v):
 	line_r.clear_points()
 	var pos : Vector2 = Vector2.ZERO
 	var vel = v * shoot_strength
 	for i in trajectory_points_amount :
-		line_r.add_point(pos)
-		vel.y += 980 * get_process_delta_time()
-		pos += vel * get_process_delta_time()
+		if pos.length()< max_trajectory_range:
+			line_r.add_point(pos)
+			vel.y += 980 * get_process_delta_time() - trajectory_correction_offset
+			pos += vel * get_process_delta_time()
+		else : 
+			break
 
 
 func init_sling(attempts:int):

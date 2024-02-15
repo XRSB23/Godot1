@@ -21,18 +21,9 @@ func emitAnimTrigger():
 @export var colorList : Array[Color]
 
 func _on_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.pressed  :
+	if event is InputEventMouseButton and event.pressed :
 		is_dragging = true
 
-#func _integrate_forces(_state):
-	#if shot_v != Vector2.ZERO:
-		#apply_impulse(shot_v)
-		#shot_v = Vector2.ZERO
-
-#func _on_body_entered(body):
-	#game_scene.add_bubble_to_grid(self,body)
-	##call_deferred( "set_freeze_enabled",true )
-	#
 func _physics_process(delta):
 	if shot_v != Vector2.ZERO :
 		var collision = move_and_collide(shot_v * delta)
