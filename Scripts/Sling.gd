@@ -12,11 +12,12 @@ var ball
 @export var min_drag : float
 @export var trajectory_correction_offset : float
 @export var max_trajectory_range : float
+@export var ball_size_offset : Vector2
 
 
 func _input(event):
 	if ball != null and ball.is_dragging :
-		var v : Vector2 = ball.position - get_global_mouse_position()
+		var v : Vector2 = ball.position + ball_size_offset/2 - get_global_mouse_position()
 		if v.x > 0 :
 			if event is InputEventMouseButton and event.pressed == false :
 				if v.length() > min_drag :

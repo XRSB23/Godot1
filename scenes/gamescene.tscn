@@ -53,6 +53,7 @@ trajectory_points_amount = 100
 min_drag = 200.0
 trajectory_correction_offset = 0.8
 max_trajectory_range = 1000.0
+ball_size_offset = Vector2(96, 96)
 
 [node name="Line2D" type="Line2D" parent="Sling"]
 
