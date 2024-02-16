@@ -11,6 +11,7 @@ size = Vector2(4607, 207)
 script = ExtResource("1_scxi1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 
 [node name="ButtonContainer" type="GridContainer" parent="CanvasLayer"]
 anchors_preset = -1
@@ -31,11 +32,11 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 60
 metadata/_edit_use_anchors_ = true
 
-[node name="BubbleContainer" type="Node2D" parent="."]
-
 [node name="SVGCamera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.4, 0.4)
 script = ExtResource("2_iy3la")
+
+[node name="BubbleContainer" type="Node2D" parent="."]
 
 [node name="DeadZone" type="Area2D" parent="."]
 position = Vector2(56, 0)
