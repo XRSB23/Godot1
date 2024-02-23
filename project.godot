@@ -15,13 +15,20 @@ run/main_scene="res://scenes/gamescene.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/always_on_top=true
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="_Godot1"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/merovi.svgtexture2d/plugin.cfg", "res://addons/trail2D_plugin/plugin.cfg")
+enabled=PackedStringArray("res://addons/trail2D_plugin/plugin.cfg")
 
 [rendering]
 

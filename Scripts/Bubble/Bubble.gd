@@ -3,7 +3,7 @@ class_name Bubble
 
 
 var game_scene 
-@onready var sprite :  SVGSprite2D = $SVGSprite2D
+@onready var sprite :  Sprite2D = $Sprite2D
 @onready var collider = $CollisionShape2D
 @onready var particleSystem : BubbleParticleSystem = $ParticleSystem
 @onready var animPlayer : AnimationPlayer = $AnimationPlayer
