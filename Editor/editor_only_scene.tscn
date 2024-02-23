@@ -26,7 +26,7 @@ texture_region_size = Vector2i(128, 128)
 [sub_resource type="TileSet" id="TileSet_uc66m"]
 tile_shape = 3
 tile_layout = 1
-tile_size = Vector2i(106, 112)
+tile_size = Vector2i(106, 116)
 custom_data_layer_0/name = "color"
 custom_data_layer_0/type = 4
 sources/0 = SubResource("TileSetAtlasSource_13g0a")

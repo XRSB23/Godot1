@@ -3,10 +3,9 @@ extends Node2D
 var level_data_base = preload("res://Resources/levels_resource.tres")
 var debug_level_button = preload("res://scenes/debug_level_button.tscn")
 var bubble_prefab = preload("res://scenes/bubble.tscn")
-var neighbors_coord : Array[Vector2] = [Vector2(-106,0),Vector2(106,0),Vector2(-52,84),Vector2(52,84),
-Vector2(-52,-84),Vector2(52,-84)]
+var neighbors_coord : Array[Vector2] 
 
-
+@export var cell_size : Vector2
 var grid_data = {} #coord V2 : node bubble
 var attempts : int
 var treshold : float
@@ -21,6 +20,7 @@ var treshold : float
 
 func _ready():
 	init_level_buttons()
+	set_neighbors_coord(cell_size)
 
 
 func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
@@ -124,5 +124,13 @@ func debug_assign_color(_bubble : Bubble):
 	
 	_bubble.particleSystem.Init(_bubble.color)
 	_bubble.trail.material.set_shader_parameter ("TrailColor", _bubble.colorList[_bubble.color])
-	
-		
+
+func set_neighbors_coord(v : Vector2):
+	neighbors_coord.append(Vector2(v.x,0))
+	neighbors_coord.append(Vector2(-v.x,0))
+	var x = v.x / 2
+	var y = v.y * 3 /4
+	neighbors_coord.append(Vector2(x,y))
+	neighbors_coord.append(Vector2(-x,y))
+	neighbors_coord.append(Vector2(x,-y))
+	neighbors_coord.append(Vector2(-x,-y))
