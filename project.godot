@@ -28,7 +28,7 @@ project/assembly_name="_Godot1"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/merovi.svgtexture2d/plugin.cfg", "res://addons/trail2D_plugin/plugin.cfg")
+enabled=PackedStringArray("res://addons/trail2D_plugin/plugin.cfg")
 
 [rendering]
 

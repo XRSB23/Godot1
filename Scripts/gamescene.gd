@@ -3,8 +3,8 @@ extends Node2D
 var level_data_base = preload("res://Resources/levels_resource.tres")
 var debug_level_button = preload("res://scenes/debug_level_button.tscn")
 var bubble_prefab = preload("res://scenes/bubble.tscn")
-var neighbors_coord : Array[Vector2] = [Vector2(-128,0),Vector2(128,0),Vector2(-64,96),Vector2(64,96),
-Vector2(-64,-96),Vector2(64,-96)]
+var neighbors_coord : Array[Vector2] = [Vector2(-106,0),Vector2(106,0),Vector2(-52,84),Vector2(52,84),
+Vector2(-52,-84),Vector2(52,-84)]
 
 
 var grid_data = {} #coord V2 : node bubble
