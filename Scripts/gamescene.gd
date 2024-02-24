@@ -16,6 +16,7 @@ var treshold : float
 @onready var canvas_layer = $CanvasLayer
 @onready var buttons_container = $CanvasLayer/ButtonContainer
 @onready var bubble_container = $BubbleContainer
+@onready var camera : CameraController = $CameraSystem/Camera2D
 
 
 func _ready():
@@ -106,6 +107,7 @@ func load_level(_level):
 			grid_data[levelres.coord[i]] = bubbleInstance
 	buttons_container.hide()
 	sling.init_sling(attempts)
+	camera.EnableControls(true)
 
 func debug_display_hud(a):
 	debug_hud.text = "attempts : " + str(a)
