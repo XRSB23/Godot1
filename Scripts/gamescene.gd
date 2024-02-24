@@ -107,7 +107,7 @@ func load_level(_level):
 			grid_data[levelres.coord[i]] = bubbleInstance
 	buttons_container.hide()
 	sling.init_sling(attempts)
-	camera.can_move = true
+	camera.EnableControls(true)
 
 func debug_display_hud(a):
 	debug_hud.text = "attempts : " + str(a)

@@ -15,21 +15,19 @@ cell_size = Vector2(106, 116)
 [node name="CameraSystem" type="Node" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="CameraSystem"]
-position = Vector2(0, 8)
-offset = Vector2(0, 20)
+position = Vector2(0, 28)
 zoom = Vector2(0.375, 0.375)
-limit_left = -3684
-limit_top = -3040
+limit_left = -1704
+limit_top = -1784
 limit_right = 4262
-limit_bottom = 1606
+limit_bottom = 995
 script = ExtResource("2_3irfh")
-zoom_speed = 1.0
 
 [node name="CameraBounds" type="ReferenceRect" parent="CameraSystem"]
-offset_left = -3684.0
-offset_top = -3040.0
+offset_left = -1704.0
+offset_top = -1784.0
 offset_right = 4262.0
-offset_bottom = 1606.0
+offset_bottom = 995.0
 mouse_filter = 2
 border_color = Color(0, 1, 0, 1)
 border_width = 10.0
