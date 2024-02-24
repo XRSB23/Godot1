@@ -23,17 +23,13 @@ limit_top = -3040
 limit_right = 4262
 limit_bottom = 1606
 script = ExtResource("2_3irfh")
+zoom_speed = 1.0
 
 [node name="CameraBounds" type="ReferenceRect" parent="CameraSystem"]
-texture_filter = 1
-texture_repeat = 2
-anchors_preset = -1
 offset_left = -3684.0
 offset_top = -3040.0
 offset_right = 4262.0
 offset_bottom = 1606.0
-grow_horizontal = 2
-grow_vertical = 2
 mouse_filter = 2
 border_color = Color(0, 1, 0, 1)
 border_width = 10.0
