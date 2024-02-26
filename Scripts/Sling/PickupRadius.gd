@@ -12,7 +12,11 @@ func _input(event):
 
 
 func _on_input_event(_viewport, event, _shape_idx):
-	if event is InputEventScreenTouch :
-		sling.ball.is_dragging = true 
-		gamescene.camera.EnableControls(false)
+	if event is InputEventScreenTouch && sling.ball != null:
+		if event.pressed :
+			sling.ball.is_dragging = true 
+			gamescene.camera.EnableControls(false)
+		else :
+			sling.ball.is_dragging = false 
+			gamescene.camera.EnableControls(true)
 

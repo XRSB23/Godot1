@@ -3,15 +3,13 @@ extends Node2D
 var bubble_prefab = preload("res://scenes/bubble.tscn")
 @onready var game_scene = $".."
 @onready var bubble_container = $"../BubbleContainer"
-@onready var trajectory_preview = $TrajectoryPreview
+@onready var trajectory_preview : TrajectoryPreview = $TrajectoryPreview 
 
 var balls_amount : int
 var ball
+@export var trajectory_mode : TrajectoryPreview.MODE = TrajectoryPreview.MODE.NEWTON
 @export var shoot_strength : int
-@export var trajectory_points_amount :int #more = more laggy but more precise
 @export var min_drag : float
-@export var trajectory_correction_offset : float
-@export var max_trajectory_range : float
 @export var ball_size_offset : Vector2
 
 
@@ -24,31 +22,19 @@ func _input(event):
 					shoot_ball(v)
 				else :
 					cancel_shot()
-			else: display_trajectory(v)
+			else: trajectory_preview.Display(trajectory_mode, v * shoot_strength)
 		else : 
 			cancel_shot()
 
 func cancel_shot() :
 	ball.is_dragging = false
-	trajectory_preview.clear_points()
+	trajectory_preview.ClearPreview()
 
 func shoot_ball(v : Vector2):
 	ball.set_ball_launchable(false)
 	ball.shot_v = v*shoot_strength
-	trajectory_preview.clear_points()
+	trajectory_preview.ClearPreview()
 	ball = null
-
-func display_trajectory(v):
-	trajectory_preview.clear_points()
-	var pos : Vector2 = Vector2.ZERO
-	var vel = v * shoot_strength
-	for i in trajectory_points_amount :
-		if pos.length()< max_trajectory_range:
-			trajectory_preview.add_point(pos)
-			vel.y += 980 * get_process_delta_time() - trajectory_correction_offset
-			pos += vel * get_process_delta_time()
-		else : 
-			break
 
 
 func init_sling(attempts:int):

@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=10 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraController.gd" id="2_3irfh"]
-[ext_resource type="Script" path="res://Scripts/Sling.gd" id="2_jejid"]
+[ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraBounds.gd" id="3_2i1fh"]
-[ext_resource type="Script" path="res://Scripts/Bubble/PickupRadius.gd" id="5_vwg2f"]
+[ext_resource type="Script" path="res://Scripts/Sling/TrajectoryPreview.gd" id="5_6swga"]
+[ext_resource type="Script" path="res://Scripts/Sling/PickupRadius.gd" id="5_vwg2f"]
+[ext_resource type="Script" path="res://Scripts/Sling/NewtonTrajectoryPreview.gd" id="6_aqxdd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swuy3"]
 size = Vector2(4607, 207)
@@ -74,15 +76,25 @@ shape = SubResource("RectangleShape2D_swuy3")
 position = Vector2(-1200, 610)
 script = ExtResource("2_jejid")
 shoot_strength = 3
-trajectory_points_amount = 100
-min_drag = 200.0
-trajectory_correction_offset = 0.8
-max_trajectory_range = 1000.0
+min_drag = 1.0
 ball_size_offset = Vector2(96, 96)
 
-[node name="TrajectoryPreview" type="Line2D" parent="Sling"]
+[node name="TrajectoryPreview" type="Node2D" parent="Sling"]
+position = Vector2(1200, -610)
+script = ExtResource("5_6swga")
+
+[node name="Vector" type="Line2D" parent="Sling/TrajectoryPreview"]
+
+[node name="Newton" type="Line2D" parent="Sling/TrajectoryPreview"]
 texture_repeat = 2
+position = Vector2(-1200, 610)
 texture_mode = 1
+script = ExtResource("6_aqxdd")
+trajectory_points_amount = 100
+trajectory_correction_offset = 0.8
+max_trajectory_range = 1000.0
+
+[node name="Ghost" type="Line2D" parent="Sling/TrajectoryPreview"]
 
 [node name="PickupRadius" type="Area2D" parent="Sling"]
 collision_layer = 4
