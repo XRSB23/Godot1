@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=12 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraController.gd" id="2_3irfh"]
@@ -7,9 +7,12 @@
 [ext_resource type="Script" path="res://Scripts/Sling/TrajectoryPreview.gd" id="5_6swga"]
 [ext_resource type="Script" path="res://Scripts/Sling/PickupRadius.gd" id="5_vwg2f"]
 [ext_resource type="Script" path="res://Scripts/Sling/NewtonTrajectoryPreview.gd" id="6_aqxdd"]
+[ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="6_mcy4t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swuy3"]
 size = Vector2(4607, 207)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b7brv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ej865"]
 radius = 182.552
@@ -75,7 +78,7 @@ shape = SubResource("RectangleShape2D_swuy3")
 [node name="Sling" type="Node2D" parent="."]
 position = Vector2(-1200, 610)
 script = ExtResource("2_jejid")
-shoot_strength = 3
+shoot_strength = 5
 min_drag = 1.0
 ball_size_offset = Vector2(96, 96)
 
@@ -88,11 +91,24 @@ script = ExtResource("5_6swga")
 [node name="Newton" type="Line2D" parent="Sling/TrajectoryPreview"]
 texture_repeat = 2
 position = Vector2(-1200, 610)
+texture = ExtResource("6_mcy4t")
 texture_mode = 1
 script = ExtResource("6_aqxdd")
-trajectory_points_amount = 100
-trajectory_correction_offset = 0.8
+trajectory_points_amount = 1000
 max_trajectory_range = 1000.0
+
+[node name="Area2D" type="Area2D" parent="Sling/TrajectoryPreview/Newton"]
+collision_layer = 0
+collision_mask = 0
+input_pickable = false
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sling/TrajectoryPreview/Newton/Area2D"]
+scale = Vector2(3.965, 3.965)
+shape = SubResource("CircleShape2D_b7brv")
+one_way_collision_margin = 0.0
+debug_color = Color(0.996078, 0, 0.164706, 0.419608)
 
 [node name="Ghost" type="Line2D" parent="Sling/TrajectoryPreview"]
 
@@ -104,6 +120,11 @@ script = ExtResource("5_vwg2f")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sling/PickupRadius"]
 scale = Vector2(0.4, 0.4)
 shape = SubResource("CircleShape2D_ej865")
+
+[node name="Debug_DragVector_Gizmo" type="Line2D" parent="Sling"]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 4.0
+default_color = Color(0, 1, 0.0823529, 1)
 
 [connection signal="value_changed" from="CameraSystem/CameraBounds" to="CameraSystem/Camera2D" method="_on_camera_bounds_value_changed"]
 [connection signal="body_entered" from="DeadZone" to="Sling" method="_on_dead_zone"]

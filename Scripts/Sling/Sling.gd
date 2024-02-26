@@ -4,18 +4,26 @@ var bubble_prefab = preload("res://scenes/bubble.tscn")
 @onready var game_scene = $".."
 @onready var bubble_container = $"../BubbleContainer"
 @onready var trajectory_preview : TrajectoryPreview = $TrajectoryPreview 
+@onready var debug_drag_vector_gizmo = $Debug_DragVector_Gizmo
+
 
 var balls_amount : int
 var ball
 @export var trajectory_mode : TrajectoryPreview.MODE = TrajectoryPreview.MODE.NEWTON
 @export var shoot_strength : int
 @export var min_drag : float
+@export var max_drag : float
 @export var ball_size_offset : Vector2
+
+func _ready():
+	debug_drag_vector_gizmo.visible = OS.has_feature("editor")
 
 
 func _input(event):
 	if ball != null and ball.is_dragging :
-		var v : Vector2 = ball.position + ball_size_offset/2 - get_global_mouse_position()
+		#var v : Vector2 = ball.position + ball_size_offset/2 - get_global_mouse_position()
+		var v : Vector2 = position - get_global_mouse_position()
+		debug_drag_vector_gizmo.points[1] = -v
 		if v.x > 0 :
 			if event is InputEventMouseButton and event.pressed == false :
 				if v.length() > min_drag :
