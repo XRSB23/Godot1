@@ -3,7 +3,7 @@ extends Node2D
 var bubble_prefab = preload("res://scenes/bubble.tscn")
 @onready var game_scene = $".."
 @onready var bubble_container = $"../BubbleContainer"
-@onready var line_r = $Line2D
+@onready var trajectory_preview = $TrajectoryPreview
 
 var balls_amount : int
 var ball
@@ -30,21 +30,21 @@ func _input(event):
 
 func cancel_shot() :
 	ball.is_dragging = false
-	line_r.clear_points()
+	trajectory_preview.clear_points()
 
 func shoot_ball(v : Vector2):
 	ball.set_ball_launchable(false)
 	ball.shot_v = v*shoot_strength
-	line_r.clear_points()
+	trajectory_preview.clear_points()
 	ball = null
 
 func display_trajectory(v):
-	line_r.clear_points()
+	trajectory_preview.clear_points()
 	var pos : Vector2 = Vector2.ZERO
 	var vel = v * shoot_strength
 	for i in trajectory_points_amount :
 		if pos.length()< max_trajectory_range:
-			line_r.add_point(pos)
+			trajectory_preview.add_point(pos)
 			vel.y += 980 * get_process_delta_time() - trajectory_correction_offset
 			pos += vel * get_process_delta_time()
 		else : 

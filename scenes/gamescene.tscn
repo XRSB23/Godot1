@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=8 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraController.gd" id="2_3irfh"]
 [ext_resource type="Script" path="res://Scripts/Sling.gd" id="2_jejid"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraBounds.gd" id="3_2i1fh"]
+[ext_resource type="Script" path="res://Scripts/Bubble/PickupRadius.gd" id="5_vwg2f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swuy3"]
 size = Vector2(4607, 207)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ej865"]
+radius = 182.552
 
 [node name="Gamescene" type="Node2D"]
 script = ExtResource("1_scxi1")
@@ -59,6 +63,7 @@ metadata/_edit_use_anchors_ = true
 [node name="BubbleContainer" type="Node2D" parent="."]
 
 [node name="DeadZone" type="Area2D" parent="."]
+collision_layer = 2
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZone"]
@@ -75,9 +80,19 @@ trajectory_correction_offset = 0.8
 max_trajectory_range = 1000.0
 ball_size_offset = Vector2(96, 96)
 
-[node name="Line2D" type="Line2D" parent="Sling"]
+[node name="TrajectoryPreview" type="Line2D" parent="Sling"]
 texture_repeat = 2
 texture_mode = 1
 
+[node name="PickupRadius" type="Area2D" parent="Sling"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("5_vwg2f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sling/PickupRadius"]
+scale = Vector2(0.4, 0.4)
+shape = SubResource("CircleShape2D_ej865")
+
 [connection signal="value_changed" from="CameraSystem/CameraBounds" to="CameraSystem/Camera2D" method="_on_camera_bounds_value_changed"]
 [connection signal="body_entered" from="DeadZone" to="Sling" method="_on_dead_zone"]
+[connection signal="input_event" from="Sling/PickupRadius" to="Sling/PickupRadius" method="_on_input_event"]
