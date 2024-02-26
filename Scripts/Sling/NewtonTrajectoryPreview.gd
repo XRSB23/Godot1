@@ -1,5 +1,5 @@
 extends Line2D
-@onready var area_2d = $Area2D
+
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
@@ -8,9 +8,9 @@ enum MODE {VECTOR, NEWTON}
 @export var max_trajectory_range : float
 
 
-func display_trajectory(velocity):
+func display_trajectory(v : Vector2, shoot_strength : float):
 	var pos : Vector2 = Vector2.ZERO
-	area_2d.position = pos
+	var velocity = v * shoot_strength
 	for i in trajectory_points_amount :
 		if pos.x < max_trajectory_range:
 			
@@ -19,4 +19,3 @@ func display_trajectory(velocity):
 			pos += velocity * get_process_delta_time()
 		else : 
 			break
-	area_2d.position = pos

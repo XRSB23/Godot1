@@ -9,39 +9,47 @@ var bubble_prefab = preload("res://scenes/bubble.tscn")
 
 var balls_amount : int
 var ball
-@export var trajectory_mode : TrajectoryPreview.MODE = TrajectoryPreview.MODE.NEWTON
-@export var shoot_strength : int
+@export var trajectory_mode : TrajectoryPreview.MODE = TrajectoryPreview.MODE.VECTOR
+@export var shoot_strength : float
 @export var min_drag : float
 @export var max_drag : float
-@export var ball_size_offset : Vector2
+@export var drag_curve : Curve
 
 func _ready():
-	debug_drag_vector_gizmo.visible = OS.has_feature("editor")
+	if debug_drag_vector_gizmo.visible && !OS.has_feature("editor"):
+		debug_drag_vector_gizmo.visible = false
 
 
 func _input(event):
 	if ball != null and ball.is_dragging :
-		#var v : Vector2 = ball.position + ball_size_offset/2 - get_global_mouse_position()
+		
 		var v : Vector2 = position - get_global_mouse_position()
+		v = v.normalized() * min(max_drag, v.length()) # Cap Drag lenghth
 		debug_drag_vector_gizmo.points[1] = -v
+		var drag_ratio = v.length()/max_drag
+		var scaled_v = v.normalized() * drag_curve.sample(drag_ratio) * max_drag
+		
+		
 		if v.x > 0 :
 			if event is InputEventMouseButton and event.pressed == false :
 				if v.length() > min_drag :
-					shoot_ball(v)
+					shoot_ball(scaled_v)
 				else :
 					cancel_shot()
-			else: trajectory_preview.Display(trajectory_mode, v * shoot_strength)
+			else: trajectory_preview.Display(trajectory_mode, scaled_v, shoot_strength)
 		else : 
 			cancel_shot()
 
 func cancel_shot() :
 	ball.is_dragging = false
+	debug_drag_vector_gizmo.points[1] = Vector2.ZERO
 	trajectory_preview.ClearPreview()
 
 func shoot_ball(v : Vector2):
 	ball.set_ball_launchable(false)
 	ball.shot_v = v*shoot_strength
 	trajectory_preview.ClearPreview()
+	debug_drag_vector_gizmo.points[1] = Vector2.ZERO
 	ball = null
 
 

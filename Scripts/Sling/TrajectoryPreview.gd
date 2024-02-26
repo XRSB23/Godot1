@@ -14,9 +14,9 @@ func ClearPreview():
 func ClearGhost():
 	pass
 	
-func Display(mode : MODE, velocity):
+func Display(mode : MODE, v : Vector2, shoot_strength : float):
 	ClearPreview()
 	match mode :
-		MODE.VECTOR : vector.display_trajectory(velocity)
-		MODE.NEWTON : newton.display_trajectory(velocity)
+		MODE.VECTOR : vector.display_trajectory(v)
+		MODE.NEWTON : newton.display_trajectory(v, shoot_strength)
 		_: push_error("Sling Trajectory Preview Mode Invalid!")

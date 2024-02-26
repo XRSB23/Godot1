@@ -73,7 +73,7 @@ func SetLimits(_limits : Array[int]):
 	limit_bottom = _limits[3]
 
 func SetZoom(value : Vector2) :
-	var target_zoom : Vector2
+	var target_zoom = Vector2.ZERO
 	target_zoom.x = clampf(value.x, min_zoom, max_zoom)
 	target_zoom.y = clampf(value.y, min_zoom, max_zoom)
 	zoom = target_zoom
