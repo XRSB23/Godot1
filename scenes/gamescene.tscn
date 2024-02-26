@@ -86,6 +86,7 @@ shape = SubResource("RectangleShape2D_swuy3")
 position = Vector2(-1200, 610)
 script = ExtResource("2_jejid")
 shoot_strength = 7.5
+min_drag = 20.0
 max_drag = 300.0
 drag_curve = SubResource("Curve_j361q")
 
@@ -115,6 +116,7 @@ max_trajectory_range = 1000.0
 [node name="PickupRadius" type="Area2D" parent="Sling"]
 collision_layer = 4
 collision_mask = 0
+collision_priority = 2.0
 script = ExtResource("5_vwg2f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sling/PickupRadius"]
