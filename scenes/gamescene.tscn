@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=16 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraController.gd" id="2_3irfh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/Sling/PickupRadius.gd" id="5_vwg2f"]
 [ext_resource type="Script" path="res://Scripts/Sling/NewtonTrajectoryPreview.gd" id="6_aqxdd"]
 [ext_resource type="Script" path="res://Scripts/Sling/VectorTrajectoryPreview.gd" id="6_b45vb"]
+[ext_resource type="Material" uid="uid://jiup2jy3aui2" path="res://Art/Sling/vector_shader_material.tres" id="6_nhfxi"]
 [ext_resource type="Material" uid="uid://xohviejfgi4f" path="res://Art/Sling/newton_shader_material.tres" id="7_v80i2"]
 [ext_resource type="Texture2D" uid="uid://dafardwowxnka" path="res://Art/Sling/CartoonDottedLine.svg" id="8_il03c"]
 
@@ -34,17 +35,17 @@ cell_size = Vector2(106, 116)
 [node name="Camera2D" type="Camera2D" parent="CameraSystem"]
 position = Vector2(0, 28)
 zoom = Vector2(0.375, 0.375)
-limit_left = -1704
-limit_top = -1784
-limit_right = 4262
-limit_bottom = 995
+limit_left = -1823
+limit_top = -1838
+limit_right = 4143
+limit_bottom = 941
 script = ExtResource("2_3irfh")
 
 [node name="CameraBounds" type="ReferenceRect" parent="CameraSystem"]
-offset_left = -1704.0
-offset_top = -1784.0
-offset_right = 4262.0
-offset_bottom = 995.0
+offset_left = -1823.0
+offset_top = -1838.0
+offset_right = 4143.0
+offset_bottom = 941.0
 mouse_filter = 2
 border_color = Color(0, 1, 0, 1)
 border_width = 10.0
@@ -86,7 +87,6 @@ shape = SubResource("RectangleShape2D_swuy3")
 [node name="Sling" type="Node2D" parent="."]
 position = Vector2(-1200, 610)
 script = ExtResource("2_jejid")
-trajectory_mode = 1
 shoot_strength = 7.5
 min_drag = 20.0
 max_drag = 300.0
@@ -96,9 +96,11 @@ drag_curve = SubResource("Curve_j361q")
 script = ExtResource("5_6swga")
 
 [node name="Vector" type="Line2D" parent="Sling/TrajectoryPreview"]
+material = ExtResource("6_nhfxi")
 points = PackedVector2Array(0, 0, 0, 0)
 width = 100.0
 width_curve = SubResource("Curve_nb6el")
+texture_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 script = ExtResource("6_b45vb")
