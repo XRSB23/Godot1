@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://xohviejfgi4f"]
+
+[ext_resource type="Shader" uid="uid://djwmnoimgk4qx" path="res://Art/Sling/newton_shader.tres" id="1_dp4ee"]
+
+[resource]
+shader = ExtResource("1_dp4ee")
+shader_parameter/Whiten = 0.2
+shader_parameter/InputColor = Color(1, 1, 1, 1)
+shader_parameter/Scroll_Speed = Vector2(-1, 0)
+shader_parameter/Tiling = Vector2(1, 1)

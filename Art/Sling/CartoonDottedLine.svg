@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1536"
+   height="512"
+   viewBox="0 0 406.40001 135.46667"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="CartoonDottedLine.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   sodipodi:docname="CartoonDottedLine.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="0.56531714"
+     inkscape:cx="815.47147"
+     inkscape:cy="128.2466"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient3"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0.88535446"
+         id="stop4" />
+      <stop
+         style="stop-color:#535353;stop-opacity:1;"
+         offset="1"
+         id="stop5" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient2"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0.87345785"
+         id="stop2" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop3" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2"
+       id="radialGradient3"
+       cx="67.733337"
+       cy="67.733337"
+       fx="67.733337"
+       fy="67.733337"
+       r="23.197853"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.89056356,0,0,0.89056356,7.4124947,7.4124947)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3"
+       id="radialGradient5"
+       cx="67.861237"
+       cy="68.117035"
+       fx="67.861237"
+       fy="68.117035"
+       r="24.093147"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(0.29132071,0.43698107)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3"
+       id="radialGradient5-4"
+       cx="67.861237"
+       cy="68.117035"
+       fx="67.861237"
+       fy="68.117035"
+       r="24.093147"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(0.29132071,0.43698107)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2"
+       id="radialGradient3-8"
+       cx="67.733337"
+       cy="67.733337"
+       fx="67.733337"
+       fy="67.733337"
+       r="23.197853"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.89056356,0,0,0.89056356,7.4124947,7.4124947)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3"
+       id="radialGradient5-1"
+       cx="67.861237"
+       cy="68.117035"
+       fx="67.861237"
+       fy="68.117035"
+       r="24.093147"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(0.29132071,0.43698107)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2"
+       id="radialGradient3-87"
+       cx="67.733337"
+       cy="67.733337"
+       fx="67.733337"
+       fy="67.733337"
+       r="23.197853"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.89056356,0,0,0.89056356,7.4124947,7.4124947)" />
+  </defs>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g7"
+       transform="matrix(1.7561311,0,0,1.7561311,83.515179,-52.656505)">
+      <circle
+         style="fill:url(#radialGradient5);fill-opacity:1;stroke:none;stroke-width:0.824442;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         id="path2-4"
+         cx="68.152557"
+         cy="68.554016"
+         r="23.680956" />
+      <circle
+         style="display:inline;fill:url(#radialGradient3);stroke:#000000;stroke-width:0.706885;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         id="path2"
+         cx="67.733337"
+         cy="67.733337"
+         r="20.305721" />
+    </g>
+    <g
+       id="g7-6"
+       transform="matrix(1.7561311,0,0,1.7561311,286.71518,-52.656505)">
+      <circle
+         style="fill:url(#radialGradient5-4);fill-opacity:1;stroke:none;stroke-width:0.824442;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         id="path2-4-1"
+         cx="68.152557"
+         cy="68.554016"
+         r="23.680956" />
+      <circle
+         style="display:inline;fill:url(#radialGradient3-8);stroke:#000000;stroke-width:0.706885;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         id="path2-7"
+         cx="67.733337"
+         cy="67.733337"
+         r="20.305721" />
+    </g>
+    <g
+       id="g7-1"
+       transform="matrix(1.7561311,0,0,1.7561311,-119.68483,-54.097724)">
+      <circle
+         style="fill:url(#radialGradient5-1);fill-opacity:1;stroke:none;stroke-width:0.824442;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         id="path2-4-2"
+         cx="68.152557"
+         cy="68.554016"
+         r="23.680956" />
+      <circle
+         style="display:inline;fill:url(#radialGradient3-87);stroke:#000000;stroke-width:0.706885;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         id="path2-9"
+         cx="67.733337"
+         cy="67.733337"
+         r="20.305721" />
+    </g>
+  </g>
+</svg>

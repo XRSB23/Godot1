@@ -6,6 +6,8 @@ var bubble_prefab = preload("res://scenes/bubble.tscn")
 @onready var trajectory_preview : TrajectoryPreview = $TrajectoryPreview 
 @onready var debug_drag_vector_gizmo = $Debug_DragVector_Gizmo
 
+
+
 var touch_points : Dictionary = {} #To track multiple fingers input, used as Dynamic Array
 var start_point = Vector2.ZERO
 var input_direction = Vector2.ZERO
