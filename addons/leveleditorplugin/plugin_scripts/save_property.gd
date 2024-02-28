@@ -35,33 +35,40 @@ func on_save_button_pressed():
 	if treshold.text.is_valid_float():
 		t = float(treshold.text)
 	else : 
-		display_message("treshold value is not a float" , Color.RED)
+		display_message("Treshold value is not a float" , Color.RED)
 		return
 	if attempts.text.is_valid_int():
 		a = int(attempts.text)
 	else :
-		display_message("attempts value is not an int" , Color.RED)
+		display_message("Attempts value is not an int" , Color.RED)
 		return
 	if t < 0 or t > 1 :
-		display_message("treshold value must be between 0 and 1" , Color.RED)
+		display_message("Treshold value must be between 0 and 1" , Color.RED)
 		return
 	if a <1 or a >100:
-		display_message("attempts value must be between 1 and 100" , Color.RED)
+		display_message("Attempts value must be between 1 and 100" , Color.RED)
 		return
 	if tilemap.is_level_already_exists(level_name.text):
-		display_message("level name already exists.Override existing level?",Color.YELLOW)
+		display_message("Level name already exists.Override existing level?",Color.YELLOW)
 		instance.get_child(1).get_child(1).show()
 		instance.get_child(1).get_child(2).show()
 		return
 	tilemap.save_level(level_name.text , t , a)
-	
+	instance.get_child(1).get_child(1).hide()
+	instance.get_child(1).get_child(2).hide()
+	display_message("Level saved !" , Color.GREEN)
 	
 
 func on_confirm_button_pressed():
-	pass
+	tilemap.save_level(level_name.text , float(treshold.text) , int(attempts.text))
+	instance.get_child(1).get_child(1).hide()
+	instance.get_child(1).get_child(2).hide()
+	display_message("Level saved !" , Color.GREEN)
 
 func on_decline_button_pressed():
-	pass
+	error_display_label.hide()
+	instance.get_child(1).get_child(1).hide()
+	instance.get_child(1).get_child(2).hide()
 
 func init_property(_control):
 	tilemap = EditorInterface.get_edited_scene_root().get_child(0)
@@ -77,6 +84,8 @@ func init_property(_control):
 	confirm_button = buttons[0]
 	decline_button = buttons[1]
 	error_display_label = instance.get_child(1).get_child(1)
+	instance.get_child(1).get_child(1).hide()
+	instance.get_child(1).get_child(2).hide()
 
 func init_connections():
 	save_button.pressed.connect(on_save_button_pressed)

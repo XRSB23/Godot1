@@ -33,5 +33,4 @@ func create_control_label(t : String , image : Texture2D , background_color : Co
 	l.get_child(0).color = background_color
 	add_custom_control(l)
 
-func test():
-	print("bouton du save")
+
