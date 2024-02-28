@@ -74,6 +74,7 @@ func shoot_ball(v : Vector2):
 	ball.set_ball_launchable(false)
 	ball.shot_v = v*shoot_strength
 	trajectory_preview.ClearPreview()
+	trajectory_preview.UpdateGhost(v)
 	debug_drag_vector_gizmo.points[1] = Vector2.ZERO
 	ball = null
 

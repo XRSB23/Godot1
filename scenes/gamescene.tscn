@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=19 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraController.gd" id="2_3irfh"]
@@ -11,6 +11,8 @@
 [ext_resource type="Material" uid="uid://jiup2jy3aui2" path="res://Art/Sling/vector_shader_material.tres" id="6_nhfxi"]
 [ext_resource type="Material" uid="uid://xohviejfgi4f" path="res://Art/Sling/newton_shader_material.tres" id="7_v80i2"]
 [ext_resource type="Texture2D" uid="uid://dafardwowxnka" path="res://Art/Sling/CartoonDottedLine.svg" id="8_il03c"]
+[ext_resource type="Texture2D" uid="uid://cq2oavcga4l3i" path="res://Art/Sling/Line2D_SmoothEdgeTexture.png" id="11_848u5"]
+[ext_resource type="Script" path="res://Scripts/Sling/GhostTrajectoryPreview.gd" id="11_o4i07"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swuy3"]
 size = Vector2(4607, 207)
@@ -20,6 +22,11 @@ _data = [Vector2(0, 0), 0.0, 2.425, 0, 0, Vector2(0.1, 0.4), 1.75882, 0.666667, 
 point_count = 3
 
 [sub_resource type="Curve" id="Curve_nb6el"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_4jdw3"]
+bake_resolution = 1000
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -100,9 +107,11 @@ material = ExtResource("6_nhfxi")
 points = PackedVector2Array(0, 0, 0, 0)
 width = 100.0
 width_curve = SubResource("Curve_nb6el")
+texture = ExtResource("11_848u5")
 texture_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
+antialiased = true
 script = ExtResource("6_b45vb")
 min_width = 40
 origin_offset = 15.0
@@ -121,6 +130,19 @@ trajectory_points_amount = 500
 max_trajectory_range = 1000.0
 
 [node name="Ghost" type="Line2D" parent="Sling/TrajectoryPreview"]
+modulate = Color(0, 0, 0, 0.231373)
+texture_filter = 5
+points = PackedVector2Array(0, 0, 0, 0)
+width_curve = SubResource("Curve_4jdw3")
+texture = ExtResource("11_848u5")
+texture_mode = 2
+end_cap_mode = 2
+antialiased = true
+script = ExtResource("11_o4i07")
+min_width = 20
+max_width = 40
+origin_offset = 100.0
+cap_offset = 30.0
 
 [node name="PickupRadius" type="Area2D" parent="Sling"]
 collision_layer = 4

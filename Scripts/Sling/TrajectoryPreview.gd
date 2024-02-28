@@ -11,8 +11,11 @@ func ClearPreview():
 	vector.clear_points()
 	newton.clear_points()
 	
-func ClearGhost():
-	pass
+func UpdateGhost(v : Vector2):
+	ghost.clear_points()
+	ghost.display_trajectory(v)
+	
+
 	
 func Display(mode : MODE, v : Vector2, shoot_strength : float):
 	ClearPreview()
