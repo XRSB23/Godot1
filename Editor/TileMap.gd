@@ -1,17 +1,22 @@
 @tool
 extends TileMap
 
+var level_name : String = ""
+var treshold : String = ""
+var attempts : String = ""
 
-
-@export var level_name : String
-@export var treshold : float
-@export var attempts : int
+@export var _level_name_temp : String
+@export var _treshold : float
+@export var _attempts : int
 
 @export var save : bool = false
 var existing_name : bool = false
 @export var save_override : bool = false
 
 @export var clear_data : bool = false
+
+func test():
+	print("yessai")
 
 func _process(_delta):
 	if clear_data == true:
@@ -21,25 +26,31 @@ func _process(_delta):
 		if save_override == false:
 			return
 		else :
-			save_level(level_name,treshold,attempts,load_character_data())
+			save_level(_level_name_temp,_treshold,_attempts)
 			reset_overriding()
 			return
 	if save == true :
-		if treshold <0 or treshold >1 :
-			print("treshold value error")
+		if _treshold <0 or _treshold >1 :
+			print("_treshold value error")
 			save = false
 			return
-		if attempts <0 :
-			print("attempts value error")
+		if _attempts <0 :
+			print("_attempts value error")
 			save = false
 			return
 		var levelres = load_character_data()
 		for level in levelres.levels :
-			if level_name == level:
+			if _level_name_temp == level:
 				print("Level already exist.Use save override for replacing existing level or change name and saveoverride")
 				existing_name = true
 				return
-		save_level(level_name,treshold,attempts,levelres)
+		save_level(_level_name_temp,_treshold,_attempts)
+
+func is_level_already_exists(_level_name : String):
+	var levelres = load_character_data()
+	for level in levelres.levels :
+		if _level_name == level:
+			return true
 
 func load_character_data():
 	if ResourceLoader.exists("res://Resources/levels_resource.tres"):
@@ -47,7 +58,8 @@ func load_character_data():
 		print("exists")
 	return null 
 
-func save_level(n,t,a,res):
+func save_level(n,t,a):
+	var res = load_character_data()
 	save = false
 	var level = level_data.new()
 	level.treshold = t
