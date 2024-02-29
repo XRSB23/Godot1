@@ -1,17 +1,23 @@
-[gd_scene format=3 uid="uid://bdebls7ouoo7y"]
+[gd_scene load_steps=5 format=3 uid="uid://bdebls7ouoo7y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gc1ab"]
+bg_color = Color(0.152941, 0.227451, 0.364706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogxkq"]
+bg_color = Color(0.152941, 0.227451, 0.364706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrypf"]
+bg_color = Color(0.231373, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyefm"]
+bg_color = Color(1, 0.0235294, 0, 1)
 
 [node name="Save_property_control" type="VBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 anchors_preset = -1
-anchor_left = -0.0015625
-anchor_right = 0.403906
-anchor_bottom = 0.348611
-offset_left = 2.0
-offset_right = 2.0
-offset_bottom = 21.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 30
+anchor_right = 0.39375
+anchor_bottom = 0.304167
+theme_override_constants/separation = 20
 metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -23,17 +29,23 @@ layout_mode = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.152941, 0.227451, 0.364706, 1)
 text = "Level name"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.152941, 0.227451, 0.364706, 1)
 text = "Treshold"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.152941, 0.227451, 0.364706, 1)
 text = "Attempts"
 horizontal_alignment = 1
 
@@ -43,43 +55,59 @@ layout_mode = 2
 alignment = 1
 
 [node name="LineEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_gc1ab")
 placeholder_text = "Type here..."
+alignment = 1
 
 [node name="LineEdit2" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_gc1ab")
 placeholder_text = "Type here..."
+alignment = 1
 
 [node name="LineEdit3" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_gc1ab")
 placeholder_text = "Type here..."
+alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="SaveButton" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_ogxkq")
 text = "Save"
 
 [node name="error_message_display" type="Label" parent="VBoxContainer"]
-visible = false
 layout_mode = 2
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 60
 alignment = 1
 
 [node name="Confirm_override_button" type="Button" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(60, 40)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_xrypf")
 text = "Yes"
 
 [node name="Decline_override_button" type="Button" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(60, 40)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_wyefm")
 text = "No"
