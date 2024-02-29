@@ -1,6 +1,7 @@
 extends EditorInspectorPlugin
 
 var save_property = preload("res://addons/leveleditorplugin/plugin_scripts/save_property.gd")
+var load_property = preload("res://addons/leveleditorplugin/plugin_scripts/load_property.gd")
 
 var label = preload("res://addons/leveleditorplugin/custom_control_scens/Label.tscn")
 
@@ -17,11 +18,11 @@ func _can_handle(object):
 
 func _parse_begin(object):
 	create_control_label("Save level" , save_icon , Color.CORNFLOWER_BLUE)
-	add_property_editor("level_name",save_property.new())
-	
-	#add_property_editor_for_multiple_properties("saving",["levelname", "attempts"],save_property.new())
-	create_control_label("Load level" , upload_icon , Color.FIREBRICK)
+	add_property_editor("Save component",save_property.new())
+	create_control_label("Quick level load" , upload_icon , Color.FIREBRICK)
+	add_property_editor("Quick load component",load_property.new())
 	create_control_label("Manage data" , data_icon  , Color.DARK_SLATE_GRAY)
+	
 
 
 

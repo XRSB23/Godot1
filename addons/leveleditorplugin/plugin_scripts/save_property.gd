@@ -59,6 +59,11 @@ func on_save_button_pressed():
 	display_message("Level saved !" , Color.GREEN)
 	
 
+func load_refresh():
+	level_name.text = tilemap.level_name
+	treshold.text = tilemap.treshold
+	attempts.text = tilemap.attempts
+
 func on_confirm_button_pressed():
 	tilemap.save_level(level_name.text , float(treshold.text) , int(attempts.text))
 	instance.get_child(1).get_child(1).hide()
@@ -86,6 +91,7 @@ func init_property(_control):
 	error_display_label = instance.get_child(1).get_child(1)
 	instance.get_child(1).get_child(1).hide()
 	instance.get_child(1).get_child(2).hide()
+	tilemap.save_comp_instance = self
 
 func init_connections():
 	save_button.pressed.connect(on_save_button_pressed)

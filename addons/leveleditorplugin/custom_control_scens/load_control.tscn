@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://1gnc257nkf4x"]
+
+[ext_resource type="Texture2D" uid="uid://bva1k10yi4sfn" path="res://addons/leveleditorplugin/plugin_textures/search.svg" id="1_kixxj"]
+[ext_resource type="Texture2D" uid="uid://chww0nkq052ff" path="res://addons/leveleditorplugin/plugin_textures/refresh.svg" id="2_5cp1f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4b8gc"]
+bg_color = Color(0.901961, 0.901961, 0.901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nfdkl"]
+bg_color = Color(0.2, 0.564706, 0.219608, 1)
+
+[node name="load_control" type="VBoxContainer"]
+custom_minimum_size = Vector2(500, 200)
+anchors_preset = -1
+anchor_right = 0.390625
+anchor_bottom = 1.0
+offset_right = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="search_tool_container" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+
+[node name="search_line_edit" type="LineEdit" parent="search_tool_container"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="search_button" type="Button" parent="search_tool_container"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_4b8gc")
+icon = ExtResource("1_kixxj")
+expand_icon = true
+
+[node name="refresh_button" type="Button" parent="search_tool_container"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_nfdkl")
+icon = ExtResource("2_5cp1f")
+expand_icon = true
+
+[node name="buttons_container" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(500, 400)
+layout_mode = 2
+columns = 5
