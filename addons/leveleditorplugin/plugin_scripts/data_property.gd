@@ -41,10 +41,11 @@ func on_refresh_button_pressed():
 
 func on_delete_button_pressed():
 	var buttons = data_button_container.get_children()
-	data_buttons_selected
 	for b in buttons:
 		if b.button_pressed :
 			data_buttons_selected.append(b)
+	if data_buttons_selected.size() <= 0:
+		return
 	confirmation_label.text = "You will delete " + str(data_buttons_selected.size()) + " level(s). Are you sure?"
 	confirmation_label.show()
 	instance.get_child(4).show()
