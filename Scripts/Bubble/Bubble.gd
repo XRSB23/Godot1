@@ -17,12 +17,6 @@ signal animTrigger()
 func emitAnimTrigger():
 	animTrigger.emit()
 
-@export_category("Shaders")
-@export var colorList : Array[Color]
-
-func _on_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.pressed :
-		is_dragging = true
 
 func _physics_process(delta):
 	if shot_v != Vector2.ZERO :

@@ -17,6 +17,7 @@ var treshold : float
 @onready var buttons_container = $CanvasLayer/ButtonContainer
 @onready var bubble_container = $BubbleContainer
 @onready var camera : CameraController = $CameraSystem/Camera2D
+const COLOR_ATLAS_RESOURCE = preload("res://Resources/ColorAtlas_Resource.tres")
 
 
 func _ready():
@@ -125,7 +126,7 @@ func debug_assign_color(_bubble : Bubble):
 		_: print("Bubble " + _bubble.name + " does not have recognized color") 
 	
 	_bubble.particleSystem.Init(_bubble.color)
-	_bubble.trail.material.set_shader_parameter ("TrailColor", _bubble.colorList[_bubble.color])
+	_bubble.trail.material.set_shader_parameter ("TrailColor", COLOR_ATLAS_RESOURCE.GetColor(_bubble.color))
 
 func set_neighbors_coord(v : Vector2):
 	neighbors_coord.append(Vector2(v.x,0))

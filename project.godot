@@ -34,7 +34,14 @@ enabled=PackedStringArray("res://addons/leveleditorplugin/plugin_scripts/plugin.
 
 pointing/emulate_touch_from_mouse=true
 
+[layer_names]
+
+2d_physics/layer_1="Bubbles"
+2d_physics/layer_2="Bubble Trigger"
+2d_physics/layer_3="Sling"
+
 [rendering]
 
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
+anti_aliasing/quality/msaa_2d=1

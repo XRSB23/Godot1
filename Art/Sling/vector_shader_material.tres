@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://jiup2jy3aui2"]
+
+[ext_resource type="Shader" uid="uid://dxnj1xto4ex41" path="res://Art/Sling/vector_shader.tres" id="1_15khf"]
+
+[resource]
+shader = ExtResource("1_15khf")
+shader_parameter/Whiten = 0.6
+shader_parameter/InputColor = Color(0.556863, 0.039216, 0.713726, 1)
+shader_parameter/Darken = 0.05
+shader_parameter/LengthRatio = 1.0
+shader_parameter/Invert = false
