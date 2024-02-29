@@ -44,6 +44,5 @@ icon = ExtResource("2_5cp1f")
 expand_icon = true
 
 [node name="buttons_container" type="GridContainer" parent="."]
-custom_minimum_size = Vector2(500, 400)
 layout_mode = 2
 columns = 5

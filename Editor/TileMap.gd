@@ -7,7 +7,6 @@ var attempts : String = ""
 
 var save_comp_instance
 
-
 func is_level_already_exists(_level_name : String):
 	var levelres = load_level_resource()
 	for level in levelres.levels :

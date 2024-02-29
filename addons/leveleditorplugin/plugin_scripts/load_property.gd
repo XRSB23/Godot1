@@ -35,7 +35,6 @@ func on_refresh_button_pressed():
 func on_level_button_pressed(_button):
 	tilemap.load_level(_button.text)
 
-
 func search(research : String):
 	var candidates : Array[String]
 	for name in level_names:
@@ -59,7 +58,6 @@ func init_connections():
 	search_line_edit.text_submitted.connect(on_text_submitted)
 	search_button.pressed.connect(on_search_button_pressed)
 	refresh_button.pressed.connect(on_refresh_button_pressed)
-
 
 func init_property(_control):
 	var search_tools = _control.get_child(0).get_children()

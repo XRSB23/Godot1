@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://uluvgf1gus5l"]
+
+[node name="Data_button" type="CheckBox"]
+custom_minimum_size = Vector2(100, 30)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -780.0
+offset_bottom = -690.0
+grow_horizontal = 2
+grow_vertical = 2

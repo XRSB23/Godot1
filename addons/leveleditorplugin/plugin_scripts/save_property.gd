@@ -12,13 +12,11 @@ var confirm_button : Button
 var decline_button : Button
 var error_display_label
 
-
 func _init():
 	instance = save_control.instantiate()
 	add_child(instance)
 	init_property(instance)
 	init_connections()
-	
 
 func level_text_changed(_text):
 	tilemap.level_name = _text
@@ -57,12 +55,13 @@ func on_save_button_pressed():
 	instance.get_child(1).get_child(1).hide()
 	instance.get_child(1).get_child(2).hide()
 	display_message("Level saved !" , Color.GREEN)
-	
 
 func load_refresh():
 	level_name.text = tilemap.level_name
 	treshold.text = tilemap.treshold
 	attempts.text = tilemap.attempts
+	instance.get_child(1).get_child(1).hide()
+	instance.get_child(1).get_child(2).hide()
 
 func on_confirm_button_pressed():
 	tilemap.save_level(level_name.text , float(treshold.text) , int(attempts.text))
