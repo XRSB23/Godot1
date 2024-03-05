@@ -9,8 +9,8 @@ var neighbors_coord : Array[Vector2]
 var grid_data = {} #coord V2 : node bubble
 var attempts : int
 var treshold : float
-
-var Astar = AStar2D.new()
+var root_node_pos : Vector2
+var astar = AStar2D.new()
 
 
 @onready var sling = $Sling
@@ -88,6 +88,7 @@ func load_level(_level):
 	var levelres = level_data_base.levels[_level]
 	attempts = levelres.attempts
 	treshold = levelres.treshold
+	root_node_pos = levelres.root_node_coord
 	for i in range(levelres.coord.size()):
 		if levelres.bubbles[i] == level_data.BubbleColor.Empty :
 			grid_data[levelres.coord[i]] = null
@@ -102,10 +103,31 @@ func load_level(_level):
 	buttons_container.hide()
 	sling.init_sling(attempts)
 	camera.EnableControls(true)
-	
+	astar.clear()
+	set_up_astar()
 
-func debug_astar():
-	pass
+func set_up_astar():
+	var coord_arr : Array[Vector2]
+	for coord in grid_data:
+		coord_arr.append(coord)
+	while coord_arr.size()>0:
+		var i = astar.get_point_count()
+		astar.add_point(i,coord_arr[0])
+		coord_arr.erase(coord_arr[0])
+		var neighbors_c: Array[Vector2]
+		if coord_arr.size() <= 0:
+			break
+		for dir in neighbors_coord:
+			if grid_data.has(coord_arr[0] + dir):
+				neighbors_c.append(coord_arr[0]+dir)
+		for n in neighbors_c:
+			var k = astar.get_point_count()
+			if coord_arr.has(n):
+				astar.add_point(k,n)
+				coord_arr.erase(n)
+				if astar.are_points_connected(i,k) == false :
+					astar.connect_points(i,k)
+	print(astar.get_point_ids().size())
 
 func debug_display_hud(a):
 	debug_hud.text = "attempts : " + str(a)
