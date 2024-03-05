@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bngunx6u5dfq7"]
+
+[ext_resource type="Script" path="res://Scripts/Sling/BubbleSelectMenu_Button.gd" id="1_yrfud"]
+
+[node name="BubbleSelectMenuButton" type="TextureButton"]
+script = ExtResource("1_yrfud")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

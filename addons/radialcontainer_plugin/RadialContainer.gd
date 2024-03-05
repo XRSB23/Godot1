@@ -23,6 +23,13 @@ class_name RadialContainer
 		if value == true :
 			Open()
 			open = false
+			
+@export var close : bool = false :
+	set(value):
+		close = value
+		if value == true :
+			Close()
+			close = false
 
 @export_group("Gizmo")
 @export var color_fill : Color = Color("05ff2c", 1)
@@ -30,8 +37,10 @@ class_name RadialContainer
 @export var point_size : float = 3
 
 @export_group("Animation")
-@export var cell_open_tween_duration : float
-@export var next_cell_delay : float
+@export var cell_open_tween_duration : float = 0.35
+@export var next_cell_delay : float = 0.08
+@export var selected_fadeout_speed : float = 0.3
+@export var not_selected_fadeout_speed : float = 0.01
 
 @export_group("Shape")
 @export var max_radius : float = 100
@@ -54,7 +63,7 @@ var points : Array[Vector2]
 var start_angle : float
 var angle_width : float
 
-
+var selected_item : BaseButton
 
 
 
@@ -148,9 +157,26 @@ func Open():
 	for i in get_child_count() :
 		await get_tree().create_timer(next_cell_delay).timeout
 		ChildLerp(i)
-		#ChildLerp(0)
+
 		
+
+func Close():
+	var not_selected : Array[Node] = []
+	var tween = create_tween()
+	tween.set_parallel(true)
 	
+	if selected_item == null :
+		for child in get_children():
+			tween.tween_property(child,"modulate", Color(1,1,1,0), not_selected_fadeout_speed)
+	else :
+		for child in get_children() :
+			if child != selected_item :
+				not_selected.append(child)
+	
+		for item in not_selected :
+			tween.tween_property(item,"modulate", Color(1,1,1,0), not_selected_fadeout_speed)
+		tween.tween_property(selected_item,"modulate", Color(1,1,1,0), selected_fadeout_speed)
+
 func ChildLerp(child_index : int):
 	var child = get_child(child_index)
 	var target = points[child_index] - child_size/2

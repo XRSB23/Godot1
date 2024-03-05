@@ -8,13 +8,13 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_4clbt")
 anim_control = true
-cell_open_tween_duration = 0.35
-next_cell_delay = 0.08
+not_selected_fadeout_speed = 0.1
 max_radius = 200.0
 min_radius = 100.0
 child_size = Vector2(40, 40)
 
 [node name="TextureButton" type="TextureButton" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -32,6 +32,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="TextureButton2" type="TextureButton" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -49,6 +50,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="TextureButton3" type="TextureButton" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
