@@ -38,8 +38,12 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	projectile.position = closest_empty_cell
 	grid_data[projectile.position] = projectile
 	projectile.trail.enabled = false
-	process_destruction(get_cells_to_destroy(projectile))
-	sling.call_deferred("load_ball")
+	sling.trajectory_preview.UpdateGhost()
+	await process_destruction(get_cells_to_destroy(projectile))
+	sling.GetCurrentColorsInLevel()
+	await sling.UpdateColorMenu()
+	sling.color_select_menu.Open()
+	
 
 func print_debuuug(v1,v2,v3,v4):
 	print("pos bille touchée :" + str(v1))
@@ -55,7 +59,7 @@ func process_destruction(cells):
 			grid_data[cell].OnDestroy()
 			await grid_data[cell].animTrigger
 			grid_data[cell] = null
-
+		await get_tree().create_timer(0.9).timeout
 
 func get_cells_to_destroy(grid_bubble):
 	var cells_to_destroy = {grid_bubble.position : grid_bubble }

@@ -6,14 +6,15 @@ enum MODE {VECTOR, NEWTON}
 @onready var vector = $Vector
 @onready var newton = $Newton
 @onready var ghost = $Ghost
+var last_v : Vector2
 
 func ClearPreview():
 	vector.clear_points()
 	newton.clear_points()
 	
-func UpdateGhost(v : Vector2):
+func UpdateGhost():
 	ghost.clear_points()
-	ghost.display_trajectory(v)
+	ghost.display_trajectory(last_v)
 	
 
 	
