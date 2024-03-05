@@ -28,7 +28,7 @@ project/assembly_name="_Godot1"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/leveleditorplugin/plugin_scripts/plugin.cfg", "res://addons/trail2D_plugin/plugin.cfg")
+enabled=PackedStringArray("res://addons/leveleditorplugin/plugin_scripts/plugin.cfg", "res://addons/radialcontainer_plugin/plugin.cfg", "res://addons/trail2D_plugin/plugin.cfg")
 
 [input_devices]
 
