@@ -10,6 +10,8 @@ var grid_data = {} #coord V2 : node bubble
 var attempts : int
 var treshold : float
 
+var Astar = AStar2D.new()
+
 
 @onready var sling = $Sling
 @onready var debug_hud = $CanvasLayer/Label
@@ -34,26 +36,17 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 		if magnitude == null or l.length_squared() < magnitude :
 			magnitude = l.length_squared()
 			closest_empty_cell = empty_cell
-	#print_debuuug(grid_bubble.position,projectile.position,closest_empty_cell,grid_bubble.color)
 	projectile.position = closest_empty_cell
 	grid_data[projectile.position] = projectile
 	projectile.trail.enabled = false
 	process_destruction(get_cells_to_destroy(projectile))
 	sling.call_deferred("load_ball")
 
-func print_debuuug(v1,v2,v3,v4):
-	print("pos bille touchée :" + str(v1))
-	print("voisins disponibles :" ) 
-	print(get_neighbors(grid_data[v1],level_data.BubbleColor.Empty))
-	print("couleur bille touchée :" + str(v4))
-	print("pos projectile au contact :" + str(v2))
-	print("cellule valide la plus proche :" + str(v3))
-
 func process_destruction(cells):
 	if cells.size()>= 3 :
 		for cell in cells :
 			grid_data[cell].OnDestroy()
-			await grid_data[cell].animTrigger
+			await grid_data[cell].animTrigger 
 			grid_data[cell] = null
 
 
@@ -109,6 +102,10 @@ func load_level(_level):
 	buttons_container.hide()
 	sling.init_sling(attempts)
 	camera.EnableControls(true)
+	
+
+func debug_astar():
+	pass
 
 func debug_display_hud(a):
 	debug_hud.text = "attempts : " + str(a)

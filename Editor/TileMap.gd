@@ -16,7 +16,6 @@ func is_level_already_exists(_level_name : String):
 func load_level_resource():
 	if ResourceLoader.exists("res://Resources/levels_resource.tres"):
 		return load("res://Resources/levels_resource.tres")
-		print("exists")
 	return null 
 
 func save_level(n,t,a):
@@ -29,6 +28,7 @@ func save_level(n,t,a):
 		level.coord.append(map_to_local(tile))
 		var s = get_cell_tile_data(0,tile).get_custom_data_by_layer_id(0)
 		level.bubbles.append(level_data.BubbleColor[s])
+	level.root_node_coord = map_to_local(get_used_cells(1)[0])
 	res.levels[n] = level
 	ResourceSaver.save(res,"res://Resources/levels_resource.tres")
 
@@ -39,6 +39,7 @@ func load_level(_level_name):
 	for c in data.coord :
 		set_cell(0,local_to_map(c),0,get_atlas_coord(data.bubbles[i]))
 		i += 1
+	set_cell(1,local_to_map(data.root_node_coord),5,Vector2.ZERO)
 	level_name = _level_name
 	treshold = str(data.treshold)
 	attempts = str(data.attempts)
