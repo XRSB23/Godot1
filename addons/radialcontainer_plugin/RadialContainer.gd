@@ -124,12 +124,11 @@ func DrawPoints():
 #endregion
 
 func Open():
-	
+	await get_tree().process_frame
 	for child : Node in get_children() :
 		child.position = position - child.size/2
 		child.modulate = Color(1,1,1,0)
 		child.size = Vector2.ZERO
-	
 	await get_tree().process_frame
 	
 	for i in get_child_count() :

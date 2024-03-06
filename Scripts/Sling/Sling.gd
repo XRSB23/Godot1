@@ -153,6 +153,8 @@ func UpdateColorMenu():
 	for i in button_color_array.size():
 		if current_colors.find(button_color_array[i]) == -1:
 			button_array[i].Destroy()
+	
+	await get_tree().process_frame
 
 func _on_color_select_menu_color_picked():
 	if ball != null :
