@@ -107,27 +107,20 @@ func load_level(_level):
 	set_up_astar()
 
 func set_up_astar():
-	var coord_arr : Array[Vector2]
 	for coord in grid_data:
-		coord_arr.append(coord)
-	while coord_arr.size()>0:
-		var i = astar.get_point_count()
-		astar.add_point(i,coord_arr[0])
-		coord_arr.erase(coord_arr[0])
-		var neighbors_c: Array[Vector2]
-		if coord_arr.size() <= 0:
-			break
+		if grid_data[coord] != null:
+			astar.add_point(astar.get_available_point_id(),coord)
+	for point in astar.get_point_ids() :
+		var neighbors_c : Array[Vector2] = []
+		var point_coord : Vector2 = astar.get_point_position(point)
 		for dir in neighbors_coord:
-			if grid_data.has(coord_arr[0] + dir):
-				neighbors_c.append(coord_arr[0]+dir)
+			if grid_data[point_coord + dir] != null:
+				neighbors_c.append(point_coord+dir)
 		for n in neighbors_c:
-			var k = astar.get_point_count()
-			if coord_arr.has(n):
-				astar.add_point(k,n)
-				coord_arr.erase(n)
-				if astar.are_points_connected(i,k) == false :
-					astar.connect_points(i,k)
-	print(astar.get_point_ids().size())
+			var n_index = astar.get_closest_point(n)
+			if astar.are_points_connected(point,n_index) == false :
+				astar.connect_points(point,n_index)
+
 
 func debug_display_hud(a):
 	debug_hud.text = "attempts : " + str(a)
