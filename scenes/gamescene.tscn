@@ -101,7 +101,6 @@ min_drag = 20.0
 max_drag = 300.0
 drag_curve = SubResource("Curve_j361q")
 button_prefab = ExtResource("5_2nx2p")
-single_press_timer = 0.1
 
 [node name="TrajectoryPreview" type="Node2D" parent="Sling"]
 script = ExtResource("5_6swga")
@@ -159,19 +158,12 @@ visible = false
 scale = Vector2(0.4, 0.4)
 shape = SubResource("CircleShape2D_ej865")
 
-[node name="Debug_DragVector_Gizmo" type="Line2D" parent="Sling"]
-visible = false
-points = PackedVector2Array(0, 0, 0, 0)
-width = 4.0
-default_color = Color(0, 1, 0.0823529, 1)
-
 [node name="ColorSelectMenu" type="Control" parent="Sling"]
 layout_mode = 3
 anchors_preset = 0
 mouse_force_pass_scroll_events = false
 script = ExtResource("14_rlae7")
 anim_control = true
-next_cell_delay = 0.05
 max_radius = 200.0
 min_radius = 100.0
 split_angle = 45.0

@@ -8,23 +8,17 @@ class_name RadialContainer
 		is_visible = value
 		visible = value
 		
-@export var anim_control : bool :
-	set(value) : 
-		if get_child_count() > 0 && points != null:
-			if value == true :
-				for child in get_children() :
-					child.position = position - child.size/2
-		anim_control = value
+@export var anim_control : bool 
 
 @export_group("Gizmo")
-@export var gizmo_visible : bool
+@export var gizmo_visible : bool = true
 @export var color_fill : Color = Color("05ff2c", 1)
 @export var line_width : float = 1 
 @export var point_size : float = 3
 
 @export_group("Animation")
 @export var cell_open_tween_duration : float = 0.35
-@export var next_cell_delay : float = 0.08
+@export var next_cell_delay : float = 0.05
 @export var selected_close_speed : float = 0.3
 @export var not_selected_close_speed : float = 0.01
 
