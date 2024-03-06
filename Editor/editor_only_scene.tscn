@@ -93,5 +93,5 @@ border_color = Color(0.576471, 0.4, 0.960784, 1)
 border_width = 6.0
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(954, -638)
+position = Vector2(2279, 319)
 gizmo_extents = 11.0
