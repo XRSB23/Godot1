@@ -107,9 +107,9 @@ func load_ball():
 	balls_amount -= 1
 	game_scene.debug_display_hud(balls_amount)
 
-func change_ball_color():
-	ball.color = color_select_menu.selected_item.color
-	game_scene.debug_assign_color(ball)
+#func change_ball_color():
+	#ball.color = color_select_menu.selected_item.color
+	#game_scene.debug_assign_color(ball)
 
 func RandColor():
 	var r = randi_range(1,7)
@@ -157,6 +157,14 @@ func UpdateColorMenu():
 	await get_tree().process_frame
 
 func _on_color_select_menu_color_picked():
+	#if ball != null :
+		#change_ball_color()
+	#else : 
+	load_ball()
+
+
+func _on_color_select_menu_opened():
 	if ball != null :
-		change_ball_color()
-	else : load_ball()
+		var temp = ball
+		ball = null
+		temp.queue_free()

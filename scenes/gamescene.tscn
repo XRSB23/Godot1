@@ -181,3 +181,4 @@ child_size = Vector2(102, 102)
 [connection signal="body_entered" from="DeadZone" to="Sling" method="_on_dead_zone"]
 [connection signal="input_event" from="Sling/PickupRadius" to="Sling/PickupRadius" method="_on_input_event"]
 [connection signal="color_picked" from="Sling/ColorSelectMenu" to="Sling" method="_on_color_select_menu_color_picked"]
+[connection signal="opened" from="Sling/ColorSelectMenu" to="Sling" method="_on_color_select_menu_opened"]

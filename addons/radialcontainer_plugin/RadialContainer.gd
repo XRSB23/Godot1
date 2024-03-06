@@ -51,6 +51,7 @@ var angle_width : float
 
 var selected_item : BaseButton
 
+signal opened() 
 signal color_picked()
 
 
@@ -124,6 +125,9 @@ func DrawPoints():
 #endregion
 
 func Open():
+	
+	opened.emit()
+	
 	await get_tree().process_frame
 	for child : Node in get_children() :
 		child.position = position - child.size/2
