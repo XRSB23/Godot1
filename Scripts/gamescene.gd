@@ -45,7 +45,8 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	await process_destruction(get_cells_to_destroy(projectile)) # Necessary (for now) to wait until all destroyed bubble are queue_free() until we check for remaining colors in level
 	sling.GetCurrentColorsInLevel()
 	await sling.UpdateColorMenu() # Await for instance process to be done before opening menu, else can have menu problems
-	sling.color_select_menu.Open()
+	if sling.current_colors.size() > 1 : sling.color_select_menu.Open()
+	else : sling.load_ball()
 	
 
 func process_destruction(cells):
