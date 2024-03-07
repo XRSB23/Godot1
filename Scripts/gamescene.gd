@@ -40,8 +40,12 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	grid_data[projectile.position] = projectile
 	connect_astar(projectile.position)
 	projectile.trail.enabled = false
-	process_destruction(get_cells_to_destroy(projectile))
-	sling.call_deferred("load_ball")
+	sling.trajectory_preview.UpdateGhost()
+	await process_destruction(get_cells_to_destroy(projectile)) # Necessary (for now) to wait until all destroyed bubble are queue_free() until we check for remaining colors in level
+	sling.GetCurrentColorsInLevel()
+	await sling.UpdateColorMenu() # Await for instance process to be done before opening menu, else can have menu problems
+	sling.color_select_menu.Open()
+	
 
 func process_destruction(cells):
 	if cells.size()>= 3 :
@@ -52,6 +56,10 @@ func process_destruction(cells):
 			grid_data[cell] = null
 		if grid_data[root_node_pos] != null:
 			drop_bubbles()
+		await get_tree().create_timer(0.9).timeout # Here to wait the duration of last bubble destroy animation, if we don't, queue_free() doesn't have time to proc and remaining color check is affected
+
+
+
 
 
 func get_cells_to_destroy(grid_bubble):

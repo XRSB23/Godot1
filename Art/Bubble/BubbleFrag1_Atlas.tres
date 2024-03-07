@@ -1,8 +1,8 @@
 [gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://nmrfq7yp27e6"]
 
-[ext_resource type="Texture2D" uid="uid://c6sk0w7i560do" path="res://Art/Bubble/Fragment1.svg" id="1_8tvjv"]
+[ext_resource type="Texture2D" uid="uid://bwkmcghulkf8v" path="res://Art/Bubble/Bubbles.svg" id="1_81org"]
 
 [resource]
 resource_local_to_scene = true
-atlas = ExtResource("1_8tvjv")
+atlas = ExtResource("1_81org")
 region = Rect2(571, 144, 400, 246)
