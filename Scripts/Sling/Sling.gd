@@ -57,7 +57,7 @@ func HandleTouch(event):
 		touch_points[event.index] = event.position
 	else:
 		if !is_dragging:
-			color_select_menu.Open()
+			if current_colors.size() > 1 : color_select_menu.Open()
 		else : 
 			is_dragging = false
 			
@@ -98,17 +98,23 @@ func shoot_ball(v : Vector2):
 func init_sling(attempts:int):
 	GetCurrentColorsInLevel()
 	UpdateColorMenu()
-	color_select_menu.Open()
+	if current_colors.size() > 1 : color_select_menu.Open()
+	else : load_ball()
 	balls_amount = attempts
 	
 func load_ball():
+	
+	if current_colors.size() == 0 :
+		return
+	
 	ball = bubble_prefab.instantiate()
-	bubble_container.add_child(ball)
+	bubble_container.call_deferred("add_child",ball)
 	ball.set_global_position(position)
 	ball.set_ball_launchable(true)
-	ball.color = color_select_menu.selected_item.color
+	if current_colors.size() > 1 : ball.color = color_select_menu.selected_item.color
+	else : ball.color = current_colors[0]
 	ball.game_scene = game_scene
-	game_scene.debug_assign_color(ball)
+	game_scene.call_deferred("debug_assign_color",ball)
 	balls_amount -= 1
 	game_scene.debug_display_hud(balls_amount)
 
@@ -119,7 +125,8 @@ func load_ball():
 
 func _on_dead_zone(body):
 	body.queue_free()
-	color_select_menu.Open()
+	if current_colors.size() > 1 : color_select_menu.Open()
+	else : load_ball()
 	trajectory_preview.UpdateGhost()
 
 func GetCurrentColorsInLevel():
