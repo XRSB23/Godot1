@@ -42,7 +42,11 @@ func OnDrop():
 	freeze = false
 	AddRandomBump()
 	await get_tree().create_timer(1).timeout
-	gravity_scale = -0.7
+	
+	gravity_scale = -0.1
+	shot_v = Vector2.ZERO
+	linear_velocity = Vector2.ZERO
+	
 	OnDestroy()
 	
 func AddRandomBump():
