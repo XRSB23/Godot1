@@ -18,6 +18,7 @@ var astar = AStar2D.new()
 @onready var canvas_layer = $CanvasLayer
 @onready var buttons_container = $CanvasLayer/ButtonContainer
 @onready var bubble_container = $BubbleContainer
+@onready var destroy_container = $DestroyContainer
 @onready var camera : CameraController = $CameraSystem/Camera2D
 const COLOR_ATLAS_RESOURCE = preload("res://Resources/ColorAtlas_Resource.tres")
 
@@ -49,6 +50,9 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 
 func process_destruction(cells):
 	if cells.size()>= 3 :
+		for cell in cells : #Remove from Bubble container so SelectBubbleMenu doesn't haveto wait for ball.queue free to detect remaining colors
+			grid_data[cell].reparent(destroy_container)
+			
 		for cell in cells :
 			update_astar(cell)
 			grid_data[cell].OnDestroy()
@@ -56,8 +60,9 @@ func process_destruction(cells):
 			grid_data[cell] = null
 		if grid_data[root_node_pos] != null:
 			drop_bubbles()
-		await get_tree().create_timer(0.9).timeout # Here to wait the duration of last bubble destroy animation, if we don't, queue_free() doesn't have time to proc and remaining color check is affected
 
+		while destroy_container.get_child_count() > 0 :
+			await get_tree().process_frame
 
 
 
@@ -151,12 +156,11 @@ func update_astar(_cell_coord : Vector2):
 func drop_bubbles():
 	var cell_to_drop = get_cells_to_drop()
 	for cell_coord in cell_to_drop:
-		#implementer la chute ici !!!!!!
-		#grid_data[cell_coord].queue_free()
-		grid_data[cell_coord].collider.disabled = true
-		grid_data[cell_coord].freeze = false
+		grid_data[cell_coord].reparent(destroy_container)
+		grid_data[cell_coord].OnDrop()
 		update_astar(cell_coord)
 		grid_data[cell_coord] = null
+
 
 func get_cells_to_drop():
 	var cells_to_drop : Array[Vector2] = []
