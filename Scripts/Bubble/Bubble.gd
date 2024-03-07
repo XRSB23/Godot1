@@ -34,3 +34,22 @@ func OnDestroy():
 	animPlayer.play("Burst")
 	await animPlayer.animation_finished
 	queue_free()
+
+func OnDrop():
+	trail.enabled = false
+	sprite.z_index += 1
+	collider.disabled = true
+	freeze = false
+	AddRandomBump()
+	await get_tree().create_timer(1).timeout
+	
+	gravity_scale = -0.1
+	shot_v = Vector2.ZERO
+	linear_velocity = Vector2.ZERO
+	
+	OnDestroy()
+	
+func AddRandomBump():
+	var angle = deg_to_rad(-90 + randf_range(-30,30))
+	var v = Vector2(cos(angle), sin(angle))
+	shot_v = v * 350
