@@ -50,7 +50,9 @@ func process_destruction(cells):
 			grid_data[cell].OnDestroy()
 			await grid_data[cell].animTrigger 
 			grid_data[cell] = null
-		drop_bubbles()
+		if grid_data[root_node_pos] != null:
+			drop_bubbles()
+
 
 func get_cells_to_destroy(grid_bubble):
 	var cells_to_destroy = {grid_bubble.position : grid_bubble }
@@ -141,8 +143,11 @@ func update_astar(_cell_coord : Vector2):
 func drop_bubbles():
 	var cell_to_drop = get_cells_to_drop()
 	for cell_coord in cell_to_drop:
-		#implementer la chute/destruction ici !!!!!!
-		grid_data[cell_coord].queue_free()
+		#implementer la chute ici !!!!!!
+		#grid_data[cell_coord].queue_free()
+		grid_data[cell_coord].collider.disabled = true
+		grid_data[cell_coord].freeze = false
+		update_astar(cell_coord)
 		grid_data[cell_coord] = null
 
 func get_cells_to_drop():
