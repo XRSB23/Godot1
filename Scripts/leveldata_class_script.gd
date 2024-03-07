@@ -7,3 +7,4 @@ enum BubbleColor {Empty,Red,Orange,Yellow,Green,Cyan,Blue,Purple}
 @export var bubbles : Array[BubbleColor]
 @export var treshold : float
 @export var attempts : int
+@export var root_node_coord : Vector2

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bma5sv4crnko5"
-path="res://.godot/imported/svg-icon.png-110a851a2b946196e4c026909bacc43c.ctex"
+uid="uid://bva1k10yi4sfn"
+path="res://.godot/imported/search.svg-65d8f59bc13f71144c3eff0a6c706bf0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/merovi.svgtexture2d/svg-icon.png"
-dest_files=["res://.godot/imported/svg-icon.png-110a851a2b946196e4c026909bacc43c.ctex"]
+source_file="res://addons/leveleditorplugin/plugin_textures/search.svg"
+dest_files=["res://.godot/imported/search.svg-65d8f59bc13f71144c3eff0a6c706bf0.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bma5sv4crnko5"
-path="res://.godot/imported/svg-icon.png-110a851a2b946196e4c026909bacc43c.ctex"
+uid="uid://vdibn34fnl06"
+path="res://.godot/imported/Digits_Tileset.png-0e4f245bf18a67c28558e346ad70584d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/merovi.svgtexture2d/svg-icon.png"
-dest_files=["res://.godot/imported/svg-icon.png-110a851a2b946196e4c026909bacc43c.ctex"]
+source_file="res://Editor/Digits_Tileset.png"
+dest_files=["res://.godot/imported/Digits_Tileset.png-0e4f245bf18a67c28558e346ad70584d.ctex"]
 
 [params]
 

@@ -15,14 +15,32 @@ run/main_scene="res://scenes/gamescene.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="_Godot1"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/merovi.svgtexture2d/plugin.cfg", "res://addons/trail2D_plugin/plugin.cfg")
+enabled=PackedStringArray("res://addons/leveleditorplugin/plugin_scripts/plugin.cfg", "res://addons/radialcontainer_plugin/plugin.cfg", "res://addons/trail2D_plugin/plugin.cfg")
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="Bubbles"
+2d_physics/layer_2="Bubble Trigger"
+2d_physics/layer_3="Sling"
 
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
+anti_aliasing/quality/msaa_2d=1

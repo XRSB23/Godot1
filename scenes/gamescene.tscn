@@ -1,14 +1,64 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=21 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
-[ext_resource type="Script" path="res://addons/merovi.svgtexture2d/SVGCamera2D.gd" id="2_iy3la"]
-[ext_resource type="Script" path="res://Scripts/Sling.gd" id="2_jejid"]
+[ext_resource type="Script" path="res://Scripts/Camera/CameraController.gd" id="2_3irfh"]
+[ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
+[ext_resource type="Script" path="res://Scripts/Camera/CameraBounds.gd" id="3_2i1fh"]
+[ext_resource type="PackedScene" uid="uid://bngunx6u5dfq7" path="res://scenes/BubbleSelectMenu_Button.tscn" id="5_2nx2p"]
+[ext_resource type="Script" path="res://Scripts/Sling/TrajectoryPreview.gd" id="5_6swga"]
+[ext_resource type="Script" path="res://Scripts/Sling/PickupRadius.gd" id="5_vwg2f"]
+[ext_resource type="Script" path="res://Scripts/Sling/NewtonTrajectoryPreview.gd" id="6_aqxdd"]
+[ext_resource type="Script" path="res://Scripts/Sling/VectorTrajectoryPreview.gd" id="6_b45vb"]
+[ext_resource type="Material" uid="uid://jiup2jy3aui2" path="res://Art/Sling/vector_shader_material.tres" id="6_nhfxi"]
+[ext_resource type="Material" uid="uid://xohviejfgi4f" path="res://Art/Sling/newton_shader_material.tres" id="7_v80i2"]
+[ext_resource type="Texture2D" uid="uid://dafardwowxnka" path="res://Art/Sling/CartoonDottedLine.svg" id="8_il03c"]
+[ext_resource type="Texture2D" uid="uid://cq2oavcga4l3i" path="res://Art/Sling/Line2D_SmoothEdgeTexture.png" id="11_848u5"]
+[ext_resource type="Script" path="res://Scripts/Sling/GhostTrajectoryPreview.gd" id="11_o4i07"]
+[ext_resource type="Script" path="res://addons/radialcontainer_plugin/RadialContainer.gd" id="14_rlae7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swuy3"]
 size = Vector2(4607, 207)
 
+[sub_resource type="Curve" id="Curve_j361q"]
+_data = [Vector2(0, 0), 0.0, 2.425, 0, 0, Vector2(0.1, 0.4), 1.75882, 0.666667, 0, 0, Vector2(1, 1), 0.666667, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_nb6el"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_4jdw3"]
+bake_resolution = 1000
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ej865"]
+radius = 182.552
+
 [node name="Gamescene" type="Node2D"]
 script = ExtResource("1_scxi1")
+cell_size = Vector2(106, 116)
+
+[node name="CameraSystem" type="Node" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="CameraSystem"]
+position = Vector2(0, 28)
+zoom = Vector2(0.375, 0.375)
+limit_left = -1823
+limit_top = -1838
+limit_right = 4143
+limit_bottom = 941
+script = ExtResource("2_3irfh")
+
+[node name="CameraBounds" type="ReferenceRect" parent="CameraSystem"]
+offset_left = -1823.0
+offset_top = -1838.0
+offset_right = 4143.0
+offset_bottom = 941.0
+mouse_filter = 2
+border_color = Color(0, 1, 0, 1)
+border_width = 10.0
+script = ExtResource("3_2i1fh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -17,10 +67,12 @@ anchors_preset = -1
 anchor_top = 0.133
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -0.183998
+offset_top = 0.239998
+offset_bottom = -74.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+columns = 3
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = -1
@@ -33,24 +85,92 @@ metadata/_edit_use_anchors_ = true
 
 [node name="BubbleContainer" type="Node2D" parent="."]
 
-[node name="SVGCamera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.4, 0.4)
-script = ExtResource("2_iy3la")
-
 [node name="DeadZone" type="Area2D" parent="."]
-position = Vector2(56, 0)
+collision_layer = 2
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZone"]
-position = Vector2(396.5, 799.5)
+position = Vector2(0, 1054)
 shape = SubResource("RectangleShape2D_swuy3")
 
 [node name="Sling" type="Node2D" parent="."]
-position = Vector2(-268, 362)
+position = Vector2(-1200, 610)
 script = ExtResource("2_jejid")
-shoot_strength = 3
-trajectory_points_amount = 100
+shoot_strength = 7.5
+min_drag = 20.0
+max_drag = 300.0
+drag_curve = SubResource("Curve_j361q")
+button_prefab = ExtResource("5_2nx2p")
 
-[node name="Line2D" type="Line2D" parent="Sling"]
+[node name="TrajectoryPreview" type="Node2D" parent="Sling"]
+script = ExtResource("5_6swga")
 
+[node name="Vector" type="Line2D" parent="Sling/TrajectoryPreview"]
+material = ExtResource("6_nhfxi")
+points = PackedVector2Array(0, 0, 0, 0)
+width = 100.0
+width_curve = SubResource("Curve_nb6el")
+texture = ExtResource("11_848u5")
+texture_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+script = ExtResource("6_b45vb")
+min_width = 40
+origin_offset = 15.0
+
+[node name="Newton" type="Line2D" parent="Sling/TrajectoryPreview"]
+texture_repeat = 2
+material = ExtResource("7_v80i2")
+width = 60.0
+texture = ExtResource("8_il03c")
+texture_mode = 1
+joint_mode = 2
+end_cap_mode = 2
+script = ExtResource("6_aqxdd")
+match_bubble_color = true
+trajectory_points_amount = 500
+max_trajectory_range = 1000.0
+
+[node name="Ghost" type="Line2D" parent="Sling/TrajectoryPreview"]
+modulate = Color(0, 0, 0, 0.231373)
+texture_filter = 5
+points = PackedVector2Array(0, 0, 0, 0)
+width_curve = SubResource("Curve_4jdw3")
+texture = ExtResource("11_848u5")
+texture_mode = 2
+end_cap_mode = 2
+antialiased = true
+script = ExtResource("11_o4i07")
+min_width = 20
+max_width = 40
+origin_offset = 100.0
+cap_offset = 30.0
+
+[node name="PickupRadius" type="Area2D" parent="Sling"]
+collision_layer = 4
+collision_mask = 0
+collision_priority = 2.0
+script = ExtResource("5_vwg2f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sling/PickupRadius"]
+visible = false
+scale = Vector2(0.4, 0.4)
+shape = SubResource("CircleShape2D_ej865")
+
+[node name="ColorSelectMenu" type="Control" parent="Sling"]
+layout_mode = 3
+anchors_preset = 0
+mouse_force_pass_scroll_events = false
+script = ExtResource("14_rlae7")
+anim_control = true
+max_radius = 200.0
+min_radius = 100.0
+split_angle = 45.0
+child_size = Vector2(102, 102)
+
+[connection signal="value_changed" from="CameraSystem/CameraBounds" to="CameraSystem/Camera2D" method="_on_camera_bounds_value_changed"]
 [connection signal="body_entered" from="DeadZone" to="Sling" method="_on_dead_zone"]
+[connection signal="input_event" from="Sling/PickupRadius" to="Sling/PickupRadius" method="_on_input_event"]
+[connection signal="color_picked" from="Sling/ColorSelectMenu" to="Sling" method="_on_color_select_menu_color_picked"]
+[connection signal="opened" from="Sling/ColorSelectMenu" to="Sling" method="_on_color_select_menu_opened"]

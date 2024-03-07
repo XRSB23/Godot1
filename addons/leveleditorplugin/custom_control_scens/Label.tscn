@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2fk6wabundqn"]
+
+[ext_resource type="Texture2D" uid="uid://braqeqg65vdj0" path="res://addons/leveleditorplugin/plugin_textures/save.svg" id="1_anjty"]
+
+[node name="Control" type="AspectRatioContainer"]
+anchors_preset = -1
+anchor_right = 0.390625
+anchor_bottom = 0.0583333
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(500, 30)
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 42)
+layout_mode = 2
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/ColorRect"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+anchor_left = 0.3
+anchor_top = 0.233333
+anchor_right = 0.9
+anchor_bottom = 0.9
+texture = ExtResource("1_anjty")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Save Level"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

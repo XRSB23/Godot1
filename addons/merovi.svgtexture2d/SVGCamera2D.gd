@@ -10,11 +10,13 @@ signal zoom_changed(new_zoom)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var size = get_viewport().size
-	base_viewport_size = Vector2(size.x, size.y)
 	original_zoom = zoom
 	get_viewport().size_changed.connect(_on_viewport_resize)
 
 func _on_viewport_resize():
+	if Engine.is_editor_hint():
+		return
+		
 	var new_size = get_viewport().size
 	_adjust_zoom(Vector2(new_size.x, new_size.y))
 	zoom_changed.emit(_get_zoom_percent())
@@ -32,5 +34,7 @@ func _adjust_zoom(viewport_size: Vector2):
 		zoom.y = viewport_size.x / base_viewport_size.x
 		zoom.x = zoom.y
 
+
 func _get_zoom_percent() -> float:
 	return zoom.x / original_zoom.x
+	

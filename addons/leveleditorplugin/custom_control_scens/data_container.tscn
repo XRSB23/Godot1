@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=3 uid="uid://4omjcmmqm7xb"]
+
+[ext_resource type="Texture2D" uid="uid://bva1k10yi4sfn" path="res://addons/leveleditorplugin/plugin_textures/search.svg" id="1_2wmrn"]
+[ext_resource type="Texture2D" uid="uid://cqam60y5ghxad" path="res://addons/leveleditorplugin/plugin_textures/delete.svg" id="1_tjw1i"]
+[ext_resource type="Texture2D" uid="uid://chww0nkq052ff" path="res://addons/leveleditorplugin/plugin_textures/refresh.svg" id="2_4sxhi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88bs6"]
+bg_color = Color(0.0705882, 0.121569, 0.121569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8v2gc"]
+bg_color = Color(0.901961, 0.901961, 0.901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a0upj"]
+bg_color = Color(0.2, 0.564706, 0.219608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukqh5"]
+bg_color = Color(0.0705882, 0.121569, 0.121569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5hwl"]
+bg_color = Color(0.231373, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymsci"]
+bg_color = Color(1, 0.0235294, 0, 1)
+
+[node name="Data_container" type="VBoxContainer"]
+anchors_preset = -1
+anchor_right = 0.390625
+anchor_bottom = 0.268056
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="search_tool_container" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 40)
+layout_mode = 2
+
+[node name="search_line_edit" type="LineEdit" parent="search_tool_container"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_88bs6")
+alignment = 1
+
+[node name="search_button" type="Button" parent="search_tool_container"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_8v2gc")
+icon = ExtResource("1_2wmrn")
+icon_alignment = 1
+expand_icon = true
+
+[node name="refresh_button" type="Button" parent="search_tool_container"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_a0upj")
+icon = ExtResource("2_4sxhi")
+icon_alignment = 1
+expand_icon = true
+
+[node name="buttons_container" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 5
+
+[node name="Delete_button" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_ukqh5")
+icon = ExtResource("1_tjw1i")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.784314, 0.203922, 0, 1)
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="Confirm_override_button" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_t5hwl")
+text = "Yes"
+
+[node name="Decline_override_button" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ymsci")
+text = "No"
