@@ -85,6 +85,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="BubbleContainer" type="Node2D" parent="."]
 
+[node name="DestroyContainer" type="Node2D" parent="."]
+
 [node name="DeadZone" type="Area2D" parent="."]
 collision_layer = 2
 input_pickable = false

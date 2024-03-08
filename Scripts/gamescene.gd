@@ -18,6 +18,7 @@ var astar = AStar2D.new()
 @onready var canvas_layer = $CanvasLayer
 @onready var buttons_container = $CanvasLayer/ButtonContainer
 @onready var bubble_container = $BubbleContainer
+@onready var destroy_container = $DestroyContainer
 @onready var camera : CameraController = $CameraSystem/Camera2D
 const COLOR_ATLAS_RESOURCE = preload("res://Resources/ColorAtlas_Resource.tres")
 
@@ -25,7 +26,6 @@ const COLOR_ATLAS_RESOURCE = preload("res://Resources/ColorAtlas_Resource.tres")
 func _ready():
 	init_level_buttons()
 	set_neighbors_coord(cell_size)
-
 
 func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	var empty_cells = get_neighbors(grid_bubble,level_data.BubbleColor.Empty)
@@ -44,11 +44,14 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	await process_destruction(get_cells_to_destroy(projectile)) # Necessary (for now) to wait until all destroyed bubble are queue_free() until we check for remaining colors in level
 	sling.GetCurrentColorsInLevel()
 	await sling.UpdateColorMenu() # Await for instance process to be done before opening menu, else can have menu problems
-	sling.color_select_menu.Open()
-	
+	if sling.current_colors.size() > 1 : sling.color_select_menu.Open()
+	else : sling.load_ball()
 
 func process_destruction(cells):
 	if cells.size()>= 3 :
+		for cell in cells : #Remove from Bubble container so SelectBubbleMenu doesn't haveto wait for ball.queue free to detect remaining colors
+			grid_data[cell].reparent(destroy_container)
+			
 		for cell in cells :
 			update_astar(cell)
 			grid_data[cell].OnDestroy()
@@ -56,11 +59,9 @@ func process_destruction(cells):
 			grid_data[cell] = null
 		if grid_data[root_node_pos] != null:
 			drop_bubbles()
-		await get_tree().create_timer(0.9).timeout # Here to wait the duration of last bubble destroy animation, if we don't, queue_free() doesn't have time to proc and remaining color check is affected
 
-
-
-
+		while destroy_container.get_child_count() > 0 :
+			await get_tree().process_frame
 
 func get_cells_to_destroy(grid_bubble):
 	var cells_to_destroy = {grid_bubble.position : grid_bubble }
@@ -115,22 +116,19 @@ func load_level(_level):
 	sling.init_sling(attempts)
 	camera.EnableControls(true)
 	astar.clear()
-	set_up_astar()
+	set_up_astar(levelres.astar_points , levelres.astar_connections)
 
-func set_up_astar():
-	for coord in grid_data:
-		if grid_data[coord] != null:
-			astar.add_point(astar.get_available_point_id(),coord)
-	for point in astar.get_point_ids() :
-		var neighbors_c : Array[Vector2] = []
-		var point_coord : Vector2 = astar.get_point_position(point)
-		for dir in neighbors_coord:
-			if grid_data[point_coord + dir] != null:
-				neighbors_c.append(point_coord+dir)
-		for n in neighbors_c:
-			var n_index = astar.get_closest_point(n)
-			if astar.are_points_connected(point,n_index) == false :
-				astar.connect_points(point,n_index)
+func set_up_astar(_astarpoints , _astarconnections):
+	var i = 0
+	for point in _astarpoints:
+		astar.add_point(i,point)
+		i += 1
+	i = 0
+	for n_coord in _astarconnections:
+		for coord in n_coord :
+			if astar.are_points_connected(i,coord) == false :
+				astar.connect_points(i,coord)
+		i += 1
 
 func connect_astar(pos : Vector2):
 	var index = astar.get_available_point_id()
@@ -151,10 +149,8 @@ func update_astar(_cell_coord : Vector2):
 func drop_bubbles():
 	var cell_to_drop = get_cells_to_drop()
 	for cell_coord in cell_to_drop:
-		#implementer la chute ici !!!!!!
-		#grid_data[cell_coord].queue_free()
-		grid_data[cell_coord].collider.disabled = true
-		grid_data[cell_coord].freeze = false
+		grid_data[cell_coord].reparent(destroy_container)
+		grid_data[cell_coord].OnDrop()
 		update_astar(cell_coord)
 		grid_data[cell_coord] = null
 
