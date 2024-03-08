@@ -57,8 +57,7 @@ func process_destruction(cells):
 			grid_data[cell].OnDestroy()
 			await grid_data[cell].animTrigger 
 			grid_data[cell] = null
-		if grid_data[root_node_pos] != null:
-			drop_bubbles()
+		drop_bubbles()
 
 		while destroy_container.get_child_count() > 0 :
 			await get_tree().process_frame
@@ -157,16 +156,20 @@ func drop_bubbles():
 func get_cells_to_drop():
 	var cells_to_drop : Array[Vector2] = []
 	var ids_to_check : PackedInt64Array = astar.get_point_ids().duplicate()
-	var root_id = astar.get_closest_point(root_node_pos)
-	while ids_to_check.size() >0:
-		var path = astar.get_id_path(ids_to_check[0],root_id)
-		if path.is_empty():
-			cells_to_drop.append(astar.get_point_position(ids_to_check[0]))
-			ids_to_check.remove_at(0)
-		else:
-			for id in path :
-				if ids_to_check.has(id):
-					ids_to_check.remove_at(ids_to_check.find(id))
+	if grid_data[root_node_pos] == null :
+		for id in astar.get_point_ids():
+			cells_to_drop.append(astar.get_point_position(id))
+	else:
+		var root_id = astar.get_closest_point(root_node_pos)
+		while ids_to_check.size() >0:
+			var path = astar.get_id_path(ids_to_check[0],root_id)
+			if path.is_empty():
+				cells_to_drop.append(astar.get_point_position(ids_to_check[0]))
+				ids_to_check.remove_at(0)
+			else:
+				for id in path :
+					if ids_to_check.has(id):
+						ids_to_check.remove_at(ids_to_check.find(id))
 	return cells_to_drop
 
 func debug_display_hud(a):
