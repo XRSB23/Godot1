@@ -129,9 +129,7 @@ func Open():
 		child.size = Vector2.ZERO
 	await get_tree().process_frame
 	
-	for i in get_child_count() :
-		await get_tree().create_timer(next_cell_delay).timeout
-		ChildLerp(i)
+	await LerpAnim()
 
 	EnableMenu(true)
 
@@ -157,6 +155,12 @@ func Close():
 		selected_item.modulate = Color(1,1,1,0)
 		EnableMenu(false)
 
+func LerpAnim():
+	for i in get_child_count() :
+		await get_tree().create_timer(next_cell_delay).timeout
+		if i < get_child_count() -1 : ChildLerp(i)
+		else : await ChildLerp(i)
+
 func ChildLerp(child_index : int):
 	var child = get_child(child_index)
 	var target = points[child_index] - child_size/2
@@ -167,6 +171,7 @@ func ChildLerp(child_index : int):
 	tween.tween_property(child,"size", child_size, cell_open_tween_duration)
 	tween.tween_property(child,"modulate", Color(1,1,1,1), cell_open_tween_duration).set_delay(min_radius * cell_open_tween_duration / max_radius)
 	
+	await tween.finished
 	
 func EnableMenu(b: bool = true):
 	mouse_filter = 0 if b else 2
