@@ -24,13 +24,45 @@ func save_level(n,t,a):
 	level.treshold = t
 	level.attempts = a
 	var tiles = get_used_cells(0)
+	var points : Array[Vector2]
 	for tile in tiles :
-		level.coord.append(map_to_local(tile))
+		var tile_coord = map_to_local(tile)
+		level.coord.append(tile_coord)
 		var s = get_cell_tile_data(0,tile).get_custom_data_by_layer_id(0)
+		if s != "Empty":
+			points.append(tile_coord)
 		level.bubbles.append(level_data.BubbleColor[s])
+	level.astar_points = points
+	level.astar_connections = set_astar_connections(points)
 	level.root_node_coord = map_to_local(get_used_cells(1)[0])
 	res.levels[n] = level
 	ResourceSaver.save(res,"res://Resources/levels_resource.tres")
+
+func set_astar_connections(_points):
+	var neighbors_coord = set_neighbors_coord(tile_set.tile_size)
+	var astar_connections : Array[Array]
+	var i = 0
+	for point in _points:
+		var neighbor_c : Array[int]
+		for dir in neighbors_coord:
+			var n_index = _points.find(point + dir)
+			if n_index >= 0:
+				neighbor_c.append(n_index)
+		astar_connections.append(neighbor_c)
+		i += 1
+	return astar_connections
+
+func set_neighbors_coord(v : Vector2):
+	var neighbors_coord : Array[Vector2]
+	neighbors_coord.append(Vector2(v.x,0))
+	neighbors_coord.append(Vector2(-v.x,0))
+	var x = v.x / 2
+	var y = v.y * 3 /4
+	neighbors_coord.append(Vector2(x,y))
+	neighbors_coord.append(Vector2(-x,y))
+	neighbors_coord.append(Vector2(x,-y))
+	neighbors_coord.append(Vector2(-x,-y))
+	return neighbors_coord
 
 func load_level(_level_name):
 	var data : level_data = load_level_resource().levels[_level_name]

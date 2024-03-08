@@ -27,7 +27,6 @@ func _ready():
 	init_level_buttons()
 	set_neighbors_coord(cell_size)
 
-
 func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	var empty_cells = get_neighbors(grid_bubble,level_data.BubbleColor.Empty)
 	var closest_empty_cell
@@ -47,7 +46,6 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	await sling.UpdateColorMenu() # Await for instance process to be done before opening menu, else can have menu problems
 	if sling.current_colors.size() > 1 : sling.color_select_menu.Open()
 	else : sling.load_ball()
-	
 
 func process_destruction(cells):
 	if cells.size()>= 3 :
@@ -64,9 +62,6 @@ func process_destruction(cells):
 
 		while destroy_container.get_child_count() > 0 :
 			await get_tree().process_frame
-
-
-
 
 func get_cells_to_destroy(grid_bubble):
 	var cells_to_destroy = {grid_bubble.position : grid_bubble }
@@ -121,22 +116,19 @@ func load_level(_level):
 	sling.init_sling(attempts)
 	camera.EnableControls(true)
 	astar.clear()
-	set_up_astar()
+	set_up_astar(levelres.astar_points , levelres.astar_connections)
 
-func set_up_astar():
-	for coord in grid_data:
-		if grid_data[coord] != null:
-			astar.add_point(astar.get_available_point_id(),coord)
-	for point in astar.get_point_ids() :
-		var neighbors_c : Array[Vector2] = []
-		var point_coord : Vector2 = astar.get_point_position(point)
-		for dir in neighbors_coord:
-			if grid_data[point_coord + dir] != null:
-				neighbors_c.append(point_coord+dir)
-		for n in neighbors_c:
-			var n_index = astar.get_closest_point(n)
-			if astar.are_points_connected(point,n_index) == false :
-				astar.connect_points(point,n_index)
+func set_up_astar(_astarpoints , _astarconnections):
+	var i = 0
+	for point in _astarpoints:
+		astar.add_point(i,point)
+		i += 1
+	i = 0
+	for n_coord in _astarconnections:
+		for coord in n_coord :
+			if astar.are_points_connected(i,coord) == false :
+				astar.connect_points(i,coord)
+		i += 1
 
 func connect_astar(pos : Vector2):
 	var index = astar.get_available_point_id()
@@ -161,7 +153,6 @@ func drop_bubbles():
 		grid_data[cell_coord].OnDrop()
 		update_astar(cell_coord)
 		grid_data[cell_coord] = null
-
 
 func get_cells_to_drop():
 	var cells_to_drop : Array[Vector2] = []
