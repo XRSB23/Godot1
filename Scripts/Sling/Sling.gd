@@ -1,7 +1,7 @@
 extends Node2D
 
 #region Variables
-var bubble_prefab = preload("res://scenes/bubble.tscn")
+
 @onready var game_scene = $".."
 @onready var bubble_container = $"../BubbleContainer"
 @onready var trajectory_preview : TrajectoryPreview = $TrajectoryPreview 
@@ -14,6 +14,16 @@ var scaled_v
 var balls_amount : int
 var ball
 var valid_shot : bool
+
+@export_group("Prefabs")
+## List of the bubble prefabs, Visible in inspector so no need to add/remove preload in script. [br]
+## Order : [br]
+## 0 = Default [br]
+## 1 = Explosive [br]
+## 2 = Paint [br]
+## 3 = Bonucy [br]
+@export var bubble_prefabs : Array[PackedScene] 
+
 
 @export_group("Shooting")
 @export var trajectory_mode : TrajectoryPreview.MODE = TrajectoryPreview.MODE.VECTOR
@@ -107,7 +117,7 @@ func load_ball():
 	if current_colors.size() == 0 :
 		return
 	
-	ball = bubble_prefab.instantiate()
+	ball = bubble_prefabs[0].instantiate()
 	bubble_container.call_deferred("add_child",ball)
 	ball.set_global_position(position)
 	ball.set_ball_launchable(true)

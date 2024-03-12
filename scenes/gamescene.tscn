@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=25 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraController.gd" id="2_3irfh"]
@@ -6,11 +6,15 @@
 [ext_resource type="Script" path="res://Scripts/Camera/CameraBounds.gd" id="3_2i1fh"]
 [ext_resource type="PackedScene" uid="uid://bngunx6u5dfq7" path="res://scenes/BubbleSelectMenu_Button.tscn" id="5_2nx2p"]
 [ext_resource type="Script" path="res://Scripts/Sling/TrajectoryPreview.gd" id="5_6swga"]
+[ext_resource type="PackedScene" uid="uid://bkohxp01r1a8b" path="res://scenes/bubble.tscn" id="5_icqf6"]
 [ext_resource type="Script" path="res://Scripts/Sling/PickupRadius.gd" id="5_vwg2f"]
 [ext_resource type="Script" path="res://Scripts/Sling/NewtonTrajectoryPreview.gd" id="6_aqxdd"]
 [ext_resource type="Script" path="res://Scripts/Sling/VectorTrajectoryPreview.gd" id="6_b45vb"]
 [ext_resource type="Material" uid="uid://jiup2jy3aui2" path="res://Art/Sling/vector_shader_material.tres" id="6_nhfxi"]
+[ext_resource type="PackedScene" uid="uid://b4qefpqvoj4sx" path="res://scenes/bubble_explosive.tscn" id="6_rw0qp"]
+[ext_resource type="PackedScene" uid="uid://cj5meba4c0x3l" path="res://scenes/bubble_paint.tscn" id="7_nrvhg"]
 [ext_resource type="Material" uid="uid://xohviejfgi4f" path="res://Art/Sling/newton_shader_material.tres" id="7_v80i2"]
+[ext_resource type="PackedScene" uid="uid://c5lcvkvdrdlvy" path="res://scenes/bubble_bouncy.tscn" id="8_epdqj"]
 [ext_resource type="Texture2D" uid="uid://dafardwowxnka" path="res://Art/Sling/CartoonDottedLine.svg" id="8_il03c"]
 [ext_resource type="Texture2D" uid="uid://cq2oavcga4l3i" path="res://Art/Sling/Line2D_SmoothEdgeTexture.png" id="11_848u5"]
 [ext_resource type="Script" path="res://Scripts/Sling/GhostTrajectoryPreview.gd" id="11_o4i07"]
@@ -98,6 +102,7 @@ shape = SubResource("RectangleShape2D_swuy3")
 [node name="Sling" type="Node2D" parent="."]
 position = Vector2(-1200, 610)
 script = ExtResource("2_jejid")
+bubble_prefabs = Array[PackedScene]([ExtResource("5_icqf6"), ExtResource("6_rw0qp"), ExtResource("7_nrvhg"), ExtResource("8_epdqj")])
 shoot_strength = 7.5
 min_drag = 20.0
 max_drag = 300.0
