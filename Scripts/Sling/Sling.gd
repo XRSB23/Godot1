@@ -6,6 +6,7 @@ extends Node2D
 @onready var bubble_container = $"../BubbleContainer"
 @onready var trajectory_preview : TrajectoryPreview = $TrajectoryPreview 
 @onready var color_select_menu = $ColorSelectMenu
+@onready var consumable_menu = $ConsumableMenu
 
 var touch_points : Dictionary = {} #To track multiple fingers input, used as Dynamic Array
 var start_point = Vector2.ZERO
@@ -42,23 +43,17 @@ var is_dragging : bool = false
 @export var display_drag_vector : bool
 @export var gizmo_color : Color = Color("05ff2c", 1)
 @export var line_width : float = 1
+
+@export var infinite_consumables : bool = false :
+	set(value) :
+		infinite_consumables = value
+		if consumable_menu != null && consumable_menu.get_child_count() > 0 :
+			for child in consumable_menu :
+				if child is ConsumableMenu_Button : child.infinite = value
+			
 var debug_drag_start : Vector2
 var debug_drag_end : Vector2
 
-#endregion
-
-#region [TEMP] Inventory
-
-# Temporary Inventory, holds data  for now, editable in inspector, When inventory is linked to save data, remove this part 
-# and replace all occurences of temp_inventory with the reference to the save data inventory
-
-@export_group("[TEMP] Inventory")
-@export var temp_inventory : Dictionary = {
-	"Precision Shot" : 0, # Set to KeyID 0 since it's the only mode, excule ID 0 from loops if you wannt to check only the special bubbles
-	"Explosive" : 0,
-	"Paint" : 0,
-	"Bouncy" : 0
-}
 
 #endregion
 
@@ -123,6 +118,10 @@ func shoot_ball(v : Vector2):
 	trajectory_preview.ClearPreview()
 	trajectory_preview.last_v = v
 	ball = null
+	if consumable_menu.selected_item != null :
+		consumable_menu.selected_item._on_shoot()
+	if consumable_menu.get_child(0).activated :
+		consumable_menu.get_child(0)._on_shoot()
 
 func init_sling(attempts:int):
 	GetCurrentColorsInLevel()
@@ -147,6 +146,28 @@ func load_ball():
 	balls_amount -= 1
 	game_scene.debug_display_hud(balls_amount)
 
+func load_consumable(color : level_data.BubbleColor ):
+
+	match consumable_menu.selected_item.name :
+		"Explosive" : ball = bubble_prefabs[1].instantiate()
+		"Paint" : ball = bubble_prefabs[2].instantiate()
+		"Bouncy" : ball = bubble_prefabs[3].instantiate()
+		_: pass
+	
+	bubble_container.call_deferred("add_child",ball)
+	ball.set_global_position(position)
+	ball.set_ball_launchable(true)
+
+	if color != null :
+		ball.color = color
+
+	ball.game_scene = game_scene
+	ball.call_deferred("set_color")
+	balls_amount -= 1
+	game_scene.debug_display_hud(balls_amount)
+	
+	
+	
 #func RandColor():								Not Used For Now, Keeping it Commented in case we need it later
 	#var r = randi_range(1,7)
 	#var colors = level_data.BubbleColor.values()
@@ -218,4 +239,11 @@ func _on_color_select_menu_opened():
 		ball = null
 		temp.queue_free()
 
+func _on_precision_shot_set_aim_mode(mode):
+	trajectory_mode = mode
+
+
 #endregion
+
+
+
