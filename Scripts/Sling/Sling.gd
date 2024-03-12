@@ -47,6 +47,21 @@ var debug_drag_end : Vector2
 
 #endregion
 
+#region [TEMP] Inventory
+
+# Temporary Inventory, holds data  for now, editable in inspector, When inventory is linked to save data, remove this part 
+# and replace all occurences of temp_inventory with the reference to the save data inventory
+
+@export_group("[TEMP] Inventory")
+@export var temp_inventory : Dictionary = {
+	"Precision Shot" : 0, # Set to KeyID 0 since it's the only mode, excule ID 0 from loops if you wannt to check only the special bubbles
+	"Explosive" : 0,
+	"Paint" : 0,
+	"Bouncy" : 0
+}
+
+#endregion
+
 func _draw():
 	if display_drag_vector && OS.has_feature("editor") && is_dragging:
 		draw_line(debug_drag_start, debug_drag_end, gizmo_color, line_width, true)
@@ -54,6 +69,7 @@ func _draw():
 func _process(_delta):
 	queue_redraw()
 
+#region Input
 func _input(event):
 	if ball && ball.is_dragging :
 		if event is InputEventScreenTouch :
@@ -93,6 +109,9 @@ func HandleDrag(event):
 		
 		if valid_shot : trajectory_preview.Display(trajectory_mode, scaled_v, shoot_strength)
 		else : trajectory_preview.ClearPreview()
+#endregion
+
+#region Shooting
 
 func cancel_shot() :
 	ball.is_dragging = false
@@ -124,7 +143,7 @@ func load_ball():
 	if current_colors.size() > 1 : ball.color = color_select_menu.selected_item.color
 	else : ball.color = current_colors[0]
 	ball.game_scene = game_scene
-	game_scene.call_deferred("debug_assign_color",ball)
+	ball.call_deferred("set_color")
 	balls_amount -= 1
 	game_scene.debug_display_hud(balls_amount)
 
@@ -133,12 +152,10 @@ func load_ball():
 	#var colors = level_data.BubbleColor.values()
 	#return colors[r]
 
-func _on_dead_zone(body):
-	body.queue_free()
-	if current_colors.size() > 1 : color_select_menu.Open()
-	else : load_ball()
-	trajectory_preview.UpdateGhost()
 
+#endregion
+
+#region ColorSelect Menu
 func GetCurrentColorsInLevel():
 	current_colors.clear()
 	for bubble : Bubble in bubble_container.get_children() :
@@ -146,6 +163,8 @@ func GetCurrentColorsInLevel():
 			current_colors.append(bubble.color)
 
 func UpdateColorMenu():
+	
+	# Update Color Array
 	var button_array : Array = []
 	for button : BubbleSelectMenu_Button in color_select_menu.get_children():
 		if button_array.find(button.color) == -1 :
@@ -153,25 +172,42 @@ func UpdateColorMenu():
 	var button_color_array : Array = []
 	for button : BubbleSelectMenu_Button in button_array :
 		button_color_array.append(button.color)
+		
+	
+	
 	await get_tree().process_frame
 	
 	#Instantiate Pass
-	#If color is in current colors but not in array, add color button instance
+	#If color is in current colors but not in menu array, add color button instance
 	for i in current_colors.size():
 		if button_color_array.find(current_colors[i]) == -1 :
-			var instance = button_prefab.instantiate()
-			color_select_menu.add_child(instance)
-			instance.set_color(current_colors[i])
-			instance.size = color_select_menu.child_size
-	
+			InstantiateMenuButton(current_colors[i])
 	
 	#Remove Pass
-	#If color is in array but not in current colors, remove color instance
+	#If color is in menu array but not in current colors, remove color instance
 	for i in button_color_array.size():
 		if current_colors.find(button_color_array[i]) == -1:
 			button_array[i].Destroy()
+		#elif temp_inventory[button_color_array[i]] <= 0 :
+			#button_array[i].Destroy()
 	
 	await get_tree().process_frame
+
+func InstantiateMenuButton(color):
+	var instance = button_prefab.instantiate()
+	color_select_menu.add_child(instance)
+	instance.set_color(color)
+	instance.size = color_select_menu.child_size
+
+#endregion
+
+#region Signals
+
+func _on_dead_zone(body):
+	body.queue_free()
+	if current_colors.size() > 1 : color_select_menu.Open()
+	else : load_ball()
+	trajectory_preview.UpdateGhost()
 
 func _on_color_select_menu_color_picked():
 	load_ball()
@@ -181,3 +217,5 @@ func _on_color_select_menu_opened():
 		var temp = ball
 		ball = null
 		temp.queue_free()
+
+#endregion
