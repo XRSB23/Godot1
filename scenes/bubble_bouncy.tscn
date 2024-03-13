@@ -34,6 +34,7 @@ shader_parameter/TrailTexture = ExtResource("5_2n2kl")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_rsue2")
+frame = 2
 
 [node name="Fragment1" parent="ParticleSystem" index="0"]
 texture = SubResource("AtlasTexture_pv74n")

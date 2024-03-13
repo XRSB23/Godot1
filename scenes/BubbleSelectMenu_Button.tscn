@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bngunx6u5dfq7"]
+[gd_scene load_steps=5 format=3 uid="uid://bngunx6u5dfq7"]
 
 [ext_resource type="Texture2D" uid="uid://bwkmcghulkf8v" path="res://Art/Bubble/Bubbles.svg" id="1_8tole"]
 [ext_resource type="Script" path="res://Scripts/Sling/UI/BubbleSelectMenu_Button.gd" id="2_51uo0"]
+[ext_resource type="Texture2D" uid="uid://cmgpiua27cw6f" path="res://Art/Bubble/[Temp]PaintBubbles.svg" id="3_m84wa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6hmrp"]
 resource_local_to_scene = true
@@ -12,6 +13,8 @@ texture_normal = SubResource("AtlasTexture_6hmrp")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("2_51uo0")
+basic_atlas = ExtResource("1_8tole")
+paint_atlas = ExtResource("3_m84wa")
 spacing = Vector2(512, 512)
 hframe = 4
 vframe = 2

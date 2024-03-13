@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=34 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraController.gd" id="2_3irfh"]
@@ -19,9 +19,11 @@
 [ext_resource type="Texture2D" uid="uid://cq2oavcga4l3i" path="res://Art/Sling/Line2D_SmoothEdgeTexture.png" id="11_848u5"]
 [ext_resource type="Script" path="res://Scripts/Sling/GhostTrajectoryPreview.gd" id="11_o4i07"]
 [ext_resource type="Script" path="res://addons/radialcontainer_plugin/RadialContainer.gd" id="14_rlae7"]
-[ext_resource type="Texture2D" uid="uid://dck3p41sfucay" path="res://icon.svg" id="20_3atfi"]
+[ext_resource type="Texture2D" uid="uid://cidpr1r1yncti" path="res://Art/Bubble/[Temp]SpecialBubbles.svg" id="20_ea2a7"]
 [ext_resource type="Script" path="res://Scripts/Sling/UI/PrecisionShot_Button.gd" id="21_jg6jn"]
 [ext_resource type="Script" path="res://Scripts/Sling/UI/BasicConsumable_Button.gd" id="22_250y0"]
+[ext_resource type="Texture2D" uid="uid://cmgpiua27cw6f" path="res://Art/Bubble/[Temp]PaintBubbles.svg" id="23_ydgk4"]
+[ext_resource type="Script" path="res://Scripts/Sling/UI/Paint_Button.gd" id="24_hn7nd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swuy3"]
 size = Vector2(4607, 207)
@@ -41,6 +43,22 @@ point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ej865"]
 radius = 182.552
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b013"]
+atlas = ExtResource("20_ea2a7")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npc1t"]
+atlas = ExtResource("20_ea2a7")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5k66"]
+atlas = ExtResource("23_ydgk4")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp26e"]
+atlas = ExtResource("20_ea2a7")
+region = Rect2(1024, 0, 512, 512)
 
 [node name="Gamescene" type="Node2D"]
 script = ExtResource("1_scxi1")
@@ -175,9 +193,6 @@ anchors_preset = 0
 mouse_force_pass_scroll_events = false
 script = ExtResource("14_rlae7")
 anim_control = true
-selected_close_lerp_speed = null
-not_selected_close_lerp_speed = null
-close_fade_speed = null
 max_radius = 200.0
 min_radius = 100.0
 split_angle = 45.0
@@ -189,21 +204,20 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("14_rlae7")
-selected_close_lerp_speed = null
-not_selected_close_lerp_speed = null
-close_fade_speed = null
+open_delay = 0.2
 max_radius = 300.0
 min_radius = 220.0
 split_angle = 118.0
-child_size = Vector2(60, 60)
+child_size = Vector2(100, 100)
 
 [node name="Precision Shot" type="TextureButton" parent="Sling/ConsumableMenu"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = -218.597
-offset_top = -208.972
-offset_right = -158.597
-offset_bottom = -148.972
-texture_normal = ExtResource("20_3atfi")
+offset_left = -238.597
+offset_top = -228.972
+offset_right = -138.597
+offset_bottom = -128.972
+texture_normal = SubResource("AtlasTexture_4b013")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("21_jg6jn")
@@ -219,12 +233,13 @@ grow_horizontal = 0
 horizontal_alignment = 2
 
 [node name="Explosive" type="TextureButton" parent="Sling/ConsumableMenu"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = -99.482
-offset_top = -280.544
-offset_right = -39.482
-offset_bottom = -220.544
-texture_normal = ExtResource("20_3atfi")
+offset_left = -119.482
+offset_top = -300.544
+offset_right = -19.482
+offset_bottom = -200.544
+texture_normal = SubResource("AtlasTexture_npc1t")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("22_250y0")
@@ -240,14 +255,16 @@ grow_horizontal = 0
 horizontal_alignment = 2
 
 [node name="Paint" type="TextureButton" parent="Sling/ConsumableMenu"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 39.482
-offset_top = -280.544
-offset_right = 99.482
-offset_bottom = -220.544
-texture_normal = ExtResource("20_3atfi")
+offset_left = 19.482
+offset_top = -300.544
+offset_right = 119.482
+offset_bottom = -200.544
+texture_normal = SubResource("AtlasTexture_g5k66")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("24_hn7nd")
 
 [node name="Amount" type="Label" parent="Sling/ConsumableMenu/Paint"]
 layout_mode = 1
@@ -260,12 +277,13 @@ grow_horizontal = 0
 horizontal_alignment = 2
 
 [node name="Bouncy" type="TextureButton" parent="Sling/ConsumableMenu"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 158.597
-offset_top = -208.972
-offset_right = 218.597
-offset_bottom = -148.972
-texture_normal = ExtResource("20_3atfi")
+offset_left = 138.597
+offset_top = -228.972
+offset_right = 238.597
+offset_bottom = -128.972
+texture_normal = SubResource("AtlasTexture_hp26e")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("22_250y0")
@@ -283,11 +301,14 @@ horizontal_alignment = 2
 [connection signal="value_changed" from="CameraSystem/CameraBounds" to="CameraSystem/Camera2D" method="_on_camera_bounds_value_changed"]
 [connection signal="body_entered" from="DeadZone" to="Sling" method="_on_dead_zone"]
 [connection signal="input_event" from="Sling/PickupRadius" to="Sling/PickupRadius" method="_on_input_event"]
+[connection signal="close_other_menu" from="Sling/ColorSelectMenu" to="Sling/ConsumableMenu/Paint" method="_on_color_select_menu_close_other_menu"]
 [connection signal="color_picked" from="Sling/ColorSelectMenu" to="Sling" method="_on_color_select_menu_color_picked"]
 [connection signal="opened" from="Sling/ColorSelectMenu" to="Sling" method="_on_color_select_menu_opened"]
 [connection signal="pressed" from="Sling/ConsumableMenu/Precision Shot" to="Sling/ConsumableMenu/Precision Shot" method="_on_pressed"]
 [connection signal="set_aim_mode" from="Sling/ConsumableMenu/Precision Shot" to="Sling" method="_on_precision_shot_set_aim_mode"]
 [connection signal="on_selected" from="Sling/ConsumableMenu/Explosive" to="Sling" method="_on_explosive_on_selected"]
 [connection signal="pressed" from="Sling/ConsumableMenu/Explosive" to="Sling/ConsumableMenu/Explosive" method="_on_pressed"]
+[connection signal="colorMenu_changeIcon" from="Sling/ConsumableMenu/Paint" to="Sling" method="_on_paint_color_menu_change_icon"]
+[connection signal="pressed" from="Sling/ConsumableMenu/Paint" to="Sling/ConsumableMenu/Paint" method="_on_pressed"]
 [connection signal="on_selected" from="Sling/ConsumableMenu/Bouncy" to="Sling" method="_on_bouncy_on_selected"]
 [connection signal="pressed" from="Sling/ConsumableMenu/Bouncy" to="Sling/ConsumableMenu/Bouncy" method="_on_pressed"]

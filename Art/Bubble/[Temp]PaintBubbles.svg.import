@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cidpr1r1yncti"
-path="res://.godot/imported/[Temp]SpecialBubbles.svg-9d51d388310357ebd8f8df068df9e74f.ctex"
+uid="uid://cmgpiua27cw6f"
+path="res://.godot/imported/[Temp]PaintBubbles.svg-16ef8a65e9078b9a2e1d19fc10ac5782.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Art/Bubble/[Temp]SpecialBubbles.svg"
-dest_files=["res://.godot/imported/[Temp]SpecialBubbles.svg-9d51d388310357ebd8f8df068df9e74f.ctex"]
+source_file="res://Art/Bubble/[Temp]PaintBubbles.svg"
+dest_files=["res://.godot/imported/[Temp]PaintBubbles.svg-16ef8a65e9078b9a2e1d19fc10ac5782.ctex"]
 
 [params]
 

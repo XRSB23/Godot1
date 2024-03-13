@@ -5,7 +5,6 @@ func _on_pressed():
 	if control is RadialContainer :
 		
 		control.selected_item = self
-		#control.CloseFade()
 		on_selected.emit()
 		
 		

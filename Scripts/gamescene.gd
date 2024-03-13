@@ -108,6 +108,7 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	await sling.UpdateColorMenu() # Await for instance process to be done before opening menu, else can have menu problems
 	if sling.current_colors.size() > 1 : sling.color_select_menu.Open()
 	else : sling.load_ball()
+	sling.consumable_menu.Open()
 
 func get_cells_to_drop():
 	var cells_to_drop : Array[Vector2] = []

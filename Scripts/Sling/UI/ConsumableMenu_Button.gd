@@ -33,6 +33,6 @@ func Update():
 func _on_shoot():
 	pass
 
-func Activate(b :bool): #Do Shader stuff to display activated state (like highlighted button ?)
+func Activate(_b :bool): #Do Shader stuff to display activated state (like highlighted button ?)
 	pass
 	

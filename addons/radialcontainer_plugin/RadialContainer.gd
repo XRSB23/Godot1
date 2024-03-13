@@ -17,6 +17,7 @@ class_name RadialContainer
 @export var point_size : float = 3
 
 @export_group("Animation")
+@export var open_delay : float = 0
 @export var cell_open_tween_duration : float = 0.35
 @export var next_cell_delay : float = 0.05
 @export var selected_close_lerp_speed : float = 0.3
@@ -48,6 +49,7 @@ var selected_item : BaseButton
 
 signal opened() 
 signal color_picked()
+signal close_other_menu()
 
 
 #endregion
@@ -121,6 +123,8 @@ func DrawPoints():
 
 func Open():
 	
+	selected_item = null
+	if open_delay > 0 : await get_tree().create_timer(open_delay).timeout
 	opened.emit()
 	
 	await get_tree().process_frame

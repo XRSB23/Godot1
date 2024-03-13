@@ -234,7 +234,10 @@ func _on_dead_zone(body):
 	trajectory_preview.UpdateGhost()
 
 func _on_color_select_menu_color_picked():
-	load_ball()
+	if consumable_menu.selected_item != null && consumable_menu.selected_item.name == "Paint" : 
+		load_consumable(color_select_menu.selected_item.color)
+		consumable_menu.selected_item.colorMenu_changeIcon.emit(consumable_menu.selected_item.activated)
+	else : load_ball()
 
 func _on_color_select_menu_opened():
 	if ball != null :
@@ -248,11 +251,19 @@ func _on_precision_shot_set_aim_mode(mode):
 func _on_explosive_on_selected():
 	consumable_menu.CloseFade()
 	await color_select_menu.CloseFade()
-	load_consumable(0)
+	load_consumable(level_data.BubbleColor.Empty)
 
 func _on_bouncy_on_selected():
 	consumable_menu.CloseFade()
 	await color_select_menu.CloseFade()
-	load_consumable(0)
+	load_consumable(level_data.BubbleColor.Empty)
+
+func _on_paint_color_menu_change_icon(b):
+	for child : BubbleSelectMenu_Button in color_select_menu.get_children() :
+		child.is_paint_mode = b
+
 
 #endregion
+
+
+

@@ -9,11 +9,9 @@ func _on_pressed():
 		if activated : 
 			activated = false
 			set_aim_mode.emit(TrajectoryPreview.MODE.VECTOR)
-			#control.selected_item = null
 
 		else :
 			activated = true
-			#control.selected_item = self
 			set_aim_mode.emit(TrajectoryPreview.MODE.NEWTON)
 		
 		
@@ -21,5 +19,4 @@ func _on_pressed():
 func _on_shoot():
 	SaveData.inventory[name] -= 1
 	set_aim_mode.emit(TrajectoryPreview.MODE.VECTOR)
-	#control.selected_item = null
 	activated = false

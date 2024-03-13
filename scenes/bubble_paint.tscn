@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cj5meba4c0x3l"]
+[gd_scene load_steps=11 format=3 uid="uid://cj5meba4c0x3l"]
 
 [ext_resource type="PackedScene" uid="uid://bkohxp01r1a8b" path="res://scenes/bubble.tscn" id="1_af8eb"]
 [ext_resource type="Texture2D" uid="uid://bwkmcghulkf8v" path="res://Art/Bubble/Bubbles.svg" id="2_t50or"]
+[ext_resource type="Texture2D" uid="uid://cmgpiua27cw6f" path="res://Art/Bubble/[Temp]PaintBubbles.svg" id="2_umlni"]
 [ext_resource type="Texture2D" uid="uid://dyxu758m1wig7" path="res://Art/Bubble/Fragment2.svg" id="3_whd8x"]
 [ext_resource type="Shader" uid="uid://c8odev4ooibqc" path="res://Art/Bubble/trail_shader.tres" id="4_b011k"]
 [ext_resource type="Texture2D" uid="uid://bqqbexvetbl24" path="res://Art/Bubble/TrailTexture.svg" id="5_abtsd"]
@@ -30,6 +31,9 @@ shader_parameter/TrailColor = Color(1, 1, 1, 1)
 shader_parameter/TrailTexture = ExtResource("5_abtsd")
 
 [node name="Bubble" instance=ExtResource("1_af8eb")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_umlni")
 
 [node name="Fragment1" parent="ParticleSystem" index="0"]
 texture = SubResource("AtlasTexture_lfqex")
