@@ -1,6 +1,8 @@
 extends TextureButton
 class_name ConsumableMenu_Button
 
+signal on_selected()
+
 var infinite : bool = false
 var amount : int
 var control : RadialContainer

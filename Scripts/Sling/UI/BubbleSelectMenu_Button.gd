@@ -26,7 +26,8 @@ func _ready():
 func _on_pressed():
 	if control is RadialContainer :
 		control.selected_item = self
-		control.Close()
+		await control.CloseLerp()
+		control.color_picked.emit()
 
 func Destroy():
 	queue_free()

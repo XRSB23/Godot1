@@ -18,10 +18,6 @@ func _on_pressed():
 		
 		
 
-# create func to listen to popu signals
-# func on popup signal():
-#	pass
-
 func _on_shoot():
 	SaveData.inventory[name] -= 1
 	set_aim_mode.emit(TrajectoryPreview.MODE.VECTOR)

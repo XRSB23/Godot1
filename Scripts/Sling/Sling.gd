@@ -79,6 +79,7 @@ func HandleTouch(event):
 	else:
 		if !is_dragging:
 			if current_colors.size() > 1 : color_select_menu.Open()
+			consumable_menu.Open()
 		else : 
 			is_dragging = false
 			
@@ -128,6 +129,7 @@ func init_sling(attempts:int):
 	UpdateColorMenu()
 	if current_colors.size() > 1 : color_select_menu.Open()
 	else : load_ball()
+	consumable_menu.Open()
 	balls_amount = attempts
 	
 func load_ball():
@@ -146,7 +148,7 @@ func load_ball():
 	balls_amount -= 1
 	game_scene.debug_display_hud(balls_amount)
 
-func load_consumable(color : level_data.BubbleColor ):
+func load_consumable(color  : level_data.BubbleColor  ):
 
 	match consumable_menu.selected_item.name :
 		"Explosive" : ball = bubble_prefabs[1].instantiate()
@@ -158,7 +160,7 @@ func load_consumable(color : level_data.BubbleColor ):
 	ball.set_global_position(position)
 	ball.set_ball_launchable(true)
 
-	if color != null :
+	if color != null && color != 0:
 		ball.color = color
 
 	ball.game_scene = game_scene
@@ -228,6 +230,7 @@ func _on_dead_zone(body):
 	body.queue_free()
 	if current_colors.size() > 1 : color_select_menu.Open()
 	else : load_ball()
+	consumable_menu.Open()
 	trajectory_preview.UpdateGhost()
 
 func _on_color_select_menu_color_picked():
@@ -242,8 +245,14 @@ func _on_color_select_menu_opened():
 func _on_precision_shot_set_aim_mode(mode):
 	trajectory_mode = mode
 
+func _on_explosive_on_selected():
+	consumable_menu.CloseFade()
+	await color_select_menu.CloseFade()
+	load_consumable(0)
+
+func _on_bouncy_on_selected():
+	consumable_menu.CloseFade()
+	await color_select_menu.CloseFade()
+	load_consumable(0)
 
 #endregion
-
-
-
