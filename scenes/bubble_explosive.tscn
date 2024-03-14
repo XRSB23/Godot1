@@ -1,0 +1,48 @@
+[gd_scene load_steps=11 format=3 uid="uid://b4qefpqvoj4sx"]
+
+[ext_resource type="PackedScene" uid="uid://bkohxp01r1a8b" path="res://scenes/bubble.tscn" id="1_qi7kt"]
+[ext_resource type="Texture2D" uid="uid://cidpr1r1yncti" path="res://Art/Bubble/[Temp]SpecialBubbles.svg" id="2_8b74o"]
+[ext_resource type="Texture2D" uid="uid://bwkmcghulkf8v" path="res://Art/Bubble/Bubbles.svg" id="2_f8pt7"]
+[ext_resource type="Texture2D" uid="uid://dyxu758m1wig7" path="res://Art/Bubble/Fragment2.svg" id="3_k0cxc"]
+[ext_resource type="Shader" uid="uid://c8odev4ooibqc" path="res://Art/Bubble/trail_shader.tres" id="4_ysd51"]
+[ext_resource type="Texture2D" uid="uid://bqqbexvetbl24" path="res://Art/Bubble/TrailTexture.svg" id="5_sndxx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x208t"]
+resource_local_to_scene = true
+atlas = ExtResource("2_f8pt7")
+region = Rect2(571, 144, 400, 246)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua071"]
+resource_local_to_scene = true
+atlas = ExtResource("3_k0cxc")
+region = Rect2(621, 165, 289, 220)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7k0oq"]
+resource_local_to_scene = true
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8svyh"]
+resource_local_to_scene = true
+shader = ExtResource("4_ysd51")
+shader_parameter/TrailColor = Color(1, 1, 1, 1)
+shader_parameter/TrailTexture = ExtResource("5_sndxx")
+
+[node name="Bubble" instance=ExtResource("1_qi7kt")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_8b74o")
+
+[node name="Fragment1" parent="ParticleSystem" index="0"]
+texture = SubResource("AtlasTexture_x208t")
+
+[node name="Fragment2" parent="ParticleSystem" index="1"]
+texture = SubResource("AtlasTexture_ua071")
+
+[node name="Stars" parent="ParticleSystem" index="3"]
+material = SubResource("CanvasItemMaterial_7k0oq")
+
+[node name="Trail2D" parent="." index="4"]
+material = SubResource("ShaderMaterial_8svyh")

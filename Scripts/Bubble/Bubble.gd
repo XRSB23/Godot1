@@ -8,6 +8,7 @@ var game_scene
 @onready var particleSystem : BubbleParticleSystem = $ParticleSystem
 @onready var animPlayer : AnimationPlayer = $AnimationPlayer
 @onready var trail : Trail2D = $Trail2D
+const COLOR_ATLAS_RESOURCE = preload("res://Resources/ColorAtlas_Resource.tres")
 
 var color : level_data.BubbleColor
 var is_dragging : bool = false
@@ -29,7 +30,16 @@ func _physics_process(delta):
 func set_ball_launchable(b : bool) :#béboule c'est mdr:
 	freeze = b
 	input_pickable = b
- 
+
+func set_color():
+	
+	if color == level_data.BubbleColor.Empty : return 
+	
+	sprite.frame = color
+	particleSystem.Init(color)
+	trail.material.set_shader_parameter ("TrailColor", COLOR_ATLAS_RESOURCE.GetColor(color))
+
+
 func OnDestroy():
 	animPlayer.play("Burst")
 	await animPlayer.animation_finished

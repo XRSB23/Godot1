@@ -20,75 +20,14 @@ var astar = AStar2D.new()
 @onready var bubble_container = $BubbleContainer
 @onready var destroy_container = $DestroyContainer
 @onready var camera : CameraController = $CameraSystem/Camera2D
-const COLOR_ATLAS_RESOURCE = preload("res://Resources/ColorAtlas_Resource.tres")
+
 
 
 func _ready():
 	init_level_buttons()
 	set_neighbors_coord(cell_size)
 
-func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
-	var empty_cells = get_neighbors(grid_bubble,level_data.BubbleColor.Empty)
-	var closest_empty_cell
-	var magnitude
-	for empty_cell in empty_cells :
-		var l : Vector2 = projectile.position - empty_cell
-		if magnitude == null or l.length_squared() < magnitude :
-			magnitude = l.length_squared()
-			closest_empty_cell = empty_cell
-	projectile.position = closest_empty_cell
-	grid_data[projectile.position] = projectile
-	connect_astar(projectile.position)
-	projectile.trail.enabled = false
-	sling.trajectory_preview.UpdateGhost()
-	await process_destruction(get_cells_to_destroy(projectile)) # Necessary (for now) to wait until all destroyed bubble are queue_free() until we check for remaining colors in level
-	sling.GetCurrentColorsInLevel()
-	await sling.UpdateColorMenu() # Await for instance process to be done before opening menu, else can have menu problems
-	if sling.current_colors.size() > 1 : sling.color_select_menu.Open()
-	else : sling.load_ball()
-
-func process_destruction(cells):
-	if cells.size()>= 3 :
-		for cell in cells : #Remove from Bubble container so SelectBubbleMenu doesn't haveto wait for ball.queue free to detect remaining colors
-			grid_data[cell].reparent(destroy_container)
-			
-		for cell in cells :
-			update_astar(cell)
-			grid_data[cell].OnDestroy()
-			await grid_data[cell].animTrigger 
-			grid_data[cell] = null
-		drop_bubbles()
-
-		while destroy_container.get_child_count() > 0 :
-			await get_tree().process_frame
-
-func get_cells_to_destroy(grid_bubble):
-	var cells_to_destroy = {grid_bubble.position : grid_bubble }
-	var cells_to_check : Array[Vector2] = []
-	cells_to_check.append(grid_bubble.position)
-	while cells_to_check.size() >0 :
-		if get_neighbors(grid_data[cells_to_check[0]],grid_data[cells_to_check[0]].color).size() >0:
-			var cell_neighbors = get_neighbors(grid_data[cells_to_check[0]],grid_data[cells_to_check[0]].color)
-			for cell_neighbor in cell_neighbors :
-				if cells_to_destroy.has(cell_neighbor):
-					continue
-				else : 
-					cells_to_destroy[cell_neighbor] =  grid_data[cell_neighbor]
-					cells_to_check.append(cell_neighbor)
-		cells_to_check.remove_at(0)
-	return cells_to_destroy
-
-func get_neighbors(cell : RigidBody2D ,color : level_data.BubbleColor):
-	var neighbors = {}
-	for dir in neighbors_coord:
-		var neighbor
-		if grid_data.has(cell.position + dir):
-			neighbor = grid_data[cell.position + dir]
-		else : continue
-		if color != level_data.BubbleColor.Empty and neighbor != null and neighbor.color == color or color == level_data.BubbleColor.Empty and neighbor == null :
-			neighbors[cell.position + dir] = neighbor
-	return neighbors
-
+#region Init / Load
 func init_level_buttons() :
 	for level in level_data_base.levels :
 		var button = debug_level_button.instantiate()
@@ -109,13 +48,16 @@ func load_level(_level):
 			bubbleInstance.position = levelres.coord[i]
 			bubbleInstance.color = levelres.bubbles[i]
 			bubbleInstance.freeze= true
-			debug_assign_color(bubbleInstance)
+			bubbleInstance.set_color()
 			grid_data[levelres.coord[i]] = bubbleInstance
 	buttons_container.hide()
 	sling.init_sling(attempts)
 	camera.EnableControls(true)
 	astar.clear()
 	set_up_astar(levelres.astar_points , levelres.astar_connections)
+#endregion
+
+#region A*
 
 func set_up_astar(_astarpoints , _astarconnections):
 	var i = 0
@@ -144,14 +86,29 @@ func connect_astar(pos : Vector2):
 func update_astar(_cell_coord : Vector2):
 	var id = astar.get_closest_point(_cell_coord)
 	astar.remove_point(id)
+#endregion
 
-func drop_bubbles():
-	var cell_to_drop = get_cells_to_drop()
-	for cell_coord in cell_to_drop:
-		grid_data[cell_coord].reparent(destroy_container)
-		grid_data[cell_coord].OnDrop()
-		update_astar(cell_coord)
-		grid_data[cell_coord] = null
+#region Grid
+func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
+	var empty_cells = get_neighbors(grid_bubble,level_data.BubbleColor.Empty)
+	var closest_empty_cell
+	var magnitude
+	for empty_cell in empty_cells :
+		var l : Vector2 = projectile.position - empty_cell
+		if magnitude == null or l.length_squared() < magnitude :
+			magnitude = l.length_squared()
+			closest_empty_cell = empty_cell
+	projectile.position = closest_empty_cell
+	grid_data[projectile.position] = projectile
+	connect_astar(projectile.position)
+	projectile.trail.enabled = false
+	sling.trajectory_preview.UpdateGhost()
+	await process_destruction(get_cells_to_destroy(projectile)) # Necessary (for now) to wait until all destroyed bubble are queue_free() until we check for remaining colors in level
+	sling.GetCurrentColorsInLevel()
+	await sling.UpdateColorMenu() # Await for instance process to be done before opening menu, else can have menu problems
+	if sling.current_colors.size() > 1 : sling.color_select_menu.Open()
+	else : sling.load_ball()
+	sling.consumable_menu.Open()
 
 func get_cells_to_drop():
 	var cells_to_drop : Array[Vector2] = []
@@ -172,24 +129,33 @@ func get_cells_to_drop():
 						ids_to_check.remove_at(ids_to_check.find(id))
 	return cells_to_drop
 
-func debug_display_hud(a):
-	debug_hud.text = "attempts : " + str(a)
+func get_cells_to_destroy(grid_bubble):
+	var cells_to_destroy = {grid_bubble.position : grid_bubble }
+	var cells_to_check : Array[Vector2] = []
+	cells_to_check.append(grid_bubble.position)
+	while cells_to_check.size() >0 :
+		if get_neighbors(grid_data[cells_to_check[0]],grid_data[cells_to_check[0]].color).size() >0:
+			var cell_neighbors = get_neighbors(grid_data[cells_to_check[0]],grid_data[cells_to_check[0]].color)
+			for cell_neighbor in cell_neighbors :
+				if cells_to_destroy.has(cell_neighbor):
+					continue
+				else : 
+					cells_to_destroy[cell_neighbor] =  grid_data[cell_neighbor]
+					cells_to_check.append(cell_neighbor)
+		cells_to_check.remove_at(0)
+	return cells_to_destroy
 
-func debug_assign_color(_bubble : Bubble):
-	match(_bubble.color):
-		level_data.BubbleColor.Empty: pass
-		level_data.BubbleColor.Red: _bubble.sprite.frame = 1
-		level_data.BubbleColor.Orange: _bubble.sprite.frame = 2
-		level_data.BubbleColor.Yellow: _bubble.sprite.frame = 3
-		level_data.BubbleColor.Green: _bubble.sprite.frame = 4
-		level_data.BubbleColor.Cyan: _bubble.sprite.frame = 5
-		level_data.BubbleColor.Blue: _bubble.sprite.frame = 6
-		level_data.BubbleColor.Purple: _bubble.sprite.frame = 7
-		_: print("Bubble " + _bubble.name + " does not have recognized color") 
+func get_neighbors(cell : RigidBody2D ,color : level_data.BubbleColor):
+	var neighbors = {}
+	for dir in neighbors_coord:
+		var neighbor
+		if grid_data.has(cell.position + dir):
+			neighbor = grid_data[cell.position + dir]
+		else : continue
+		if color != level_data.BubbleColor.Empty and neighbor != null and neighbor.color == color or color == level_data.BubbleColor.Empty and neighbor == null :
+			neighbors[cell.position + dir] = neighbor
+	return neighbors
 	
-	_bubble.particleSystem.Init(_bubble.color)
-	_bubble.trail.material.set_shader_parameter ("TrailColor", COLOR_ATLAS_RESOURCE.GetColor(_bubble.color))
-
 func set_neighbors_coord(v : Vector2):
 	neighbors_coord.append(Vector2(v.x,0))
 	neighbors_coord.append(Vector2(-v.x,0))
@@ -199,3 +165,34 @@ func set_neighbors_coord(v : Vector2):
 	neighbors_coord.append(Vector2(-x,y))
 	neighbors_coord.append(Vector2(x,-y))
 	neighbors_coord.append(Vector2(-x,-y))
+
+#endregion
+
+#region Destruction
+func process_destruction(cells):
+	if cells.size()>= 3 :
+		for cell in cells : #Remove from Bubble container so SelectBubbleMenu doesn't haveto wait for ball.queue free to detect remaining colors
+			grid_data[cell].reparent(destroy_container)
+			
+		for cell in cells :
+			update_astar(cell)
+			grid_data[cell].OnDestroy()
+			await grid_data[cell].animTrigger 
+			grid_data[cell] = null
+		drop_bubbles()
+
+		while destroy_container.get_child_count() > 0 :
+			await get_tree().process_frame
+
+func drop_bubbles():
+	var cell_to_drop = get_cells_to_drop()
+	for cell_coord in cell_to_drop:
+		grid_data[cell_coord].reparent(destroy_container)
+		grid_data[cell_coord].OnDrop()
+		update_astar(cell_coord)
+		grid_data[cell_coord] = null
+#endregion
+
+
+func debug_display_hud(a):
+	debug_hud.text = "attempts : " + str(a)

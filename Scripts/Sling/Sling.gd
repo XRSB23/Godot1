@@ -1,11 +1,12 @@
 extends Node2D
 
 #region Variables
-var bubble_prefab = preload("res://scenes/bubble.tscn")
+
 @onready var game_scene = $".."
 @onready var bubble_container = $"../BubbleContainer"
 @onready var trajectory_preview : TrajectoryPreview = $TrajectoryPreview 
 @onready var color_select_menu = $ColorSelectMenu
+@onready var consumable_menu = $ConsumableMenu
 
 var touch_points : Dictionary = {} #To track multiple fingers input, used as Dynamic Array
 var start_point = Vector2.ZERO
@@ -14,6 +15,16 @@ var scaled_v
 var balls_amount : int
 var ball
 var valid_shot : bool
+
+@export_group("Prefabs")
+## List of the bubble prefabs, Visible in inspector so no need to add/remove preload in script. [br]
+## Order : [br]
+## 0 = Default [br]
+## 1 = Explosive [br]
+## 2 = Paint [br]
+## 3 = Bonucy [br]
+@export var bubble_prefabs : Array[PackedScene] 
+
 
 @export_group("Shooting")
 @export var trajectory_mode : TrajectoryPreview.MODE = TrajectoryPreview.MODE.VECTOR
@@ -32,8 +43,17 @@ var is_dragging : bool = false
 @export var display_drag_vector : bool
 @export var gizmo_color : Color = Color("05ff2c", 1)
 @export var line_width : float = 1
+
+@export var infinite_consumables : bool = false :
+	set(value) :
+		infinite_consumables = value
+		if consumable_menu != null && consumable_menu.get_child_count() > 0 :
+			for child in consumable_menu :
+				if child is ConsumableMenu_Button : child.infinite = value
+			
 var debug_drag_start : Vector2
 var debug_drag_end : Vector2
+
 
 #endregion
 
@@ -44,6 +64,7 @@ func _draw():
 func _process(_delta):
 	queue_redraw()
 
+#region Input
 func _input(event):
 	if ball && ball.is_dragging :
 		if event is InputEventScreenTouch :
@@ -58,6 +79,7 @@ func HandleTouch(event):
 	else:
 		if !is_dragging:
 			if current_colors.size() > 1 : color_select_menu.Open()
+			consumable_menu.Open()
 		else : 
 			is_dragging = false
 			
@@ -83,6 +105,9 @@ func HandleDrag(event):
 		
 		if valid_shot : trajectory_preview.Display(trajectory_mode, scaled_v, shoot_strength)
 		else : trajectory_preview.ClearPreview()
+#endregion
+
+#region Shooting
 
 func cancel_shot() :
 	ball.is_dragging = false
@@ -94,12 +119,17 @@ func shoot_ball(v : Vector2):
 	trajectory_preview.ClearPreview()
 	trajectory_preview.last_v = v
 	ball = null
+	if consumable_menu.selected_item != null :
+		consumable_menu.selected_item._on_shoot()
+	if consumable_menu.get_child(0).activated :
+		consumable_menu.get_child(0)._on_shoot()
 
 func init_sling(attempts:int):
 	GetCurrentColorsInLevel()
 	UpdateColorMenu()
 	if current_colors.size() > 1 : color_select_menu.Open()
 	else : load_ball()
+	consumable_menu.Open()
 	balls_amount = attempts
 	
 func load_ball():
@@ -107,28 +137,48 @@ func load_ball():
 	if current_colors.size() == 0 :
 		return
 	
-	ball = bubble_prefab.instantiate()
+	ball = bubble_prefabs[0].instantiate()
 	bubble_container.call_deferred("add_child",ball)
 	ball.set_global_position(position)
 	ball.set_ball_launchable(true)
 	if current_colors.size() > 1 : ball.color = color_select_menu.selected_item.color
 	else : ball.color = current_colors[0]
 	ball.game_scene = game_scene
-	game_scene.call_deferred("debug_assign_color",ball)
+	ball.call_deferred("set_color")
 	balls_amount -= 1
 	game_scene.debug_display_hud(balls_amount)
 
+func load_consumable(color  : level_data.BubbleColor  ):
+
+	match consumable_menu.selected_item.name :
+		"Explosive" : ball = bubble_prefabs[1].instantiate()
+		"Paint" : ball = bubble_prefabs[2].instantiate()
+		"Bouncy" : ball = bubble_prefabs[3].instantiate()
+		_: pass
+	
+	bubble_container.call_deferred("add_child",ball)
+	ball.set_global_position(position)
+	ball.set_ball_launchable(true)
+
+	if color != null && color != 0:
+		ball.color = color
+
+	ball.game_scene = game_scene
+	ball.call_deferred("set_color")
+	balls_amount -= 1
+	game_scene.debug_display_hud(balls_amount)
+	
+	
+	
 #func RandColor():								Not Used For Now, Keeping it Commented in case we need it later
 	#var r = randi_range(1,7)
 	#var colors = level_data.BubbleColor.values()
 	#return colors[r]
 
-func _on_dead_zone(body):
-	body.queue_free()
-	if current_colors.size() > 1 : color_select_menu.Open()
-	else : load_ball()
-	trajectory_preview.UpdateGhost()
 
+#endregion
+
+#region ColorSelect Menu
 func GetCurrentColorsInLevel():
 	current_colors.clear()
 	for bubble : Bubble in bubble_container.get_children() :
@@ -136,6 +186,8 @@ func GetCurrentColorsInLevel():
 			current_colors.append(bubble.color)
 
 func UpdateColorMenu():
+	
+	# Update Color Array
 	var button_array : Array = []
 	for button : BubbleSelectMenu_Button in color_select_menu.get_children():
 		if button_array.find(button.color) == -1 :
@@ -143,31 +195,74 @@ func UpdateColorMenu():
 	var button_color_array : Array = []
 	for button : BubbleSelectMenu_Button in button_array :
 		button_color_array.append(button.color)
+		
+	
+	
 	await get_tree().process_frame
 	
 	#Instantiate Pass
-	#If color is in current colors but not in array, add color button instance
+	#If color is in current colors but not in menu array, add color button instance
 	for i in current_colors.size():
 		if button_color_array.find(current_colors[i]) == -1 :
-			var instance = button_prefab.instantiate()
-			color_select_menu.add_child(instance)
-			instance.set_color(current_colors[i])
-			instance.size = color_select_menu.child_size
-	
+			InstantiateMenuButton(current_colors[i])
 	
 	#Remove Pass
-	#If color is in array but not in current colors, remove color instance
+	#If color is in menu array but not in current colors, remove color instance
 	for i in button_color_array.size():
 		if current_colors.find(button_color_array[i]) == -1:
 			button_array[i].Destroy()
+		#elif temp_inventory[button_color_array[i]] <= 0 :
+			#button_array[i].Destroy()
 	
 	await get_tree().process_frame
 
+func InstantiateMenuButton(color):
+	var instance = button_prefab.instantiate()
+	color_select_menu.add_child(instance)
+	instance.set_color(color)
+	instance.size = color_select_menu.child_size
+
+#endregion
+
+#region Signals
+
+func _on_dead_zone(body):
+	body.queue_free()
+	if current_colors.size() > 1 : color_select_menu.Open()
+	else : load_ball()
+	consumable_menu.Open()
+	trajectory_preview.UpdateGhost()
+
 func _on_color_select_menu_color_picked():
-	load_ball()
+	if consumable_menu.selected_item != null && consumable_menu.selected_item.name == "Paint" : 
+		load_consumable(color_select_menu.selected_item.color)
+	else : load_ball()
 
 func _on_color_select_menu_opened():
 	if ball != null :
 		var temp = ball
 		ball = null
 		temp.queue_free()
+
+func _on_precision_shot_set_aim_mode(mode):
+	trajectory_mode = mode
+
+func _on_explosive_on_selected():
+	consumable_menu.CloseFade()
+	await color_select_menu.CloseFade()
+	load_consumable(level_data.BubbleColor.Empty)
+
+func _on_bouncy_on_selected():
+	consumable_menu.CloseFade()
+	await color_select_menu.CloseFade()
+	load_consumable(level_data.BubbleColor.Empty)
+
+func _on_paint_color_menu_change_icon(b):
+	for child : BubbleSelectMenu_Button in color_select_menu.get_children() :
+		child.is_paint_mode = b
+
+
+#endregion
+
+
+

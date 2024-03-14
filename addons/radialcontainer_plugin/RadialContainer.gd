@@ -17,10 +17,12 @@ class_name RadialContainer
 @export var point_size : float = 3
 
 @export_group("Animation")
+@export var open_delay : float = 0
 @export var cell_open_tween_duration : float = 0.35
 @export var next_cell_delay : float = 0.05
-@export var selected_close_speed : float = 0.3
-@export var not_selected_close_speed : float = 0.01
+@export var selected_close_lerp_speed : float = 0.3
+@export var not_selected_close_lerp_speed : float = 0.01
+@export var close_fade_speed : float = 0.2
 
 @export_group("Shape")
 @export var max_radius : float = 100
@@ -47,6 +49,7 @@ var selected_item : BaseButton
 
 signal opened() 
 signal color_picked()
+signal close_other_menu()
 
 
 #endregion
@@ -120,6 +123,8 @@ func DrawPoints():
 
 func Open():
 	
+	selected_item = null
+	if open_delay > 0 : await get_tree().create_timer(open_delay).timeout
 	opened.emit()
 	
 	await get_tree().process_frame
@@ -133,27 +138,37 @@ func Open():
 
 	EnableMenu(true)
 
-func Close():
+func CloseLerp():
+	EnableMenu(false)
 	var not_selected : Array[Node] = []
 	var tween = create_tween()
 	tween.set_parallel(true)
 	
 	if selected_item == null :
 		for child in get_children():
-			tween.tween_property(child,"modulate", Color(1,1,1,0), not_selected_close_speed)
+			tween.tween_property(child,"modulate", Color(1,1,1,0), not_selected_close_lerp_speed)
 	else :
 		for child in get_children() :
 			if child != selected_item :
 				not_selected.append(child)
 	
 		for item in not_selected :
-			tween.tween_property(item,"modulate", Color(1,1,1,0), not_selected_close_speed)
-		tween.tween_property(selected_item,"position", position - child_size/2, selected_close_speed).from(selected_item.position).set_trans(Tween.TRANS_EXPO)
+			tween.tween_property(item,"modulate", Color(1,1,1,0), not_selected_close_lerp_speed)
+		tween.tween_property(selected_item,"position", position - child_size/2, selected_close_lerp_speed).from(selected_item.position).set_trans(Tween.TRANS_EXPO)
 		
 		await tween.finished
-		color_picked.emit()
 		selected_item.modulate = Color(1,1,1,0)
-		EnableMenu(false)
+		
+
+func CloseFade():
+	EnableMenu(false)
+	var tween = create_tween()
+	tween.set_parallel(true)
+	
+	for child in get_children():
+			tween.tween_property(child,"modulate", Color(1,1,1,0), close_fade_speed)
+
+	await tween.finished
 
 func LerpAnim():
 	for i in get_child_count() :
@@ -175,5 +190,5 @@ func ChildLerp(child_index : int):
 	
 func EnableMenu(b: bool = true):
 	mouse_filter = 0 if b else 2
-	for child : BubbleSelectMenu_Button in get_children():
+	for child : BaseButton in get_children():
 		child.mouse_filter = 0 if b else 2
