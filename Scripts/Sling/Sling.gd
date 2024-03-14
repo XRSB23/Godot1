@@ -236,7 +236,6 @@ func _on_dead_zone(body):
 func _on_color_select_menu_color_picked():
 	if consumable_menu.selected_item != null && consumable_menu.selected_item.name == "Paint" : 
 		load_consumable(color_select_menu.selected_item.color)
-		consumable_menu.selected_item.colorMenu_changeIcon.emit(consumable_menu.selected_item.activated)
 	else : load_ball()
 
 func _on_color_select_menu_opened():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=35 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraController.gd" id="2_3irfh"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://addons/radialcontainer_plugin/RadialContainer.gd" id="14_rlae7"]
 [ext_resource type="Texture2D" uid="uid://cidpr1r1yncti" path="res://Art/Bubble/[Temp]SpecialBubbles.svg" id="20_ea2a7"]
 [ext_resource type="Script" path="res://Scripts/Sling/UI/PrecisionShot_Button.gd" id="21_jg6jn"]
+[ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="22_84js7"]
 [ext_resource type="Script" path="res://Scripts/Sling/UI/BasicConsumable_Button.gd" id="22_250y0"]
 [ext_resource type="Texture2D" uid="uid://cmgpiua27cw6f" path="res://Art/Bubble/[Temp]PaintBubbles.svg" id="23_ydgk4"]
 [ext_resource type="Script" path="res://Scripts/Sling/UI/Paint_Button.gd" id="24_hn7nd"]
@@ -212,11 +213,18 @@ child_size = Vector2(100, 100)
 
 [node name="Precision Shot" type="TextureButton" parent="Sling/ConsumableMenu"]
 modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = -238.597
-offset_top = -228.972
-offset_right = -138.597
-offset_bottom = -128.972
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -258.597
+offset_top = -248.972
+offset_right = -158.597
+offset_bottom = -148.972
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = SubResource("AtlasTexture_4b013")
 ignore_texture_size = true
 stretch_mode = 0
@@ -231,6 +239,14 @@ offset_left = -40.0
 offset_bottom = 23.0
 grow_horizontal = 0
 horizontal_alignment = 2
+
+[node name="Highlight" type="Sprite2D" parent="Sling/ConsumableMenu/Precision Shot"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 0.941176, 0.243137, 1)
+z_index = -1
+position = Vector2(50, 50)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("22_84js7")
 
 [node name="Explosive" type="TextureButton" parent="Sling/ConsumableMenu"]
 modulate = Color(1, 1, 1, 0)
@@ -275,6 +291,14 @@ offset_left = -40.0
 offset_bottom = 23.0
 grow_horizontal = 0
 horizontal_alignment = 2
+
+[node name="Highlight" type="Sprite2D" parent="Sling/ConsumableMenu/Paint"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 0.941176, 0.243137, 1)
+z_index = -1
+position = Vector2(50, 50)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("22_84js7")
 
 [node name="Bouncy" type="TextureButton" parent="Sling/ConsumableMenu"]
 modulate = Color(1, 1, 1, 0)
