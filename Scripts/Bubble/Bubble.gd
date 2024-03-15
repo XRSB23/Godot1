@@ -10,6 +10,10 @@ var game_scene
 @onready var trail : Trail2D = $Trail2D
 const COLOR_ATLAS_RESOURCE = preload("res://Resources/ColorAtlas_Resource.tres")
 
+enum BubbleType{Normal,Explosive,Paint}
+@export var bubble_type : BubbleType
+@export var effect_radius : int
+
 var color : level_data.BubbleColor
 var is_dragging : bool = false
 var shot_v : Vector2 = Vector2.ZERO 
