@@ -118,6 +118,7 @@ func shoot_ball(v : Vector2):
 	ball.shot_v = v*shoot_strength
 	trajectory_preview.ClearPreview()
 	trajectory_preview.last_v = v
+	ball.OnShoot()
 	ball = null
 	if consumable_menu.selected_item != null :
 		consumable_menu.selected_item._on_shoot()

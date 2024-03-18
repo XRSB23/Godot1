@@ -63,3 +63,6 @@ func AddRandomBump():
 	var angle = deg_to_rad(-90 + randf_range(-30,30))
 	var v = Vector2(cos(angle), sin(angle))
 	shot_v = v * 350
+
+func OnShoot():
+	pass

@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=3 uid="uid://dq26grx5lu6hr"]
 
-[ext_resource type="Script" path="res://Scripts/Bubble/Bubble.gd" id="1_vcntx"]
+[ext_resource type="Script" path="res://Scripts/Bubble/Bubble_Explosive.gd" id="1_cr3aa"]
 [ext_resource type="Texture2D" uid="uid://cyo7nva76v510" path="res://Art/Bubble/SpecialBubbles.svg" id="2_13nqk"]
 [ext_resource type="Script" path="res://Scripts/Bubble/BubbleParticleSystem.gd" id="3_exojv"]
 [ext_resource type="Texture2D" uid="uid://nmrfq7yp27e6" path="res://Art/Bubble/BubbleFrag1_Atlas.tres" id="4_lxe5s"]
@@ -319,14 +319,15 @@ point_count = 2
 [node name="Bubble" type="RigidBody2D"]
 material = SubResource("CanvasItemMaterial_fyk6a")
 collision_mask = 3
-lock_rotation = true
 freeze = true
 continuous_cd = 2
 max_contacts_reported = 1
 contact_monitor = true
 linear_damp_mode = 1
 angular_damp_mode = 1
-script = ExtResource("1_vcntx")
+angular_damp = 0.4
+script = ExtResource("1_cr3aa")
+angular_impulse = 6.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.1, 1.1)
