@@ -2,13 +2,16 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="274.35068"
-   height="274.35068"
-   viewBox="0 0 72.588619 72.588619"
+   width="1024"
+   height="512"
+   viewBox="0 0 270.93334 135.46667"
    version="1.1"
    id="svg1"
+   sodipodi:docname="particleStar4.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
@@ -20,14 +23,105 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:document-units="mm" />
+     inkscape:document-units="px"
+     inkscape:zoom="0.7481301"
+     inkscape:cx="608.85132"
+     inkscape:cy="150.37491"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
   <defs
-     id="defs1" />
+     id="defs1">
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2"
+       id="radialGradient3"
+       cx="67.73333"
+       cy="67.73333"
+       fx="67.73333"
+       fy="67.73333"
+       r="67.733337"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.0574349,0,0,1.0574349,163.01544,27.54877)" />
+    <linearGradient
+       id="linearGradient2"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop3" />
+      <stop
+         style="stop-color:#df8d2b;stop-opacity:0;"
+         offset="1"
+         id="stop2" />
+    </linearGradient>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Feather"
+       id="filter1270"
+       x="-0.031409884"
+       y="-0.031409884"
+       width="1.0628198"
+       height="1.0628198">
+      <feGaussianBlur
+         stdDeviation="0.95"
+         result="blur"
+         id="feGaussianBlur1268" />
+      <feComposite
+         in="SourceGraphic"
+         in2="blur"
+         operator="atop"
+         result="composite1"
+         id="feComposite1268" />
+      <feComposite
+         in2="composite1"
+         operator="in"
+         result="composite2"
+         id="feComposite1269" />
+      <feComposite
+         in2="composite2"
+         operator="in"
+         result="composite3"
+         id="feComposite1270" />
+    </filter>
+  </defs>
   <g
      inkscape:label="Calque 1"
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-31.439025,-31.439025)">
+    <g
+       id="g1227"
+       inkscape:label="StarLit">
+      <ellipse
+         style="fill:url(#radialGradient3);fill-opacity:1;stroke:none;stroke-width:16.7868;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         id="path2-1"
+         cx="234.63902"
+         cy="99.172356"
+         rx="71.623604"
+         ry="71.623589"
+         inkscape:label="Backlight" />
+      <path
+         sodipodi:type="star"
+         style="fill:#ffffff;stroke:none;stroke-width:0.565;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter1270)"
+         id="path1223"
+         inkscape:flatsided="false"
+         sodipodi:sides="4"
+         sodipodi:cx="71.265533"
+         sodipodi:cy="71.627281"
+         sodipodi:r1="36.294308"
+         sodipodi:r2="4.7017198"
+         sodipodi:arg1="1.5707963"
+         sodipodi:arg2="2.3561945"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 71.265534,107.92159 -3.324619,-32.969691 -32.969689,-3.324617 32.96969,-3.324619 3.324616,-32.96969 3.324619,32.96969 32.969689,3.324617 -32.969689,3.324619 z"
+         transform="matrix(1.8662247,0,0,1.8662247,101.64153,-34.500242)"
+         inkscape:label="path2" />
+    </g>
     <path
        sodipodi:type="star"
        style="fill:#ffffff;stroke:none;stroke-width:0.565;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
@@ -43,6 +137,7 @@
        inkscape:rounded="0"
        inkscape:randomized="0"
        d="m 71.265534,107.92159 -3.324619,-32.969691 -32.969689,-3.324617 32.96969,-3.324619 3.324616,-32.96969 3.324619,32.96969 32.969689,3.324617 -32.969689,3.324619 z"
-       transform="translate(-3.5322001,-3.8939479)" />
+       transform="matrix(1.8662247,0,0,1.8662247,-33.825142,-34.500242)"
+       inkscape:label="StarSimple" />
   </g>
 </svg>

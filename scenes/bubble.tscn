@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bkohxp01r1a8b"]
+[gd_scene load_steps=23 format=3 uid="uid://bkohxp01r1a8b"]
 
 [ext_resource type="Script" path="res://Scripts/Bubble/Bubble.gd" id="1_dxulh"]
 [ext_resource type="Texture2D" uid="uid://bwkmcghulkf8v" path="res://Art/Bubble/Bubbles.svg" id="3_05uyp"]
@@ -25,6 +25,10 @@ radius = 52.0384
 [sub_resource type="Curve" id="Curve_t2dma"]
 _data = [Vector2(0.59322, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.30981, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4h4d"]
+atlas = ExtResource("8_4k1bp")
+region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5v3if"]
 resource_local_to_scene = true
@@ -318,7 +322,7 @@ z_index = -1
 emitting = false
 amount = 3
 lifetime = 0.3
-texture = ExtResource("8_4k1bp")
+texture = SubResource("AtlasTexture_f4h4d")
 emission_shape = 1
 emission_sphere_radius = 40.0
 gravity = Vector2(0, 100)
