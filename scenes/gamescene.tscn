@@ -47,19 +47,19 @@ radius = 182.552
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4b013"]
 atlas = ExtResource("20_ea2a7")
-region = Rect2(0, 0, 512, 512)
+region = Rect2(0, 0, 102.4, 102.4)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_npc1t"]
 atlas = ExtResource("20_ea2a7")
-region = Rect2(512, 0, 512, 512)
+region = Rect2(102.4, 0, 102.4, 102.4)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g5k66"]
 atlas = ExtResource("23_ydgk4")
-region = Rect2(0, 0, 512, 512)
+region = Rect2(0, 0, 102.4, 102.4)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hp26e"]
 atlas = ExtResource("20_ea2a7")
-region = Rect2(1024, 0, 512, 512)
+region = Rect2(204.8, 0, 102.4, 102.4)
 
 [node name="Gamescene" type="Node2D"]
 script = ExtResource("1_scxi1")
@@ -69,7 +69,7 @@ cell_size = Vector2(106, 116)
 
 [node name="Camera2D" type="Camera2D" parent="CameraSystem"]
 position = Vector2(0, 28)
-zoom = Vector2(3.83, 3.83)
+zoom = Vector2(0.375, 0.375)
 limit_left = -1823
 limit_top = -1838
 limit_right = 4143
