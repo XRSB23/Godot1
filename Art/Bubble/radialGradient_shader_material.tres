@@ -3,10 +3,11 @@
 [ext_resource type="Shader" uid="uid://dgkmkibxae257" path="res://Art/Bubble/radialGradient_Shader.tres" id="1_d56cp"]
 
 [resource]
+resource_local_to_scene = true
 shader = ExtResource("1_d56cp")
 shader_parameter/ColorEdge = Color(1, 0.65098, 0.204057, 1)
 shader_parameter/ColorCenter = Color(1, 1, 1, 1)
 shader_parameter/Center = Vector2(0.5, 0.5)
-shader_parameter/Strength = 4.62
-shader_parameter/GradientFront = 0.0
-shader_parameter/Size = 4.905
+shader_parameter/Strength = 4.3091
+shader_parameter/GradientFront = 1.0
+shader_parameter/Size = 5.03639

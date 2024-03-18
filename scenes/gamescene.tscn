@@ -69,7 +69,7 @@ cell_size = Vector2(106, 116)
 
 [node name="Camera2D" type="Camera2D" parent="CameraSystem"]
 position = Vector2(0, 28)
-zoom = Vector2(0.375, 0.375)
+zoom = Vector2(3.83, 3.83)
 limit_left = -1823
 limit_top = -1838
 limit_right = 4143

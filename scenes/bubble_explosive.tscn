@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dq26grx5lu6hr"]
+[gd_scene load_steps=30 format=3 uid="uid://dq26grx5lu6hr"]
 
 [ext_resource type="Script" path="res://Scripts/Bubble/Bubble.gd" id="1_vcntx"]
 [ext_resource type="Texture2D" uid="uid://cyo7nva76v510" path="res://Art/Bubble/SpecialBubbles.svg" id="2_13nqk"]
@@ -239,12 +239,78 @@ tracks/6/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ParticleSystem/FuzeLight:material:shader_parameter/Size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ParticleSystem/FuzeLight:material:shader_parameter/Strength")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.3]
+}
+
+[sub_resource type="Animation" id="Animation_bgloi"]
+resource_name = "Idle"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ParticleSystem/FuzeLight:material:shader_parameter/Size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.25, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [5.0, 5.3, 5.0, 5.3, 5.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ParticleSystem/FuzeLight:material:shader_parameter/Strength")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [4.3, 4.4, 4.3]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mqw2o"]
 _data = {
 "Burst": SubResource("Animation_miwir"),
+"Idle": SubResource("Animation_bgloi"),
 "RESET": SubResource("Animation_b0ysj")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pufme"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ueyhq"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1h67s"]
+states/Idle/node = SubResource("AnimationNodeAnimation_pufme")
+states/Idle/position = Vector2(329, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ueyhq")]
 
 [sub_resource type="Curve" id="Curve_ulcjw"]
 _data = [Vector2(0, 1), 0.0, -0.151722, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -405,6 +471,13 @@ angle_max = 720.0
 scale_amount_min = 0.01
 scale_amount_max = 0.03
 scale_amount_curve = SubResource("Curve_xrkiq")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mqw2o")
+}
+tree_root = SubResource("AnimationNodeStateMachine_1h67s")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
