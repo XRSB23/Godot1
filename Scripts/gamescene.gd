@@ -93,6 +93,10 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	var empty_cells = get_neighbors(grid_bubble,level_data.BubbleColor.Empty)
 	var closest_empty_cell
 	var magnitude
+	if empty_cells == null :
+		projectile.OnDrop()
+		reset_sling()
+		return
 	for empty_cell in empty_cells :
 		var l : Vector2 = projectile.position - empty_cell
 		if magnitude == null or l.length_squared() < magnitude :
@@ -110,6 +114,9 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 			proc_radius_effect(projectile,projectile.position,'Explosive')
 		projectile.BubbleType.Paint:
 			proc_radius_effect(projectile,projectile.position,'Paint')
+	reset_sling()
+
+func reset_sling():
 	sling.GetCurrentColorsInLevel()
 	await sling.UpdateColorMenu() # Await for instance process to be done before opening menu, else can have menu problems
 	if sling.current_colors.size() > 1 : sling.color_select_menu.Open()
@@ -118,7 +125,6 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 
 func proc_radius_effect(consumable_bubble : Bubble,grid_pos : Vector2,consumable_type : String):
 	var radius_bubbles = get_cells_in_radius(grid_pos,consumable_bubble.effect_radius)
-	print(radius_bubbles.size())
 	#consumable_bubble.set_color()
 	# ICI POUR CHANGER LA TEXTURE DE LA BUBBLE PAINT !!!
 	if consumable_type == 'Paint':
@@ -146,9 +152,7 @@ func get_cells_in_radius(start_pos : Vector2 , radius_size):
 				var ring_side : Vector2 = ring_peaks_coord[k+1] - ring_peaks_coord[k]
 				ring_cells_coord.append(ring_peaks_coord[k])
 				for x in range(1,i):
-					print(float(x)/i)
 					ring_cells_coord.append((x * ring_side/i) + ring_peaks_coord[k]) 
-	print(ring_cells_coord)
 	for coord in ring_cells_coord:
 		if coord in grid_data and grid_data[coord] != null:
 			radius_cells.append(grid_data[coord])
@@ -195,7 +199,7 @@ func get_neighbors(cell : RigidBody2D ,color : level_data.BubbleColor):
 		var neighbor
 		if grid_data.has(cell.position + dir):
 			neighbor = grid_data[cell.position + dir]
-		else : continue
+		else : return null
 		if color != level_data.BubbleColor.Empty and neighbor != null and neighbor.color == color or color == level_data.BubbleColor.Empty and neighbor == null :
 			neighbors[cell.position + dir] = neighbor
 	return neighbors
