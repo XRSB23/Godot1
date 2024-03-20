@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5lcvkvdrdlvy"]
+[gd_scene load_steps=12 format=3 uid="uid://c5lcvkvdrdlvy"]
 
 [ext_resource type="PackedScene" uid="uid://bkohxp01r1a8b" path="res://scenes/bubble.tscn" id="1_lr38r"]
 [ext_resource type="Texture2D" uid="uid://bwkmcghulkf8v" path="res://Art/Bubble/Bubbles.svg" id="2_jtywa"]
@@ -30,11 +30,19 @@ shader = ExtResource("4_3hkuu")
 shader_parameter/TrailColor = Color(1, 1, 1, 1)
 shader_parameter/TrailTexture = ExtResource("5_2n2kl")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_07rvs"]
+radius = 59.6657
+
 [node name="Bubble" instance=ExtResource("1_lr38r")]
+bubble_type = 3
+destroy_amount = 5
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_rsue2")
 frame = 2
+
+[node name="CollisionShape2D" parent="." index="1"]
+disabled = true
 
 [node name="Fragment1" parent="ParticleSystem" index="0"]
 texture = SubResource("AtlasTexture_pv74n")
@@ -47,3 +55,10 @@ material = SubResource("CanvasItemMaterial_qq52e")
 
 [node name="Trail2D" parent="." index="4"]
 material = SubResource("ShaderMaterial_383xp")
+
+[node name="DestructionArea" type="Area2D" parent="." index="5"]
+
+[node name="DestructionAreaShape" type="CollisionShape2D" parent="DestructionArea" index="0"]
+shape = SubResource("CircleShape2D_07rvs")
+
+[connection signal="body_entered" from="DestructionArea" to="." method="_on_destruction_area_body_entered"]

@@ -10,6 +10,13 @@ var game_scene
 @onready var trail : Trail2D = $Trail2D
 const COLOR_ATLAS_RESOURCE = preload("res://Resources/ColorAtlas_Resource.tres")
 
+enum BubbleType{Normal,Explosive,Paint,Metal}
+@export var bubble_type : BubbleType
+@export var effect_radius : int
+@export var destroy_amount : int
+var destroyed_by_metal  = []
+var metal_collider
+
 var color : level_data.BubbleColor
 var is_dragging : bool = false
 var shot_v : Vector2 = Vector2.ZERO 
@@ -18,6 +25,9 @@ signal animTrigger()
 func emitAnimTrigger():
 	animTrigger.emit()
 
+func _ready():
+	if bubble_type == BubbleType.Metal:
+		metal_collider = $DestructionArea/DestructionAreaShape
 
 func _physics_process(delta):
 	if shot_v != Vector2.ZERO :
@@ -63,3 +73,16 @@ func AddRandomBump():
 	var angle = deg_to_rad(-90 + randf_range(-30,30))
 	var v = Vector2(cos(angle), sin(angle))
 	shot_v = v * 350
+
+
+func _on_destruction_area_body_entered(body):
+	destroyed_by_metal.append(body.position)
+	destroy_amount -= 1
+	if destroy_amount == 0:
+		metal_collider.disabled = true
+		game_scene.process_destruction(destroyed_by_metal)
+		game_scene.reset_sling()
+		OnDestroy()
+
+
+
