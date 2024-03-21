@@ -10,3 +10,4 @@ func OnShoot():
 func OnHit():
 	var radius_bubbles = game_scene.get_cells_in_radius(position, effect_radius)
 	game_scene.paint_radius(radius_bubbles, color)
+	game_scene.explosive_radius([self])
