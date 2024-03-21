@@ -1,6 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://c3w1tltsk73hb"]
+[gd_scene load_steps=24 format=3 uid="uid://c3w1tltsk73hb"]
 
-[ext_resource type="Script" path="res://Scripts/Bubble/Bubble.gd" id="1_2shnb"]
+[ext_resource type="Script" path="res://Scripts/Bubble/Bubble_Metal.gd" id="1_h3sip"]
 [ext_resource type="Texture2D" uid="uid://cyo7nva76v510" path="res://Art/Bubble/SpecialBubbles.svg" id="2_qkcxu"]
 [ext_resource type="Script" path="res://Scripts/Bubble/BubbleParticleSystem.gd" id="3_5ava5"]
 [ext_resource type="Texture2D" uid="uid://nmrfq7yp27e6" path="res://Art/Bubble/BubbleFrag1_Atlas.tres" id="4_q1arc"]
@@ -241,6 +241,9 @@ _data = {
 _data = [Vector2(0, 1), 0.0, -0.151722, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6auqj"]
+radius = 59.6657
+
 [node name="Bubble" type="RigidBody2D"]
 material = SubResource("CanvasItemMaterial_fyk6a")
 collision_mask = 3
@@ -251,7 +254,9 @@ max_contacts_reported = 1
 contact_monitor = true
 linear_damp_mode = 1
 angular_damp_mode = 1
-script = ExtResource("1_2shnb")
+script = ExtResource("1_h3sip")
+destroy_amount = 10
+is_basic = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_qkcxu")
@@ -384,6 +389,12 @@ script = ExtResource("12_vllgc")
 max_length = 50
 min_velocity = 0.5
 
+[node name="DestructionArea" type="Area2D" parent="."]
+
+[node name="DestructionAreaShape" type="CollisionShape2D" parent="DestructionArea"]
+shape = SubResource("CircleShape2D_6auqj")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="body_entered" from="DestructionArea" to="." method="_on_destruction_area_body_entered"]

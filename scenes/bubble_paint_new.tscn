@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://cko1bo128vv83"]
 
-[ext_resource type="Script" path="res://Scripts/Bubble/Bubble.gd" id="1_lgte0"]
+[ext_resource type="Script" path="res://Scripts/Bubble/Bubble_Paint.gd" id="1_82h1v"]
 [ext_resource type="Texture2D" uid="uid://cmgpiua27cw6f" path="res://Art/Bubble/[Temp]PaintBubbles.svg" id="2_umlni"]
 [ext_resource type="Script" path="res://Scripts/Bubble/BubbleParticleSystem.gd" id="3_mpbsp"]
 [ext_resource type="Texture2D" uid="uid://nmrfq7yp27e6" path="res://Art/Bubble/BubbleFrag1_Atlas.tres" id="4_ivs3i"]
@@ -251,7 +251,9 @@ max_contacts_reported = 1
 contact_monitor = true
 linear_damp_mode = 1
 angular_damp_mode = 1
-script = ExtResource("1_lgte0")
+script = ExtResource("1_82h1v")
+effect_radius = 4
+is_basic = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)

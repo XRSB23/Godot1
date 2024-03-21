@@ -10,12 +10,13 @@ var game_scene
 @onready var trail : Trail2D = $Trail2D
 const COLOR_ATLAS_RESOURCE = preload("res://Resources/ColorAtlas_Resource.tres")
 
-enum BubbleType{Normal,Explosive,Paint,Metal}
-@export var bubble_type : BubbleType
-@export var effect_radius : int
-@export var destroy_amount : int
-var destroyed_by_metal  = []
-var metal_collider
+@export var is_basic : bool = true
+#enum BubbleType{Normal,Explosive,Paint,Metal}
+#@export var bubble_type : BubbleType
+#@export var effect_radius : int
+#@export var destroy_amount : int
+#var destroyed_by_metal  = []
+#var metal_collider
 
 var color : level_data.BubbleColor
 var is_dragging : bool = false
@@ -25,9 +26,9 @@ signal animTrigger()
 func emitAnimTrigger():
 	animTrigger.emit()
 
-func _ready():
-	if bubble_type == BubbleType.Metal:
-		metal_collider = $DestructionArea/DestructionAreaShape
+#func _ready():
+	#if bubble_type == BubbleType.Metal:
+		#metal_collider = $DestructionArea/DestructionAreaShape
 
 func _physics_process(delta):
 	if shot_v != Vector2.ZERO :
@@ -80,24 +81,28 @@ func AddRandomBump():
 	var v = Vector2(cos(angle), sin(angle))
 	shot_v = v * 350
 
-func on_metal_end_effect():
-	#CALL QD PLUS DE CHARGE METAL ET QUAND BILLE METAL DANS DEADZONE
-	OnDestroy()
-	game_scene.drop_bubbles()
-	game_scene.reset_sling()
+#func on_metal_end_effect():
+	##CALL QD PLUS DE CHARGE METAL ET QUAND BILLE METAL DANS DEADZONE
+	#OnDestroy()
+	#game_scene.drop_bubbles()
+	#game_scene.reset_sling()
 
-func _on_destruction_area_body_entered(body):
-	var pos = body.position
-	if destroy_amount >0:
-		game_scene.update_astar(pos)
-		body.OnDestroy()
-		destroyed_by_metal.append(pos)
-		game_scene.grid_data[pos] = null
-		destroy_amount -= 1
-	elif destroy_amount==0 :
-		# PLUS DE CHARGE DE DESTROY METAL
-		on_metal_end_effect()
-		destroy_amount -= 1
+#func _on_destruction_area_body_entered(body):
+	#var pos = body.position
+	#if destroy_amount >0:
+		#game_scene.update_astar(pos)
+		#body.OnDestroy()
+		#destroyed_by_metal.append(pos)
+		#game_scene.grid_data[pos] = null
+		#destroy_amount -= 1
+	#elif destroy_amount==0 :
+		## PLUS DE CHARGE DE DESTROY METAL
+		#on_metal_end_effect()
+		#destroy_amount -= 1
 
 func OnShoot():
+	pass
+
+
+func OnHit():
 	pass
