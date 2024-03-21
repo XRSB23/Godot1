@@ -15,7 +15,7 @@ stretch_mode = 0
 script = ExtResource("2_51uo0")
 basic_atlas = ExtResource("1_8tole")
 paint_atlas = ExtResource("3_m84wa")
-spacing = Vector2(512, 512)
+spacing = Vector2(102.4, 102.4)
 hframe = 4
 vframe = 2
 

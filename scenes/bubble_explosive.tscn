@@ -31,8 +31,6 @@ shader_parameter/TrailColor = Color(1, 1, 1, 1)
 shader_parameter/TrailTexture = ExtResource("5_sndxx")
 
 [node name="Bubble" instance=ExtResource("1_qi7kt")]
-bubble_type = 1
-effect_radius = 3
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_8b74o")

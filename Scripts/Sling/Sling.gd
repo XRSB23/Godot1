@@ -118,6 +118,7 @@ func shoot_ball(v : Vector2):
 	ball.shot_v = v*shoot_strength
 	trajectory_preview.ClearPreview()
 	trajectory_preview.last_v = v
+	ball.OnShoot()
 	ball = null
 	if consumable_menu.selected_item != null :
 		consumable_menu.selected_item._on_shoot()
@@ -223,14 +224,15 @@ func InstantiateMenuButton(color):
 #region Signals
 
 func _on_dead_zone(body):
-	if body.bubble_type != Bubble.BubbleType.Metal:
+	if body is Bubble_Metal : #body.bubble_type != Bubble.BubbleType.Metal:
+		body.on_metal_end_effect()
+	else:
 		body.queue_free()
 		if current_colors.size() > 1 : color_select_menu.Open()
 		else : load_ball()
 		consumable_menu.Open()
 		trajectory_preview.UpdateGhost()
-	else:
-		body.on_metal_end_effect()
+		
 
 func _on_color_select_menu_color_picked():
 	if consumable_menu.selected_item != null && consumable_menu.selected_item.name == "Paint" : 

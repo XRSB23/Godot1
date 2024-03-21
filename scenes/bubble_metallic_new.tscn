@@ -1,17 +1,17 @@
-[gd_scene load_steps=23 format=3 uid="uid://bkohxp01r1a8b"]
+[gd_scene load_steps=24 format=3 uid="uid://c3w1tltsk73hb"]
 
-[ext_resource type="Script" path="res://Scripts/Bubble/Bubble.gd" id="1_dxulh"]
-[ext_resource type="Texture2D" uid="uid://bwkmcghulkf8v" path="res://Art/Bubble/Bubbles.svg" id="3_05uyp"]
-[ext_resource type="Script" path="res://Scripts/Bubble/BubbleParticleSystem.gd" id="4_hgmxw"]
-[ext_resource type="Texture2D" uid="uid://nmrfq7yp27e6" path="res://Art/Bubble/BubbleFrag1_Atlas.tres" id="4_uxg0x"]
-[ext_resource type="Script" path="res://Scripts/Bubble/ParticlesAtlasCoordinates.gd" id="6_b4px6"]
-[ext_resource type="Texture2D" uid="uid://uj1201xcuc43" path="res://Art/Bubble/BubbleFrag2_Atlas.tres" id="6_q2q74"]
-[ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/particleStar4.svg" id="8_4k1bp"]
-[ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/trail_shader_material.tres" id="8_bmxv1"]
-[ext_resource type="Script" path="res://Scripts/Bubble/TrailParticles.gd" id="8_se1nf"]
-[ext_resource type="Script" path="res://addons/trail2D_plugin/Trail2D.gd" id="8_x4wus"]
-[ext_resource type="Texture2D" uid="uid://ct0n0s212lh1r" path="res://Art/Bubble/particleStar5.svg" id="10_mviey"]
-[ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="11_uhnul"]
+[ext_resource type="Script" path="res://Scripts/Bubble/Bubble_Metal.gd" id="1_h3sip"]
+[ext_resource type="Texture2D" uid="uid://cyo7nva76v510" path="res://Art/Bubble/SpecialBubbles.svg" id="2_qkcxu"]
+[ext_resource type="Script" path="res://Scripts/Bubble/BubbleParticleSystem.gd" id="3_5ava5"]
+[ext_resource type="Texture2D" uid="uid://nmrfq7yp27e6" path="res://Art/Bubble/BubbleFrag1_Atlas.tres" id="4_q1arc"]
+[ext_resource type="Script" path="res://Scripts/Bubble/ParticlesAtlasCoordinates.gd" id="5_5q7se"]
+[ext_resource type="Texture2D" uid="uid://uj1201xcuc43" path="res://Art/Bubble/BubbleFrag2_Atlas.tres" id="6_1tegu"]
+[ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/particleStar4.svg" id="7_rce60"]
+[ext_resource type="Script" path="res://Scripts/Bubble/TrailParticles.gd" id="8_e5kjr"]
+[ext_resource type="Texture2D" uid="uid://ct0n0s212lh1r" path="res://Art/Bubble/particleStar5.svg" id="9_d2dux"]
+[ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="10_6il74"]
+[ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/trail_shader_material.tres" id="11_t3nit"]
+[ext_resource type="Script" path="res://addons/trail2D_plugin/Trail2D.gd" id="12_vllgc"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fyk6a"]
 particles_animation = true
@@ -27,7 +27,7 @@ _data = [Vector2(0.59322, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.30981, 0.0, 0, 0
 point_count = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4h4d"]
-atlas = ExtResource("8_4k1bp")
+atlas = ExtResource("7_rce60")
 region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5v3if"]
@@ -241,9 +241,14 @@ _data = {
 _data = [Vector2(0, 1), 0.0, -0.151722, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6auqj"]
+radius = 59.6657
+
 [node name="Bubble" type="RigidBody2D"]
+z_index = 1
 material = SubResource("CanvasItemMaterial_fyk6a")
-collision_mask = 3
+collision_layer = 8
+collision_mask = 2
 lock_rotation = true
 freeze = true
 continuous_cd = 2
@@ -251,10 +256,12 @@ max_contacts_reported = 1
 contact_monitor = true
 linear_damp_mode = 1
 angular_damp_mode = 1
-script = ExtResource("1_dxulh")
+script = ExtResource("1_h3sip")
+destroy_amount = 10
+is_basic = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_05uyp")
+texture = ExtResource("2_qkcxu")
 hframes = 4
 vframes = 2
 frame = 1
@@ -264,7 +271,7 @@ visible = false
 shape = SubResource("CircleShape2D_o55xo")
 
 [node name="ParticleSystem" type="Node2D" parent="."]
-script = ExtResource("4_hgmxw")
+script = ExtResource("3_5ava5")
 
 [node name="Fragment1" type="CPUParticles2D" parent="ParticleSystem"]
 z_index = 4
@@ -274,7 +281,7 @@ one_shot = true
 explosiveness = 1.0
 lifetime_randomness = 0.5
 local_coords = true
-texture = ExtResource("4_uxg0x")
+texture = ExtResource("4_q1arc")
 direction = Vector2(0, -2)
 spread = 132.59
 gravity = Vector2(0, 100)
@@ -285,7 +292,7 @@ angular_velocity_max = 360.0
 scale_amount_min = 0.1
 scale_amount_max = 0.15
 scale_amount_curve = SubResource("Curve_t2dma")
-script = ExtResource("6_b4px6")
+script = ExtResource("5_5q7se")
 offset = Vector2(58, 144)
 spacing = Vector2(512, 513)
 hframe = 4
@@ -299,7 +306,7 @@ one_shot = true
 explosiveness = 1.0
 lifetime_randomness = 0.5
 local_coords = true
-texture = ExtResource("6_q2q74")
+texture = ExtResource("6_1tegu")
 direction = Vector2(0, -2)
 spread = 180.0
 gravity = Vector2(0, 100)
@@ -310,7 +317,7 @@ angular_velocity_max = 360.0
 scale_amount_min = 0.08
 scale_amount_max = 0.13
 scale_amount_curve = SubResource("Curve_t2dma")
-script = ExtResource("6_b4px6")
+script = ExtResource("5_5q7se")
 offset = Vector2(109, 165)
 spacing = Vector2(512, 512)
 hframe = 4
@@ -331,7 +338,7 @@ angle_min = -720.0
 angle_max = 720.0
 scale_amount_min = 0.05
 scale_amount_max = 0.15
-script = ExtResource("8_se1nf")
+script = ExtResource("8_e5kjr")
 
 [node name="Stars" type="CPUParticles2D" parent="ParticleSystem"]
 modulate = Color(1, 1, 1, 0.705882)
@@ -344,7 +351,7 @@ one_shot = true
 explosiveness = 1.0
 lifetime_randomness = 1.0
 local_coords = true
-texture = ExtResource("10_mviey")
+texture = ExtResource("9_d2dux")
 emission_shape = 1
 emission_sphere_radius = 50.0
 direction = Vector2(0, 0)
@@ -365,7 +372,7 @@ anim_offset_max = 0.4
 modulate = Color(1, 1, 1, 0)
 z_index = -1
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("11_uhnul")
+texture = ExtResource("10_6il74")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -375,15 +382,22 @@ libraries = {
 [node name="Trail2D" type="Line2D" parent="."]
 top_level = true
 z_index = -2
-material = ExtResource("8_bmxv1")
+material = ExtResource("11_t3nit")
 width = 100.0
 width_curve = SubResource("Curve_ulcjw")
 texture_mode = 2
 joint_mode = 2
-script = ExtResource("8_x4wus")
+script = ExtResource("12_vllgc")
 max_length = 50
 min_velocity = 0.5
+
+[node name="DestructionArea" type="Area2D" parent="."]
+
+[node name="DestructionAreaShape" type="CollisionShape2D" parent="DestructionArea"]
+visible = false
+shape = SubResource("CircleShape2D_6auqj")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="body_entered" from="DestructionArea" to="." method="_on_destruction_area_body_entered"]

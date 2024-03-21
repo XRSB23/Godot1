@@ -1,17 +1,18 @@
-[gd_scene load_steps=23 format=3 uid="uid://bkohxp01r1a8b"]
+[gd_scene load_steps=30 format=3 uid="uid://dq26grx5lu6hr"]
 
-[ext_resource type="Script" path="res://Scripts/Bubble/Bubble.gd" id="1_dxulh"]
-[ext_resource type="Texture2D" uid="uid://bwkmcghulkf8v" path="res://Art/Bubble/Bubbles.svg" id="3_05uyp"]
-[ext_resource type="Script" path="res://Scripts/Bubble/BubbleParticleSystem.gd" id="4_hgmxw"]
-[ext_resource type="Texture2D" uid="uid://nmrfq7yp27e6" path="res://Art/Bubble/BubbleFrag1_Atlas.tres" id="4_uxg0x"]
-[ext_resource type="Script" path="res://Scripts/Bubble/ParticlesAtlasCoordinates.gd" id="6_b4px6"]
-[ext_resource type="Texture2D" uid="uid://uj1201xcuc43" path="res://Art/Bubble/BubbleFrag2_Atlas.tres" id="6_q2q74"]
-[ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/particleStar4.svg" id="8_4k1bp"]
-[ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/trail_shader_material.tres" id="8_bmxv1"]
-[ext_resource type="Script" path="res://Scripts/Bubble/TrailParticles.gd" id="8_se1nf"]
-[ext_resource type="Script" path="res://addons/trail2D_plugin/Trail2D.gd" id="8_x4wus"]
-[ext_resource type="Texture2D" uid="uid://ct0n0s212lh1r" path="res://Art/Bubble/particleStar5.svg" id="10_mviey"]
-[ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="11_uhnul"]
+[ext_resource type="Script" path="res://Scripts/Bubble/Bubble_Explosive.gd" id="1_g4rna"]
+[ext_resource type="Texture2D" uid="uid://cyo7nva76v510" path="res://Art/Bubble/SpecialBubbles.svg" id="2_if3lf"]
+[ext_resource type="Script" path="res://Scripts/Bubble/BubbleParticleSystem.gd" id="3_fbc0j"]
+[ext_resource type="Texture2D" uid="uid://nmrfq7yp27e6" path="res://Art/Bubble/BubbleFrag1_Atlas.tres" id="4_i0qqt"]
+[ext_resource type="Script" path="res://Scripts/Bubble/ParticlesAtlasCoordinates.gd" id="5_n2cmq"]
+[ext_resource type="Texture2D" uid="uid://uj1201xcuc43" path="res://Art/Bubble/BubbleFrag2_Atlas.tres" id="6_v4bau"]
+[ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/particleStar4.svg" id="7_nxtsb"]
+[ext_resource type="Script" path="res://Scripts/Bubble/TrailParticles.gd" id="8_qx7xk"]
+[ext_resource type="Texture2D" uid="uid://ct0n0s212lh1r" path="res://Art/Bubble/particleStar5.svg" id="9_l7ov5"]
+[ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="10_xqpkg"]
+[ext_resource type="Material" uid="uid://cme715qbwu7ky" path="res://Art/Bubble/radialGradient_shader_material.tres" id="11_ky5ra"]
+[ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/trail_shader_material.tres" id="12_vfqm1"]
+[ext_resource type="Script" path="res://addons/trail2D_plugin/Trail2D.gd" id="13_d8a5u"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fyk6a"]
 particles_animation = true
@@ -27,7 +28,7 @@ _data = [Vector2(0.59322, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.30981, 0.0, 0, 0
 point_count = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4h4d"]
-atlas = ExtResource("8_4k1bp")
+atlas = ExtResource("7_nxtsb")
 region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5v3if"]
@@ -39,6 +40,14 @@ particles_anim_loop = false
 
 [sub_resource type="Curve" id="Curve_c3tev"]
 _data = [Vector2(0, 1), 0.0, 1.4, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtiyd"]
+atlas = ExtResource("7_nxtsb")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="Curve" id="Curve_xrkiq"]
+_data = [Vector2(0.624561, 1), 0.0, -0.130272, 0, 0, Vector2(1, 0.629101), -1.51009, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Animation" id="Animation_miwir"]
@@ -129,7 +138,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(0.241, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
+"values": [Vector2(1.1, 1.1), Vector2(1.65, 1.65)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -142,6 +151,36 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(0.637, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bgloi"]
+resource_name = "Idle"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ParticleSystem/FuzeLight:material:shader_parameter/Size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.25, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [5.0, 5.3, 5.0, 5.3, 5.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ParticleSystem/FuzeLight:material:shader_parameter/Strength")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [4.3, 4.4, 4.3]
 }
 
 [sub_resource type="Animation" id="Animation_b0ysj"]
@@ -216,7 +255,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(1.1, 1.1)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -230,12 +269,48 @@ tracks/6/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ParticleSystem/FuzeLight:material:shader_parameter/Size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ParticleSystem/FuzeLight:material:shader_parameter/Strength")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.3]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mqw2o"]
 _data = {
 "Burst": SubResource("Animation_miwir"),
+"Idle": SubResource("Animation_bgloi"),
 "RESET": SubResource("Animation_b0ysj")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pufme"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ueyhq"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1h67s"]
+states/Idle/node = SubResource("AnimationNodeAnimation_pufme")
+states/Idle/position = Vector2(329, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ueyhq")]
 
 [sub_resource type="Curve" id="Curve_ulcjw"]
 _data = [Vector2(0, 1), 0.0, -0.151722, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -244,27 +319,30 @@ point_count = 2
 [node name="Bubble" type="RigidBody2D"]
 material = SubResource("CanvasItemMaterial_fyk6a")
 collision_mask = 3
-lock_rotation = true
 freeze = true
 continuous_cd = 2
 max_contacts_reported = 1
 contact_monitor = true
 linear_damp_mode = 1
 angular_damp_mode = 1
-script = ExtResource("1_dxulh")
+angular_damp = 0.4
+script = ExtResource("1_g4rna")
+angular_impulse = 6.0
+effect_radius = 3
+is_basic = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_05uyp")
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_if3lf")
 hframes = 4
 vframes = 2
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CircleShape2D_o55xo")
 
 [node name="ParticleSystem" type="Node2D" parent="."]
-script = ExtResource("4_hgmxw")
+script = ExtResource("3_fbc0j")
 
 [node name="Fragment1" type="CPUParticles2D" parent="ParticleSystem"]
 z_index = 4
@@ -274,7 +352,7 @@ one_shot = true
 explosiveness = 1.0
 lifetime_randomness = 0.5
 local_coords = true
-texture = ExtResource("4_uxg0x")
+texture = ExtResource("4_i0qqt")
 direction = Vector2(0, -2)
 spread = 132.59
 gravity = Vector2(0, 100)
@@ -285,7 +363,7 @@ angular_velocity_max = 360.0
 scale_amount_min = 0.1
 scale_amount_max = 0.15
 scale_amount_curve = SubResource("Curve_t2dma")
-script = ExtResource("6_b4px6")
+script = ExtResource("5_n2cmq")
 offset = Vector2(58, 144)
 spacing = Vector2(512, 513)
 hframe = 4
@@ -299,7 +377,7 @@ one_shot = true
 explosiveness = 1.0
 lifetime_randomness = 0.5
 local_coords = true
-texture = ExtResource("6_q2q74")
+texture = ExtResource("6_v4bau")
 direction = Vector2(0, -2)
 spread = 180.0
 gravity = Vector2(0, 100)
@@ -310,7 +388,7 @@ angular_velocity_max = 360.0
 scale_amount_min = 0.08
 scale_amount_max = 0.13
 scale_amount_curve = SubResource("Curve_t2dma")
-script = ExtResource("6_b4px6")
+script = ExtResource("5_n2cmq")
 offset = Vector2(109, 165)
 spacing = Vector2(512, 512)
 hframe = 4
@@ -331,7 +409,7 @@ angle_min = -720.0
 angle_max = 720.0
 scale_amount_min = 0.05
 scale_amount_max = 0.15
-script = ExtResource("8_se1nf")
+script = ExtResource("8_qx7xk")
 
 [node name="Stars" type="CPUParticles2D" parent="ParticleSystem"]
 modulate = Color(1, 1, 1, 0.705882)
@@ -344,7 +422,7 @@ one_shot = true
 explosiveness = 1.0
 lifetime_randomness = 1.0
 local_coords = true
-texture = ExtResource("10_mviey")
+texture = ExtResource("9_l7ov5")
 emission_shape = 1
 emission_sphere_radius = 50.0
 direction = Vector2(0, 0)
@@ -365,7 +443,44 @@ anim_offset_max = 0.4
 modulate = Color(1, 1, 1, 0)
 z_index = -1
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("11_uhnul")
+texture = ExtResource("10_xqpkg")
+
+[node name="FuzeLight" type="Sprite2D" parent="ParticleSystem"]
+z_index = 1
+material = ExtResource("11_ky5ra")
+position = Vector2(46, -41)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("10_xqpkg")
+
+[node name="FuzeSparks" type="CPUParticles2D" parent="ParticleSystem/FuzeLight"]
+z_index = 2
+scale = Vector2(16.6667, 16.6667)
+amount = 30
+lifetime = 0.35
+speed_scale = 1.5
+lifetime_randomness = 0.66
+texture = SubResource("AtlasTexture_xtiyd")
+emission_shape = 3
+emission_rect_extents = Vector2(4, 1)
+direction = Vector2(0.7, -0.7)
+spread = 25.0
+gravity = Vector2(0, -600)
+initial_velocity_min = 70.0
+initial_velocity_max = 220.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.01
+scale_amount_max = 0.03
+scale_amount_curve = SubResource("Curve_xrkiq")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mqw2o")
+}
+tree_root = SubResource("AnimationNodeStateMachine_1h67s")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -375,12 +490,12 @@ libraries = {
 [node name="Trail2D" type="Line2D" parent="."]
 top_level = true
 z_index = -2
-material = ExtResource("8_bmxv1")
+material = ExtResource("12_vfqm1")
 width = 100.0
 width_curve = SubResource("Curve_ulcjw")
 texture_mode = 2
 joint_mode = 2
-script = ExtResource("8_x4wus")
+script = ExtResource("13_d8a5u")
 max_length = 50
 min_velocity = 0.5
 

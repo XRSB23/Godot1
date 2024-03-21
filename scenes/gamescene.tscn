@@ -11,11 +11,11 @@
 [ext_resource type="Script" path="res://Scripts/Sling/NewtonTrajectoryPreview.gd" id="6_aqxdd"]
 [ext_resource type="Script" path="res://Scripts/Sling/VectorTrajectoryPreview.gd" id="6_b45vb"]
 [ext_resource type="Material" uid="uid://jiup2jy3aui2" path="res://Art/Sling/vector_shader_material.tres" id="6_nhfxi"]
-[ext_resource type="PackedScene" uid="uid://b4qefpqvoj4sx" path="res://scenes/bubble_explosive.tscn" id="6_rw0qp"]
-[ext_resource type="PackedScene" uid="uid://cj5meba4c0x3l" path="res://scenes/bubble_paint.tscn" id="7_nrvhg"]
+[ext_resource type="PackedScene" uid="uid://dq26grx5lu6hr" path="res://scenes/bubble_explosive_new.tscn" id="6_rw0qp"]
+[ext_resource type="PackedScene" uid="uid://cko1bo128vv83" path="res://scenes/bubble_paint_new.tscn" id="7_nrvhg"]
 [ext_resource type="Material" uid="uid://xohviejfgi4f" path="res://Art/Sling/newton_shader_material.tres" id="7_v80i2"]
-[ext_resource type="PackedScene" uid="uid://c5lcvkvdrdlvy" path="res://scenes/bubble_metal.tscn" id="8_epdqj"]
 [ext_resource type="Texture2D" uid="uid://dafardwowxnka" path="res://Art/Sling/CartoonDottedLine.svg" id="8_il03c"]
+[ext_resource type="PackedScene" uid="uid://c3w1tltsk73hb" path="res://scenes/bubble_metallic_new.tscn" id="8_pwao1"]
 [ext_resource type="Texture2D" uid="uid://cq2oavcga4l3i" path="res://Art/Sling/Line2D_SmoothEdgeTexture.png" id="11_848u5"]
 [ext_resource type="Script" path="res://Scripts/Sling/GhostTrajectoryPreview.gd" id="11_o4i07"]
 [ext_resource type="Script" path="res://addons/radialcontainer_plugin/RadialContainer.gd" id="14_rlae7"]
@@ -44,19 +44,19 @@ radius = 182.552
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4b013"]
 atlas = ExtResource("20_ea2a7")
-region = Rect2(0, 0, 512, 512)
+region = Rect2(0, 0, 102.4, 102.4)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_npc1t"]
 atlas = ExtResource("20_ea2a7")
-region = Rect2(512, 0, 512, 512)
+region = Rect2(102.4, 0, 102.4, 102.4)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g5k66"]
 atlas = ExtResource("23_ydgk4")
-region = Rect2(0, 0, 512, 512)
+region = Rect2(0, 0, 102.4, 102.4)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hp26e"]
 atlas = ExtResource("20_ea2a7")
-region = Rect2(1024, 0, 512, 512)
+region = Rect2(204.8, 0, 102.4, 102.4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swuy3"]
 size = Vector2(6295.88, 207)
@@ -119,7 +119,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Sling" type="Node2D" parent="."]
 position = Vector2(-1200, 610)
 script = ExtResource("2_jejid")
-bubble_prefabs = Array[PackedScene]([ExtResource("5_icqf6"), ExtResource("6_rw0qp"), ExtResource("7_nrvhg"), ExtResource("8_epdqj")])
+bubble_prefabs = Array[PackedScene]([ExtResource("5_icqf6"), ExtResource("6_rw0qp"), ExtResource("7_nrvhg"), ExtResource("8_pwao1")])
 shoot_strength = 7.5
 min_drag = 20.0
 max_drag = 300.0
@@ -154,8 +154,8 @@ joint_mode = 2
 end_cap_mode = 2
 script = ExtResource("6_aqxdd")
 match_bubble_color = true
-trajectory_points_amount = 500
-max_trajectory_range = 1000.0
+trajectory_points_amount = 1000
+max_trajectory_range = 10000.0
 
 [node name="Ghost" type="Line2D" parent="Sling/TrajectoryPreview"]
 modulate = Color(0, 0, 0, 0.231373)
