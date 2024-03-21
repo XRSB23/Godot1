@@ -12,6 +12,8 @@ func _process(delta):
 
 func on_metal_end_effect():
 	#CALL QD PLUS DE CHARGE METAL ET QUAND BILLE METAL DANS DEADZONE
+	shot_v = Vector2.ZERO
+	sleeping = true
 	OnDestroy()
 	game_scene.drop_bubbles()
 	game_scene.reset_sling()

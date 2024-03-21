@@ -245,6 +245,7 @@ point_count = 2
 radius = 59.6657
 
 [node name="Bubble" type="RigidBody2D"]
+z_index = 1
 material = SubResource("CanvasItemMaterial_fyk6a")
 collision_layer = 8
 collision_mask = 2
