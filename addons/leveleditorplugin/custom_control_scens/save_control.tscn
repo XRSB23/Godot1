@@ -16,7 +16,8 @@ bg_color = Color(1, 0.0235294, 0, 1)
 custom_minimum_size = Vector2(500, 0)
 anchors_preset = -1
 anchor_right = 0.39375
-anchor_bottom = 0.304167
+anchor_bottom = 0.352778
+offset_bottom = -34.9998
 theme_override_constants/separation = 20
 metadata/_edit_use_anchors_ = true
 

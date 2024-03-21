@@ -20,7 +20,7 @@ func set_color(_color : level_data.BubbleColor) :
 	var gridpos : Vector2 = Vector2.ZERO
 	var pos : Vector2
 	gridpos.x = clamp(_color % hframe, 0, hframe - 1)
-	gridpos.y = clamp(_color / hframe, 0, vframe - 1)
+	gridpos.y = clamp(int(_color / float(hframe)), 0, vframe - 1)
 	
 	pos = offset + gridpos * spacing
 	texture_normal.region = Rect2(pos, spacing)

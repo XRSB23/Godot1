@@ -62,7 +62,7 @@ expand_icon = true
 
 [node name="buttons_container" type="GridContainer" parent="."]
 layout_mode = 2
-columns = 5
+columns = 4
 
 [node name="Delete_button" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 50)
