@@ -36,6 +36,9 @@ func _physics_process(delta):
 			shot_v = Vector2.ZERO
 			freeze= true
 			game_scene.add_bubble_to_grid(self,collision.get_collider())
+	#if destroyed_by_metal.is_empty()== false:
+		#game_scene.process_destruction([destroyed_by_metal[0]],true)
+		#game_scene.reset_sling()
 
 func set_ball_launchable(b : bool) :#béboule c'est mdr:
 	freeze = b
@@ -58,9 +61,12 @@ func OnDestroy():
 func OnDrop():
 	trail.enabled = false
 	sprite.z_index += 1
-	collider.disabled = true
-	freeze = false
-	AddRandomBump()
+	collider.set_deferred("disabled",true)
+	set_deferred("freeze",false)
+	#collider.disabled = true
+	#freeze = false
+	call_deferred("AddRandomBump")
+	
 	await get_tree().create_timer(1).timeout
 	
 	gravity_scale = -0.1
@@ -74,15 +80,21 @@ func AddRandomBump():
 	var v = Vector2(cos(angle), sin(angle))
 	shot_v = v * 350
 
+func on_metal_end_effect():
+	#CALL QD PLUS DE CHARGE METAL ET QUAND BILLE METAL DANS DEADZONE
+	OnDestroy()
+	game_scene.drop_bubbles()
+	game_scene.reset_sling()
 
 func _on_destruction_area_body_entered(body):
-	destroyed_by_metal.append(body.position)
-	destroy_amount -= 1
-	if destroy_amount == 0:
-		metal_collider.disabled = true
-		game_scene.process_destruction(destroyed_by_metal)
-		game_scene.reset_sling()
-		OnDestroy()
-
-
-
+	var pos = body.position
+	if destroy_amount >0:
+		game_scene.update_astar(pos)
+		body.OnDestroy()
+		destroyed_by_metal.append(pos)
+		game_scene.grid_data[pos] = null
+		destroy_amount -= 1
+	elif destroy_amount==0 :
+		# PLUS DE CHARGE DE DESTROY METAL
+		on_metal_end_effect()
+		destroy_amount -= 1

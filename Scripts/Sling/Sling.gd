@@ -182,11 +182,10 @@ func load_consumable(color  : level_data.BubbleColor  ):
 func GetCurrentColorsInLevel():
 	current_colors.clear()
 	for bubble : Bubble in bubble_container.get_children() :
-		if current_colors.find(bubble.color) == -1:
+		if current_colors.find(bubble.color) == -1 and bubble.color != 0:
 			current_colors.append(bubble.color)
 
 func UpdateColorMenu():
-	
 	# Update Color Array
 	var button_array : Array = []
 	for button : BubbleSelectMenu_Button in color_select_menu.get_children():
@@ -195,9 +194,6 @@ func UpdateColorMenu():
 	var button_color_array : Array = []
 	for button : BubbleSelectMenu_Button in button_array :
 		button_color_array.append(button.color)
-		
-	
-	
 	await get_tree().process_frame
 	
 	#Instantiate Pass
@@ -227,11 +223,14 @@ func InstantiateMenuButton(color):
 #region Signals
 
 func _on_dead_zone(body):
-	body.queue_free()
-	if current_colors.size() > 1 : color_select_menu.Open()
-	else : load_ball()
-	consumable_menu.Open()
-	trajectory_preview.UpdateGhost()
+	if body.bubble_type != Bubble.BubbleType.Metal:
+		body.queue_free()
+		if current_colors.size() > 1 : color_select_menu.Open()
+		else : load_ball()
+		consumable_menu.Open()
+		trajectory_preview.UpdateGhost()
+	else:
+		body.on_metal_end_effect()
 
 func _on_color_select_menu_color_picked():
 	if consumable_menu.selected_item != null && consumable_menu.selected_item.name == "Paint" : 

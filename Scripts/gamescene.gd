@@ -106,7 +106,6 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	grid_data[projectile.position] = projectile
 	connect_astar(projectile.position)
 	projectile.trail.enabled = false
-	sling.trajectory_preview.UpdateGhost()
 	match projectile.bubble_type:
 		projectile.BubbleType.Normal:
 			await process_destruction(get_cells_to_destroy(projectile))  # Necessary (for now) to wait until all destroyed bubble are queue_free() until we check for remaining colors in level
@@ -117,6 +116,7 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	reset_sling()
 
 func reset_sling():
+	sling.trajectory_preview.UpdateGhost()
 	sling.GetCurrentColorsInLevel()
 	await sling.UpdateColorMenu() # Await for instance process to be done before opening menu, else can have menu problems
 	if sling.current_colors.size() > 1 : sling.color_select_menu.Open()
@@ -218,12 +218,10 @@ func set_neighbors_coord(v : Vector2):
 
 #region Destruction
 func process_destruction(cells,explosive = false):
-	if cells.size()>= 3 or explosive:
-		for cell in cells : #Remove from Bubble container so SelectBubbleMenu doesn't haveto wait for ball.queue free to detect remaining colors
-			grid_data[cell].reparent(destroy_container)
-			
+	if explosive or cells.size()>= 3 :
 		for cell in cells :
 			update_astar(cell)
+			grid_data[cell].reparent(destroy_container)
 			grid_data[cell].OnDestroy()
 			await grid_data[cell].animTrigger 
 			grid_data[cell] = null
@@ -235,7 +233,8 @@ func process_destruction(cells,explosive = false):
 func drop_bubbles():
 	var cell_to_drop = get_cells_to_drop()
 	for cell_coord in cell_to_drop:
-		grid_data[cell_coord].reparent(destroy_container)
+		grid_data[cell_coord].call_deferred('reparent',destroy_container)
+		#grid_data[cell_coord].reparent(destroy_container)
 		grid_data[cell_coord].OnDrop()
 		update_astar(cell_coord)
 		grid_data[cell_coord] = null

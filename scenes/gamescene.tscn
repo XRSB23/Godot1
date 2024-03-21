@@ -321,6 +321,7 @@ horizontal_alignment = 2
 
 [node name="DeadZone" type="Area2D" parent="DeadzoneContainer"]
 collision_layer = 2
+collision_mask = 9
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadzoneContainer/DeadZone"]
@@ -329,6 +330,7 @@ shape = SubResource("RectangleShape2D_swuy3")
 
 [node name="DeadZone2" type="Area2D" parent="DeadzoneContainer"]
 collision_layer = 2
+collision_mask = 9
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadzoneContainer/DeadZone2"]

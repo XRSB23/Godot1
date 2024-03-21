@@ -34,15 +34,14 @@ shader_parameter/TrailTexture = ExtResource("5_2n2kl")
 radius = 59.6657
 
 [node name="Bubble" instance=ExtResource("1_lr38r")]
+collision_layer = 8
+collision_mask = 2
 bubble_type = 3
-destroy_amount = 5
+destroy_amount = 6
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_rsue2")
 frame = 2
-
-[node name="CollisionShape2D" parent="." index="1"]
-disabled = true
 
 [node name="Fragment1" parent="ParticleSystem" index="0"]
 texture = SubResource("AtlasTexture_pv74n")

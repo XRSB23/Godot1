@@ -43,6 +43,7 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_1="Bubbles"
 2d_physics/layer_2="Bubble Trigger"
 2d_physics/layer_3="Sling"
+2d_physics/layer_4="Metal"
 
 [rendering]
 
