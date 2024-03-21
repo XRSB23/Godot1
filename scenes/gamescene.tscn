@@ -154,8 +154,8 @@ joint_mode = 2
 end_cap_mode = 2
 script = ExtResource("6_aqxdd")
 match_bubble_color = true
-trajectory_points_amount = 500
-max_trajectory_range = 1000.0
+trajectory_points_amount = 1000
+max_trajectory_range = 10000.0
 
 [node name="Ghost" type="Line2D" parent="Sling/TrajectoryPreview"]
 modulate = Color(0, 0, 0, 0.231373)

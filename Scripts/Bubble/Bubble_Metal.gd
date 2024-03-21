@@ -19,6 +19,7 @@ func on_metal_end_effect():
 func _on_destruction_area_body_entered(body):
 	var pos = body.position
 	if destroy_amount >0:
+		body.call_deferred('reparent',game_scene.destroy_container)
 		game_scene.update_astar(pos)
 		body.OnDestroy()
 		destroyed_by_metal.append(pos)

@@ -121,6 +121,10 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 			#proc_radius_effect(projectile,projectile.position,'Explosive')
 		#projectile.BubbleType.Paint:
 			#proc_radius_effect(projectile,projectile.position,'Paint')
+			
+	while destroy_container.get_child_count() > 0 :
+			await get_tree().process_frame
+	
 	reset_sling()
 
 func reset_sling():
@@ -252,8 +256,8 @@ func process_destruction(cells,explosive = false):
 			grid_data[cell] = null
 		drop_bubbles()
 
-		while destroy_container.get_child_count() > 0 :
-			await get_tree().process_frame
+		#while destroy_container.get_child_count() > 0 :
+			#await get_tree().process_frame
 
 func drop_bubbles():
 	var cell_to_drop = get_cells_to_drop()
