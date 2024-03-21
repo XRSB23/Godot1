@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=36 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraController.gd" id="2_3irfh"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dq26grx5lu6hr" path="res://scenes/bubble_explosive.tscn" id="6_rw0qp"]
 [ext_resource type="PackedScene" uid="uid://cko1bo128vv83" path="res://scenes/bubble_paint.tscn" id="7_nrvhg"]
 [ext_resource type="Material" uid="uid://xohviejfgi4f" path="res://Art/Sling/newton_shader_material.tres" id="7_v80i2"]
+[ext_resource type="PackedScene" uid="uid://c5lcvkvdrdlvy" path="res://scenes/bubble_metal.tscn" id="8_epdqj"]
 [ext_resource type="Texture2D" uid="uid://dafardwowxnka" path="res://Art/Sling/CartoonDottedLine.svg" id="8_il03c"]
 [ext_resource type="PackedScene" uid="uid://c3w1tltsk73hb" path="res://scenes/bubble_metallic.tscn" id="8_pwao1"]
 [ext_resource type="Texture2D" uid="uid://cq2oavcga4l3i" path="res://Art/Sling/Line2D_SmoothEdgeTexture.png" id="11_848u5"]
@@ -25,9 +26,6 @@
 [ext_resource type="Script" path="res://Scripts/Sling/UI/BasicConsumable_Button.gd" id="22_250y0"]
 [ext_resource type="Texture2D" uid="uid://cmgpiua27cw6f" path="res://Art/Bubble/[Temp]PaintBubbles.svg" id="23_ydgk4"]
 [ext_resource type="Script" path="res://Scripts/Sling/UI/Paint_Button.gd" id="24_hn7nd"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_swuy3"]
-size = Vector2(4607, 207)
 
 [sub_resource type="Curve" id="Curve_j361q"]
 _data = [Vector2(0, 0), 0.0, 2.425, 0, 0, Vector2(0.1, 0.4), 1.75882, 0.666667, 0, 0, Vector2(1, 1), 0.666667, 0.0, 0, 0]
@@ -60,6 +58,12 @@ region = Rect2(0, 0, 102.4, 102.4)
 [sub_resource type="AtlasTexture" id="AtlasTexture_hp26e"]
 atlas = ExtResource("20_ea2a7")
 region = Rect2(204.8, 0, 102.4, 102.4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swuy3"]
+size = Vector2(6295.88, 207)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkwav"]
+size = Vector2(250, 6305)
 
 [node name="Gamescene" type="Node2D"]
 script = ExtResource("1_scxi1")
@@ -112,14 +116,6 @@ metadata/_edit_use_anchors_ = true
 [node name="BubbleContainer" type="Node2D" parent="."]
 
 [node name="DestroyContainer" type="Node2D" parent="."]
-
-[node name="DeadZone" type="Area2D" parent="."]
-collision_layer = 2
-input_pickable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZone"]
-position = Vector2(0, 1054)
-shape = SubResource("RectangleShape2D_swuy3")
 
 [node name="Sling" type="Node2D" parent="."]
 position = Vector2(-1200, 610)
@@ -322,8 +318,27 @@ offset_bottom = 23.0
 grow_horizontal = 0
 horizontal_alignment = 2
 
+[node name="DeadzoneContainer" type="Node2D" parent="."]
+
+[node name="DeadZone" type="Area2D" parent="DeadzoneContainer"]
+collision_layer = 2
+collision_mask = 9
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadzoneContainer/DeadZone"]
+position = Vector2(1032.06, 1054)
+shape = SubResource("RectangleShape2D_swuy3")
+
+[node name="DeadZone2" type="Area2D" parent="DeadzoneContainer"]
+collision_layer = 2
+collision_mask = 9
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadzoneContainer/DeadZone2"]
+position = Vector2(4273, -1649.5)
+shape = SubResource("RectangleShape2D_kkwav")
+
 [connection signal="value_changed" from="CameraSystem/CameraBounds" to="CameraSystem/Camera2D" method="_on_camera_bounds_value_changed"]
-[connection signal="body_entered" from="DeadZone" to="Sling" method="_on_dead_zone"]
 [connection signal="input_event" from="Sling/PickupRadius" to="Sling/PickupRadius" method="_on_input_event"]
 [connection signal="close_other_menu" from="Sling/ColorSelectMenu" to="Sling/ConsumableMenu/Paint" method="_on_color_select_menu_close_other_menu"]
 [connection signal="color_picked" from="Sling/ColorSelectMenu" to="Sling" method="_on_color_select_menu_color_picked"]
@@ -336,3 +351,5 @@ horizontal_alignment = 2
 [connection signal="pressed" from="Sling/ConsumableMenu/Paint" to="Sling/ConsumableMenu/Paint" method="_on_pressed"]
 [connection signal="on_selected" from="Sling/ConsumableMenu/Bouncy" to="Sling" method="_on_bouncy_on_selected"]
 [connection signal="pressed" from="Sling/ConsumableMenu/Bouncy" to="Sling/ConsumableMenu/Bouncy" method="_on_pressed"]
+[connection signal="body_entered" from="DeadzoneContainer/DeadZone" to="Sling" method="_on_dead_zone"]
+[connection signal="body_entered" from="DeadzoneContainer/DeadZone2" to="Sling" method="_on_dead_zone"]

@@ -93,6 +93,10 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	var empty_cells = get_neighbors(grid_bubble,level_data.BubbleColor.Empty)
 	var closest_empty_cell
 	var magnitude
+	if empty_cells == null :
+		projectile.OnDrop()
+		reset_sling()
+		return
 	for empty_cell in empty_cells :
 		var l : Vector2 = projectile.position - empty_cell
 		if magnitude == null or l.length_squared() < magnitude :
@@ -102,13 +106,57 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	grid_data[projectile.position] = projectile
 	connect_astar(projectile.position)
 	projectile.trail.enabled = false
+	match projectile.bubble_type:
+		projectile.BubbleType.Normal:
+			await process_destruction(get_cells_to_destroy(projectile))  # Necessary (for now) to wait until all destroyed bubble are queue_free() until we check for remaining colors in level
+		projectile.BubbleType.Explosive:
+			proc_radius_effect(projectile,projectile.position,'Explosive')
+		projectile.BubbleType.Paint:
+			proc_radius_effect(projectile,projectile.position,'Paint')
+	reset_sling()
+
+func reset_sling():
 	sling.trajectory_preview.UpdateGhost()
-	await process_destruction(get_cells_to_destroy(projectile)) # Necessary (for now) to wait until all destroyed bubble are queue_free() until we check for remaining colors in level
 	sling.GetCurrentColorsInLevel()
 	await sling.UpdateColorMenu() # Await for instance process to be done before opening menu, else can have menu problems
 	if sling.current_colors.size() > 1 : sling.color_select_menu.Open()
 	else : sling.load_ball()
 	sling.consumable_menu.Open()
+
+func proc_radius_effect(consumable_bubble : Bubble,grid_pos : Vector2,consumable_type : String):
+	var radius_bubbles = get_cells_in_radius(grid_pos,consumable_bubble.effect_radius)
+	#consumable_bubble.set_color()
+	# ICI POUR CHANGER LA TEXTURE DE LA BUBBLE PAINT !!!
+	if consumable_type == 'Paint':
+		for bubble in radius_bubbles:
+			bubble.color = consumable_bubble.color
+			bubble.set_color()
+	if consumable_type == 'Explosive':
+		var cells = []
+		for bubble in radius_bubbles:
+			cells.append(grid_data.find_key(bubble))
+		process_destruction(cells,true)
+
+func get_cells_in_radius(start_pos : Vector2 , radius_size):
+	var radius_cells = []
+	var ring_cells_coord = []
+	radius_cells.append(grid_data[start_pos])
+	for i in range(1, radius_size + 1 ):
+		var ring_peaks_coord = []
+		for dir in neighbors_coord:
+			ring_peaks_coord.append(start_pos + i*dir)
+		if i == 1:
+			ring_cells_coord += ring_peaks_coord
+		else:
+			for k in range(-1,ring_peaks_coord.size()-1):
+				var ring_side : Vector2 = ring_peaks_coord[k+1] - ring_peaks_coord[k]
+				ring_cells_coord.append(ring_peaks_coord[k])
+				for x in range(1,i):
+					ring_cells_coord.append((x * ring_side/i) + ring_peaks_coord[k]) 
+	for coord in ring_cells_coord:
+		if coord in grid_data and grid_data[coord] != null:
+			radius_cells.append(grid_data[coord])
+	return radius_cells
 
 func get_cells_to_drop():
 	var cells_to_drop : Array[Vector2] = []
@@ -151,31 +199,29 @@ func get_neighbors(cell : RigidBody2D ,color : level_data.BubbleColor):
 		var neighbor
 		if grid_data.has(cell.position + dir):
 			neighbor = grid_data[cell.position + dir]
-		else : continue
+		else : return null
 		if color != level_data.BubbleColor.Empty and neighbor != null and neighbor.color == color or color == level_data.BubbleColor.Empty and neighbor == null :
 			neighbors[cell.position + dir] = neighbor
 	return neighbors
 	
 func set_neighbors_coord(v : Vector2):
-	neighbors_coord.append(Vector2(v.x,0))
-	neighbors_coord.append(Vector2(-v.x,0))
 	var x = v.x / 2
 	var y = v.y * 3 /4
-	neighbors_coord.append(Vector2(x,y))
+	neighbors_coord.append(Vector2(-v.x,0))
 	neighbors_coord.append(Vector2(-x,y))
+	neighbors_coord.append(Vector2(x,y))
+	neighbors_coord.append(Vector2(v.x,0))
 	neighbors_coord.append(Vector2(x,-y))
 	neighbors_coord.append(Vector2(-x,-y))
 
 #endregion
 
 #region Destruction
-func process_destruction(cells):
-	if cells.size()>= 3 :
-		for cell in cells : #Remove from Bubble container so SelectBubbleMenu doesn't haveto wait for ball.queue free to detect remaining colors
-			grid_data[cell].reparent(destroy_container)
-			
+func process_destruction(cells,explosive = false):
+	if explosive or cells.size()>= 3 :
 		for cell in cells :
 			update_astar(cell)
+			grid_data[cell].reparent(destroy_container)
 			grid_data[cell].OnDestroy()
 			await grid_data[cell].animTrigger 
 			grid_data[cell] = null
@@ -187,7 +233,8 @@ func process_destruction(cells):
 func drop_bubbles():
 	var cell_to_drop = get_cells_to_drop()
 	for cell_coord in cell_to_drop:
-		grid_data[cell_coord].reparent(destroy_container)
+		grid_data[cell_coord].call_deferred('reparent',destroy_container)
+		#grid_data[cell_coord].reparent(destroy_container)
 		grid_data[cell_coord].OnDrop()
 		update_astar(cell_coord)
 		grid_data[cell_coord] = null

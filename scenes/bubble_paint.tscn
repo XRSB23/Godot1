@@ -143,6 +143,9 @@ tracks/7/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+[node name="Bubble" instance=ExtResource("1_af8eb")]
+bubble_type = 2
+effect_radius = 4
 
 [sub_resource type="Animation" id="Animation_b0ysj"]
 length = 0.001

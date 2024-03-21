@@ -42,6 +42,9 @@ particles_anim_loop = false
 _data = [Vector2(0, 1), 0.0, 1.4, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[node name="Bubble" instance=ExtResource("1_qi7kt")]
+bubble_type = 1
+effect_radius = 3
 [sub_resource type="AtlasTexture" id="AtlasTexture_xtiyd"]
 atlas = ExtResource("5_a1vyw")
 region = Rect2(512, 0, 512, 512)
