@@ -1,18 +1,18 @@
 [gd_scene load_steps=30 format=3 uid="uid://dq26grx5lu6hr"]
 
-[ext_resource type="Script" path="res://Scripts/Bubble/Bubble_Explosive.gd" id="1_cr3aa"]
-[ext_resource type="Texture2D" uid="uid://cyo7nva76v510" path="res://Art/Bubble/SpecialBubbles.svg" id="2_13nqk"]
-[ext_resource type="Script" path="res://Scripts/Bubble/BubbleParticleSystem.gd" id="3_exojv"]
-[ext_resource type="Texture2D" uid="uid://nmrfq7yp27e6" path="res://Art/Bubble/BubbleFrag1_Atlas.tres" id="4_lxe5s"]
-[ext_resource type="Script" path="res://Scripts/Bubble/ParticlesAtlasCoordinates.gd" id="5_54lj4"]
-[ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/particleStar4.svg" id="5_a1vyw"]
-[ext_resource type="Texture2D" uid="uid://uj1201xcuc43" path="res://Art/Bubble/BubbleFrag2_Atlas.tres" id="6_v3owu"]
-[ext_resource type="Material" uid="uid://cme715qbwu7ky" path="res://Art/Bubble/radialGradient_shader_material.tres" id="6_x87hi"]
-[ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="7_2err1"]
-[ext_resource type="Script" path="res://Scripts/Bubble/TrailParticles.gd" id="8_5o7d5"]
-[ext_resource type="Texture2D" uid="uid://ct0n0s212lh1r" path="res://Art/Bubble/particleStar5.svg" id="9_r22sg"]
-[ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/trail_shader_material.tres" id="11_fwt6j"]
-[ext_resource type="Script" path="res://addons/trail2D_plugin/Trail2D.gd" id="12_77jcn"]
+[ext_resource type="Script" path="res://Scripts/Bubble/Bubble_Explosive.gd" id="1_g4rna"]
+[ext_resource type="Texture2D" uid="uid://cyo7nva76v510" path="res://Art/Bubble/SpecialBubbles.svg" id="2_if3lf"]
+[ext_resource type="Script" path="res://Scripts/Bubble/BubbleParticleSystem.gd" id="3_fbc0j"]
+[ext_resource type="Texture2D" uid="uid://nmrfq7yp27e6" path="res://Art/Bubble/BubbleFrag1_Atlas.tres" id="4_i0qqt"]
+[ext_resource type="Script" path="res://Scripts/Bubble/ParticlesAtlasCoordinates.gd" id="5_n2cmq"]
+[ext_resource type="Texture2D" uid="uid://uj1201xcuc43" path="res://Art/Bubble/BubbleFrag2_Atlas.tres" id="6_v4bau"]
+[ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/particleStar4.svg" id="7_nxtsb"]
+[ext_resource type="Script" path="res://Scripts/Bubble/TrailParticles.gd" id="8_qx7xk"]
+[ext_resource type="Texture2D" uid="uid://ct0n0s212lh1r" path="res://Art/Bubble/particleStar5.svg" id="9_l7ov5"]
+[ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="10_xqpkg"]
+[ext_resource type="Material" uid="uid://cme715qbwu7ky" path="res://Art/Bubble/radialGradient_shader_material.tres" id="11_ky5ra"]
+[ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/trail_shader_material.tres" id="12_vfqm1"]
+[ext_resource type="Script" path="res://addons/trail2D_plugin/Trail2D.gd" id="13_d8a5u"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fyk6a"]
 particles_animation = true
@@ -28,7 +28,7 @@ _data = [Vector2(0.59322, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.30981, 0.0, 0, 0
 point_count = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4h4d"]
-atlas = ExtResource("5_a1vyw")
+atlas = ExtResource("7_nxtsb")
 region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5v3if"]
@@ -43,7 +43,7 @@ _data = [Vector2(0, 1), 0.0, 1.4, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xtiyd"]
-atlas = ExtResource("5_a1vyw")
+atlas = ExtResource("7_nxtsb")
 region = Rect2(512, 0, 512, 512)
 
 [sub_resource type="Curve" id="Curve_xrkiq"]
@@ -326,12 +326,12 @@ contact_monitor = true
 linear_damp_mode = 1
 angular_damp_mode = 1
 angular_damp = 0.4
-script = ExtResource("1_cr3aa")
+script = ExtResource("1_g4rna")
 angular_impulse = 6.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.1, 1.1)
-texture = ExtResource("2_13nqk")
+texture = ExtResource("2_if3lf")
 hframes = 4
 vframes = 2
 
@@ -340,7 +340,7 @@ visible = false
 shape = SubResource("CircleShape2D_o55xo")
 
 [node name="ParticleSystem" type="Node2D" parent="."]
-script = ExtResource("3_exojv")
+script = ExtResource("3_fbc0j")
 
 [node name="Fragment1" type="CPUParticles2D" parent="ParticleSystem"]
 z_index = 4
@@ -350,7 +350,7 @@ one_shot = true
 explosiveness = 1.0
 lifetime_randomness = 0.5
 local_coords = true
-texture = ExtResource("4_lxe5s")
+texture = ExtResource("4_i0qqt")
 direction = Vector2(0, -2)
 spread = 132.59
 gravity = Vector2(0, 100)
@@ -361,7 +361,7 @@ angular_velocity_max = 360.0
 scale_amount_min = 0.1
 scale_amount_max = 0.15
 scale_amount_curve = SubResource("Curve_t2dma")
-script = ExtResource("5_54lj4")
+script = ExtResource("5_n2cmq")
 offset = Vector2(58, 144)
 spacing = Vector2(512, 513)
 hframe = 4
@@ -375,7 +375,7 @@ one_shot = true
 explosiveness = 1.0
 lifetime_randomness = 0.5
 local_coords = true
-texture = ExtResource("6_v3owu")
+texture = ExtResource("6_v4bau")
 direction = Vector2(0, -2)
 spread = 180.0
 gravity = Vector2(0, 100)
@@ -386,7 +386,7 @@ angular_velocity_max = 360.0
 scale_amount_min = 0.08
 scale_amount_max = 0.13
 scale_amount_curve = SubResource("Curve_t2dma")
-script = ExtResource("5_54lj4")
+script = ExtResource("5_n2cmq")
 offset = Vector2(109, 165)
 spacing = Vector2(512, 512)
 hframe = 4
@@ -407,7 +407,7 @@ angle_min = -720.0
 angle_max = 720.0
 scale_amount_min = 0.05
 scale_amount_max = 0.15
-script = ExtResource("8_5o7d5")
+script = ExtResource("8_qx7xk")
 
 [node name="Stars" type="CPUParticles2D" parent="ParticleSystem"]
 modulate = Color(1, 1, 1, 0.705882)
@@ -420,7 +420,7 @@ one_shot = true
 explosiveness = 1.0
 lifetime_randomness = 1.0
 local_coords = true
-texture = ExtResource("9_r22sg")
+texture = ExtResource("9_l7ov5")
 emission_shape = 1
 emission_sphere_radius = 50.0
 direction = Vector2(0, 0)
@@ -441,14 +441,14 @@ anim_offset_max = 0.4
 modulate = Color(1, 1, 1, 0)
 z_index = -1
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("7_2err1")
+texture = ExtResource("10_xqpkg")
 
 [node name="FuzeLight" type="Sprite2D" parent="ParticleSystem"]
 z_index = 1
-material = ExtResource("6_x87hi")
+material = ExtResource("11_ky5ra")
 position = Vector2(46, -41)
 scale = Vector2(0.06, 0.06)
-texture = ExtResource("7_2err1")
+texture = ExtResource("10_xqpkg")
 
 [node name="FuzeSparks" type="CPUParticles2D" parent="ParticleSystem/FuzeLight"]
 z_index = 2
@@ -488,12 +488,12 @@ libraries = {
 [node name="Trail2D" type="Line2D" parent="."]
 top_level = true
 z_index = -2
-material = ExtResource("11_fwt6j")
+material = ExtResource("12_vfqm1")
 width = 100.0
 width_curve = SubResource("Curve_ulcjw")
 texture_mode = 2
 joint_mode = 2
-script = ExtResource("12_77jcn")
+script = ExtResource("13_d8a5u")
 max_length = 50
 min_velocity = 0.5
 
