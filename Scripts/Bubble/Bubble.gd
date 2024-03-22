@@ -48,8 +48,8 @@ func set_ball_launchable(b : bool) :#béboule c'est mdr:
 func set_color():
 	
 	if color == level_data.BubbleColor.Empty : return 
-	
-	sprite.frame = color
+	if !self is Bubble_Paint :
+		sprite.frame = color
 	particleSystem.Init(color)
 	trail.material.set_shader_parameter ("TrailColor", COLOR_ATLAS_RESOURCE.GetColor(color))
 

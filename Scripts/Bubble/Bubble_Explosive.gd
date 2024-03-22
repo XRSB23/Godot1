@@ -1,4 +1,5 @@
 extends Bubble
+class_name Bubble_Explosive
 
 @export var angular_impulse : float
 @export var effect_radius : int
