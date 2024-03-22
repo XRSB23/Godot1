@@ -224,14 +224,14 @@ func InstantiateMenuButton(color):
 #region Signals
 
 func _on_dead_zone(body):
-	if body is Bubble_Metal : #body.bubble_type != Bubble.BubbleType.Metal:
-		body.on_metal_end_effect()
-	else:
+	if !body is Bubble_Metal : #body.bubble_type != Bubble.BubbleType.Metal:
 		body.queue_free()
 		if current_colors.size() > 1 : color_select_menu.Open()
 		else : load_ball()
 		consumable_menu.Open()
 		trajectory_preview.UpdateGhost()
+	else:
+		body.on_metal_end_effect()
 		
 
 func _on_color_select_menu_color_picked():
