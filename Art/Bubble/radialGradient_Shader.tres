@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=21 format=3 uid="uid://dgkmkibxae257"]
+[gd_resource type="VisualShader" load_steps=25 format=3 uid="uid://dgkmkibxae257"]
 
 [sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_kj62d"]
 output_port_for_preview = 0
@@ -75,6 +75,22 @@ parameter_name = "GradientFront"
 default_value_enabled = true
 default_value = 1.0
 
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_c74ja"]
+output_port_for_preview = 0
+function = 31
+
+[sub_resource type="VisualShaderNodeStep" id="VisualShaderNodeStep_oyxjb"]
+output_port_for_preview = 0
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_d8kgl"]
+parameter_name = "Inner_Cutoff"
+hint = 1
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_wehuw"]
+output_port_for_preview = 0
+operator = 2
+
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_psdep"]
 input_name = "uv"
 
@@ -95,6 +111,7 @@ default_input_values = [0, 0.0, 1, 2.0]
 operator = 2
 
 [resource]
+resource_local_to_scene = true
 code = "shader_type canvas_item;
 render_mode blend_mix;
 
@@ -104,6 +121,7 @@ uniform vec2 Center = vec2(0.500000, 0.500000);
 uniform float Strength : hint_range(0, 8) = 4;
 uniform float GradientFront = 1;
 uniform float Size : hint_range(0, 6) = 6;
+uniform float Inner_Cutoff : hint_range(0, 1) = 0;
 
 
 
@@ -191,16 +209,32 @@ void fragment() {
 	float n_out15p0 = pow(n_out10p0, n_out16p0);
 
 
+// FloatParameter:27
+	float n_out27p0 = Inner_Cutoff;
+
+
+// FloatFunc:25
+	float n_out25p0 = 1.0 - n_out15p0;
+
+
+// Step:26
+	float n_out26p0 = step(n_out27p0, n_out25p0);
+
+
+// FloatOp:28
+	float n_out28p0 = n_out15p0 * n_out26p0;
+
+
 // Output:0
 	COLOR.rgb = vec3(n_out22p0.xyz);
-	COLOR.a = n_out15p0;
+	COLOR.a = n_out28p0;
 
 
 }
 "
 mode = 1
 flags/light_only = false
-nodes/fragment/0/position = Vector2(2119.9, 474.667)
+nodes/fragment/0/position = Vector2(2640, 300)
 nodes/fragment/2/node = SubResource("VisualShaderNodeVec2Parameter_eicxj")
 nodes/fragment/2/position = Vector2(60, 100)
 nodes/fragment/3/node = SubResource("VisualShaderNodeInput_psdep")
@@ -241,4 +275,12 @@ nodes/fragment/23/node = SubResource("VisualShaderNodeFloatOp_1tkay")
 nodes/fragment/23/position = Vector2(1485.33, 233.88)
 nodes/fragment/24/node = SubResource("VisualShaderNodeFloatParameter_5ukuh")
 nodes/fragment/24/position = Vector2(1180, 40)
-nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 2, 0, 4, 1, 4, 0, 5, 0, 5, 0, 6, 0, 6, 0, 11, 0, 11, 0, 10, 0, 13, 0, 11, 1, 12, 0, 14, 0, 14, 0, 13, 0, 10, 0, 15, 0, 18, 0, 19, 0, 16, 0, 15, 1, 19, 0, 16, 0, 17, 0, 18, 0, 15, 0, 0, 1, 20, 0, 22, 1, 21, 0, 22, 0, 22, 0, 0, 0, 10, 0, 23, 0, 23, 0, 22, 2, 24, 0, 23, 1)
+nodes/fragment/25/node = SubResource("VisualShaderNodeFloatFunc_c74ja")
+nodes/fragment/25/position = Vector2(1820, 860)
+nodes/fragment/26/node = SubResource("VisualShaderNodeStep_oyxjb")
+nodes/fragment/26/position = Vector2(2080, 760)
+nodes/fragment/27/node = SubResource("VisualShaderNodeFloatParameter_d8kgl")
+nodes/fragment/27/position = Vector2(1800, 580)
+nodes/fragment/28/node = SubResource("VisualShaderNodeFloatOp_wehuw")
+nodes/fragment/28/position = Vector2(2298.78, 461.136)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 2, 0, 4, 1, 4, 0, 5, 0, 5, 0, 6, 0, 6, 0, 11, 0, 11, 0, 10, 0, 13, 0, 11, 1, 12, 0, 14, 0, 14, 0, 13, 0, 10, 0, 15, 0, 18, 0, 19, 0, 16, 0, 15, 1, 19, 0, 16, 0, 17, 0, 18, 0, 20, 0, 22, 1, 21, 0, 22, 0, 22, 0, 0, 0, 10, 0, 23, 0, 23, 0, 22, 2, 24, 0, 23, 1, 15, 0, 25, 0, 25, 0, 26, 1, 26, 0, 28, 1, 15, 0, 28, 0, 28, 0, 0, 1, 27, 0, 26, 0)

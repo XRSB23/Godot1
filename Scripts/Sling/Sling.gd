@@ -154,7 +154,7 @@ func load_consumable(color  : level_data.BubbleColor  ):
 	match consumable_menu.selected_item.name :
 		"Explosive" : ball = bubble_prefabs[1].instantiate()
 		"Paint" : ball = bubble_prefabs[2].instantiate()
-		"Bouncy" : ball = bubble_prefabs[3].instantiate()
+		"Metal" : ball = bubble_prefabs[3].instantiate()
 		_: pass
 	
 	bubble_container.call_deferred("add_child",ball)
@@ -224,14 +224,14 @@ func InstantiateMenuButton(color):
 #region Signals
 
 func _on_dead_zone(body):
-	if body is Bubble_Metal : #body.bubble_type != Bubble.BubbleType.Metal:
-		body.on_metal_end_effect()
-	else:
+	if !body is Bubble_Metal : #body.bubble_type != Bubble.BubbleType.Metal:
 		body.queue_free()
 		if current_colors.size() > 1 : color_select_menu.Open()
 		else : load_ball()
 		consumable_menu.Open()
 		trajectory_preview.UpdateGhost()
+	else:
+		body.on_metal_end_effect()
 		
 
 func _on_color_select_menu_color_picked():
@@ -253,7 +253,7 @@ func _on_explosive_on_selected():
 	await color_select_menu.CloseFade()
 	load_consumable(level_data.BubbleColor.Empty)
 
-func _on_bouncy_on_selected():
+func _on_metal_on_selected():
 	consumable_menu.CloseFade()
 	await color_select_menu.CloseFade()
 	load_consumable(level_data.BubbleColor.Empty)
