@@ -112,13 +112,6 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	
 	projectile.trail.enabled = false
 	
-	#if projectile is Bubble_Explosive :
-		#explosive_radius(projectile)
-	#elif projectile is Bubble_Paint :
-		#paint_radius(projectile)
-	#else :
-		#await process_destruction(get_cells_to_destroy(projectile))
-	
 	
 	
 	if projectile is Bubble_Explosive || projectile is Bubble_Paint :
@@ -126,18 +119,6 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	else :
 		await process_destruction(get_cells_to_destroy(projectile))
 		
-	
-	#projectile.trail.enabled = false
-	#match projectile.bubble_type:
-		#projectile.BubbleType.Normal:
-			#await process_destruction(get_cells_to_destroy(projectile))  # Necessary (for now) to wait until all destroyed bubble are queue_free() until we check for remaining colors in level
-		#projectile.BubbleType.Explosive:
-			#proc_radius_effect(projectile,projectile.position,'Explosive')
-		#projectile.BubbleType.Paint:
-			#proc_radius_effect(projectile,projectile.position,'Paint')
-			
-	#while destroy_container.get_child_count() > 0 :
-			#await get_tree().process_frame
 	
 	reset_sling()
 
@@ -149,21 +130,6 @@ func reset_sling():
 	else : sling.load_ball()
 	sling.consumable_menu.Open()
 
-#func proc_radius_effect(consumable_bubble : Bubble,grid_pos : Vector2,consumable_type : String):
-	#var radius_bubbles = get_cells_in_radius(grid_pos,consumable_bubble.effect_radius)
-	##consumable_bubble.set_color()
-	## ICI POUR CHANGER LA TEXTURE DE LA BUBBLE PAINT !!!
-	#if consumable_type == 'Paint':
-		#for bubble in radius_bubbles:
-			#bubble.color = consumable_bubble.color
-			#bubble.set_color()
-	#if consumable_type == 'Explosive':
-		#var cells = []
-		#for bubble in radius_bubbles:
-			#cells.append(grid_data.find_key(bubble))
-		#process_destruction(cells,true)
-		#
-		
 func explosive_radius(radius_bubbles):
 	var cells = []
 	for bubble in radius_bubbles:
@@ -175,20 +141,6 @@ func paint_radius(radius_bubbles, color):
 	for bubble in radius_bubbles:
 		bubble.color = color
 		bubble.set_color()
-		
-#func explosive_radius(projectile):
-	#var radius_bubbles = get_cells_in_radius(projectile.position, projectile.effect_radius)
-	#var cells = []
-	#for bubble in radius_bubbles:
-		#cells.append(grid_data.find_key(bubble))
-	#process_destruction(cells,true)
-		#
-#func paint_radius(projectile):
-	#var radius_bubbles = get_cells_in_radius(projectile.position, projectile.effect_radius)
-	#for bubble in radius_bubbles:
-		#bubble.color = projectile.color
-		#bubble.set_color()		
-		
 		
 
 func get_cells_in_radius(start_pos : Vector2 , radius_size):
