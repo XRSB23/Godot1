@@ -5,10 +5,6 @@ class_name Bubble_Metal
 @export var destroy_amount : int
 var destroyed_by_metal  = []
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func on_metal_end_effect():
 	#CALL QD PLUS DE CHARGE METAL ET QUAND BILLE METAL DANS DEADZONE

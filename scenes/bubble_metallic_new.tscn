@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c3w1tltsk73hb"]
+[gd_scene load_steps=23 format=3 uid="uid://c3w1tltsk73hb"]
 
 [ext_resource type="Script" path="res://Scripts/Bubble/Bubble_Metal.gd" id="1_h3sip"]
 [ext_resource type="Texture2D" uid="uid://cyo7nva76v510" path="res://Art/Bubble/SpecialBubbles.svg" id="2_qkcxu"]
@@ -12,12 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="10_6il74"]
 [ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/trail_shader_material.tres" id="11_t3nit"]
 [ext_resource type="Script" path="res://addons/trail2D_plugin/Trail2D.gd" id="12_vllgc"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fyk6a"]
-particles_animation = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o55xo"]
 radius = 52.0384
@@ -246,7 +240,6 @@ radius = 59.6657
 
 [node name="Bubble" type="RigidBody2D"]
 z_index = 1
-material = SubResource("CanvasItemMaterial_fyk6a")
 collision_layer = 8
 collision_mask = 2
 lock_rotation = true

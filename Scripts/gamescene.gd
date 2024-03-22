@@ -110,12 +110,14 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	
 	
 	
-	#projectile.trail.enabled = false
-	#await process_destruction(get_cells_to_destroy(projectile))
+	projectile.trail.enabled = false
+	
 	#if projectile is Bubble_Explosive :
 		#explosive_radius(projectile)
 	#elif projectile is Bubble_Paint :
 		#paint_radius(projectile)
+	#else :
+		#await process_destruction(get_cells_to_destroy(projectile))
 	
 	
 	
@@ -125,7 +127,6 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 		await process_destruction(get_cells_to_destroy(projectile))
 		
 	
-	#await process_destruction(get_cells_to_destroy(projectile))
 	#projectile.trail.enabled = false
 	#match projectile.bubble_type:
 		#projectile.BubbleType.Normal:
