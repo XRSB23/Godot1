@@ -11,4 +11,4 @@ shader_parameter/Center = Vector2(0.5, 0.5)
 shader_parameter/Strength = 4.3
 shader_parameter/GradientFront = 1.0
 shader_parameter/Size = 5.0
-shader_parameter/Inner_Cutoff = 0.682
+shader_parameter/Inner_Cutoff = 0.0

@@ -254,9 +254,9 @@ contact_monitor = true
 linear_damp_mode = 1
 angular_damp_mode = 1
 script = ExtResource("1_82h1v")
-angular_impulse = 6.0
 effect_radius = 4
 is_basic = false
+angular_impulse = 6.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1

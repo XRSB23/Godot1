@@ -10,6 +10,8 @@ var activated : bool = false :
 	set(value) :
 		activated = value
 		Activate(value)
+		
+@export var size_scale : float = 1
 
 func _ready():
 	if get_parent() is RadialContainer :

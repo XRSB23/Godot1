@@ -11,6 +11,7 @@ var game_scene
 const COLOR_ATLAS_RESOURCE = preload("res://Resources/ColorAtlas_Resource.tres")
 
 @export var is_basic : bool = true
+@export var angular_impulse : float
 
 
 var color : level_data.BubbleColor
@@ -70,7 +71,7 @@ func AddRandomBump():
 
 
 func OnShoot():
-	pass
+	angular_velocity = angular_impulse
 
 
 func OnHit():
