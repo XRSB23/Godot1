@@ -34,7 +34,6 @@ var valid_shot : bool
 @export var drag_curve : Curve
 
 @export_group("Color Select Menu")
-var current_colors : Array
 @export var button_prefab : PackedScene
 @export var single_press_timer : float = 0.1
 var is_dragging : bool = false
@@ -78,7 +77,7 @@ func HandleTouch(event):
 		touch_points[event.index] = event.position
 	else:
 		if !is_dragging:
-			if current_colors.size() > 1 : color_select_menu.Open()
+			if game_scene.get_remaining_colors().size() > 1 : color_select_menu.Open()
 			consumable_menu.Open()
 		else : 
 			is_dragging = false
@@ -120,33 +119,30 @@ func shoot_ball(v : Vector2):
 	trajectory_preview.last_v = v
 	ball.OnShoot()
 	ball = null
+	balls_amount -= 1
 	if consumable_menu.selected_item != null :
 		consumable_menu.selected_item._on_shoot()
 	if consumable_menu.get_child(0).activated :
 		consumable_menu.get_child(0)._on_shoot()
 
 func init_sling(attempts:int):
-	GetCurrentColorsInLevel()
-	UpdateColorMenu()
-	if current_colors.size() > 1 : color_select_menu.Open()
+	UpdateColorMenu(game_scene.get_remaining_colors())
+	if game_scene.get_remaining_colors().size() > 1 : color_select_menu.Open()
 	else : load_ball()
 	consumable_menu.Open()
 	balls_amount = attempts
 	
 func load_ball():
-	
-	if current_colors.size() == 0 :
+	if game_scene.get_remaining_colors().size() == 0 :
 		return
-	
 	ball = bubble_prefabs[0].instantiate()
 	bubble_container.call_deferred("add_child",ball)
 	ball.set_global_position(position)
 	ball.set_ball_launchable(true)
-	if current_colors.size() > 1 : ball.color = color_select_menu.selected_item.color
-	else : ball.color = current_colors[0]
+	if game_scene.get_remaining_colors().size() > 1 : ball.color = color_select_menu.selected_item.color
+	else : ball.color = game_scene.get_remaining_colors()[0]
 	ball.game_scene = game_scene
 	ball.call_deferred("set_color")
-	balls_amount -= 1
 	game_scene.debug_display_hud(balls_amount)
 
 func load_consumable(color  : level_data.BubbleColor  ):
@@ -166,7 +162,6 @@ func load_consumable(color  : level_data.BubbleColor  ):
 
 	ball.game_scene = game_scene
 	ball.call_deferred("set_color")
-	balls_amount -= 1
 	game_scene.debug_display_hud(balls_amount)
 	
 	
@@ -180,13 +175,8 @@ func load_consumable(color  : level_data.BubbleColor  ):
 #endregion
 
 #region ColorSelect Menu
-func GetCurrentColorsInLevel():
-	current_colors.clear()
-	for bubble : Bubble in bubble_container.get_children() :
-		if current_colors.find(bubble.color) == -1 and bubble.color != 0:
-			current_colors.append(bubble.color)
 
-func UpdateColorMenu():
+func UpdateColorMenu(current_colors):
 	# Update Color Array
 	var button_array : Array = []
 	for button : BubbleSelectMenu_Button in color_select_menu.get_children():
@@ -226,7 +216,7 @@ func InstantiateMenuButton(color):
 func _on_dead_zone(body):
 	if !body is Bubble_Metal : #body.bubble_type != Bubble.BubbleType.Metal:
 		body.queue_free()
-		if current_colors.size() > 1 : color_select_menu.Open()
+		if game_scene.get_remaining_colors().size() > 1 : color_select_menu.Open()
 		else : load_ball()
 		consumable_menu.Open()
 		trajectory_preview.UpdateGhost()

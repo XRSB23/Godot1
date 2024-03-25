@@ -105,28 +105,17 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	projectile.position = closest_empty_cell
 	grid_data[projectile.position] = projectile
 	connect_astar(projectile.position)
-	
-	
-	
-	
-	
 	projectile.trail.enabled = false
-	
-	
-	
 	if projectile is Bubble_Explosive || projectile is Bubble_Paint :
 		projectile.OnHit()
 	else :
 		await process_destruction(get_cells_to_destroy(projectile))
-		
-	
 	reset_sling()
 
 func reset_sling():
 	sling.trajectory_preview.UpdateGhost()
-	sling.GetCurrentColorsInLevel()
-	await sling.UpdateColorMenu() # Await for instance process to be done before opening menu, else can have menu problems
-	if sling.current_colors.size() > 1 : sling.color_select_menu.Open()
+	await sling.UpdateColorMenu(get_remaining_colors()) # Await for instance process to be done before opening menu, else can have menu problems
+	if get_remaining_colors().size() > 1 : sling.color_select_menu.Open()
 	else : sling.load_ball()
 	sling.consumable_menu.Open()
 
@@ -135,13 +124,22 @@ func explosive_radius(radius_bubbles):
 	for bubble in radius_bubbles:
 		cells.append(grid_data.find_key(bubble))
 	process_destruction(cells,true)
-		
-func paint_radius(radius_bubbles, color):
 
+func paint_radius(radius_bubbles, color):
 	for bubble in radius_bubbles:
 		bubble.color = color
 		bubble.set_color()
-		
+
+func get_remaining_colors():
+	var current_colors = []
+	var bubbles = []
+	for bubble in grid_data.values():
+		if bubble != null:
+			bubbles.append(bubble)
+	for bubble in bubbles:
+		if bubble.color != 0 and bubble.color not in current_colors:
+			current_colors.append(bubble.color)
+	return current_colors
 
 func get_cells_in_radius(start_pos : Vector2 , radius_size):
 	var radius_cells = []
@@ -184,7 +182,6 @@ func get_cells_to_drop():
 	return cells_to_drop
 
 func get_cells_to_destroy(grid_bubble):
-	print("ping")
 	var cells_to_destroy = {grid_bubble.position : grid_bubble }
 	var cells_to_check : Array[Vector2] = []
 	cells_to_check.append(grid_bubble.position)

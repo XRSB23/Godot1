@@ -3,8 +3,6 @@ class_name Bubble_Metal
 
 @export var destroy_amount : int
 
-
-
 func on_metal_end_effect():
 	#CALL QD PLUS DE CHARGE METAL ET QUAND BILLE METAL DANS DEADZONE
 	shot_v = Vector2.ZERO
@@ -14,7 +12,6 @@ func on_metal_end_effect():
 	game_scene.reset_sling()
 
 func _on_destruction_area_body_entered(body):
-	print("ping")
 	var pos = body.position
 	if destroy_amount >0:
 		game_scene.update_astar(pos)
