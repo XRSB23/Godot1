@@ -119,6 +119,7 @@ func shoot_ball(v : Vector2):
 	trajectory_preview.last_v = v
 	ball.OnShoot()
 	ball = null
+	balls_amount -= 1
 	if consumable_menu.selected_item != null :
 		consumable_menu.selected_item._on_shoot()
 	if consumable_menu.get_child(0).activated :
@@ -142,7 +143,6 @@ func load_ball():
 	else : ball.color = game_scene.get_remaining_colors()[0]
 	ball.game_scene = game_scene
 	ball.call_deferred("set_color")
-	balls_amount -= 1
 	game_scene.debug_display_hud(balls_amount)
 
 func load_consumable(color  : level_data.BubbleColor  ):
@@ -162,7 +162,6 @@ func load_consumable(color  : level_data.BubbleColor  ):
 
 	ball.game_scene = game_scene
 	ball.call_deferred("set_color")
-	balls_amount -= 1
 	game_scene.debug_display_hud(balls_amount)
 	
 	
