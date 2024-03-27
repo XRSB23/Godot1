@@ -12,9 +12,16 @@ var treshold : float
 var root_node_pos : Vector2
 var astar = AStar2D.new()
 
+@export_group('Scoring Parameters')
+@export var bubble_points : int
+enum CurveType {Linear,Exp,Log,Quadra}
+@export var curve_type : CurveType
+var destroyed_count : int 
 
 @onready var sling = $Sling
-@onready var debug_hud = $CanvasLayer/Label
+@onready var debug_attempts = $CanvasLayer/AttemptsLabel
+@onready var debug_score = $CanvasLayer/ScoreLabel
+var score : int = 0
 @onready var canvas_layer = $CanvasLayer
 @onready var buttons_container = $CanvasLayer/ButtonContainer
 @onready var bubble_container = $BubbleContainer
@@ -55,6 +62,7 @@ func load_level(_level):
 	camera.EnableControls(true)
 	astar.clear()
 	set_up_astar(levelres.astar_points , levelres.astar_connections)
+	update_score(score)
 #endregion
 
 #region A*
@@ -229,6 +237,7 @@ func process_destruction(cells,explosive = false):
 			grid_data[cell].OnDestroy()
 			await grid_data[cell].animTrigger 
 			grid_data[cell] = null
+			destroyed_count += 1
 		drop_bubbles()
 
 		#while destroy_container.get_child_count() > 0 :
@@ -240,10 +249,30 @@ func drop_bubbles():
 		grid_data[cell_coord].call_deferred('reparent',destroy_container)
 		#grid_data[cell_coord].reparent(destroy_container)
 		grid_data[cell_coord].OnDrop()
+		destroyed_count += 1
 		update_astar(cell_coord)
 		grid_data[cell_coord] = null
+	update_score(get_score())
 #endregion
 
 
-func debug_display_hud(a):
-	debug_hud.text = "attempts : " + str(a)
+func update_attempts(a):
+	debug_attempts.text = "attempts : " + str(a)
+
+func get_score():
+	var processed_score : int
+	match curve_type:
+		CurveType.Linear:
+			processed_score = bubble_points * destroyed_count
+		CurveType.Exp:
+			processed_score = bubble_points * int(exp(destroyed_count)) 
+		CurveType.Log:
+			processed_score = bubble_points * int(log(destroyed_count +1))
+		CurveType.Quadra:
+			processed_score = bubble_points * destroyed_count * destroyed_count
+	return processed_score
+
+func update_score(n : int):
+	score += n
+	debug_score.text = 'score : ' + str(score)
+	destroyed_count = 0
