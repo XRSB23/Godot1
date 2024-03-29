@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cyo7nva76v510" path="res://Art/Bubble/SpecialBubbles.svg" id="2_nsgn8"]
 [ext_resource type="Texture2D" uid="uid://d03puw7wni1og" path="res://Art/Bubble/Paint_Liquid_only.svg" id="3_ajjjt"]
 [ext_resource type="Script" path="res://Scripts/Bubble/BubbleParticleSystem.gd" id="3_mpbsp"]
-[ext_resource type="Script" path="res://Scripts/Bubble/LiquidBehavior.gd" id="4_awb7c"]
+[ext_resource type="Script" path="res://Scripts/LockRotation.gd" id="4_a6lhe"]
 [ext_resource type="Texture2D" uid="uid://nmrfq7yp27e6" path="res://Art/Bubble/BubbleFrag1_Atlas.tres" id="4_ivs3i"]
 [ext_resource type="Script" path="res://Scripts/Bubble/ParticlesAtlasCoordinates.gd" id="5_mew36"]
 [ext_resource type="Texture2D" uid="uid://uj1201xcuc43" path="res://Art/Bubble/BubbleFrag2_Atlas.tres" id="6_3qkcw"]
@@ -272,7 +272,7 @@ scale = Vector2(0.9, 0.9)
 texture = ExtResource("3_ajjjt")
 hframes = 4
 vframes = 2
-script = ExtResource("4_awb7c")
+script = ExtResource("4_a6lhe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dq26grx5lu6hr"]
+[gd_scene load_steps=30 format=3 uid="uid://dq26grx5lu6hr"]
 
 [ext_resource type="Script" path="res://Scripts/Bubble/Bubble_Explosive.gd" id="1_g4rna"]
 [ext_resource type="Texture2D" uid="uid://cyo7nva76v510" path="res://Art/Bubble/SpecialBubbles.svg" id="2_if3lf"]
@@ -6,10 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/particleStar4.svg" id="7_nxtsb"]
 [ext_resource type="Script" path="res://Scripts/Bubble/TrailParticles.gd" id="8_qx7xk"]
 [ext_resource type="Texture2D" uid="uid://ct0n0s212lh1r" path="res://Art/Bubble/particleStar5.svg" id="9_l7ov5"]
+[ext_resource type="Script" path="res://Scripts/LockRotation.gd" id="10_7vxrp"]
 [ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="10_xqpkg"]
 [ext_resource type="Material" uid="uid://cme715qbwu7ky" path="res://Art/Bubble/radialGradient_shader_material.tres" id="11_ky5ra"]
+[ext_resource type="Material" uid="uid://c6q02hwlghl5y" path="res://Art/shockwave_shader_material.tres" id="12_m6fro"]
 [ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/trail_shader_material.tres" id="12_vfqm1"]
 [ext_resource type="Script" path="res://addons/trail2D_plugin/Trail2D.gd" id="13_d8a5u"]
+[ext_resource type="Texture2D" uid="uid://dck3p41sfucay" path="res://icon.svg" id="13_h1ooy"]
 [ext_resource type="Texture2D" uid="uid://b7tr6uvd0bh1r" path="res://Art/Bubble/ExplosionEffect.svg" id="14_n67bp"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fyk6a"]
@@ -192,7 +195,31 @@ tracks/11/keys = {
 "times": PackedFloat32Array(0.1, 0.5, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.607843), Color(1, 1, 1, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Shockwave:material:shader_parameter/size")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.8),
+"transitions": PackedFloat32Array(1, 0.637281, 1),
+"update": 0,
+"values": [0.25, 0.0, 0.6]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Shockwave:material:shader_parameter/force")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.8),
+"transitions": PackedFloat32Array(1, 0.594605, 1),
+"update": 0,
+"values": [0.05, 0.1, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_bgloi"]
@@ -383,6 +410,30 @@ tracks/12/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Shockwave:material:shader_parameter/size")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Shockwave:material:shader_parameter/force")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mqw2o"]
 _data = {
@@ -522,6 +573,7 @@ z_index = -1
 texture = ExtResource("14_n67bp")
 hframes = 3
 vframes = 2
+script = ExtResource("10_7vxrp")
 
 [node name="ExplosionEffect2" type="Sprite2D" parent="ParticleSystem"]
 modulate = Color(1, 1, 1, 0)
@@ -529,6 +581,7 @@ texture = ExtResource("14_n67bp")
 hframes = 3
 vframes = 2
 frame = 3
+script = ExtResource("10_7vxrp")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 libraries = {
@@ -553,6 +606,13 @@ joint_mode = 2
 script = ExtResource("13_d8a5u")
 max_length = 50
 min_velocity = 0.5
+
+[node name="Shockwave" type="Sprite2D" parent="."]
+z_index = 10
+material = ExtResource("12_m6fro")
+scale = Vector2(15, 15)
+texture = ExtResource("13_h1ooy")
+script = ExtResource("10_7vxrp")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]

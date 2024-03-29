@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c6q02hwlghl5y"]
+
+[ext_resource type="Shader" path="res://Art/shockwave_shader.gdshader" id="1_ft6q8"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_ft6q8")
+shader_parameter/screen_size = Vector2(1280, 720)
+shader_parameter/force = 0.0
+shader_parameter/size = 0.0
+shader_parameter/thickness = 0.1

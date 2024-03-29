@@ -8,6 +8,8 @@ extends Node2D
 @onready var color_select_menu = $ColorSelectMenu
 @onready var consumable_menu = $ConsumableMenu
 
+
+
 var touch_points : Dictionary = {} #To track multiple fingers input, used as Dynamic Array
 var start_point = Vector2.ZERO
 var input_direction = Vector2.ZERO
