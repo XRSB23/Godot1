@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/Bubble/BubbleParticleSystem.gd" id="3_fbc0j"]
 [ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/particleStar4.svg" id="7_nxtsb"]
 [ext_resource type="Script" path="res://Scripts/Bubble/TrailParticles.gd" id="8_qx7xk"]
+[ext_resource type="Texture2D" uid="uid://d4f7e8xq8nkyd" path="res://Art/Bubble/ExplosionEffect.svg" id="9_7hxi5"]
 [ext_resource type="Texture2D" uid="uid://ct0n0s212lh1r" path="res://Art/Bubble/particleStar5.svg" id="9_l7ov5"]
 [ext_resource type="Script" path="res://Scripts/LockRotation.gd" id="10_7vxrp"]
 [ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="10_xqpkg"]
@@ -13,7 +14,6 @@
 [ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/trail_shader_material.tres" id="12_vfqm1"]
 [ext_resource type="Script" path="res://addons/trail2D_plugin/Trail2D.gd" id="13_d8a5u"]
 [ext_resource type="Texture2D" uid="uid://dck3p41sfucay" path="res://icon.svg" id="13_h1ooy"]
-[ext_resource type="Texture2D" uid="uid://b7tr6uvd0bh1r" path="res://Art/Bubble/ExplosionEffect.svg" id="14_n67bp"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fyk6a"]
 particles_animation = true
@@ -49,7 +49,6 @@ point_count = 2
 
 [sub_resource type="Animation" id="Animation_miwir"]
 resource_name = "Burst"
-length = 0.8
 step = 0.05
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -128,35 +127,35 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("ParticleSystem/ExplosionEffect1:frame")
+tracks/6/path = NodePath("ParticleSystem/ExplosionEffect:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.1, 0.15, 0.25, 0.35),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.08, 0.16, 0.28, 0.4, 0.52, 0.64, 0.76, 0.88),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 4]
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("ParticleSystem/ExplosionEffect1:scale")
+tracks/7/path = NodePath("ParticleSystem/ExplosionEffect:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.1, 0.2, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.1, 0.2, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(2, 2), Vector2(3, 3)]
+"values": [Vector2(1, 1), Vector2(2, 2), Vector2(2.5, 2.5), Vector2(4, 4)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("ParticleSystem/ExplosionEffect1:modulate")
+tracks/8/path = NodePath("ParticleSystem/ExplosionEffect:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3, 0.75),
+"times": PackedFloat32Array(0, 0.1, 0.6, 1),
 "transitions": PackedFloat32Array(0, 0, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -164,62 +163,38 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("ParticleSystem/ExplosionEffect2:frame")
+tracks/9/path = NodePath("ParticleSystem/Shockwave:material:shader_parameter/size")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0.15, 0.65),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [3, 5]
+"times": PackedFloat32Array(0, 0.35, 1),
+"transitions": PackedFloat32Array(1, 0.637281, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.6]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("ParticleSystem/ExplosionEffect2:scale")
+tracks/10/path = NodePath("ParticleSystem/Shockwave:material:shader_parameter/force")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0.15, 0.65),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.35, 1),
+"transitions": PackedFloat32Array(0.594605, 1),
 "update": 0,
-"values": [Vector2(0.5, 0.5), Vector2(2.5, 2.5)]
+"values": [0.05, 0.0]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("ParticleSystem/ExplosionEffect2:modulate")
+tracks/11/path = NodePath("ParticleSystem/Shockwave:material:shader_parameter/thickness")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0.1, 0.5, 0.8),
+"times": PackedFloat32Array(0, 0.65, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.607843), Color(1, 1, 1, 0)]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Shockwave:material:shader_parameter/size")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.8),
-"transitions": PackedFloat32Array(1, 0.637281, 1),
-"update": 0,
-"values": [0.25, 0.0, 0.6]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Shockwave:material:shader_parameter/force")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.8),
-"transitions": PackedFloat32Array(1, 0.594605, 1),
-"update": 0,
-"values": [0.05, 0.1, 0.0]
+"values": [0.1, 0.1, 0.01]
 }
 
 [sub_resource type="Animation" id="Animation_bgloi"]
@@ -341,7 +316,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("ParticleSystem/ExplosionEffect1:frame")
+tracks/7/path = NodePath("ParticleSystem/ExplosionEffect:frame")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -353,7 +328,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("ParticleSystem/ExplosionEffect1:scale")
+tracks/8/path = NodePath("ParticleSystem/ExplosionEffect:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -365,7 +340,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("ParticleSystem/ExplosionEffect1:modulate")
+tracks/9/path = NodePath("ParticleSystem/ExplosionEffect:modulate")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -377,62 +352,38 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("ParticleSystem/ExplosionEffect2:frame")
+tracks/10/path = NodePath("ParticleSystem/Shockwave:material:shader_parameter/size")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
+"update": 0,
+"values": [0.0]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("ParticleSystem/ExplosionEffect2:modulate")
+tracks/11/path = NodePath("ParticleSystem/Shockwave:material:shader_parameter/force")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [0.0]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("ParticleSystem/ExplosionEffect2:scale")
+tracks/12/path = NodePath("ParticleSystem/Shockwave:material:shader_parameter/thickness")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Shockwave:material:shader_parameter/size")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Shockwave:material:shader_parameter/force")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"values": [0.1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mqw2o"]
@@ -567,20 +518,19 @@ scale_amount_min = 0.01
 scale_amount_max = 0.03
 scale_amount_curve = SubResource("Curve_xrkiq")
 
-[node name="ExplosionEffect1" type="Sprite2D" parent="ParticleSystem"]
+[node name="ExplosionEffect" type="Sprite2D" parent="ParticleSystem"]
 modulate = Color(1, 1, 1, 0)
 z_index = -1
-texture = ExtResource("14_n67bp")
-hframes = 3
+texture = ExtResource("9_7hxi5")
+hframes = 4
 vframes = 2
 script = ExtResource("10_7vxrp")
 
-[node name="ExplosionEffect2" type="Sprite2D" parent="ParticleSystem"]
-modulate = Color(1, 1, 1, 0)
-texture = ExtResource("14_n67bp")
-hframes = 3
-vframes = 2
-frame = 3
+[node name="Shockwave" type="Sprite2D" parent="ParticleSystem"]
+z_index = 10
+material = ExtResource("12_m6fro")
+scale = Vector2(15, 15)
+texture = ExtResource("13_h1ooy")
 script = ExtResource("10_7vxrp")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -606,13 +556,6 @@ joint_mode = 2
 script = ExtResource("13_d8a5u")
 max_length = 50
 min_velocity = 0.5
-
-[node name="Shockwave" type="Sprite2D" parent="."]
-z_index = 10
-material = ExtResource("12_m6fro")
-scale = Vector2(15, 15)
-texture = ExtResource("13_h1ooy")
-script = ExtResource("10_7vxrp")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
