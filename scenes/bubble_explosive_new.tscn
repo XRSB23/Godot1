@@ -5,7 +5,6 @@
 [ext_resource type="Script" path="res://Scripts/Bubble/BubbleParticleSystem.gd" id="3_fbc0j"]
 [ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/particleStar4.svg" id="7_nxtsb"]
 [ext_resource type="Script" path="res://Scripts/Bubble/TrailParticles.gd" id="8_qx7xk"]
-[ext_resource type="Texture2D" uid="uid://d4f7e8xq8nkyd" path="res://Art/Bubble/ExplosionEffect.svg" id="9_7hxi5"]
 [ext_resource type="Texture2D" uid="uid://ct0n0s212lh1r" path="res://Art/Bubble/particleStar5.svg" id="9_l7ov5"]
 [ext_resource type="Script" path="res://Scripts/LockRotation.gd" id="10_7vxrp"]
 [ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="10_xqpkg"]
@@ -14,6 +13,7 @@
 [ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/trail_shader_material.tres" id="12_vfqm1"]
 [ext_resource type="Script" path="res://addons/trail2D_plugin/Trail2D.gd" id="13_d8a5u"]
 [ext_resource type="Texture2D" uid="uid://dck3p41sfucay" path="res://icon.svg" id="13_h1ooy"]
+[ext_resource type="Texture2D" uid="uid://d4f7e8xq8nkyd" path="res://Art/Bubble/ExplosionEffect.svg" id="14_n67bp"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fyk6a"]
 particles_animation = true
@@ -521,7 +521,7 @@ scale_amount_curve = SubResource("Curve_xrkiq")
 [node name="ExplosionEffect" type="Sprite2D" parent="ParticleSystem"]
 modulate = Color(1, 1, 1, 0)
 z_index = -1
-texture = ExtResource("9_7hxi5")
+texture = ExtResource("14_n67bp")
 hframes = 4
 vframes = 2
 script = ExtResource("10_7vxrp")
