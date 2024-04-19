@@ -1,4 +1,5 @@
 extends Node2D
+class_name GameScene
 
 var level_data_base = preload("res://Resources/levels_resource.tres")
 var debug_level_button = preload("res://scenes/debug_level_button.tscn")

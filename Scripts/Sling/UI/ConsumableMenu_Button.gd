@@ -16,6 +16,7 @@ var activated : bool = false :
 func _ready():
 	if get_parent() is RadialContainer :
 		control = get_parent()
+	
 
 
 func Update():
@@ -38,3 +39,4 @@ func _on_shoot():
 func Activate(_b :bool): #Do Shader stuff to display activated state (like highlighted button ?)
 	pass
 	
+
