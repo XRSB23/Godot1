@@ -15,9 +15,9 @@ var astar = AStar2D.new()
 
 
 @onready var sling = $Sling
-@onready var debug_hud = $CanvasLayer/Label
-@onready var canvas_layer = $CanvasLayer
-@onready var buttons_container = $CanvasLayer/ButtonContainer
+@onready var debug_hud = $LevelSelectCanvas/Label
+@onready var canvas_layer = $LevelSelectCanvas
+@onready var buttons_container = $LevelSelectCanvas/ButtonContainer
 @onready var bubble_container = $BubbleContainer
 @onready var destroy_container = $DestroyContainer
 @onready var camera : CameraController = $CameraSystem/Camera2D
