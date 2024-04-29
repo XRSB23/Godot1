@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=61 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraController.gd" id="2_3irfh"]
@@ -25,8 +25,11 @@
 [ext_resource type="Script" path="res://Scripts/Sling/UI/BasicConsumable_Button.gd" id="22_250y0"]
 [ext_resource type="Script" path="res://Scripts/Sling/UI/Paint_Button.gd" id="24_hn7nd"]
 [ext_resource type="Shader" uid="uid://bvrhjynai8u5f" path="res://Art/Bubble/radialMask_shader.tres" id="27_im7n6"]
+[ext_resource type="Script" path="res://Scripts/UI/PowerUpPanel.gd" id="28_a1ofm"]
 [ext_resource type="Texture2D" uid="uid://cnpdmjy53lnpb" path="res://Art/UI/PowerUps.svg" id="29_0bcg4"]
+[ext_resource type="Script" path="res://Scripts/UI/PowerUpButton.gd" id="29_vc8lb"]
 [ext_resource type="Texture2D" uid="uid://iirp7pxhk5jt" path="res://Art/[Temp]Background.jpg" id="29_wjtr2"]
+[ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/grayscale_shader.tres" id="30_saxga"]
 
 [sub_resource type="Curve" id="Curve_j361q"]
 _data = [Vector2(0, 0), 0.0, 2.425, 0, 0, Vector2(0.1, 0.4), 1.75882, 0.666667, 0, 0, Vector2(1, 1), 0.666667, 0.0, 0, 0]
@@ -98,6 +101,12 @@ outline_color = Color(0, 0, 0, 1)
 atlas = ExtResource("29_0bcg4")
 region = Rect2(1024, 0, 512, 512)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hld0g"]
+resource_local_to_scene = true
+shader = ExtResource("30_saxga")
+shader_parameter/is_grayscale = false
+shader_parameter/Brightness = 0.3
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_u42hu"]
 resource_local_to_scene = true
 atlas = ExtResource("29_0bcg4")
@@ -112,6 +121,12 @@ region = Rect2(512, 0, 512, 512)
 atlas = ExtResource("29_0bcg4")
 region = Rect2(1024, 0, 512, 512)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dgy7f"]
+resource_local_to_scene = true
+shader = ExtResource("30_saxga")
+shader_parameter/is_grayscale = false
+shader_parameter/Brightness = 0.3
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_8u80r"]
 atlas = ExtResource("29_0bcg4")
 region = Rect2(512, 512, 512, 512)
@@ -125,6 +140,12 @@ region = Rect2(512, 0, 512, 512)
 atlas = ExtResource("29_0bcg4")
 region = Rect2(1024, 0, 512, 512)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rkfne"]
+resource_local_to_scene = true
+shader = ExtResource("30_saxga")
+shader_parameter/is_grayscale = false
+shader_parameter/Brightness = 0.3
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_3urq0"]
 atlas = ExtResource("29_0bcg4")
 region = Rect2(1024, 512, 512, 512)
@@ -137,6 +158,12 @@ region = Rect2(512, 0, 512, 512)
 [sub_resource type="AtlasTexture" id="AtlasTexture_145ck"]
 atlas = ExtResource("29_0bcg4")
 region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_psl2w"]
+resource_local_to_scene = true
+shader = ExtResource("30_saxga")
+shader_parameter/is_grayscale = false
+shader_parameter/Brightness = 0.3
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x8vk6"]
 atlas = ExtResource("29_0bcg4")
@@ -432,6 +459,7 @@ offset_left = 32.0
 offset_top = 24.0
 offset_right = 296.0
 offset_bottom = 304.0
+script = ExtResource("28_a1ofm")
 
 [node name="Label" type="Label" parent="HUD/ConsumablePanel"]
 layout_mode = 1
@@ -459,10 +487,10 @@ offset_right = 1.0
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/h_separation = -49
+theme_override_constants/h_separation = -20
 columns = 2
 
-[node name="Precision Shot" type="TextureButton" parent="HUD/ConsumablePanel/GridContainer"]
+[node name="Precision Shot" type="TextureButton" parent="HUD/ConsumablePanel/GridContainer" node_paths=PackedStringArray("camera", "consumable_panel", "amount_label", "highlight", "icon")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -470,7 +498,12 @@ texture_normal = SubResource("AtlasTexture_d3f5i")
 texture_disabled = SubResource("AtlasTexture_p10b5")
 ignore_texture_size = true
 stretch_mode = 5
-script = ExtResource("21_jg6jn")
+script = ExtResource("29_vc8lb")
+camera = NodePath("../../../../CameraSystem/Camera2D")
+consumable_panel = NodePath("../..")
+amount_label = NodePath("Amount")
+highlight = NodePath("Highlight")
+icon = NodePath("Icon")
 
 [node name="Amount" type="Label" parent="HUD/ConsumablePanel/GridContainer/Precision Shot"]
 layout_mode = 1
@@ -478,15 +511,17 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 63.0
-offset_top = -51.0
-offset_bottom = -7.0
+offset_left = 58.0
+offset_top = -48.0
+offset_right = -5.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "∞"
+text = "
+"
 label_settings = SubResource("LabelSettings_p0jsf")
 horizontal_alignment = 1
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="Highlight" type="TextureRect" parent="HUD/ConsumablePanel/GridContainer/Precision Shot"]
 modulate = Color(1, 1, 1, 0)
@@ -503,6 +538,7 @@ stretch_mode = 5
 
 [node name="Icon" type="TextureRect" parent="HUD/ConsumablePanel/GridContainer/Precision Shot"]
 show_behind_parent = true
+material = SubResource("ShaderMaterial_hld0g")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -513,7 +549,7 @@ texture = SubResource("AtlasTexture_u42hu")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Explosive" type="TextureButton" parent="HUD/ConsumablePanel/GridContainer"]
+[node name="Explosive" type="TextureButton" parent="HUD/ConsumablePanel/GridContainer" node_paths=PackedStringArray("camera", "consumable_panel", "amount_label", "highlight", "icon")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -521,7 +557,13 @@ texture_normal = SubResource("AtlasTexture_npc1t")
 texture_disabled = SubResource("AtlasTexture_57w71")
 ignore_texture_size = true
 stretch_mode = 5
-script = ExtResource("22_250y0")
+script = ExtResource("29_vc8lb")
+camera = NodePath("../../../../CameraSystem/Camera2D")
+consumable_panel = NodePath("../..")
+amount_label = NodePath("Amount")
+highlight = NodePath("Highlight")
+icon = NodePath("Icon")
+type = 1
 
 [node name="Amount" type="Label" parent="HUD/ConsumablePanel/GridContainer/Explosive"]
 layout_mode = 1
@@ -529,15 +571,15 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 63.0
-offset_top = -51.0
-offset_bottom = -7.0
+offset_left = 58.0
+offset_top = -48.0
+offset_right = -5.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "∞"
 label_settings = SubResource("LabelSettings_p0jsf")
 horizontal_alignment = 1
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="Highlight" type="TextureRect" parent="HUD/ConsumablePanel/GridContainer/Explosive"]
 modulate = Color(1, 1, 1, 0)
@@ -554,6 +596,7 @@ stretch_mode = 5
 
 [node name="Icon" type="TextureRect" parent="HUD/ConsumablePanel/GridContainer/Explosive"]
 show_behind_parent = true
+material = SubResource("ShaderMaterial_dgy7f")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -564,7 +607,7 @@ texture = SubResource("AtlasTexture_8u80r")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Paint" type="TextureButton" parent="HUD/ConsumablePanel/GridContainer"]
+[node name="Metal" type="TextureButton" parent="HUD/ConsumablePanel/GridContainer" node_paths=PackedStringArray("camera", "consumable_panel", "amount_label", "highlight", "icon")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -572,25 +615,31 @@ texture_normal = SubResource("AtlasTexture_g5k66")
 texture_disabled = SubResource("AtlasTexture_fbp8u")
 ignore_texture_size = true
 stretch_mode = 5
-script = ExtResource("24_hn7nd")
+script = ExtResource("29_vc8lb")
+camera = NodePath("../../../../CameraSystem/Camera2D")
+consumable_panel = NodePath("../..")
+amount_label = NodePath("Amount")
+highlight = NodePath("Highlight")
+icon = NodePath("Icon")
+type = 1
 
-[node name="Amount" type="Label" parent="HUD/ConsumablePanel/GridContainer/Paint"]
+[node name="Amount" type="Label" parent="HUD/ConsumablePanel/GridContainer/Metal"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 63.0
-offset_top = -51.0
-offset_bottom = -7.0
+offset_left = 58.0
+offset_top = -47.0
+offset_right = -5.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "∞"
 label_settings = SubResource("LabelSettings_p0jsf")
 horizontal_alignment = 1
-vertical_alignment = 2
+vertical_alignment = 1
 
-[node name="Highlight" type="TextureRect" parent="HUD/ConsumablePanel/GridContainer/Paint"]
+[node name="Highlight" type="TextureRect" parent="HUD/ConsumablePanel/GridContainer/Metal"]
 modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
 layout_mode = 1
@@ -603,8 +652,9 @@ texture = SubResource("AtlasTexture_ceaf2")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Icon" type="TextureRect" parent="HUD/ConsumablePanel/GridContainer/Paint"]
+[node name="Icon" type="TextureRect" parent="HUD/ConsumablePanel/GridContainer/Metal"]
 show_behind_parent = true
+material = SubResource("ShaderMaterial_rkfne")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -615,7 +665,7 @@ texture = SubResource("AtlasTexture_3urq0")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Metal" type="TextureButton" parent="HUD/ConsumablePanel/GridContainer"]
+[node name="Paint" type="TextureButton" parent="HUD/ConsumablePanel/GridContainer" node_paths=PackedStringArray("camera", "consumable_panel", "amount_label", "highlight", "icon")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -623,26 +673,31 @@ texture_normal = SubResource("AtlasTexture_hp26e")
 texture_disabled = SubResource("AtlasTexture_offtx")
 ignore_texture_size = true
 stretch_mode = 5
-script = ExtResource("22_250y0")
-size_scale = 1.37
+script = ExtResource("29_vc8lb")
+camera = NodePath("../../../../CameraSystem/Camera2D")
+consumable_panel = NodePath("../..")
+amount_label = NodePath("Amount")
+highlight = NodePath("Highlight")
+icon = NodePath("Icon")
+type = 1
 
-[node name="Amount" type="Label" parent="HUD/ConsumablePanel/GridContainer/Metal"]
+[node name="Amount" type="Label" parent="HUD/ConsumablePanel/GridContainer/Paint"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 63.0
-offset_top = -51.0
-offset_bottom = -7.0
+offset_left = 58.0
+offset_top = -47.0
+offset_right = -5.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "∞"
 label_settings = SubResource("LabelSettings_p0jsf")
 horizontal_alignment = 1
-vertical_alignment = 2
+vertical_alignment = 1
 
-[node name="Highlight" type="TextureRect" parent="HUD/ConsumablePanel/GridContainer/Metal"]
+[node name="Highlight" type="TextureRect" parent="HUD/ConsumablePanel/GridContainer/Paint"]
 modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
 layout_mode = 1
@@ -655,8 +710,9 @@ texture = SubResource("AtlasTexture_145ck")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Icon" type="TextureRect" parent="HUD/ConsumablePanel/GridContainer/Metal"]
+[node name="Icon" type="TextureRect" parent="HUD/ConsumablePanel/GridContainer/Paint"]
 show_behind_parent = true
+material = SubResource("ShaderMaterial_psl2w")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -693,16 +749,12 @@ stretch_mode = 5
 [connection signal="button_down" from="HUD/ConsumablePanel/GridContainer/Precision Shot" to="HUD/ConsumablePanel/GridContainer/Precision Shot" method="_on_button_down"]
 [connection signal="button_up" from="HUD/ConsumablePanel/GridContainer/Precision Shot" to="HUD/ConsumablePanel/GridContainer/Precision Shot" method="_on_button_up"]
 [connection signal="pressed" from="HUD/ConsumablePanel/GridContainer/Precision Shot" to="HUD/ConsumablePanel/GridContainer/Precision Shot" method="_on_pressed"]
-[connection signal="set_aim_mode" from="HUD/ConsumablePanel/GridContainer/Precision Shot" to="Sling" method="_on_precision_shot_set_aim_mode"]
 [connection signal="button_down" from="HUD/ConsumablePanel/GridContainer/Explosive" to="HUD/ConsumablePanel/GridContainer/Explosive" method="_on_button_down"]
 [connection signal="button_up" from="HUD/ConsumablePanel/GridContainer/Explosive" to="HUD/ConsumablePanel/GridContainer/Explosive" method="_on_button_up"]
-[connection signal="on_selected" from="HUD/ConsumablePanel/GridContainer/Explosive" to="Sling" method="_on_explosive_on_selected"]
 [connection signal="pressed" from="HUD/ConsumablePanel/GridContainer/Explosive" to="HUD/ConsumablePanel/GridContainer/Explosive" method="_on_pressed"]
-[connection signal="button_down" from="HUD/ConsumablePanel/GridContainer/Paint" to="HUD/ConsumablePanel/GridContainer/Paint" method="_on_button_down"]
-[connection signal="button_up" from="HUD/ConsumablePanel/GridContainer/Paint" to="HUD/ConsumablePanel/GridContainer/Paint" method="_on_button_up"]
-[connection signal="colorMenu_changeIcon" from="HUD/ConsumablePanel/GridContainer/Paint" to="Sling" method="_on_paint_color_menu_change_icon"]
-[connection signal="pressed" from="HUD/ConsumablePanel/GridContainer/Paint" to="HUD/ConsumablePanel/GridContainer/Paint" method="_on_pressed"]
 [connection signal="button_down" from="HUD/ConsumablePanel/GridContainer/Metal" to="HUD/ConsumablePanel/GridContainer/Metal" method="_on_button_down"]
 [connection signal="button_up" from="HUD/ConsumablePanel/GridContainer/Metal" to="HUD/ConsumablePanel/GridContainer/Metal" method="_on_button_up"]
-[connection signal="on_selected" from="HUD/ConsumablePanel/GridContainer/Metal" to="Sling" method="_on_metal_on_selected"]
 [connection signal="pressed" from="HUD/ConsumablePanel/GridContainer/Metal" to="HUD/ConsumablePanel/GridContainer/Metal" method="_on_pressed"]
+[connection signal="button_down" from="HUD/ConsumablePanel/GridContainer/Paint" to="HUD/ConsumablePanel/GridContainer/Paint" method="_on_button_down"]
+[connection signal="button_up" from="HUD/ConsumablePanel/GridContainer/Paint" to="HUD/ConsumablePanel/GridContainer/Paint" method="_on_button_up"]
+[connection signal="pressed" from="HUD/ConsumablePanel/GridContainer/Paint" to="HUD/ConsumablePanel/GridContainer/Paint" method="_on_pressed"]
