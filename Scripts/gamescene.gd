@@ -118,7 +118,6 @@ func reset_sling():
 	await sling.UpdateColorMenu(get_remaining_colors()) # Await for instance process to be done before opening menu, else can have menu problems
 	if get_remaining_colors().size() > 1 : sling.color_select_menu.Open()
 	else : sling.load_ball()
-	sling.consumable_menu.Open()
 
 func explosive_radius(radius_bubbles):
 	var cells = []

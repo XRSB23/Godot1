@@ -187,8 +187,7 @@ func ChildLerp(child_index : int):
 	
 	tween.set_parallel(true)
 	tween.tween_property(child,"position", target, cell_open_tween_duration).from(position)
-	if child is ConsumableMenu_Button : tween.tween_property(child,"size", child_size * child.size_scale, cell_open_tween_duration)
-	else : tween.tween_property(child,"size", child_size, cell_open_tween_duration)
+	tween.tween_property(child,"size", child_size, cell_open_tween_duration)
 	tween.tween_property(child,"modulate", Color(1,1,1,1), cell_open_tween_duration).set_delay(min_radius * cell_open_tween_duration / max_radius)
 	
 	await tween.finished

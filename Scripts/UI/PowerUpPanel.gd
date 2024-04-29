@@ -7,8 +7,8 @@ var projectile_buttons : Array[PowerUpButton]
 var selected_mode : PowerUpButton
 var selected_projectile : PowerUpButton
 
-signal deselect_shootmode()
-signal deselect_projectile()
+signal deselect_shootmode(bypass : bool)
+signal deselect_projectile(bypass : bool)
 
 @export_category("Debug")
 @export var infinite_powerups : bool = false :
@@ -38,7 +38,7 @@ func _ready():
 
 
 
-func SelectMode(item : PowerUpButton) :
+func SelectMode(item : PowerUpButton, bypass : bool = false) :
 
 	if item == null :
 		deselect_shootmode.emit()
@@ -54,10 +54,10 @@ func SelectMode(item : PowerUpButton) :
 				button.Highlight(false)
 				button.Disable(true)
 
-func SelectProjectile(item : PowerUpButton) :
+func SelectProjectile(item : PowerUpButton, bypass : bool = false) :
 
 	if item == null :
-		deselect_projectile.emit()
+		deselect_projectile.emit(bypass)
 		selected_projectile = null
 		for button in projectile_buttons:
 			button.Highlight(false)
@@ -70,6 +70,6 @@ func SelectProjectile(item : PowerUpButton) :
 				button.Highlight(false)
 				button.Disable(true)
 				
-func ResetSelection():
-	SelectMode(null)
-	SelectProjectile(null)
+func ResetSelection(bypass : bool = false):
+	SelectMode(null, bypass)
+	SelectProjectile(null, bypass)

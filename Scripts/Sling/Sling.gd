@@ -6,7 +6,6 @@ extends Node2D
 @onready var bubble_container = $"../BubbleContainer"
 @onready var trajectory_preview : TrajectoryPreview = $TrajectoryPreview 
 @onready var color_select_menu = $ColorSelectMenu
-@onready var consumable_menu = $ConsumableMenu
 @onready var powerUp_panel = $"../HUD/PowerUpPanel"
 
 
@@ -47,13 +46,6 @@ var is_dragging : bool = false
 @export var gizmo_color : Color = Color("05ff2c", 1)
 @export var line_width : float = 1
 
-@export var infinite_consumables : bool = false :
-	set(value) :
-		infinite_consumables = value
-		if consumable_menu != null && consumable_menu.get_child_count() > 0 :
-			for child in consumable_menu :
-				if child is ConsumableMenu_Button : child.infinite = value
-			
 var debug_drag_start : Vector2
 var debug_drag_end : Vector2
 
@@ -82,7 +74,6 @@ func HandleTouch(event):
 	else:
 		if !is_dragging:
 			if game_scene.get_remaining_colors().size() > 1 : color_select_menu.Open()
-			consumable_menu.Open()
 		else : 
 			is_dragging = false
 			
@@ -127,18 +118,13 @@ func shoot_ball(v : Vector2):
 	
 	if powerUp_panel.selected_mode != null : powerUp_panel.selected_mode.on_shoot()
 	if powerUp_panel.selected_projectile != null : powerUp_panel.selected_projectile.on_shoot()
-	powerUp_panel.ResetSelection()
+	powerUp_panel.ResetSelection(true)
 	
-	#if consumable_menu.selected_item != null :
-		#consumable_menu.selected_item._on_shoot()
-	#if consumable_menu.get_child(0).activated :
-		#consumable_menu.get_child(0)._on_shoot()
 
 func init_sling(attempts:int):
 	UpdateColorMenu(game_scene.get_remaining_colors())
 	if game_scene.get_remaining_colors().size() > 1 : color_select_menu.Open()
 	else : load_ball()
-	consumable_menu.Open()
 	balls_amount = attempts
 	
 func load_ball():
@@ -234,7 +220,6 @@ func _on_dead_zone(body):
 		body.queue_free()
 		if game_scene.get_remaining_colors().size() > 1 : color_select_menu.Open()
 		else : load_ball()
-		consumable_menu.Open()
 		trajectory_preview.UpdateGhost()
 	else:
 		body.on_metal_end_effect()
@@ -248,56 +233,32 @@ func _on_color_select_menu_color_picked():
 func _on_color_select_menu_opened():
 	ClearBall()
 
-func _on_precision_shot_set_aim_mode(mode):
-	trajectory_mode = mode
-
-func _on_explosive_on_selected():
-	consumable_menu.CloseFade()
-	await color_select_menu.CloseFade()
-	load_consumable(level_data.BubbleColor.Empty)
-
-func _on_metal_on_selected():
-	consumable_menu.CloseFade()
-	await color_select_menu.CloseFade()
-	load_consumable(level_data.BubbleColor.Empty)
-
-func _on_paint_color_menu_change_icon(b):
-	for child : BubbleSelectMenu_Button in color_select_menu.get_children() :
-		child.is_paint_mode = b
-
-
-
-
-func _on_consumable_panel_deselect_projectile():
+func _on_consumable_panel_deselect_projectile(bypass : bool):
 	for child : BubbleSelectMenu_Button in color_select_menu.get_children() :
 		child.is_paint_mode = false
-	if !color_select_menu.is_open: color_select_menu.Open()
+	if !color_select_menu.is_open && !bypass: color_select_menu.Open() #ici !!!
 	ClearBall()
 
 func _on_consumable_panel_deselect_shootmode():
 	trajectory_mode = TrajectoryPreview.MODE.VECTOR
 
-
-
-
-
-#endregion
-
-
 func _on_precision_shot_selected():
 	trajectory_mode = TrajectoryPreview.MODE.NEWTON
-
 
 func _on_explosive_selected():
 	load_consumable(level_data.BubbleColor.Empty)
 	await color_select_menu.CloseFade()
 
-
 func _on_metal_selected():
 	load_consumable(level_data.BubbleColor.Empty)
 	await color_select_menu.CloseFade()
 
-
 func _on_paint_selected():
 	for child : BubbleSelectMenu_Button in color_select_menu.get_children() :
 		child.is_paint_mode = true
+
+
+#endregion
+
+
+
