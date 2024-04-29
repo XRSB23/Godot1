@@ -454,14 +454,14 @@ texture = ExtResource("29_wjtr2")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="ConsumablePanel" type="Panel" parent="HUD"]
+[node name="PowerUpPanel" type="Panel" parent="HUD"]
 offset_left = 32.0
 offset_top = 24.0
 offset_right = 296.0
 offset_bottom = 304.0
 script = ExtResource("28_a1ofm")
 
-[node name="Label" type="Label" parent="HUD/ConsumablePanel"]
+[node name="Label" type="Label" parent="HUD/PowerUpPanel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -476,7 +476,7 @@ label_settings = SubResource("LabelSettings_7mfgm")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="HUD/ConsumablePanel"]
+[node name="GridContainer" type="GridContainer" parent="HUD/PowerUpPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -490,7 +490,7 @@ grow_vertical = 2
 theme_override_constants/h_separation = -20
 columns = 2
 
-[node name="Precision Shot" type="TextureButton" parent="HUD/ConsumablePanel/GridContainer" node_paths=PackedStringArray("camera", "consumable_panel", "amount_label", "highlight", "icon")]
+[node name="Precision Shot" type="TextureButton" parent="HUD/PowerUpPanel/GridContainer" node_paths=PackedStringArray("camera", "consumable_panel", "amount_label", "highlight", "icon")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -505,7 +505,7 @@ amount_label = NodePath("Amount")
 highlight = NodePath("Highlight")
 icon = NodePath("Icon")
 
-[node name="Amount" type="Label" parent="HUD/ConsumablePanel/GridContainer/Precision Shot"]
+[node name="Amount" type="Label" parent="HUD/PowerUpPanel/GridContainer/Precision Shot"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -523,7 +523,7 @@ label_settings = SubResource("LabelSettings_p0jsf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Highlight" type="TextureRect" parent="HUD/ConsumablePanel/GridContainer/Precision Shot"]
+[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/GridContainer/Precision Shot"]
 modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
 layout_mode = 1
@@ -536,7 +536,7 @@ texture = SubResource("AtlasTexture_8qlp4")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Icon" type="TextureRect" parent="HUD/ConsumablePanel/GridContainer/Precision Shot"]
+[node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/GridContainer/Precision Shot"]
 show_behind_parent = true
 material = SubResource("ShaderMaterial_hld0g")
 layout_mode = 1
@@ -549,7 +549,7 @@ texture = SubResource("AtlasTexture_u42hu")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Explosive" type="TextureButton" parent="HUD/ConsumablePanel/GridContainer" node_paths=PackedStringArray("camera", "consumable_panel", "amount_label", "highlight", "icon")]
+[node name="Explosive" type="TextureButton" parent="HUD/PowerUpPanel/GridContainer" node_paths=PackedStringArray("camera", "consumable_panel", "amount_label", "highlight", "icon")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -565,7 +565,7 @@ highlight = NodePath("Highlight")
 icon = NodePath("Icon")
 type = 1
 
-[node name="Amount" type="Label" parent="HUD/ConsumablePanel/GridContainer/Explosive"]
+[node name="Amount" type="Label" parent="HUD/PowerUpPanel/GridContainer/Explosive"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -581,7 +581,7 @@ label_settings = SubResource("LabelSettings_p0jsf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Highlight" type="TextureRect" parent="HUD/ConsumablePanel/GridContainer/Explosive"]
+[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/GridContainer/Explosive"]
 modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
 layout_mode = 1
@@ -594,7 +594,7 @@ texture = SubResource("AtlasTexture_uwkps")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Icon" type="TextureRect" parent="HUD/ConsumablePanel/GridContainer/Explosive"]
+[node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/GridContainer/Explosive"]
 show_behind_parent = true
 material = SubResource("ShaderMaterial_dgy7f")
 layout_mode = 1
@@ -607,7 +607,7 @@ texture = SubResource("AtlasTexture_8u80r")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Metal" type="TextureButton" parent="HUD/ConsumablePanel/GridContainer" node_paths=PackedStringArray("camera", "consumable_panel", "amount_label", "highlight", "icon")]
+[node name="Metal" type="TextureButton" parent="HUD/PowerUpPanel/GridContainer" node_paths=PackedStringArray("camera", "consumable_panel", "amount_label", "highlight", "icon")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -623,7 +623,7 @@ highlight = NodePath("Highlight")
 icon = NodePath("Icon")
 type = 1
 
-[node name="Amount" type="Label" parent="HUD/ConsumablePanel/GridContainer/Metal"]
+[node name="Amount" type="Label" parent="HUD/PowerUpPanel/GridContainer/Metal"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -639,7 +639,7 @@ label_settings = SubResource("LabelSettings_p0jsf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Highlight" type="TextureRect" parent="HUD/ConsumablePanel/GridContainer/Metal"]
+[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/GridContainer/Metal"]
 modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
 layout_mode = 1
@@ -652,7 +652,7 @@ texture = SubResource("AtlasTexture_ceaf2")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Icon" type="TextureRect" parent="HUD/ConsumablePanel/GridContainer/Metal"]
+[node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/GridContainer/Metal"]
 show_behind_parent = true
 material = SubResource("ShaderMaterial_rkfne")
 layout_mode = 1
@@ -665,7 +665,7 @@ texture = SubResource("AtlasTexture_3urq0")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Paint" type="TextureButton" parent="HUD/ConsumablePanel/GridContainer" node_paths=PackedStringArray("camera", "consumable_panel", "amount_label", "highlight", "icon")]
+[node name="Paint" type="TextureButton" parent="HUD/PowerUpPanel/GridContainer" node_paths=PackedStringArray("camera", "consumable_panel", "amount_label", "highlight", "icon")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -681,7 +681,7 @@ highlight = NodePath("Highlight")
 icon = NodePath("Icon")
 type = 1
 
-[node name="Amount" type="Label" parent="HUD/ConsumablePanel/GridContainer/Paint"]
+[node name="Amount" type="Label" parent="HUD/PowerUpPanel/GridContainer/Paint"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -697,7 +697,7 @@ label_settings = SubResource("LabelSettings_p0jsf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Highlight" type="TextureRect" parent="HUD/ConsumablePanel/GridContainer/Paint"]
+[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/GridContainer/Paint"]
 modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
 layout_mode = 1
@@ -710,7 +710,7 @@ texture = SubResource("AtlasTexture_145ck")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Icon" type="TextureRect" parent="HUD/ConsumablePanel/GridContainer/Paint"]
+[node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/GridContainer/Paint"]
 show_behind_parent = true
 material = SubResource("ShaderMaterial_psl2w")
 layout_mode = 1
@@ -746,15 +746,17 @@ stretch_mode = 5
 [connection signal="pressed" from="Sling/ConsumableMenu/Metal" to="Sling/ConsumableMenu/Metal" method="_on_pressed"]
 [connection signal="body_entered" from="DeadzoneContainer/DeadZone" to="Sling" method="_on_dead_zone"]
 [connection signal="body_entered" from="DeadzoneContainer/DeadZone2" to="Sling" method="_on_dead_zone"]
-[connection signal="button_down" from="HUD/ConsumablePanel/GridContainer/Precision Shot" to="HUD/ConsumablePanel/GridContainer/Precision Shot" method="_on_button_down"]
-[connection signal="button_up" from="HUD/ConsumablePanel/GridContainer/Precision Shot" to="HUD/ConsumablePanel/GridContainer/Precision Shot" method="_on_button_up"]
-[connection signal="pressed" from="HUD/ConsumablePanel/GridContainer/Precision Shot" to="HUD/ConsumablePanel/GridContainer/Precision Shot" method="_on_pressed"]
-[connection signal="button_down" from="HUD/ConsumablePanel/GridContainer/Explosive" to="HUD/ConsumablePanel/GridContainer/Explosive" method="_on_button_down"]
-[connection signal="button_up" from="HUD/ConsumablePanel/GridContainer/Explosive" to="HUD/ConsumablePanel/GridContainer/Explosive" method="_on_button_up"]
-[connection signal="pressed" from="HUD/ConsumablePanel/GridContainer/Explosive" to="HUD/ConsumablePanel/GridContainer/Explosive" method="_on_pressed"]
-[connection signal="button_down" from="HUD/ConsumablePanel/GridContainer/Metal" to="HUD/ConsumablePanel/GridContainer/Metal" method="_on_button_down"]
-[connection signal="button_up" from="HUD/ConsumablePanel/GridContainer/Metal" to="HUD/ConsumablePanel/GridContainer/Metal" method="_on_button_up"]
-[connection signal="pressed" from="HUD/ConsumablePanel/GridContainer/Metal" to="HUD/ConsumablePanel/GridContainer/Metal" method="_on_pressed"]
-[connection signal="button_down" from="HUD/ConsumablePanel/GridContainer/Paint" to="HUD/ConsumablePanel/GridContainer/Paint" method="_on_button_down"]
-[connection signal="button_up" from="HUD/ConsumablePanel/GridContainer/Paint" to="HUD/ConsumablePanel/GridContainer/Paint" method="_on_button_up"]
-[connection signal="pressed" from="HUD/ConsumablePanel/GridContainer/Paint" to="HUD/ConsumablePanel/GridContainer/Paint" method="_on_pressed"]
+[connection signal="deselect_projectile" from="HUD/PowerUpPanel" to="Sling" method="_on_consumable_panel_deselect_projectile"]
+[connection signal="deselect_shootmode" from="HUD/PowerUpPanel" to="Sling" method="_on_consumable_panel_deselect_shootmode"]
+[connection signal="button_down" from="HUD/PowerUpPanel/GridContainer/Precision Shot" to="HUD/PowerUpPanel/GridContainer/Precision Shot" method="_on_button_down"]
+[connection signal="button_up" from="HUD/PowerUpPanel/GridContainer/Precision Shot" to="HUD/PowerUpPanel/GridContainer/Precision Shot" method="_on_button_up"]
+[connection signal="selected" from="HUD/PowerUpPanel/GridContainer/Precision Shot" to="Sling" method="_on_precision_shot_selected"]
+[connection signal="button_down" from="HUD/PowerUpPanel/GridContainer/Explosive" to="HUD/PowerUpPanel/GridContainer/Explosive" method="_on_button_down"]
+[connection signal="button_up" from="HUD/PowerUpPanel/GridContainer/Explosive" to="HUD/PowerUpPanel/GridContainer/Explosive" method="_on_button_up"]
+[connection signal="selected" from="HUD/PowerUpPanel/GridContainer/Explosive" to="Sling" method="_on_explosive_selected"]
+[connection signal="button_down" from="HUD/PowerUpPanel/GridContainer/Metal" to="HUD/PowerUpPanel/GridContainer/Metal" method="_on_button_down"]
+[connection signal="button_up" from="HUD/PowerUpPanel/GridContainer/Metal" to="HUD/PowerUpPanel/GridContainer/Metal" method="_on_button_up"]
+[connection signal="selected" from="HUD/PowerUpPanel/GridContainer/Metal" to="Sling" method="_on_metal_selected"]
+[connection signal="button_down" from="HUD/PowerUpPanel/GridContainer/Paint" to="HUD/PowerUpPanel/GridContainer/Paint" method="_on_button_down"]
+[connection signal="button_up" from="HUD/PowerUpPanel/GridContainer/Paint" to="HUD/PowerUpPanel/GridContainer/Paint" method="_on_button_up"]
+[connection signal="selected" from="HUD/PowerUpPanel/GridContainer/Paint" to="Sling" method="_on_paint_selected"]

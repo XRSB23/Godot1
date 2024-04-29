@@ -7,6 +7,8 @@ extends Node2D
 @onready var trajectory_preview : TrajectoryPreview = $TrajectoryPreview 
 @onready var color_select_menu = $ColorSelectMenu
 @onready var consumable_menu = $ConsumableMenu
+@onready var powerUp_panel = $"../HUD/PowerUpPanel"
+
 
 
 
@@ -122,10 +124,15 @@ func shoot_ball(v : Vector2):
 	ball.OnShoot()
 	ball = null
 	balls_amount -= 1
-	if consumable_menu.selected_item != null :
-		consumable_menu.selected_item._on_shoot()
-	if consumable_menu.get_child(0).activated :
-		consumable_menu.get_child(0)._on_shoot()
+	
+	if powerUp_panel.selected_mode != null : powerUp_panel.selected_mode.on_shoot()
+	if powerUp_panel.selected_projectile != null : powerUp_panel.selected_projectile.on_shoot()
+	powerUp_panel.ResetSelection()
+	
+	#if consumable_menu.selected_item != null :
+		#consumable_menu.selected_item._on_shoot()
+	#if consumable_menu.get_child(0).activated :
+		#consumable_menu.get_child(0)._on_shoot()
 
 func init_sling(attempts:int):
 	UpdateColorMenu(game_scene.get_remaining_colors())
@@ -141,7 +148,10 @@ func load_ball():
 	bubble_container.call_deferred("add_child",ball)
 	ball.set_global_position(position)
 	ball.set_ball_launchable(true)
-	if game_scene.get_remaining_colors().size() > 1 : ball.color = color_select_menu.selected_item.color
+	if game_scene.get_remaining_colors().size() > 1 : 
+		if color_select_menu.selected_item != null :
+			ball.color = color_select_menu.selected_item.color
+		else : ball.color = game_scene.get_remaining_colors()[0]
 	else : ball.color = game_scene.get_remaining_colors()[0]
 	ball.game_scene = game_scene
 	ball.call_deferred("set_color")
@@ -149,7 +159,7 @@ func load_ball():
 
 func load_consumable(color  : level_data.BubbleColor  ):
 
-	match consumable_menu.selected_item.name :
+	match powerUp_panel.selected_projectile.name :
 		"Explosive" : ball = bubble_prefabs[1].instantiate()
 		"Paint" : ball = bubble_prefabs[2].instantiate()
 		"Metal" : ball = bubble_prefabs[3].instantiate()
@@ -166,7 +176,11 @@ func load_consumable(color  : level_data.BubbleColor  ):
 	ball.call_deferred("set_color")
 	game_scene.debug_display_hud(balls_amount)
 	
-	
+func ClearBall():
+	if ball != null :
+		var temp = ball
+		ball = null
+		temp.queue_free()
 	
 #func RandColor():								Not Used For Now, Keeping it Commented in case we need it later
 	#var r = randi_range(1,7)
@@ -227,15 +241,12 @@ func _on_dead_zone(body):
 		
 
 func _on_color_select_menu_color_picked():
-	if consumable_menu.selected_item != null && consumable_menu.selected_item.name == "Paint" : 
+	if powerUp_panel.selected_projectile != null && powerUp_panel.selected_projectile.name == "Paint" : 
 		load_consumable(color_select_menu.selected_item.color)
 	else : load_ball()
 
 func _on_color_select_menu_opened():
-	if ball != null :
-		var temp = ball
-		ball = null
-		temp.queue_free()
+	ClearBall()
 
 func _on_precision_shot_set_aim_mode(mode):
 	trajectory_mode = mode
@@ -255,7 +266,38 @@ func _on_paint_color_menu_change_icon(b):
 		child.is_paint_mode = b
 
 
+
+
+func _on_consumable_panel_deselect_projectile():
+	for child : BubbleSelectMenu_Button in color_select_menu.get_children() :
+		child.is_paint_mode = false
+	if !color_select_menu.is_open: color_select_menu.Open()
+	ClearBall()
+
+func _on_consumable_panel_deselect_shootmode():
+	trajectory_mode = TrajectoryPreview.MODE.VECTOR
+
+
+
+
+
 #endregion
 
 
+func _on_precision_shot_selected():
+	trajectory_mode = TrajectoryPreview.MODE.NEWTON
 
+
+func _on_explosive_selected():
+	load_consumable(level_data.BubbleColor.Empty)
+	await color_select_menu.CloseFade()
+
+
+func _on_metal_selected():
+	load_consumable(level_data.BubbleColor.Empty)
+	await color_select_menu.CloseFade()
+
+
+func _on_paint_selected():
+	for child : BubbleSelectMenu_Button in color_select_menu.get_children() :
+		child.is_paint_mode = true

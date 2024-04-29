@@ -1,6 +1,9 @@
 extends TextureButton
 class_name  PowerUpButton
 
+signal selected()
+
+
 @export_category("Node Connexion")
 @export var camera : CameraController
 @export var consumable_panel : PowerUpPanel
@@ -39,16 +42,23 @@ func Disable(b: bool):
 
 func Highlight(b :bool):
 	highlight.modulate = Color(1,1,1,1) if b else Color(1,1,1,0)
-	
+
+func on_shoot():
+	SaveData.inventory[name] -= 1
+	Update()
 	
 func _on_button_down():
 	camera.EnableControls(false)
 	match type :
 		TYPE.ShootMode :
 			consumable_panel.SelectMode(null if consumable_panel.selected_mode == self else self)
+			if consumable_panel.selected_mode == self : selected.emit()
 		TYPE.Projectile :
 			consumable_panel.SelectProjectile(null if consumable_panel.selected_projectile == self else self)
+			if consumable_panel.selected_projectile == self : selected.emit()
 
 
 func _on_button_up():
 	camera.EnableControls(true)
+
+
