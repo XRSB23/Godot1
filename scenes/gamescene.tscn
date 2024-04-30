@@ -208,9 +208,9 @@ script = ExtResource("3_2i1fh")
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="PowerUpPanel" type="Panel" parent="HUD"]
-offset_left = 32.0
+offset_left = 24.0
 offset_top = 24.0
-offset_right = 296.0
+offset_right = 288.0
 offset_bottom = 304.0
 script = ExtResource("28_a1ofm")
 
@@ -481,8 +481,8 @@ stretch_mode = 5
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -200.0
-offset_right = 314.0
+offset_left = -208.0
+offset_right = 306.0
 offset_bottom = 93.0
 grow_horizontal = 2
 theme_override_constants/separation = 60
@@ -553,10 +553,10 @@ modulate = Color(0, 0, 0, 1)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -120.0
-offset_top = 24.0
-offset_right = -23.0
-offset_bottom = 121.0
+offset_left = -88.0
+offset_top = 16.0
+offset_right = -15.0
+offset_bottom = 89.0
 grow_horizontal = 0
 texture_normal = ExtResource("8_nev1w")
 ignore_texture_size = true
@@ -601,7 +601,7 @@ metadata/_edit_use_anchors_ = true
 [node name="DestroyContainer" type="Node2D" parent="."]
 
 [node name="Sling" type="Node2D" parent="."]
-position = Vector2(-1200, 610)
+position = Vector2(-1112, 440)
 script = ExtResource("2_jejid")
 bubble_prefabs = Array[PackedScene]([ExtResource("5_icqf6"), ExtResource("6_rw0qp"), ExtResource("7_nrvhg"), ExtResource("8_pwao1")])
 shoot_strength = 7.5
