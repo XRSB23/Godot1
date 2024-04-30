@@ -38,7 +38,7 @@ func _ready():
 
 
 
-func SelectMode(item : PowerUpButton, bypass : bool = false) :
+func SelectMode(item : PowerUpButton) :
 
 	if item == null :
 		deselect_shootmode.emit()
@@ -71,5 +71,5 @@ func SelectProjectile(item : PowerUpButton, bypass : bool = false) :
 				button.Disable(true)
 				
 func ResetSelection(bypass : bool = false):
-	SelectMode(null, bypass)
+	SelectMode(null)
 	SelectProjectile(null, bypass)

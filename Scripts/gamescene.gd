@@ -21,12 +21,15 @@ var astar = AStar2D.new()
 @onready var bubble_container = $BubbleContainer
 @onready var destroy_container = $DestroyContainer
 @onready var camera : CameraController = $CameraSystem/Camera2D
+@onready var score_display : ScoreDisplay = $HUD/ScoreDisplay
+
 
 
 
 func _ready():
 	init_level_buttons()
 	set_neighbors_coord(cell_size)
+	score_display.Init([500,1000,1500])
 
 #region Init / Load
 func init_level_buttons() :

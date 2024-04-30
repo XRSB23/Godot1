@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=65 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraController.gd" id="2_3irfh"]
@@ -16,8 +16,10 @@
 [ext_resource type="Material" uid="uid://xohviejfgi4f" path="res://Art/Sling/newton_shader_material.tres" id="7_v80i2"]
 [ext_resource type="Texture2D" uid="uid://dafardwowxnka" path="res://Art/Sling/CartoonDottedLine.svg" id="8_il03c"]
 [ext_resource type="Texture2D" uid="uid://dck3p41sfucay" path="res://icon.svg" id="8_nev1w"]
+[ext_resource type="Script" path="res://Scripts/UI/ScoreDisplay.gd" id="8_puymx"]
 [ext_resource type="PackedScene" uid="uid://c3w1tltsk73hb" path="res://scenes/bubble_metallic_new.tscn" id="8_pwao1"]
 [ext_resource type="Texture2D" uid="uid://bhco3igm4rgrp" path="res://Art/UI/ScoreBar.svg" id="8_v8i6v"]
+[ext_resource type="Script" path="res://Scripts/UI/StarTreshold.gd" id="10_1mpiy"]
 [ext_resource type="Texture2D" uid="uid://cq2oavcga4l3i" path="res://Art/Sling/Line2D_SmoothEdgeTexture.png" id="11_848u5"]
 [ext_resource type="Script" path="res://Scripts/Sling/GhostTrajectoryPreview.gd" id="11_o4i07"]
 [ext_resource type="Script" path="res://addons/radialcontainer_plugin/RadialContainer.gd" id="14_rlae7"]
@@ -155,6 +157,15 @@ atlas = ExtResource("8_v8i6v")
 region = Rect2(0, 88, 306, 88)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqm2n"]
+atlas = ExtResource("8_v8i6v")
+region = Rect2(306, 0, 48, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6uui"]
+resource_local_to_scene = true
+atlas = ExtResource("8_v8i6v")
+region = Rect2(306, 0, 48, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg6aj"]
 atlas = ExtResource("8_v8i6v")
 region = Rect2(306, 0, 48, 88)
 
@@ -486,9 +497,13 @@ offset_right = 306.0
 offset_bottom = 93.0
 grow_horizontal = 2
 theme_override_constants/separation = 60
+alignment = 1
+script = ExtResource("8_puymx")
 
 [node name="ScoreContainer" type="VBoxContainer" parent="HUD/ScoreDisplay"]
+custom_minimum_size = Vector2(227, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = -1
 
 [node name="HSeparator" type="HSeparator" parent="HUD/ScoreDisplay/ScoreContainer"]
@@ -505,7 +520,7 @@ vertical_alignment = 1
 
 [node name="Score" type="Label" parent="HUD/ScoreDisplay/ScoreContainer"]
 layout_mode = 2
-text = "158 256"
+text = "123 456"
 label_settings = SubResource("LabelSettings_4kjox")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -517,36 +532,41 @@ allow_greater = true
 texture_over = SubResource("AtlasTexture_68kct")
 texture_progress = SubResource("AtlasTexture_k1y5r")
 
+[node name="StarTreshold0" type="TextureRect" parent="HUD/ScoreDisplay/ScoreBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.993
+offset_left = 88.0
+offset_right = -215.858
+offset_bottom = 88.0
+texture = SubResource("AtlasTexture_hqm2n")
+expand_mode = 1
+stretch_mode = 3
+script = ExtResource("10_1mpiy")
+
 [node name="StarTreshold1" type="TextureRect" parent="HUD/ScoreDisplay/ScoreBar"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.993
-offset_right = -303.858
+offset_left = 176.0
+offset_right = -127.858
 offset_bottom = 88.0
-texture = SubResource("AtlasTexture_hqm2n")
+texture = SubResource("AtlasTexture_x6uui")
 expand_mode = 1
 stretch_mode = 3
+script = ExtResource("10_1mpiy")
 
 [node name="StarTreshold2" type="TextureRect" parent="HUD/ScoreDisplay/ScoreBar"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.993
-offset_right = -303.858
-offset_bottom = 88.0
-texture = SubResource("AtlasTexture_hqm2n")
-expand_mode = 1
-stretch_mode = 3
-
-[node name="StarTreshold3" type="TextureRect" parent="HUD/ScoreDisplay/ScoreBar"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.993
 offset_left = 264.0
 offset_right = -39.858
 offset_bottom = 88.0
-texture = SubResource("AtlasTexture_hqm2n")
+texture = SubResource("AtlasTexture_tg6aj")
 expand_mode = 1
 stretch_mode = 3
+script = ExtResource("10_1mpiy")
 
 [node name="Pause Button" type="TextureButton" parent="HUD"]
 modulate = Color(0, 0, 0, 1)
