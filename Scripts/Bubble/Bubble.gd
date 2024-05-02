@@ -5,12 +5,13 @@ class_name Bubble
 var game_scene 
 @onready var sprite :  Sprite2D = $Sprite2D
 @onready var collider = $CollisionShape2D
-@onready var particleSystem : BubbleParticleSystem = $ParticleSystem
+@onready var particleSystem = $ParticleSystem
 @onready var animPlayer : AnimationPlayer = $AnimationPlayer
 @onready var trail : Trail2D = $Trail2D
 const COLOR_ATLAS_RESOURCE = preload("res://Resources/ColorAtlas_Resource.tres")
 
 @export var is_basic : bool = true
+@export var angular_impulse : float
 
 
 var color : level_data.BubbleColor
@@ -40,7 +41,7 @@ func set_color():
 	if color == level_data.BubbleColor.Empty : return 
 	if !self is Bubble_Paint :
 		sprite.frame = color
-	particleSystem.Init(color)
+	if particleSystem is BubbleParticleSystem : particleSystem.Init(color)
 	trail.material.set_shader_parameter ("TrailColor", COLOR_ATLAS_RESOURCE.GetColor(color))
 
 
@@ -70,7 +71,7 @@ func AddRandomBump():
 
 
 func OnShoot():
-	pass
+	angular_velocity = angular_impulse
 
 
 func OnHit():

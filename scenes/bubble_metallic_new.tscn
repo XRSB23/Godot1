@@ -1,11 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://c3w1tltsk73hb"]
+[gd_scene load_steps=22 format=3 uid="uid://c3w1tltsk73hb"]
 
 [ext_resource type="Script" path="res://Scripts/Bubble/Bubble_Metal.gd" id="1_h3sip"]
 [ext_resource type="Texture2D" uid="uid://cyo7nva76v510" path="res://Art/Bubble/SpecialBubbles.svg" id="2_qkcxu"]
-[ext_resource type="Script" path="res://Scripts/Bubble/BubbleParticleSystem.gd" id="3_5ava5"]
-[ext_resource type="Texture2D" uid="uid://nmrfq7yp27e6" path="res://Art/Bubble/BubbleFrag1_Atlas.tres" id="4_q1arc"]
-[ext_resource type="Script" path="res://Scripts/Bubble/ParticlesAtlasCoordinates.gd" id="5_5q7se"]
-[ext_resource type="Texture2D" uid="uid://uj1201xcuc43" path="res://Art/Bubble/BubbleFrag2_Atlas.tres" id="6_1tegu"]
+[ext_resource type="Texture2D" uid="uid://cvvalvnxooypg" path="res://Art/Bubble/FragmentSpecial.svg" id="3_afkk5"]
 [ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/particleStar4.svg" id="7_rce60"]
 [ext_resource type="Script" path="res://Scripts/Bubble/TrailParticles.gd" id="8_e5kjr"]
 [ext_resource type="Texture2D" uid="uid://ct0n0s212lh1r" path="res://Art/Bubble/particleStar5.svg" id="9_d2dux"]
@@ -16,9 +13,17 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_o55xo"]
 radius = 52.0384
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxtkl"]
+atlas = ExtResource("3_afkk5")
+region = Rect2(0, 0, 512, 512)
+
 [sub_resource type="Curve" id="Curve_t2dma"]
 _data = [Vector2(0.59322, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.30981, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_is56f"]
+atlas = ExtResource("3_afkk5")
+region = Rect2(512, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4h4d"]
 atlas = ExtResource("7_rce60")
@@ -123,7 +128,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(0.241, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
+"values": [Vector2(1.57, 1.57), Vector2(2.355, 2.355)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -210,7 +215,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(1.57, 1.57)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -250,10 +255,12 @@ contact_monitor = true
 linear_damp_mode = 1
 angular_damp_mode = 1
 script = ExtResource("1_h3sip")
-destroy_amount = 50
+destroy_amount = 4
 is_basic = false
+angular_impulse = 4.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.57, 1.57)
 texture = ExtResource("2_qkcxu")
 hframes = 4
 vframes = 2
@@ -264,17 +271,17 @@ visible = false
 shape = SubResource("CircleShape2D_o55xo")
 
 [node name="ParticleSystem" type="Node2D" parent="."]
-script = ExtResource("3_5ava5")
 
 [node name="Fragment1" type="CPUParticles2D" parent="ParticleSystem"]
 z_index = 4
 emitting = false
 amount = 3
+lifetime = 1.2
 one_shot = true
 explosiveness = 1.0
 lifetime_randomness = 0.5
 local_coords = true
-texture = ExtResource("4_q1arc")
+texture = SubResource("AtlasTexture_bxtkl")
 direction = Vector2(0, -2)
 spread = 132.59
 gravity = Vector2(0, 100)
@@ -282,14 +289,9 @@ initial_velocity_min = 80.0
 initial_velocity_max = 130.0
 angular_velocity_min = -360.0
 angular_velocity_max = 360.0
-scale_amount_min = 0.1
-scale_amount_max = 0.15
+scale_amount_min = 0.15
+scale_amount_max = 0.2
 scale_amount_curve = SubResource("Curve_t2dma")
-script = ExtResource("5_5q7se")
-offset = Vector2(58, 144)
-spacing = Vector2(512, 513)
-hframe = 4
-vframe = 2
 
 [node name="Fragment2" type="CPUParticles2D" parent="ParticleSystem"]
 z_index = 3
@@ -299,7 +301,7 @@ one_shot = true
 explosiveness = 1.0
 lifetime_randomness = 0.5
 local_coords = true
-texture = ExtResource("6_1tegu")
+texture = SubResource("AtlasTexture_is56f")
 direction = Vector2(0, -2)
 spread = 180.0
 gravity = Vector2(0, 100)
@@ -307,14 +309,9 @@ initial_velocity_min = 80.0
 initial_velocity_max = 130.0
 angular_velocity_min = -360.0
 angular_velocity_max = 360.0
-scale_amount_min = 0.08
-scale_amount_max = 0.13
+scale_amount_min = 0.15
+scale_amount_max = 0.2
 scale_amount_curve = SubResource("Curve_t2dma")
-script = ExtResource("5_5q7se")
-offset = Vector2(109, 165)
-spacing = Vector2(512, 512)
-hframe = 4
-vframe = 2
 
 [node name="Trail" type="CPUParticles2D" parent="ParticleSystem"]
 z_index = -1

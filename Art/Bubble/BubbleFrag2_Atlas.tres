@@ -1,8 +1,0 @@
-[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://uj1201xcuc43"]
-
-[ext_resource type="Texture2D" uid="uid://dyxu758m1wig7" path="res://Art/Bubble/Fragment2.svg" id="1_nqyqm"]
-
-[resource]
-resource_local_to_scene = true
-atlas = ExtResource("1_nqyqm")
-region = Rect2(621, 165, 289, 220)
