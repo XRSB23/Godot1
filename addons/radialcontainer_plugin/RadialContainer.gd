@@ -46,6 +46,7 @@ var start_angle : float
 var angle_width : float
 
 var selected_item : BaseButton
+var is_open : bool
 
 signal opened() 
 signal color_picked()
@@ -137,6 +138,7 @@ func Open():
 	await LerpAnim()
 
 	EnableMenu(true)
+	is_open = true
 
 func CloseLerp():
 	EnableMenu(false)
@@ -159,6 +161,7 @@ func CloseLerp():
 		await tween.finished
 		selected_item.modulate = Color(1,1,1,0)
 		
+		is_open = false
 
 func CloseFade():
 	EnableMenu(false)
@@ -169,6 +172,7 @@ func CloseFade():
 			tween.tween_property(child,"modulate", Color(1,1,1,0), close_fade_speed)
 
 	await tween.finished
+	is_open = false
 
 func LerpAnim():
 	for i in get_child_count() :

@@ -6,5 +6,5 @@
 [resource]
 resource_local_to_scene = true
 shader = ExtResource("1_lw2av")
-shader_parameter/TrailColor = Color(1, 1, 1, 1)
+shader_parameter/TrailColor = Color(0.780392, 0.780392, 0.780392, 1)
 shader_parameter/TrailTexture = ExtResource("2_67oy3")

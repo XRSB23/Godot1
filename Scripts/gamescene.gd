@@ -1,4 +1,5 @@
 extends Node2D
+class_name GameScene
 
 var level_data_base = preload("res://Resources/levels_resource.tres")
 var debug_level_button = preload("res://scenes/debug_level_button.tscn")
@@ -14,18 +15,21 @@ var astar = AStar2D.new()
 
 
 @onready var sling = $Sling
-@onready var debug_hud = $CanvasLayer/Label
-@onready var canvas_layer = $CanvasLayer
-@onready var buttons_container = $CanvasLayer/ButtonContainer
+@onready var debug_hud = $LevelSelectCanvas/Label
+@onready var canvas_layer = $LevelSelectCanvas
+@onready var buttons_container = $LevelSelectCanvas/ButtonContainer
 @onready var bubble_container = $BubbleContainer
 @onready var destroy_container = $DestroyContainer
 @onready var camera : CameraController = $CameraSystem/Camera2D
+@onready var score_display : ScoreDisplay = $HUD/ScoreDisplay
+
 
 
 
 func _ready():
 	init_level_buttons()
 	set_neighbors_coord(cell_size)
+	score_display.Init([500,1000,1500])
 
 #region Init / Load
 func init_level_buttons() :
@@ -117,7 +121,6 @@ func reset_sling():
 	await sling.UpdateColorMenu(get_remaining_colors()) # Await for instance process to be done before opening menu, else can have menu problems
 	if get_remaining_colors().size() > 1 : sling.color_select_menu.Open()
 	else : sling.load_ball()
-	sling.consumable_menu.Open()
 
 func explosive_radius(radius_bubbles):
 	var cells = []

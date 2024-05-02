@@ -1,12 +1,8 @@
 extends Bubble
 class_name Bubble_Paint
 
-@export var angular_impulse : float
 @export var effect_radius : int
 @onready var paint = $Sprite2D/Paint
-
-func OnShoot():
-	angular_velocity = angular_impulse
 
 
 func OnHit():

@@ -3,16 +3,17 @@
 [ext_resource type="Script" path="res://Scripts/Bubble/Bubble_Explosive.gd" id="1_g4rna"]
 [ext_resource type="Texture2D" uid="uid://cyo7nva76v510" path="res://Art/Bubble/SpecialBubbles.svg" id="2_if3lf"]
 [ext_resource type="Script" path="res://Scripts/Bubble/BubbleParticleSystem.gd" id="3_fbc0j"]
-[ext_resource type="Texture2D" uid="uid://nmrfq7yp27e6" path="res://Art/Bubble/BubbleFrag1_Atlas.tres" id="4_i0qqt"]
-[ext_resource type="Script" path="res://Scripts/Bubble/ParticlesAtlasCoordinates.gd" id="5_n2cmq"]
-[ext_resource type="Texture2D" uid="uid://uj1201xcuc43" path="res://Art/Bubble/BubbleFrag2_Atlas.tres" id="6_v4bau"]
 [ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/particleStar4.svg" id="7_nxtsb"]
 [ext_resource type="Script" path="res://Scripts/Bubble/TrailParticles.gd" id="8_qx7xk"]
 [ext_resource type="Texture2D" uid="uid://ct0n0s212lh1r" path="res://Art/Bubble/particleStar5.svg" id="9_l7ov5"]
+[ext_resource type="Script" path="res://Scripts/LockRotation.gd" id="10_7vxrp"]
 [ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="10_xqpkg"]
 [ext_resource type="Material" uid="uid://cme715qbwu7ky" path="res://Art/Bubble/radialGradient_shader_material.tres" id="11_ky5ra"]
+[ext_resource type="Material" uid="uid://c6q02hwlghl5y" path="res://Art/shockwave_shader_material.tres" id="12_m6fro"]
 [ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/trail_shader_material.tres" id="12_vfqm1"]
 [ext_resource type="Script" path="res://addons/trail2D_plugin/Trail2D.gd" id="13_d8a5u"]
+[ext_resource type="Texture2D" uid="uid://dck3p41sfucay" path="res://icon.svg" id="13_h1ooy"]
+[ext_resource type="Texture2D" uid="uid://d4f7e8xq8nkyd" path="res://Art/Bubble/ExplosionEffect.svg" id="14_n67bp"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fyk6a"]
 particles_animation = true
@@ -22,10 +23,6 @@ particles_anim_loop = false
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o55xo"]
 radius = 52.0384
-
-[sub_resource type="Curve" id="Curve_t2dma"]
-_data = [Vector2(0.59322, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.30981, 0.0, 0, 0]
-point_count = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4h4d"]
 atlas = ExtResource("7_nxtsb")
@@ -52,24 +49,25 @@ point_count = 2
 
 [sub_resource type="Animation" id="Animation_miwir"]
 resource_name = "Burst"
-length = 0.8
 step = 0.05
-tracks/0/type = "value"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ParticleSystem/Fragment1:emitting")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.15),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"values": [{
+"args": [],
+"method": &"emitAnimTrigger"
+}]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ParticleSystem/Fragment2:emitting")
+tracks/1/path = NodePath("ParticleSystem/Stars:emitting")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -78,79 +76,125 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/2/type = "method"
+tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".")
+tracks/2/path = NodePath("ParticleSystem/Backlight:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"emitAnimTrigger"
-}]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ParticleSystem/Stars:emitting")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.15),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("ParticleSystem/Backlight:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0.15, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0.25, 0.25), Vector2(0.32, 0.32)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("ParticleSystem/Backlight:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ParticleSystem/Backlight:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0.15, 0.4, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0.392157), Color(1, 1, 1, 0.392157), Color(1, 1, 1, 0)]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite2D:scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(0.241, 1),
 "update": 0,
 "values": [Vector2(1.1, 1.1), Vector2(1.65, 1.65)]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Sprite2D:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(0.637, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ParticleSystem/ExplosionEffect:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.08, 0.16, 0.28, 0.4, 0.52, 0.64, 0.76, 0.88),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ParticleSystem/ExplosionEffect:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2), Vector2(2.5, 2.5), Vector2(4, 4)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ParticleSystem/ExplosionEffect:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.6, 1),
+"transitions": PackedFloat32Array(0, 0, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ParticleSystem/Shockwave:material:shader_parameter/size")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.35, 1),
+"transitions": PackedFloat32Array(1, 0.637281, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.6]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ParticleSystem/Shockwave:material:shader_parameter/force")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.35, 1),
+"transitions": PackedFloat32Array(0.594605, 1),
+"update": 0,
+"values": [0.05, 0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("ParticleSystem/Shockwave:material:shader_parameter/thickness")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.65, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.1, 0.1, 0.01]
 }
 
 [sub_resource type="Animation" id="Animation_bgloi"]
@@ -188,7 +232,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ParticleSystem/Fragment1:emitting")
+tracks/0/path = NodePath("ParticleSystem/Stars:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -200,98 +244,146 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ParticleSystem/Fragment2:emitting")
+tracks/1/path = NodePath("ParticleSystem/Backlight:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ParticleSystem/Stars:emitting")
+tracks/2/path = NodePath("ParticleSystem/Backlight:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ParticleSystem/Backlight:scale")
+tracks/3/path = NodePath("Sprite2D:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.1, 0.1)]
+"values": [Vector2(1.1, 1.1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ParticleSystem/Backlight:modulate")
+tracks/4/path = NodePath("Sprite2D:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite2D:scale")
+tracks/5/path = NodePath("ParticleSystem/FuzeLight:material:shader_parameter/Size")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1.1, 1.1)]
+"values": [5.0]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite2D:modulate")
+tracks/6/path = NodePath("ParticleSystem/FuzeLight:material:shader_parameter/Strength")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [4.3]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("ParticleSystem/FuzeLight:material:shader_parameter/Size")
+tracks/7/path = NodePath("ParticleSystem/ExplosionEffect:frame")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [5.0]
+"update": 1,
+"values": [0]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("ParticleSystem/FuzeLight:material:shader_parameter/Strength")
+tracks/8/path = NodePath("ParticleSystem/ExplosionEffect:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [4.3]
+"values": [Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ParticleSystem/ExplosionEffect:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ParticleSystem/Shockwave:material:shader_parameter/size")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("ParticleSystem/Shockwave:material:shader_parameter/force")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("ParticleSystem/Shockwave:material:shader_parameter/thickness")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mqw2o"]
@@ -317,6 +409,7 @@ _data = [Vector2(0, 1), 0.0, -0.151722, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [node name="Bubble" type="RigidBody2D"]
+z_index = 2
 material = SubResource("CanvasItemMaterial_fyk6a")
 collision_mask = 3
 freeze = true
@@ -327,9 +420,9 @@ linear_damp_mode = 1
 angular_damp_mode = 1
 angular_damp = 0.4
 script = ExtResource("1_g4rna")
-angular_impulse = 6.0
 effect_radius = 3
 is_basic = false
+angular_impulse = 6.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.1, 1.1)
@@ -343,56 +436,6 @@ shape = SubResource("CircleShape2D_o55xo")
 
 [node name="ParticleSystem" type="Node2D" parent="."]
 script = ExtResource("3_fbc0j")
-
-[node name="Fragment1" type="CPUParticles2D" parent="ParticleSystem"]
-z_index = 4
-emitting = false
-amount = 3
-one_shot = true
-explosiveness = 1.0
-lifetime_randomness = 0.5
-local_coords = true
-texture = ExtResource("4_i0qqt")
-direction = Vector2(0, -2)
-spread = 132.59
-gravity = Vector2(0, 100)
-initial_velocity_min = 80.0
-initial_velocity_max = 130.0
-angular_velocity_min = -360.0
-angular_velocity_max = 360.0
-scale_amount_min = 0.1
-scale_amount_max = 0.15
-scale_amount_curve = SubResource("Curve_t2dma")
-script = ExtResource("5_n2cmq")
-offset = Vector2(58, 144)
-spacing = Vector2(512, 513)
-hframe = 4
-vframe = 2
-
-[node name="Fragment2" type="CPUParticles2D" parent="ParticleSystem"]
-z_index = 3
-emitting = false
-amount = 3
-one_shot = true
-explosiveness = 1.0
-lifetime_randomness = 0.5
-local_coords = true
-texture = ExtResource("6_v4bau")
-direction = Vector2(0, -2)
-spread = 180.0
-gravity = Vector2(0, 100)
-initial_velocity_min = 80.0
-initial_velocity_max = 130.0
-angular_velocity_min = -360.0
-angular_velocity_max = 360.0
-scale_amount_min = 0.08
-scale_amount_max = 0.13
-scale_amount_curve = SubResource("Curve_t2dma")
-script = ExtResource("5_n2cmq")
-offset = Vector2(109, 165)
-spacing = Vector2(512, 512)
-hframe = 4
-vframe = 2
 
 [node name="Trail" type="CPUParticles2D" parent="ParticleSystem"]
 z_index = -1
@@ -474,6 +517,21 @@ angle_max = 720.0
 scale_amount_min = 0.01
 scale_amount_max = 0.03
 scale_amount_curve = SubResource("Curve_xrkiq")
+
+[node name="ExplosionEffect" type="Sprite2D" parent="ParticleSystem"]
+modulate = Color(1, 1, 1, 0)
+z_index = -1
+texture = ExtResource("14_n67bp")
+hframes = 4
+vframes = 2
+script = ExtResource("10_7vxrp")
+
+[node name="Shockwave" type="Sprite2D" parent="ParticleSystem"]
+z_index = 10
+material = ExtResource("12_m6fro")
+scale = Vector2(15, 15)
+texture = ExtResource("13_h1ooy")
+script = ExtResource("10_7vxrp")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 libraries = {

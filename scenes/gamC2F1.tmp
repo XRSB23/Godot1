@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=53 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraController.gd" id="2_3irfh"]
@@ -15,11 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cko1bo128vv83" path="res://scenes/bubble_paint_new.tscn" id="7_nrvhg"]
 [ext_resource type="Material" uid="uid://xohviejfgi4f" path="res://Art/Sling/newton_shader_material.tres" id="7_v80i2"]
 [ext_resource type="Texture2D" uid="uid://dafardwowxnka" path="res://Art/Sling/CartoonDottedLine.svg" id="8_il03c"]
-[ext_resource type="Texture2D" uid="uid://dck3p41sfucay" path="res://icon.svg" id="8_nev1w"]
-[ext_resource type="Script" path="res://Scripts/UI/ScoreDisplay.gd" id="8_puymx"]
 [ext_resource type="PackedScene" uid="uid://c3w1tltsk73hb" path="res://scenes/bubble_metallic_new.tscn" id="8_pwao1"]
-[ext_resource type="Texture2D" uid="uid://bhco3igm4rgrp" path="res://Art/UI/ScoreBar.svg" id="8_v8i6v"]
-[ext_resource type="Script" path="res://Scripts/UI/StarTreshold.gd" id="10_1mpiy"]
 [ext_resource type="Texture2D" uid="uid://cq2oavcga4l3i" path="res://Art/Sling/Line2D_SmoothEdgeTexture.png" id="11_848u5"]
 [ext_resource type="Script" path="res://Scripts/Sling/GhostTrajectoryPreview.gd" id="11_o4i07"]
 [ext_resource type="Script" path="res://addons/radialcontainer_plugin/RadialContainer.gd" id="14_rlae7"]
@@ -136,39 +132,6 @@ shader_parameter/Brightness = 0.3
 atlas = ExtResource("29_0bcg4")
 region = Rect2(1536, 512, 512, 512)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pda5x"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_e6qor"]
-font_size = 20
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_4kjox"]
-font_size = 40
-outline_size = 6
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_68kct"]
-atlas = ExtResource("8_v8i6v")
-region = Rect2(0, 0, 306, 88)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k1y5r"]
-atlas = ExtResource("8_v8i6v")
-region = Rect2(0, 88, 306, 88)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hqm2n"]
-atlas = ExtResource("8_v8i6v")
-region = Rect2(306, 0, 48, 88)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x6uui"]
-resource_local_to_scene = true
-atlas = ExtResource("8_v8i6v")
-region = Rect2(306, 0, 48, 88)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tg6aj"]
-atlas = ExtResource("8_v8i6v")
-region = Rect2(306, 0, 48, 88)
-
 [sub_resource type="Curve" id="Curve_j361q"]
 _data = [Vector2(0, 0), 0.0, 2.425, 0, 0, Vector2(0.1, 0.4), 1.75882, 0.666667, 0, 0, Vector2(1, 1), 0.666667, 0.0, 0, 0]
 point_count = 3
@@ -219,9 +182,9 @@ script = ExtResource("3_2i1fh")
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="PowerUpPanel" type="Panel" parent="HUD"]
-offset_left = 24.0
+offset_left = 32.0
 offset_top = 24.0
-offset_right = 288.0
+offset_right = 296.0
 offset_bottom = 304.0
 script = ExtResource("28_a1ofm")
 
@@ -488,111 +451,6 @@ texture = SubResource("AtlasTexture_x8vk6")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="ScoreDisplay" type="HBoxContainer" parent="HUD"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -208.0
-offset_right = 306.0
-offset_bottom = 93.0
-grow_horizontal = 2
-theme_override_constants/separation = 60
-alignment = 1
-script = ExtResource("8_puymx")
-
-[node name="ScoreContainer" type="VBoxContainer" parent="HUD/ScoreDisplay"]
-custom_minimum_size = Vector2(227, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = -1
-
-[node name="HSeparator" type="HSeparator" parent="HUD/ScoreDisplay/ScoreContainer"]
-layout_mode = 2
-theme_override_constants/separation = 12
-theme_override_styles/separator = SubResource("StyleBoxEmpty_pda5x")
-
-[node name="Label" type="Label" parent="HUD/ScoreDisplay/ScoreContainer"]
-layout_mode = 2
-text = "Score :"
-label_settings = SubResource("LabelSettings_e6qor")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Score" type="Label" parent="HUD/ScoreDisplay/ScoreContainer"]
-layout_mode = 2
-text = "123 456"
-label_settings = SubResource("LabelSettings_4kjox")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ScoreBar" type="TextureProgressBar" parent="HUD/ScoreDisplay"]
-layout_mode = 2
-value = 42.0
-allow_greater = true
-texture_over = SubResource("AtlasTexture_68kct")
-texture_progress = SubResource("AtlasTexture_k1y5r")
-
-[node name="StarTreshold0" type="TextureRect" parent="HUD/ScoreDisplay/ScoreBar"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.993
-offset_left = 88.0
-offset_right = -215.858
-offset_bottom = 88.0
-texture = SubResource("AtlasTexture_hqm2n")
-expand_mode = 1
-stretch_mode = 3
-script = ExtResource("10_1mpiy")
-
-[node name="StarTreshold1" type="TextureRect" parent="HUD/ScoreDisplay/ScoreBar"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.993
-offset_left = 176.0
-offset_right = -127.858
-offset_bottom = 88.0
-texture = SubResource("AtlasTexture_x6uui")
-expand_mode = 1
-stretch_mode = 3
-script = ExtResource("10_1mpiy")
-
-[node name="StarTreshold2" type="TextureRect" parent="HUD/ScoreDisplay/ScoreBar"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.993
-offset_left = 264.0
-offset_right = -39.858
-offset_bottom = 88.0
-texture = SubResource("AtlasTexture_tg6aj")
-expand_mode = 1
-stretch_mode = 3
-script = ExtResource("10_1mpiy")
-
-[node name="Pause Button" type="TextureButton" parent="HUD"]
-modulate = Color(0, 0, 0, 1)
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -88.0
-offset_top = 16.0
-offset_right = -15.0
-offset_bottom = 89.0
-grow_horizontal = 0
-texture_normal = ExtResource("8_nev1w")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="ProgressBar" type="ProgressBar" parent="HUD"]
-visible = false
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -128.0
-offset_top = 32.0
-offset_right = 128.0
-offset_bottom = 59.0
-grow_horizontal = 2
-
 [node name="LevelSelectCanvas" type="CanvasLayer" parent="."]
 
 [node name="ButtonContainer" type="GridContainer" parent="LevelSelectCanvas"]
@@ -621,7 +479,7 @@ metadata/_edit_use_anchors_ = true
 [node name="DestroyContainer" type="Node2D" parent="."]
 
 [node name="Sling" type="Node2D" parent="."]
-position = Vector2(-1112, 440)
+position = Vector2(-1200, 610)
 script = ExtResource("2_jejid")
 bubble_prefabs = Array[PackedScene]([ExtResource("5_icqf6"), ExtResource("6_rw0qp"), ExtResource("7_nrvhg"), ExtResource("8_pwao1")])
 shoot_strength = 7.5
