@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/LockRotation.gd" id="10_7vxrp"]
 [ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="10_xqpkg"]
 [ext_resource type="Material" uid="uid://cme715qbwu7ky" path="res://Art/Bubble/radialGradient_shader_material.tres" id="11_ky5ra"]
-[ext_resource type="Material" uid="uid://c6q02hwlghl5y" path="res://Art/shockwave_shader_material.tres" id="12_m6fro"]
+[ext_resource type="Material" uid="uid://b2pwwcy3y1v37" path="res://Art/shockwave_shader_material.tres" id="12_m6fro"]
 [ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/trail_shader_material.tres" id="12_vfqm1"]
 [ext_resource type="Script" path="res://addons/trail2D_plugin/Trail2D.gd" id="13_d8a5u"]
 [ext_resource type="Texture2D" uid="uid://dck3p41sfucay" path="res://icon.svg" id="13_h1ooy"]

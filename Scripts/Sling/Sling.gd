@@ -141,7 +141,6 @@ func load_ball():
 	else : ball.color = game_scene.get_remaining_colors()[0]
 	ball.game_scene = game_scene
 	ball.call_deferred("set_color")
-	game_scene.update_attempts(balls_amount)
 
 func load_consumable(color  : level_data.BubbleColor  ):
 

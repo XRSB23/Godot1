@@ -15,8 +15,8 @@ var astar = AStar2D.new()
 
 @export_group('Scoring Parameters')
 @export var bubble_points : int
-enum CurveType {Linear,Exp,Log,Quadra}
-@export var curve_type : CurveType
+@export var Math_expression : String ## Expression de f(x) avec P pour bubble_points et X pour le nombre de bille détruite a chaque tir attention ne pas oublier les * entre parentheses ex P*(X-5) et non pas P(X-5)
+var score_formula : Expression = Expression.new()
 var destroyed_count : int 
 
 @onready var sling = $Sling
@@ -35,6 +35,7 @@ func _ready():
 	init_level_buttons()
 	set_neighbors_coord(cell_size)
 	score_display.Init([500,1000,1500])
+	score_formula.parse(Math_expression,["P","X"])
 
 #region Init / Load
 func init_level_buttons() :
@@ -64,7 +65,6 @@ func load_level(_level):
 	camera.EnableControls(true)
 	astar.clear()
 	set_up_astar(levelres.astar_points , levelres.astar_connections)
-	update_score(score)
 #endregion
 
 #region A*
@@ -257,23 +257,11 @@ func drop_bubbles():
 #endregion
 
 
-func update_attempts(a):
-	debug_attempts.text = "attempts : " + str(a)
-
 func get_score():
-	var processed_score : int
-	match curve_type:
-		CurveType.Linear:
-			processed_score = bubble_points * destroyed_count
-		CurveType.Exp:
-			processed_score = bubble_points * int(exp(destroyed_count)) 
-		CurveType.Log:
-			processed_score = bubble_points * int(log(destroyed_count +1))
-		CurveType.Quadra:
-			processed_score = bubble_points * destroyed_count * destroyed_count
+	var processed_score 
+	processed_score = score_formula.execute([bubble_points,destroyed_count])
 	return processed_score
 
 func update_score(n : int):
-	score += n
-	debug_score.text = 'score : ' + str(score)
+	score_display.score += n
 	destroyed_count = 0

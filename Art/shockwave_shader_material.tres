@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c6q02hwlghl5y"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b2pwwcy3y1v37"]
 
 [ext_resource type="Shader" path="res://Art/shockwave_shader.gdshader" id="1_ft6q8"]
 
