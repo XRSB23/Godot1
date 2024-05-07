@@ -70,10 +70,11 @@ func _ready():
 	visible = is_visible
 
 func _draw():
+	if get_child_count() > 0 :
+			DrawPoints()
 	if OS.has_feature("editor"):
 		DrawCircleGizmo()
-		if get_child_count() > 0 :
-			DrawPoints()
+		
 		
 
 func _process(delta):
