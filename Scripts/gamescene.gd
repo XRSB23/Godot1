@@ -13,6 +13,11 @@ var treshold : float
 var root_node_pos : Vector2
 var astar = AStar2D.new()
 
+@export_group('Scoring Parameters')
+@export var bubble_points : int
+@export var Math_expression : String ## Expression de f(x) avec P pour bubble_points et X pour le nombre de bille détruite a chaque tir attention ne pas oublier les * entre parentheses ex P*(X-5) et non pas P(X-5)
+var score_formula : Expression = Expression.new()
+var destroyed_count : int 
 
 @onready var sling = $Sling
 @onready var debug_hud = $LevelSelectCanvas/Label
@@ -30,6 +35,7 @@ func _ready():
 	init_level_buttons()
 	set_neighbors_coord(cell_size)
 	score_display.Init([500,1000,1500])
+	score_formula.parse(Math_expression,["P","X"])
 
 #region Init / Load
 func init_level_buttons() :
@@ -232,6 +238,7 @@ func process_destruction(cells,explosive = false):
 			grid_data[cell].OnDestroy()
 			await grid_data[cell].animTrigger 
 			grid_data[cell] = null
+			destroyed_count += 1
 		drop_bubbles()
 
 		#while destroy_container.get_child_count() > 0 :
@@ -243,10 +250,18 @@ func drop_bubbles():
 		grid_data[cell_coord].call_deferred('reparent',destroy_container)
 		#grid_data[cell_coord].reparent(destroy_container)
 		grid_data[cell_coord].OnDrop()
+		destroyed_count += 1
 		update_astar(cell_coord)
 		grid_data[cell_coord] = null
+	update_score(get_score())
 #endregion
 
 
-func debug_display_hud(a):
-	debug_hud.text = "attempts : " + str(a)
+func get_score():
+	var processed_score 
+	processed_score = score_formula.execute([bubble_points,destroyed_count])
+	return processed_score
+
+func update_score(n : int):
+	score_display.score += n
+	destroyed_count = 0

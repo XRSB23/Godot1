@@ -17,8 +17,10 @@ func _on_destruction_area_body_entered(body):
 		game_scene.update_astar(pos)
 		body.OnDestroy()
 		game_scene.grid_data[pos] = null
+		game_scene.destroyed_count += 1
 		destroy_amount -= 1
 	elif destroy_amount==0 :
 		# PLUS DE CHARGE DE DESTROY METAL
 		on_metal_end_effect()
+		game_scene.destroyed_count += 1
 		destroy_amount -= 1

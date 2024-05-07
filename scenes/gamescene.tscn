@@ -194,6 +194,8 @@ size = Vector2(250, 6305)
 [node name="Gamescene" type="Node2D"]
 script = ExtResource("1_scxi1")
 cell_size = Vector2(106, 116)
+bubble_points = 10
+Math_expression = "P * (X-3) * (X-3)"
 
 [node name="CameraSystem" type="Node" parent="."]
 
@@ -609,8 +611,8 @@ columns = 3
 
 [node name="Label" type="Label" parent="LevelSelectCanvas"]
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.132716
+anchor_right = 0.415625
+anchor_bottom = 0.133333
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 60
@@ -718,7 +720,6 @@ position = Vector2(4273, -1649.5)
 shape = SubResource("RectangleShape2D_kkwav")
 
 [node name="[Temp]Background" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(0.560784, 0.560784, 0.560784, 1)
 z_index = -32
 position = Vector2(1215, -476)
