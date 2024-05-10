@@ -68,13 +68,11 @@ func _get_property_list() -> Array:
 
 func _ready():
 	visible = is_visible
+	if !OS.has_feature("editor"): gizmo_visible = false
 
 func _draw():
-	if get_child_count() > 0 :
-			DrawPoints()
-	if OS.has_feature("editor"):
-		DrawCircleGizmo()
-		
+	DrawCircleGizmo()
+	if get_child_count() > 0 : DrawPoints()
 		
 
 func _process(delta):

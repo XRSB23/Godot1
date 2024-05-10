@@ -12,7 +12,7 @@ var inventory : Dictionary = {
 var level_saveData : Array[Level_SaveData]
 
 func _ready():
-	if level_saveData == null :
+	if level_saveData == null || level_saveData.size() != level_data_base.levels.size():
 		reset_level_saveData()
 
 func reset_level_saveData():
