@@ -127,6 +127,7 @@ func init_sling():
 	
 	
 func load_ball():
+	
 	if game_scene.get_remaining_colors().size() == 0 :
 		return
 	ball = bubble_prefabs[0].instantiate()
@@ -214,6 +215,10 @@ func InstantiateMenuButton(color):
 #region Signals
 
 func _on_dead_zone(body):
+	if game_scene.attempts <= 0 :
+		game_scene.score_display.report_screen.Open()
+		return
+		
 	if !body is Bubble_Metal : #body.bubble_type != Bubble.BubbleType.Metal:
 		body.queue_free()
 		if game_scene.get_remaining_colors().size() > 1 : color_select_menu.Open()

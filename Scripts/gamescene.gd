@@ -2,7 +2,6 @@ extends Node2D
 class_name GameScene
 
 var level_data_base = preload("res://Resources/levels_resource.tres")
-var debug_level_button = preload("res://scenes/debug_level_button.tscn")
 var bubble_prefab = preload("res://scenes/bubble.tscn")
 var neighbors_coord : Array[Vector2] 
 
@@ -131,6 +130,11 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	reset_sling()
 
 func reset_sling():
+	
+	if attempts <= 0 || get_remaining_colors().size() < 1:
+		score_display.report_screen.Open()
+		return
+		
 	sling.trajectory_preview.UpdateGhost()
 	await sling.UpdateColorMenu(get_remaining_colors()) # Await for instance process to be done before opening menu, else can have menu problems
 	if get_remaining_colors().size() > 1 : sling.color_select_menu.Open()
