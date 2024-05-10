@@ -51,7 +51,10 @@ func load_level(_level):
 	hud.visible = true
 	var levelres = level_data_base.levels[_level]
 	attempts = levelres.attempts
-	treshold = levelres.treshold
+	var tr : Array[int]
+	for t in levelres.tresholds:
+		tr.append(int(t))
+	score_display.Init(tr)
 	root_node_pos = levelres.root_node_coord
 	for i in range(levelres.coord.size()):
 		if levelres.bubbles[i] == level_data.BubbleColor.Empty :
