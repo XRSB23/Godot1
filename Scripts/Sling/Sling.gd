@@ -15,7 +15,6 @@ var touch_points : Dictionary = {} #To track multiple fingers input, used as Dyn
 var start_point = Vector2.ZERO
 var input_direction = Vector2.ZERO
 var scaled_v
-var balls_amount : int
 var ball
 var valid_shot : bool
 
@@ -114,20 +113,21 @@ func shoot_ball(v : Vector2):
 	trajectory_preview.last_v = v
 	ball.OnShoot()
 	ball = null
-	balls_amount -= 1
+	game_scene.attempts -= 1
 	
 	if powerUp_panel.selected_mode != null : powerUp_panel.selected_mode.on_shoot()
 	if powerUp_panel.selected_projectile != null : powerUp_panel.selected_projectile.on_shoot()
 	powerUp_panel.ResetSelection(true)
 	
 
-func init_sling(attempts:int):
+func init_sling():
 	UpdateColorMenu(game_scene.get_remaining_colors())
 	if game_scene.get_remaining_colors().size() > 1 : color_select_menu.Open()
 	else : load_ball()
-	balls_amount = attempts
+	
 	
 func load_ball():
+	
 	if game_scene.get_remaining_colors().size() == 0 :
 		return
 	ball = bubble_prefabs[0].instantiate()
@@ -159,8 +159,7 @@ func load_consumable(color  : level_data.BubbleColor  ):
 
 	ball.game_scene = game_scene
 	ball.call_deferred("set_color")
-	#UPDATE ATTEMPTS HERE
-	 
+
 	
 func ClearBall():
 	if ball != null :
@@ -216,6 +215,10 @@ func InstantiateMenuButton(color):
 #region Signals
 
 func _on_dead_zone(body):
+	if game_scene.attempts <= 0 :
+		game_scene.score_display.report_screen.Open()
+		return
+		
 	if !body is Bubble_Metal : #body.bubble_type != Bubble.BubbleType.Metal:
 		body.queue_free()
 		if game_scene.get_remaining_colors().size() > 1 : color_select_menu.Open()

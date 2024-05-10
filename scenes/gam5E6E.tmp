@@ -1,24 +1,19 @@
-[gd_scene load_steps=112 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=72 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraController.gd" id="2_3irfh"]
 [ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraBounds.gd" id="3_2i1fh"]
-[ext_resource type="Shader" uid="uid://bb2tscdlsvyov" path="res://Art/UI/Shaders/monochrome_shader.tres" id="4_f7t2v"]
-[ext_resource type="StyleBox" uid="uid://cc5a14af53fp5" path="res://Art/UI/Theme/LevelButton/button_style.tres" id="5_1yt0q"]
 [ext_resource type="PackedScene" uid="uid://bngunx6u5dfq7" path="res://scenes/BubbleSelectMenu_Button.tscn" id="5_2nx2p"]
 [ext_resource type="Script" path="res://Scripts/Sling/TrajectoryPreview.gd" id="5_6swga"]
 [ext_resource type="PackedScene" uid="uid://bkohxp01r1a8b" path="res://scenes/bubble.tscn" id="5_icqf6"]
-[ext_resource type="Shader" uid="uid://d2fhjui4q67pl" path="res://Art/UI/Shaders/h_border_fade_UV_shader.tres" id="5_ucnhw"]
 [ext_resource type="Script" path="res://Scripts/Sling/PickupRadius.gd" id="5_vwg2f"]
 [ext_resource type="Script" path="res://Scripts/Sling/NewtonTrajectoryPreview.gd" id="6_aqxdd"]
 [ext_resource type="Script" path="res://Scripts/Sling/VectorTrajectoryPreview.gd" id="6_b45vb"]
-[ext_resource type="Script" path="res://Scripts/UI/ReportScreen.gd" id="6_kt0mt"]
 [ext_resource type="Material" uid="uid://jiup2jy3aui2" path="res://Art/Sling/vector_shader_material.tres" id="6_nhfxi"]
 [ext_resource type="PackedScene" uid="uid://dq26grx5lu6hr" path="res://scenes/bubble_explosive_new.tscn" id="6_rw0qp"]
 [ext_resource type="PackedScene" uid="uid://cko1bo128vv83" path="res://scenes/bubble_paint_new.tscn" id="7_nrvhg"]
 [ext_resource type="Material" uid="uid://xohviejfgi4f" path="res://Art/Sling/newton_shader_material.tres" id="7_v80i2"]
-[ext_resource type="Texture2D" uid="uid://c2pkci0la5r1v" path="res://Art/UI/ButtonIcon.svg" id="8_7n0tw"]
 [ext_resource type="Texture2D" uid="uid://dafardwowxnka" path="res://Art/Sling/CartoonDottedLine.svg" id="8_il03c"]
 [ext_resource type="Texture2D" uid="uid://dck3p41sfucay" path="res://icon.svg" id="8_nev1w"]
 [ext_resource type="Script" path="res://Scripts/UI/ScoreDisplay.gd" id="8_puymx"]
@@ -27,341 +22,14 @@
 [ext_resource type="Script" path="res://Scripts/UI/StarTreshold.gd" id="10_1mpiy"]
 [ext_resource type="Texture2D" uid="uid://cq2oavcga4l3i" path="res://Art/Sling/Line2D_SmoothEdgeTexture.png" id="11_848u5"]
 [ext_resource type="Script" path="res://Scripts/Sling/GhostTrajectoryPreview.gd" id="11_o4i07"]
-[ext_resource type="Shader" uid="uid://cvq75rp2rcsub" path="res://Art/UI/Shaders/v_border_fade_UV_shader.tres" id="11_q0ext"]
 [ext_resource type="Script" path="res://Scripts/UI/LevelSelect.gd" id="13_gtr2x"]
 [ext_resource type="PackedScene" uid="uid://dmouyuwn7moq0" path="res://scenes/level_button.tscn" id="14_jlmao"]
 [ext_resource type="Script" path="res://addons/radialcontainer_plugin/RadialContainer.gd" id="14_rlae7"]
-[ext_resource type="Texture2D" uid="uid://b2eexg2334wf2" path="res://Art/UI/Theme/LevelButton/LevelButton.svg" id="15_p4r1u"]
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpPanel.gd" id="28_a1ofm"]
 [ext_resource type="Texture2D" uid="uid://cnpdmjy53lnpb" path="res://Art/UI/PowerUps.svg" id="29_0bcg4"]
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpButton.gd" id="29_vc8lb"]
 [ext_resource type="Texture2D" uid="uid://iirp7pxhk5jt" path="res://Art/[Temp]Background.jpg" id="29_wjtr2"]
-[ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/Shaders/grayscale_shader.tres" id="30_saxga"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_30p1y"]
-shader = ExtResource("4_f7t2v")
-shader_parameter/Color = Color(0.215686, 0.215686, 0.215686, 1)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2bu5c"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_p0bmt"]
-font_size = 25
-outline_size = 9
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ktcax"]
-load_path = "res://.godot/imported/UI_Stars.svg-81c8b1844452c4bdbc387d6cd906465c.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lt07u"]
-atlas = SubResource("CompressedTexture2D_ktcax")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_48jaj"]
-atlas = SubResource("CompressedTexture2D_ktcax")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gf1s4"]
-atlas = SubResource("CompressedTexture2D_ktcax")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_acdu8"]
-atlas = ExtResource("15_p4r1u")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qfi8m"]
-texture = SubResource("AtlasTexture_acdu8")
-texture_margin_left = 20.0
-texture_margin_top = 20.0
-texture_margin_right = 20.0
-texture_margin_bottom = 20.0
-modulate_color = Color(0.368627, 0.470588, 0.905882, 0.709804)
-
-[sub_resource type="LabelSettings" id="LabelSettings_cxa46"]
-font_size = 35
-outline_size = 8
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_ojk6x"]
-font_size = 24
-outline_size = 8
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_unqf8"]
-font_size = 24
-outline_size = 8
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pl2kh"]
-atlas = ExtResource("15_p4r1u")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_48k41"]
-texture = SubResource("AtlasTexture_pl2kh")
-texture_margin_left = 18.0
-texture_margin_top = 18.0
-texture_margin_right = 18.0
-texture_margin_bottom = 18.0
-modulate_color = Color(0, 0.545098, 1, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8owhp"]
-texture = SubResource("AtlasTexture_pl2kh")
-texture_margin_left = 28.0
-texture_margin_top = 28.0
-texture_margin_right = 28.0
-texture_margin_bottom = 28.0
-modulate_color = Color(0.2, 0.2, 0.2, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k1rlr"]
-atlas = ExtResource("8_7n0tw")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_10h6m"]
-atlas = ExtResource("8_7n0tw")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0dj25"]
-atlas = ExtResource("8_7n0tw")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="Animation" id="Animation_ci1rc"]
-resource_name = "OpenReportScreen"
-length = 0.6
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ReportScreen:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("BackgroundFilter:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.0784314, 0.0784314, 0.0784314, 0), Color(0.0784314, 0.0784314, 0.0784314, 0.678431)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ReportScreen:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.45, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_1rv5b"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ReportScreen:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("BackgroundFilter:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.0784314, 0.0784314, 0.0784314, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ReportScreen:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bdacy"]
-_data = {
-"OpenReportScreen": SubResource("Animation_ci1rc"),
-"RESET": SubResource("Animation_1rv5b")
-}
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rrgu4"]
-shader = ExtResource("5_ucnhw")
-shader_parameter/HorizontalEdge = 0.0
-shader_parameter/Size = 0.2
-
-[sub_resource type="Gradient" id="Gradient_unskp"]
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_6ivos"]
-gradient = SubResource("Gradient_unskp")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2wisb"]
-shader = ExtResource("11_q0ext")
-shader_parameter/HorizontalEdge = 0.0
-shader_parameter/Size = 0.2
-
-[sub_resource type="Animation" id="Animation_sy2tv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BlackHorizontal:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BlackHorizontal:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-640, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("BlackVertical:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -360)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("BlackVertical:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_xi1rf"]
-resource_name = "SwipeDown"
-length = 1.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BlackVertical:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.9, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -1800), Vector2(0, -360), Vector2(0, -360), Vector2(0, 1080)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BlackVertical:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
-}
-
-[sub_resource type="Animation" id="Animation_uevhi"]
-resource_name = "SwipeLeft"
-length = 1.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BlackHorizontal:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BlackHorizontal:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.9, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1400, 0), Vector2(-640, 0), Vector2(-640, 0), Vector2(-2680, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pxjn4"]
-_data = {
-"RESET": SubResource("Animation_sy2tv"),
-"SwipeDown": SubResource("Animation_xi1rf"),
-"SwipeLeft": SubResource("Animation_uevhi")
-}
+[ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/grayscale_shader.tres" id="30_saxga"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7mfgm"]
 font_size = 25
@@ -503,22 +171,8 @@ region = Rect2(306, 0, 48, 88)
 atlas = ExtResource("8_v8i6v")
 region = Rect2(306, 0, 48, 88)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kkgtq"]
-atlas = ExtResource("15_p4r1u")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="ImageTexture" id="ImageTexture_vcc1g"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8b45v"]
-atlas = ExtResource("15_p4r1u")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="ImageTexture" id="ImageTexture_eb5nj"]
-
 [sub_resource type="LabelSettings" id="LabelSettings_hf8nw"]
 font_size = 60
-outline_size = 14
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_am8oq"]
 resource_name = "Next"
@@ -559,18 +213,6 @@ tracks/2/keys = {
 "args": [],
 "method": &"Update"
 }]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Next:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.35, 0.65),
-"transitions": PackedFloat32Array(3.7, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_kji1l"]
@@ -613,18 +255,6 @@ tracks/2/keys = {
 "method": &"Update"
 }]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Previous:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.35, 0.65),
-"transitions": PackedFloat32Array(3.7, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_dstj5"]
 length = 0.001
@@ -648,32 +278,8 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Next:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Previous:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v383t"]
@@ -732,195 +338,6 @@ border_color = Color(0, 1, 0, 1)
 border_width = 10.0
 script = ExtResource("3_2i1fh")
 
-[node name="PopupCanvas" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="BackgroundFilter" type="TextureRect" parent="PopupCanvas"]
-modulate = Color(0.0784314, 0.0784314, 0.0784314, 0)
-material = SubResource("ShaderMaterial_30p1y")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_2bu5c")
-
-[node name="ReportScreen" type="Panel" parent="PopupCanvas"]
-visible = false
-modulate = Color(1, 1, 1, 0)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 432.0
-offset_top = 160.0
-offset_right = -432.0
-offset_bottom = -160.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("5_1yt0q")
-script = ExtResource("6_kt0mt")
-
-[node name="LevelLabel" type="Label" parent="PopupCanvas/ReportScreen"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 96.0
-offset_top = -32.0
-offset_right = -96.0
-offset_bottom = 59.0
-grow_horizontal = 2
-theme_override_styles/normal = ExtResource("5_1yt0q")
-text = "Level 1"
-label_settings = SubResource("LabelSettings_p0bmt")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="StarContainer" type="HBoxContainer" parent="PopupCanvas/ReportScreen"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 72.0
-offset_top = 56.0
-offset_right = -72.0
-offset_bottom = -256.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Star0" type="TextureRect" parent="PopupCanvas/ReportScreen/StarContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = SubResource("AtlasTexture_lt07u")
-expand_mode = 1
-stretch_mode = 5
-script = ExtResource("10_1mpiy")
-rectTrue = Vector2(128, 0)
-
-[node name="Star1" type="TextureRect" parent="PopupCanvas/ReportScreen/StarContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = SubResource("AtlasTexture_48jaj")
-expand_mode = 1
-stretch_mode = 5
-script = ExtResource("10_1mpiy")
-rectTrue = Vector2(128, 0)
-
-[node name="Star2" type="TextureRect" parent="PopupCanvas/ReportScreen/StarContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = SubResource("AtlasTexture_gf1s4")
-expand_mode = 1
-stretch_mode = 5
-script = ExtResource("10_1mpiy")
-rectTrue = Vector2(128, 0)
-
-[node name="ScoreLabel" type="Label" parent="PopupCanvas/ReportScreen"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -48.0
-offset_right = 120.0
-offset_bottom = 41.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_qfi8m")
-text = "152 689 024"
-label_settings = SubResource("LabelSettings_cxa46")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Highscore" type="HBoxContainer" parent="PopupCanvas/ReportScreen"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 40.0
-offset_top = 56.0
-offset_right = -40.0
-offset_bottom = 90.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="PopupCanvas/ReportScreen/Highscore"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "High Score :"
-label_settings = SubResource("LabelSettings_ojk6x")
-vertical_alignment = 1
-
-[node name="Value" type="Label" parent="PopupCanvas/ReportScreen/Highscore"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = " 542 695 247"
-label_settings = SubResource("LabelSettings_unqf8")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Buttons" type="HBoxContainer" parent="PopupCanvas/ReportScreen"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = -88.0
-offset_right = -38.0
-offset_bottom = 22.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="LevelSelect" type="Button" parent="PopupCanvas/ReportScreen/Buttons"]
-custom_minimum_size = Vector2(110, 110)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_48k41")
-theme_override_styles/hover = SubResource("StyleBoxTexture_48k41")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_8owhp")
-theme_override_styles/focus = SubResource("StyleBoxTexture_48k41")
-icon = SubResource("AtlasTexture_k1rlr")
-icon_alignment = 1
-expand_icon = true
-
-[node name="Retry" type="Button" parent="PopupCanvas/ReportScreen/Buttons"]
-custom_minimum_size = Vector2(110, 110)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_48k41")
-theme_override_styles/hover = SubResource("StyleBoxTexture_48k41")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_8owhp")
-theme_override_styles/focus = SubResource("StyleBoxTexture_48k41")
-icon = SubResource("AtlasTexture_10h6m")
-icon_alignment = 1
-expand_icon = true
-
-[node name="Next" type="Button" parent="PopupCanvas/ReportScreen/Buttons"]
-custom_minimum_size = Vector2(110, 110)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_48k41")
-theme_override_styles/hover = SubResource("StyleBoxTexture_48k41")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_8owhp")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_8owhp")
-theme_override_styles/focus = SubResource("StyleBoxTexture_48k41")
-icon = SubResource("AtlasTexture_0dj25")
-icon_alignment = 1
-expand_icon = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PopupCanvas"]
-libraries = {
-"": SubResource("AnimationLibrary_bdacy")
-}
-
 [node name="BackgroundCanvas" type="CanvasLayer" parent="."]
 layer = -99
 
@@ -932,42 +349,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("29_wjtr2")
-
-[node name="TransitionCanvas" type="CanvasLayer" parent="."]
-layer = 99
-
-[node name="BlackHorizontal" type="TextureRect" parent="TransitionCanvas"]
-visible = false
-material = SubResource("ShaderMaterial_rrgu4")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -640.0
-offset_right = 640.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(1280, 360)
-texture = SubResource("GradientTexture1D_6ivos")
-expand_mode = 2
-
-[node name="BlackVertical" type="TextureRect" parent="TransitionCanvas"]
-visible = false
-material = SubResource("ShaderMaterial_2wisb")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -360.0
-offset_bottom = 360.001
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(640, 720)
-texture = SubResource("GradientTexture1D_6ivos")
-expand_mode = 4
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionCanvas"]
-libraries = {
-"": SubResource("AnimationLibrary_pxjn4")
-}
 
 [node name="HUD" type="CanvasLayer" parent="."]
 visible = false
@@ -1355,15 +736,6 @@ grow_horizontal = 2
 
 [node name="LevelSelectCanvas" type="CanvasLayer" parent="."]
 
-[node name="Background" type="TextureRect" parent="LevelSelectCanvas"]
-show_behind_parent = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("29_wjtr2")
-
 [node name="LevelSelect" type="GridContainer" parent="LevelSelectCanvas"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -1371,9 +743,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -387.0
-offset_top = -220.0
+offset_top = -244.0
 offset_right = 429.0
-offset_bottom = 268.0
+offset_bottom = 244.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 5
@@ -1385,8 +757,7 @@ layout_mode = 2
 
 [node name="LevelButton1" parent="LevelSelectCanvas/LevelSelect" instance=ExtResource("14_jlmao")]
 layout_mode = 2
-text = "2
-"
+text = "2"
 
 [node name="LevelButton2" parent="LevelSelectCanvas/LevelSelect" instance=ExtResource("14_jlmao")]
 layout_mode = 2
@@ -1445,14 +816,11 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 34.0
-offset_top = -40.0
+offset_top = -64.0
 offset_right = 162.0
-offset_bottom = 88.0
+offset_bottom = 64.0
 grow_vertical = 2
-pivot_offset = Vector2(64, 64)
-texture_normal = SubResource("AtlasTexture_kkgtq")
-texture_disabled = SubResource("ImageTexture_vcc1g")
-flip_h = true
+texture_normal = ExtResource("8_nev1w")
 
 [node name="Next" type="TextureButton" parent="LevelSelectCanvas"]
 anchors_preset = 6
@@ -1461,14 +829,12 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -162.0
-offset_top = -40.0
+offset_top = -64.0
 offset_right = -34.0
-offset_bottom = 88.0
+offset_bottom = 64.0
 grow_horizontal = 0
 grow_vertical = 2
-pivot_offset = Vector2(64, 64)
-texture_normal = SubResource("AtlasTexture_8b45v")
-texture_disabled = SubResource("ImageTexture_eb5nj")
+texture_normal = ExtResource("8_nev1w")
 
 [node name="LevelSelectLabel" type="Label" parent="LevelSelectCanvas"]
 anchors_preset = 5
@@ -1482,6 +848,29 @@ text = "Level Select"
 label_settings = SubResource("LabelSettings_hf8nw")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ButtonContainer" type="GridContainer" parent="LevelSelectCanvas"]
+visible = false
+anchors_preset = -1
+anchor_top = 0.133
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.239998
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+columns = 3
+
+[node name="Label" type="Label" parent="LevelSelectCanvas"]
+visible = false
+anchors_preset = -1
+anchor_right = 0.415625
+anchor_bottom = 0.133333
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="LevelSelectCanvas"]
 libraries = {
@@ -1569,23 +958,6 @@ min_radius = 100.0
 split_angle = 45.0
 child_size = Vector2(102, 102)
 
-[node name="AttemptsLabel" type="Label" parent="Sling"]
-anchors_preset = -1
-anchor_right = 0.415625
-anchor_bottom = 0.133333
-offset_left = -242.0
-offset_top = 169.0
-offset_right = -129.0
-offset_bottom = 252.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 60
-text = "
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
 [node name="DeadzoneContainer" type="Node2D" parent="."]
 
 [node name="DeadZone" type="Area2D" parent="DeadzoneContainer"]
@@ -1606,10 +978,15 @@ input_pickable = false
 position = Vector2(4273, -1649.5)
 shape = SubResource("RectangleShape2D_kkwav")
 
+[node name="[Temp]Background" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.560784, 0.560784, 0.560784, 1)
+z_index = -32
+position = Vector2(1215, -476)
+scale = Vector2(7.3534, 8.51944)
+texture = ExtResource("29_wjtr2")
+
 [connection signal="value_changed" from="CameraSystem/CameraBounds" to="CameraSystem/Camera2D" method="_on_camera_bounds_value_changed"]
-[connection signal="button_down" from="PopupCanvas/ReportScreen/Buttons/LevelSelect" to="PopupCanvas/ReportScreen" method="_on_level_select_button_down"]
-[connection signal="button_down" from="PopupCanvas/ReportScreen/Buttons/Retry" to="PopupCanvas/ReportScreen" method="_on_retry_button_down"]
-[connection signal="button_down" from="PopupCanvas/ReportScreen/Buttons/Next" to="PopupCanvas/ReportScreen" method="_on_next_button_down"]
 [connection signal="deselect_projectile" from="HUD/PowerUpPanel" to="Sling" method="_on_consumable_panel_deselect_projectile"]
 [connection signal="deselect_shootmode" from="HUD/PowerUpPanel" to="Sling" method="_on_consumable_panel_deselect_shootmode"]
 [connection signal="button_down" from="HUD/PowerUpPanel/GridContainer/Precision Shot" to="HUD/PowerUpPanel/GridContainer/Precision Shot" method="_on_button_down"]
@@ -1624,8 +1001,8 @@ shape = SubResource("RectangleShape2D_kkwav")
 [connection signal="button_down" from="HUD/PowerUpPanel/GridContainer/Paint" to="HUD/PowerUpPanel/GridContainer/Paint" method="_on_button_down"]
 [connection signal="button_up" from="HUD/PowerUpPanel/GridContainer/Paint" to="HUD/PowerUpPanel/GridContainer/Paint" method="_on_button_up"]
 [connection signal="selected" from="HUD/PowerUpPanel/GridContainer/Paint" to="Sling" method="_on_paint_selected"]
-[connection signal="button_down" from="LevelSelectCanvas/Previous" to="LevelSelectCanvas/LevelSelect" method="_on_previous_button_down"]
-[connection signal="button_down" from="LevelSelectCanvas/Next" to="LevelSelectCanvas/LevelSelect" method="_on_next_button_down"]
+[connection signal="pressed" from="LevelSelectCanvas/Previous" to="LevelSelectCanvas/LevelSelect" method="_on_previous_pressed"]
+[connection signal="pressed" from="LevelSelectCanvas/Next" to="LevelSelectCanvas/LevelSelect" method="_on_next_pressed"]
 [connection signal="input_event" from="Sling/PickupRadius" to="Sling/PickupRadius" method="_on_input_event"]
 [connection signal="color_picked" from="Sling/ColorSelectMenu" to="Sling" method="_on_color_select_menu_color_picked"]
 [connection signal="opened" from="Sling/ColorSelectMenu" to="Sling" method="_on_color_select_menu_opened"]

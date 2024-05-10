@@ -3,18 +3,27 @@ class_name ScoreDisplay
 
 @onready var score_display : Label = $ScoreContainer/Score
 @onready var score_bar : TextureProgressBar = $ScoreBar
+@onready var report_screen : ReportScreen = $"../../PopupCanvas/ReportScreen"
+
 var treshold_markers : Array[StarTreshold]
 
-var collected_stars : int = 0
+var collected_stars : int = 0 :
+	set(value) :
+		collected_stars = value
+		report_screen.match_stars(treshold_markers)
+
 var score : int = 0 :
 	set(value) :
 		score = value
-		score_display.text = SpaceNumbers(value)
+		score_display.text = Formatting.SpaceNumbers(value)
+		report_screen.score = score
 		UpdateBar()
 
 
-func Init(input_treshold_array : Array[int]):
+func Init(input_treshold_array : Array[int], level_id : int):
 	score = 0
+	collected_stars = 0
+	report_screen.level_id = level_id
 	GetTresholdsMarkers()
 	PlaceMarkers(input_treshold_array)
 	
@@ -37,22 +46,6 @@ func PlaceMarkers(input_treshold_array : Array[int]):
 		treshold_markers[i].score = input_treshold_array[i]
 		treshold_markers[i].reached = false
 
-func SpaceNumbers(n : int) -> String:
-	if n == null : return ""
-	
-	var _str = str(n)
-	_str = _str.reverse()
-	var array = _str.split()
-	
-	@warning_ignore("integer_division")
-	var count = array.size() / 3
-	for i in range(count, 0, -1) :
-		array.insert(3*i, " ")
-
-	_str = "".join(array)
-	_str = _str.reverse()
-	
-	return _str
 
 func UpdateBar():
 	score_bar.value = score

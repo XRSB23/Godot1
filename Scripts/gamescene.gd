@@ -2,13 +2,19 @@ extends Node2D
 class_name GameScene
 
 var level_data_base = preload("res://Resources/levels_resource.tres")
-var debug_level_button = preload("res://scenes/debug_level_button.tscn")
 var bubble_prefab = preload("res://scenes/bubble.tscn")
 var neighbors_coord : Array[Vector2] 
 
 @export var cell_size : Vector2
 var grid_data = {} #coord V2 : node bubble
-var attempts : int
+
+var current_level_id : int
+
+var attempts : int :
+	set(value) :
+		attempts = value
+		attempts_label.text = str(attempts)
+		
 var treshold : float
 var root_node_pos : Vector2
 var astar = AStar2D.new()
@@ -20,36 +26,36 @@ var score_formula : Expression = Expression.new()
 var destroyed_count : int 
 
 @onready var sling = $Sling
-@onready var debug_hud = $LevelSelectCanvas/Label
-@onready var canvas_layer = $LevelSelectCanvas
-@onready var buttons_container = $LevelSelectCanvas/ButtonContainer
 @onready var bubble_container = $BubbleContainer
 @onready var destroy_container = $DestroyContainer
 @onready var camera : CameraController = $CameraSystem/Camera2D
 @onready var score_display : ScoreDisplay = $HUD/ScoreDisplay
-
+@onready var level_select : LevelSelect = $LevelSelectCanvas/LevelSelect
+@onready var hud = $HUD
+@onready var transition_player : AnimationPlayer = $TransitionCanvas/AnimationPlayer
+@onready var attempts_label = $Sling/AttemptsLabel
 
 
 
 func _ready():
-	init_level_buttons()
+
 	set_neighbors_coord(cell_size)
 	score_formula.parse(Math_expression,["P","X"])
+	#score display init has been moved to load_level()
+	level_select.Init()
 
 #region Init / Load
-func init_level_buttons() :
-	for level in level_data_base.levels :
-		var button = debug_level_button.instantiate()
-		buttons_container.add_child(button)
-		button.init_button(level,self)
 
 func load_level(_level):
 	var levelres = level_data_base.levels[_level]
-	attempts = levelres.attempts
 	var tr : Array[int]
 	for t in levelres.tresholds:
 		tr.append(int(t))
-	score_display.Init(tr)
+	score_display.Init(tr, current_level_id)
+	hud.visible = true
+	
+	attempts = levelres.attempts
+	
 	root_node_pos = levelres.root_node_coord
 	for i in range(levelres.coord.size()):
 		if levelres.bubbles[i] == level_data.BubbleColor.Empty :
@@ -62,8 +68,11 @@ func load_level(_level):
 			bubbleInstance.freeze= true
 			bubbleInstance.set_color()
 			grid_data[levelres.coord[i]] = bubbleInstance
-	buttons_container.hide()
-	sling.init_sling(attempts)
+	#buttons_container.hide()
+	
+	await  transition_player.animation_finished
+	
+	sling.init_sling()
 	camera.EnableControls(true)
 	astar.clear()
 	set_up_astar(levelres.astar_points , levelres.astar_connections)
@@ -125,6 +134,11 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	reset_sling()
 
 func reset_sling():
+	
+	if attempts <= 0 || get_remaining_colors().size() < 1:
+		score_display.report_screen.Open()
+		return
+		
 	sling.trajectory_preview.UpdateGhost()
 	await sling.UpdateColorMenu(get_remaining_colors()) # Await for instance process to be done before opening menu, else can have menu problems
 	if get_remaining_colors().size() > 1 : sling.color_select_menu.Open()

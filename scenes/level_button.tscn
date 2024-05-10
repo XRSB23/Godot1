@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://dmouyuwn7moq0"]
+
+[ext_resource type="Material" uid="uid://cri24iq3a1215" path="res://Art/UI/Shaders/h_fade_screen_shaderMat.tres" id="1_l7w5g"]
+[ext_resource type="Theme" uid="uid://cbqxgobhsmy6h" path="res://Art/UI/Theme/LevelButton/LevelButton_Theme.tres" id="1_t2o8o"]
+[ext_resource type="Script" path="res://Scripts/UI/LevelButton.gd" id="2_4yton"]
+[ext_resource type="Texture2D" uid="uid://bhco3igm4rgrp" path="res://Art/UI/ScoreBar.svg" id="3_3cv20"]
+[ext_resource type="Script" path="res://Scripts/UI/StarTreshold.gd" id="4_wodsr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlvtd"]
+atlas = ExtResource("3_3cv20")
+region = Rect2(314, 52, 32, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m77h5"]
+atlas = ExtResource("3_3cv20")
+region = Rect2(314, 52, 32, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yghi"]
+atlas = ExtResource("3_3cv20")
+region = Rect2(314, 52, 32, 31)
+
+[node name="LevelButton" type="Button"]
+material = ExtResource("1_l7w5g")
+custom_minimum_size = Vector2(160, 160)
+offset_left = 57.0
+offset_top = 44.0
+offset_right = 204.0
+offset_bottom = 187.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource("1_t2o8o")
+text = "1"
+script = ExtResource("2_4yton")
+
+[node name="Stars" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 22.0
+offset_top = -5.0
+offset_right = -21.0
+offset_bottom = 26.0
+grow_horizontal = 2
+
+[node name="Star0" type="TextureRect" parent="Stars"]
+material = ExtResource("1_l7w5g")
+layout_mode = 2
+size_flags_horizontal = 6
+texture = SubResource("AtlasTexture_rlvtd")
+expand_mode = 3
+script = ExtResource("4_wodsr")
+rectTrue = Vector2(314, 140)
+rectFalse = Vector2(314, 52)
+
+[node name="Star1" type="TextureRect" parent="Stars"]
+material = ExtResource("1_l7w5g")
+layout_mode = 2
+size_flags_horizontal = 6
+texture = SubResource("AtlasTexture_m77h5")
+script = ExtResource("4_wodsr")
+rectTrue = Vector2(314, 140)
+rectFalse = Vector2(314, 52)
+
+[node name="Star2" type="TextureRect" parent="Stars"]
+material = ExtResource("1_l7w5g")
+layout_mode = 2
+size_flags_horizontal = 6
+texture = SubResource("AtlasTexture_7yghi")
+script = ExtResource("4_wodsr")
+rectTrue = Vector2(314, 140)
+rectFalse = Vector2(314, 52)
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

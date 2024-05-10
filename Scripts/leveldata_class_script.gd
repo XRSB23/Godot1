@@ -10,3 +10,4 @@ enum BubbleColor {Empty,Red,Orange,Yellow,Green,Cyan,Blue,Purple}
 @export var root_node_coord : Vector2
 @export var astar_points : Array[Vector2]
 @export var astar_connections : Array
+
