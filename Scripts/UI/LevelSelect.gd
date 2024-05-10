@@ -1,7 +1,7 @@
 extends GridContainer
 class_name LevelSelect
 
-@onready var gamescene = $"../.."
+@onready var gamescene : GameScene = $"../.."
 @onready var previous_button = $"../Previous"
 @onready var next_button = $"../Next"
 @onready var animation_player = $"../AnimationPlayer"
@@ -57,6 +57,7 @@ func UpdatePageButtons(delay : float = 0):
 func LoadLevel(id : int):
 	transition_player.play("SwipeLeft")
 	await get_tree().create_timer(0.5).timeout
+	gamescene.current_level_id = id
 	gamescene.load_level(gamescene.level_data_base.levels.keys()[id])
 	Hide()
 

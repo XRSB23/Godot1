@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=109 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraController.gd" id="2_3irfh"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://Scripts/Sling/PickupRadius.gd" id="5_vwg2f"]
 [ext_resource type="Script" path="res://Scripts/Sling/NewtonTrajectoryPreview.gd" id="6_aqxdd"]
 [ext_resource type="Script" path="res://Scripts/Sling/VectorTrajectoryPreview.gd" id="6_b45vb"]
+[ext_resource type="Script" path="res://Scripts/UI/ReportScreen.gd" id="6_kt0mt"]
 [ext_resource type="Material" uid="uid://jiup2jy3aui2" path="res://Art/Sling/vector_shader_material.tres" id="6_nhfxi"]
 [ext_resource type="PackedScene" uid="uid://dq26grx5lu6hr" path="res://scenes/bubble_explosive_new.tscn" id="6_rw0qp"]
 [ext_resource type="PackedScene" uid="uid://cko1bo128vv83" path="res://scenes/bubble_paint_new.tscn" id="7_nrvhg"]
@@ -36,9 +37,9 @@
 [ext_resource type="Texture2D" uid="uid://iirp7pxhk5jt" path="res://Art/[Temp]Background.jpg" id="29_wjtr2"]
 [ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/Shaders/grayscale_shader.tres" id="30_saxga"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bha1g"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_30p1y"]
 shader = ExtResource("4_f7t2v")
-shader_parameter/Color = Color(0.215686, 0.215686, 0.215686, 0.666667)
+shader_parameter/Color = Color(0.215686, 0.215686, 0.215686, 1)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2bu5c"]
 
@@ -120,6 +121,116 @@ region = Rect2(128, 0, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_0dj25"]
 atlas = ExtResource("8_7n0tw")
 region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="Animation" id="Animation_ci1rc"]
+resource_name = "OpenReportScreen"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ReportScreen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BackgroundFilter:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 0), Color(0.0784314, 0.0784314, 0.0784314, 0.678431)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ReportScreen:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1rv5b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ReportScreen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BackgroundFilter:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ReportScreen:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bdacy"]
+_data = {
+"OpenReportScreen": SubResource("Animation_ci1rc"),
+"RESET": SubResource("Animation_1rv5b")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2wisb"]
 shader = ExtResource("5_ucnhw")
@@ -563,9 +674,11 @@ border_width = 10.0
 script = ExtResource("3_2i1fh")
 
 [node name="PopupCanvas" type="CanvasLayer" parent="."]
+visible = false
 
-[node name="TextureRect" type="TextureRect" parent="PopupCanvas"]
-material = SubResource("ShaderMaterial_bha1g")
+[node name="BackgroundFilter" type="TextureRect" parent="PopupCanvas"]
+modulate = Color(0.0784314, 0.0784314, 0.0784314, 0)
+material = SubResource("ShaderMaterial_30p1y")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -574,6 +687,8 @@ grow_vertical = 2
 texture = SubResource("PlaceholderTexture2D_2bu5c")
 
 [node name="ReportScreen" type="Panel" parent="PopupCanvas"]
+visible = false
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -584,6 +699,7 @@ offset_bottom = -160.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("5_1yt0q")
+script = ExtResource("6_kt0mt")
 
 [node name="LevelLabel" type="Label" parent="PopupCanvas/ReportScreen"]
 layout_mode = 1
@@ -647,9 +763,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -120.0
-offset_top = -56.0
+offset_top = -48.0
 offset_right = 120.0
-offset_bottom = 33.0
+offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_qfi8m")
@@ -665,9 +781,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = 40.0
-offset_top = 48.0
+offset_top = 56.0
 offset_right = -40.0
-offset_bottom = 82.0
+offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -695,9 +811,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 40.0
-offset_top = -72.0
-offset_right = -40.0
-offset_bottom = 36.0
+offset_top = -88.0
+offset_right = -38.0
+offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -734,6 +850,11 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_8owhp")
 icon = SubResource("AtlasTexture_0dj25")
 icon_alignment = 1
 expand_icon = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PopupCanvas"]
+libraries = {
+"": SubResource("AnimationLibrary_bdacy")
+}
 
 [node name="BackgroundCanvas" type="CanvasLayer" parent="."]
 layer = -99

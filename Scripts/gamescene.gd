@@ -9,6 +9,8 @@ var neighbors_coord : Array[Vector2]
 @export var cell_size : Vector2
 var grid_data = {} #coord V2 : node bubble
 
+var current_level_id : int
+
 var attempts : int :
 	set(value) :
 		attempts = value
@@ -37,20 +39,16 @@ var destroyed_count : int
 
 
 func _ready():
-	#init_level_buttons()
+
 	set_neighbors_coord(cell_size)
-	score_display.Init([500,1000,1500])
 	score_formula.parse(Math_expression,["P","X"])
+	#score display init has been moved to load_level()
 	level_select.Init()
 
 #region Init / Load
-#func init_level_buttons() :
-	#for level in level_data_base.levels :
-		#var button = debug_level_button.instantiate()
-		#buttons_container.add_child(button)
-		#button.init_button(level,self)
 
 func load_level(_level):
+	score_display.Init([500,1000,1500], current_level_id)
 	hud.visible = true
 	var levelres = level_data_base.levels[_level]
 	attempts = levelres.attempts
