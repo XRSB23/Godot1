@@ -6,6 +6,7 @@ class_name LevelSelect
 @onready var next_button = $"../Next"
 @onready var animation_player = $"../AnimationPlayer"
 @onready var level_select_canvas = $".."
+@onready var transition_player : AnimationPlayer = $"../../TransitionCanvas/AnimationPlayer"
 
 @export var debug_unlock_all : bool :
 	get :
@@ -47,27 +48,29 @@ func get_last_level() -> int :
 	return SaveData.level_saveData.size()
 
 
-func UpdatePageButtons():
+func UpdatePageButtons(delay : float = 0):
+	if delay > 0 : await get_tree().create_timer(delay).timeout
 	previous_button.disabled = current_page == 0
 	next_button.disabled = (current_page == page_amount - 1) || (latestUnlocked < (current_page + 1) * buttons.size() && !debug_unlock_all)
 	
 
 func LoadLevel(id : int):
+	transition_player.play("SwipeLeft")
+	await get_tree().create_timer(0.5).timeout
 	gamescene.load_level(gamescene.level_data_base.levels.keys()[id])
 	Hide()
 
 func Hide(b : bool = true):
-	#Make Transition Here
 	level_select_canvas.visible = !b
 
 
 func _on_previous_pressed():
 	current_page = clamp(current_page - 1, 0, page_amount)
-	UpdatePageButtons()
+	UpdatePageButtons(0.75)
 	animation_player.play("Previous")
 
 
 func _on_next_pressed():
 	current_page = clamp(current_page + 1, 0, page_amount)
-	UpdatePageButtons()
+	UpdatePageButtons(0.75)
 	animation_player.play("Next")

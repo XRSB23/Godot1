@@ -8,7 +8,12 @@ var neighbors_coord : Array[Vector2]
 
 @export var cell_size : Vector2
 var grid_data = {} #coord V2 : node bubble
-var attempts : int
+
+var attempts : int :
+	set(value) :
+		attempts = value
+		attempts_label.text = str(attempts)
+		
 var treshold : float
 var root_node_pos : Vector2
 var astar = AStar2D.new()
@@ -20,31 +25,30 @@ var score_formula : Expression = Expression.new()
 var destroyed_count : int 
 
 @onready var sling = $Sling
-@onready var debug_hud = $LevelSelectCanvas/Label
-@onready var canvas_layer = $LevelSelectCanvas
-@onready var buttons_container = $LevelSelectCanvas/ButtonContainer
 @onready var bubble_container = $BubbleContainer
 @onready var destroy_container = $DestroyContainer
 @onready var camera : CameraController = $CameraSystem/Camera2D
 @onready var score_display : ScoreDisplay = $HUD/ScoreDisplay
 @onready var level_select : LevelSelect = $LevelSelectCanvas/LevelSelect
 @onready var hud = $HUD
+@onready var transition_player : AnimationPlayer = $TransitionCanvas/AnimationPlayer
+@onready var attempts_label = $Sling/AttemptsLabel
 
 
 
 func _ready():
-	init_level_buttons()
+	#init_level_buttons()
 	set_neighbors_coord(cell_size)
 	score_display.Init([500,1000,1500])
 	score_formula.parse(Math_expression,["P","X"])
 	level_select.Init()
 
 #region Init / Load
-func init_level_buttons() :
-	for level in level_data_base.levels :
-		var button = debug_level_button.instantiate()
-		buttons_container.add_child(button)
-		button.init_button(level,self)
+#func init_level_buttons() :
+	#for level in level_data_base.levels :
+		#var button = debug_level_button.instantiate()
+		#buttons_container.add_child(button)
+		#button.init_button(level,self)
 
 func load_level(_level):
 	hud.visible = true
@@ -63,8 +67,11 @@ func load_level(_level):
 			bubbleInstance.freeze= true
 			bubbleInstance.set_color()
 			grid_data[levelres.coord[i]] = bubbleInstance
-	buttons_container.hide()
-	sling.init_sling(attempts)
+	#buttons_container.hide()
+	
+	await  transition_player.animation_finished
+	
+	sling.init_sling()
 	camera.EnableControls(true)
 	astar.clear()
 	set_up_astar(levelres.astar_points , levelres.astar_connections)
