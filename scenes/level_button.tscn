@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dmouyuwn7moq0"]
 
-[ext_resource type="Material" uid="uid://cri24iq3a1215" path="res://Art/UI/h_fade_screen_shaderMat.tres" id="1_l7w5g"]
+[ext_resource type="Material" uid="uid://cri24iq3a1215" path="res://Art/UI/Shaders/h_fade_screen_shaderMat.tres" id="1_l7w5g"]
 [ext_resource type="Theme" uid="uid://cbqxgobhsmy6h" path="res://Art/UI/Theme/LevelButton/LevelButton_Theme.tres" id="1_t2o8o"]
 [ext_resource type="Script" path="res://Scripts/UI/LevelButton.gd" id="2_4yton"]
 [ext_resource type="Texture2D" uid="uid://bhco3igm4rgrp" path="res://Art/UI/ScoreBar.svg" id="3_3cv20"]

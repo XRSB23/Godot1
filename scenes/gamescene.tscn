@@ -1,13 +1,15 @@
-[gd_scene load_steps=84 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=105 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraController.gd" id="2_3irfh"]
 [ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraBounds.gd" id="3_2i1fh"]
+[ext_resource type="Shader" uid="uid://bb2tscdlsvyov" path="res://Art/UI/Shaders/monochrome_shader.tres" id="4_f7t2v"]
+[ext_resource type="StyleBox" uid="uid://cc5a14af53fp5" path="res://Art/UI/Theme/LevelButton/button_style.tres" id="5_1yt0q"]
 [ext_resource type="PackedScene" uid="uid://bngunx6u5dfq7" path="res://scenes/BubbleSelectMenu_Button.tscn" id="5_2nx2p"]
 [ext_resource type="Script" path="res://Scripts/Sling/TrajectoryPreview.gd" id="5_6swga"]
 [ext_resource type="PackedScene" uid="uid://bkohxp01r1a8b" path="res://scenes/bubble.tscn" id="5_icqf6"]
-[ext_resource type="Shader" uid="uid://d2fhjui4q67pl" path="res://Art/UI/h_border_fade_UV_shader.tres" id="5_ucnhw"]
+[ext_resource type="Shader" uid="uid://d2fhjui4q67pl" path="res://Art/UI/Shaders/h_border_fade_UV_shader.tres" id="5_ucnhw"]
 [ext_resource type="Script" path="res://Scripts/Sling/PickupRadius.gd" id="5_vwg2f"]
 [ext_resource type="Script" path="res://Scripts/Sling/NewtonTrajectoryPreview.gd" id="6_aqxdd"]
 [ext_resource type="Script" path="res://Scripts/Sling/VectorTrajectoryPreview.gd" id="6_b45vb"]
@@ -15,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dq26grx5lu6hr" path="res://scenes/bubble_explosive_new.tscn" id="6_rw0qp"]
 [ext_resource type="PackedScene" uid="uid://cko1bo128vv83" path="res://scenes/bubble_paint_new.tscn" id="7_nrvhg"]
 [ext_resource type="Material" uid="uid://xohviejfgi4f" path="res://Art/Sling/newton_shader_material.tres" id="7_v80i2"]
+[ext_resource type="Texture2D" uid="uid://c2pkci0la5r1v" path="res://Art/UI/ButtonIcon.svg" id="8_7n0tw"]
 [ext_resource type="Texture2D" uid="uid://dafardwowxnka" path="res://Art/Sling/CartoonDottedLine.svg" id="8_il03c"]
 [ext_resource type="Texture2D" uid="uid://dck3p41sfucay" path="res://icon.svg" id="8_nev1w"]
 [ext_resource type="Script" path="res://Scripts/UI/ScoreDisplay.gd" id="8_puymx"]
@@ -31,7 +34,92 @@
 [ext_resource type="Texture2D" uid="uid://cnpdmjy53lnpb" path="res://Art/UI/PowerUps.svg" id="29_0bcg4"]
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpButton.gd" id="29_vc8lb"]
 [ext_resource type="Texture2D" uid="uid://iirp7pxhk5jt" path="res://Art/[Temp]Background.jpg" id="29_wjtr2"]
-[ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/grayscale_shader.tres" id="30_saxga"]
+[ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/Shaders/grayscale_shader.tres" id="30_saxga"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bha1g"]
+shader = ExtResource("4_f7t2v")
+shader_parameter/Color = Color(0.215686, 0.215686, 0.215686, 0.666667)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2bu5c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p0bmt"]
+font_size = 25
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ktcax"]
+load_path = "res://.godot/imported/UI_Stars.svg-81c8b1844452c4bdbc387d6cd906465c.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt07u"]
+atlas = SubResource("CompressedTexture2D_ktcax")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48jaj"]
+atlas = SubResource("CompressedTexture2D_ktcax")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gf1s4"]
+atlas = SubResource("CompressedTexture2D_ktcax")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acdu8"]
+atlas = ExtResource("15_p4r1u")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qfi8m"]
+texture = SubResource("AtlasTexture_acdu8")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(0.368627, 0.470588, 0.905882, 0.709804)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cxa46"]
+font_size = 35
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ojk6x"]
+font_size = 24
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_unqf8"]
+font_size = 24
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pl2kh"]
+atlas = ExtResource("15_p4r1u")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_48k41"]
+texture = SubResource("AtlasTexture_pl2kh")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+modulate_color = Color(0, 0.545098, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8owhp"]
+texture = SubResource("AtlasTexture_pl2kh")
+texture_margin_left = 28.0
+texture_margin_top = 28.0
+texture_margin_right = 28.0
+texture_margin_bottom = 28.0
+modulate_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1rlr"]
+atlas = ExtResource("8_7n0tw")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10h6m"]
+atlas = ExtResource("8_7n0tw")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dj25"]
+atlas = ExtResource("8_7n0tw")
+region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2wisb"]
 shader = ExtResource("5_ucnhw")
@@ -43,6 +131,33 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_6ivos"]
 gradient = SubResource("Gradient_unskp")
+
+[sub_resource type="Animation" id="Animation_sy2tv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackSimple:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackSimple:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-640, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_uevhi"]
 resource_name = "SwipeLeft"
@@ -70,33 +185,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1400, 0), Vector2(-640, 0), Vector2(-640, 0), Vector2(-2680, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_sy2tv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BlackSimple:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BlackSimple:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-640, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pxjn4"]
@@ -473,6 +561,179 @@ mouse_filter = 2
 border_color = Color(0, 1, 0, 1)
 border_width = 10.0
 script = ExtResource("3_2i1fh")
+
+[node name="PopupCanvas" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="PopupCanvas"]
+material = SubResource("ShaderMaterial_bha1g")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_2bu5c")
+
+[node name="ReportScreen" type="Panel" parent="PopupCanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 432.0
+offset_top = 160.0
+offset_right = -432.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("5_1yt0q")
+
+[node name="LevelLabel" type="Label" parent="PopupCanvas/ReportScreen"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 96.0
+offset_top = -32.0
+offset_right = -96.0
+offset_bottom = 59.0
+grow_horizontal = 2
+theme_override_styles/normal = ExtResource("5_1yt0q")
+text = "Level 1"
+label_settings = SubResource("LabelSettings_p0bmt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StarContainer" type="HBoxContainer" parent="PopupCanvas/ReportScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 72.0
+offset_top = 56.0
+offset_right = -72.0
+offset_bottom = -256.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Star0" type="TextureRect" parent="PopupCanvas/ReportScreen/StarContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_lt07u")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("10_1mpiy")
+rectTrue = Vector2(128, 0)
+
+[node name="Star1" type="TextureRect" parent="PopupCanvas/ReportScreen/StarContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_48jaj")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("10_1mpiy")
+rectTrue = Vector2(128, 0)
+
+[node name="Star2" type="TextureRect" parent="PopupCanvas/ReportScreen/StarContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_gf1s4")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("10_1mpiy")
+rectTrue = Vector2(128, 0)
+
+[node name="ScoreLabel" type="Label" parent="PopupCanvas/ReportScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -56.0
+offset_right = 120.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_qfi8m")
+text = "152 689 024"
+label_settings = SubResource("LabelSettings_cxa46")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Highscore" type="HBoxContainer" parent="PopupCanvas/ReportScreen"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = 48.0
+offset_right = -40.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PopupCanvas/ReportScreen/Highscore"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "High Score :"
+label_settings = SubResource("LabelSettings_ojk6x")
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="PopupCanvas/ReportScreen/Highscore"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = " 542 695 247"
+label_settings = SubResource("LabelSettings_unqf8")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="PopupCanvas/ReportScreen"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -72.0
+offset_right = -40.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LevelSelect" type="Button" parent="PopupCanvas/ReportScreen/Buttons"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_48k41")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8owhp")
+icon = SubResource("AtlasTexture_k1rlr")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Retry" type="Button" parent="PopupCanvas/ReportScreen/Buttons"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_48k41")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8owhp")
+icon = SubResource("AtlasTexture_10h6m")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Next" type="Button" parent="PopupCanvas/ReportScreen/Buttons"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_48k41")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8owhp")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_8owhp")
+icon = SubResource("AtlasTexture_0dj25")
+icon_alignment = 1
+expand_icon = true
 
 [node name="BackgroundCanvas" type="CanvasLayer" parent="."]
 layer = -99
@@ -893,6 +1154,7 @@ offset_bottom = 59.0
 grow_horizontal = 2
 
 [node name="LevelSelectCanvas" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="LevelSelect" type="GridContainer" parent="LevelSelectCanvas"]
 anchors_preset = 8
@@ -1135,14 +1397,6 @@ input_pickable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadzoneContainer/DeadZone2"]
 position = Vector2(4273, -1649.5)
 shape = SubResource("RectangleShape2D_kkwav")
-
-[node name="[Temp]Background" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0.560784, 0.560784, 0.560784, 1)
-z_index = -32
-position = Vector2(1215, -476)
-scale = Vector2(7.3534, 8.51944)
-texture = ExtResource("29_wjtr2")
 
 [connection signal="value_changed" from="CameraSystem/CameraBounds" to="CameraSystem/Camera2D" method="_on_camera_bounds_value_changed"]
 [connection signal="deselect_projectile" from="HUD/PowerUpPanel" to="Sling" method="_on_consumable_panel_deselect_projectile"]

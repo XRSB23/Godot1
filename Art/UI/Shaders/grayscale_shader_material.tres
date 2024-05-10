@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b0qvc452j6j51"]
 
-[ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/grayscale_shader.tres" id="1_cpsni"]
+[ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/Shaders/grayscale_shader.tres" id="1_cpsni"]
 
 [resource]
 resource_local_to_scene = true
