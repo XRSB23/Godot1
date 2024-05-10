@@ -16,7 +16,8 @@ var start_distance
 var start_zoom
 
 func _ready():
-	zoom = Vector2.ONE * 0.375
+	#zoom = Vector2.ONE * 0.375
+	zoom = Vector2.ONE * 0.27
 
 
 func _input(event):

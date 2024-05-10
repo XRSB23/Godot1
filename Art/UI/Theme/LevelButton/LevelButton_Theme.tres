@@ -1,0 +1,45 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cbqxgobhsmy6h"]
+
+[ext_resource type="Texture2D" uid="uid://b2eexg2334wf2" path="res://Art/UI/Theme/LevelButton/LevelButton.svg" id="1_1q2ks"]
+[ext_resource type="StyleBox" uid="uid://cc5a14af53fp5" path="res://Art/UI/Theme/LevelButton/button_style.tres" id="2_nx80h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6jf3"]
+atlas = ExtResource("1_1q2ks")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ssqal"]
+texture = SubResource("AtlasTexture_t6jf3")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pl2kh"]
+atlas = ExtResource("1_1q2ks")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ftlby"]
+texture = SubResource("AtlasTexture_pl2kh")
+texture_margin_left = 28.0
+texture_margin_top = 28.0
+texture_margin_right = 28.0
+texture_margin_bottom = 28.0
+modulate_color = Color(0.533333, 0.533333, 0.533333, 1)
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(1, 1, 1, 0)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0.2, 0.337255, 1)
+Button/colors/font_pressed_color = Color(0.6, 0.6, 0.6, 1)
+Button/constants/outline_size = 15
+Button/font_sizes/font_size = 60
+Button/styles/disabled = SubResource("StyleBoxTexture_ssqal")
+Button/styles/focus = ExtResource("2_nx80h")
+Button/styles/hover = ExtResource("2_nx80h")
+Button/styles/normal = ExtResource("2_nx80h")
+Button/styles/pressed = SubResource("StyleBoxTexture_ftlby")

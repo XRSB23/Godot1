@@ -27,7 +27,8 @@ var destroyed_count : int
 @onready var destroy_container = $DestroyContainer
 @onready var camera : CameraController = $CameraSystem/Camera2D
 @onready var score_display : ScoreDisplay = $HUD/ScoreDisplay
-
+@onready var level_select : LevelSelect = $LevelSelectCanvas/LevelSelect
+@onready var hud = $HUD
 
 
 
@@ -36,6 +37,7 @@ func _ready():
 	set_neighbors_coord(cell_size)
 	score_display.Init([500,1000,1500])
 	score_formula.parse(Math_expression,["P","X"])
+	level_select.Init()
 
 #region Init / Load
 func init_level_buttons() :
@@ -45,6 +47,7 @@ func init_level_buttons() :
 		button.init_button(level,self)
 
 func load_level(_level):
+	hud.visible = true
 	var levelres = level_data_base.levels[_level]
 	attempts = levelres.attempts
 	treshold = levelres.treshold

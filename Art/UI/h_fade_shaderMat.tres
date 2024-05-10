@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cri24iq3a1215"]
+
+[ext_resource type="Shader" uid="uid://c4owctkaaryhq" path="res://Art/UI/h_border_fade.tres" id="1_de3iy"]
+
+[resource]
+shader = ExtResource("1_de3iy")
+shader_parameter/HorizontalEdge = 0.12
+shader_parameter/Size = 0.07
