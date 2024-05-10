@@ -159,7 +159,8 @@ func load_consumable(color  : level_data.BubbleColor  ):
 
 	ball.game_scene = game_scene
 	ball.call_deferred("set_color")
-	game_scene.update_attempts(balls_amount)
+	#UPDATE ATTEMPTS HERE
+	 
 	
 func ClearBall():
 	if ball != null :

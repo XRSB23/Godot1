@@ -2,7 +2,7 @@
 extends TileMap
 
 var level_name : String = ""
-var treshold : String = ""
+var tresholds : Array[String] = ['','','']
 var attempts : String = ""
 
 var save_comp_instance
@@ -21,7 +21,7 @@ func load_level_resource():
 func save_level(n,t,a):
 	var res = load_level_resource()
 	var level = level_data.new()
-	level.treshold = t
+	level.tresholds = t
 	level.attempts = a
 	var tiles = get_used_cells(0)
 	var points : Array[Vector2]
@@ -66,14 +66,19 @@ func set_neighbors_coord(v : Vector2):
 
 func load_level(_level_name):
 	var data : level_data = load_level_resource().levels[_level_name]
-	clear()
+	tresholds.clear()
+	for i in range(3):
+		tresholds.append('')
 	var i = 0
 	for c in data.coord :
 		set_cell(0,local_to_map(c),0,get_atlas_coord(data.bubbles[i]))
 		i += 1
 	set_cell(1,local_to_map(data.root_node_coord),5,Vector2.ZERO)
 	level_name = _level_name
-	treshold = str(data.treshold)
+	var k = 0
+	for treshold in data.tresholds :
+		tresholds[k] = str(treshold) 
+		k += 1
 	attempts = str(data.attempts)
 	save_comp_instance.load_refresh()
 

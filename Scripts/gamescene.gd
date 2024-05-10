@@ -34,7 +34,6 @@ var destroyed_count : int
 func _ready():
 	init_level_buttons()
 	set_neighbors_coord(cell_size)
-	score_display.Init([500,1000,1500])
 	score_formula.parse(Math_expression,["P","X"])
 
 #region Init / Load
@@ -47,7 +46,10 @@ func init_level_buttons() :
 func load_level(_level):
 	var levelres = level_data_base.levels[_level]
 	attempts = levelres.attempts
-	treshold = levelres.treshold
+	var tr : Array[int]
+	for t in levelres.tresholds:
+		tr.append(int(t))
+	score_display.Init(tr)
 	root_node_pos = levelres.root_node_coord
 	for i in range(levelres.coord.size()):
 		if levelres.bubbles[i] == level_data.BubbleColor.Empty :
