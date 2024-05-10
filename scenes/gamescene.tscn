@@ -508,7 +508,7 @@ tracks/3/path = NodePath("Next:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"times": PackedFloat32Array(0, 0.2, 0.35, 0.65),
 "transitions": PackedFloat32Array(3.7, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(1, 1)]
@@ -561,7 +561,7 @@ tracks/3/path = NodePath("Previous:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"times": PackedFloat32Array(0, 0.2, 0.35, 0.65),
 "transitions": PackedFloat32Array(3.7, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(1, 1)]
@@ -1275,7 +1275,6 @@ offset_bottom = 59.0
 grow_horizontal = 2
 
 [node name="LevelSelectCanvas" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="LevelSelect" type="GridContainer" parent="LevelSelectCanvas"]
 anchors_preset = 8
@@ -1534,8 +1533,8 @@ shape = SubResource("RectangleShape2D_kkwav")
 [connection signal="button_down" from="HUD/PowerUpPanel/GridContainer/Paint" to="HUD/PowerUpPanel/GridContainer/Paint" method="_on_button_down"]
 [connection signal="button_up" from="HUD/PowerUpPanel/GridContainer/Paint" to="HUD/PowerUpPanel/GridContainer/Paint" method="_on_button_up"]
 [connection signal="selected" from="HUD/PowerUpPanel/GridContainer/Paint" to="Sling" method="_on_paint_selected"]
-[connection signal="pressed" from="LevelSelectCanvas/Previous" to="LevelSelectCanvas/LevelSelect" method="_on_previous_pressed"]
-[connection signal="pressed" from="LevelSelectCanvas/Next" to="LevelSelectCanvas/LevelSelect" method="_on_next_pressed"]
+[connection signal="button_down" from="LevelSelectCanvas/Previous" to="LevelSelectCanvas/LevelSelect" method="_on_previous_button_down"]
+[connection signal="button_down" from="LevelSelectCanvas/Next" to="LevelSelectCanvas/LevelSelect" method="_on_next_button_down"]
 [connection signal="input_event" from="Sling/PickupRadius" to="Sling/PickupRadius" method="_on_input_event"]
 [connection signal="color_picked" from="Sling/ColorSelectMenu" to="Sling" method="_on_color_select_menu_color_picked"]
 [connection signal="opened" from="Sling/ColorSelectMenu" to="Sling" method="_on_color_select_menu_opened"]

@@ -28,8 +28,9 @@ func _ready():
 
 
 func match_stars(array : Array[StarTreshold]):
-	for i in range(0, stars.size()):
-		stars[i].reached = array[i].reached
+	if array.size() > 1 :
+		for i in range(0, stars.size()):
+			stars[i].reached = array[i].reached
 
 func get_stars() -> int:
 	var i : int = 0

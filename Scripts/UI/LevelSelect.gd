@@ -65,13 +65,13 @@ func Hide(b : bool = true):
 	level_select_canvas.visible = !b
 
 
-func _on_previous_pressed():
+func _on_previous_button_down():
 	current_page = clamp(current_page - 1, 0, page_amount)
 	UpdatePageButtons(0.75)
 	animation_player.play("Previous")
 
 
-func _on_next_pressed():
+func _on_next_button_down():
 	current_page = clamp(current_page + 1, 0, page_amount)
 	UpdatePageButtons(0.75)
 	animation_player.play("Next")
