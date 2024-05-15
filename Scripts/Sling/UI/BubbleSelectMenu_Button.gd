@@ -9,7 +9,6 @@ var control : RadialContainer
 @export var hframe : int
 @export var vframe : int
 
-var camera : CameraController
 
 var is_paint_mode : bool :
 	set(value): 
@@ -31,7 +30,6 @@ func _ready():
 	if get_parent() is RadialContainer :
 		control = get_parent()
 	
-	camera = get_tree().get_root().get_node("Gamescene").camera
 
 
 func _on_pressed():
@@ -48,9 +46,3 @@ func Destroy():
 	queue_free()
 
 
-func _on_button_down():
-	camera.EnableControls(false)
-
-
-func _on_button_up():
-	camera.EnableControls(true)
