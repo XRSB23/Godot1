@@ -22,9 +22,11 @@ SaveData="*res://Scripts/Autoload/SaveData.gd"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=2
 window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
 
 [dotnet]
 
@@ -49,4 +51,3 @@ pointing/emulate_touch_from_mouse=true
 
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
-anti_aliasing/quality/msaa_2d=1

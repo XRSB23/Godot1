@@ -28,7 +28,6 @@ var destroyed_count : int
 @onready var sling = $Sling
 @onready var bubble_container = $BubbleContainer
 @onready var destroy_container = $DestroyContainer
-@onready var camera : CameraController = $CameraSystem/Camera2D
 @onready var score_display : ScoreDisplay = $HUD/ScoreDisplay
 @onready var level_select : LevelSelect = $LevelSelectCanvas/LevelSelect
 @onready var hud = $HUD
@@ -73,7 +72,6 @@ func load_level(_level):
 	await  transition_player.animation_finished
 	
 	sling.init_sling()
-	camera.EnableControls(true)
 	astar.clear()
 	set_up_astar(levelres.astar_points , levelres.astar_connections)
 #endregion

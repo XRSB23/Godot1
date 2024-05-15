@@ -5,7 +5,6 @@ signal selected()
 
 
 @export_category("Node Connexion")
-@export var camera : CameraController
 @export var powerUp_panel : PowerUpPanel
 @export var amount_label : Label
 @export var highlight : TextureRect
@@ -50,7 +49,6 @@ func on_shoot():
 	Update()
 	
 func _on_button_down():
-	camera.EnableControls(false)
 	match type :
 		TYPE.ShootMode :
 			powerUp_panel.SelectMode(null if powerUp_panel.selected_mode == self else self)
@@ -60,7 +58,6 @@ func _on_button_down():
 			if powerUp_panel.selected_projectile == self : selected.emit()
 
 
-func _on_button_up():
-	camera.EnableControls(true)
+
 
 

@@ -1,7 +1,6 @@
-[gd_scene load_steps=112 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=111 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
-[ext_resource type="Script" path="res://Scripts/Camera/CameraController.gd" id="2_3irfh"]
 [ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraBounds.gd" id="3_2i1fh"]
 [ext_resource type="Shader" uid="uid://bb2tscdlsvyov" path="res://Art/UI/Shaders/monochrome_shader.tres" id="4_f7t2v"]
@@ -313,7 +312,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 0.9, 1.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, -1800), Vector2(0, -360), Vector2(0, -360), Vector2(0, 1080)]
+"values": [Vector2(0, -2400), Vector2(0, -360), Vector2(0, -360), Vector2(0, 1680)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -353,7 +352,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5, 0.9, 1.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1400, 0), Vector2(-640, 0), Vector2(-640, 0), Vector2(-2680, 0)]
+"values": [Vector2(1800, 0), Vector2(-640, 0), Vector2(-640, 0), Vector2(-3680, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pxjn4"]
@@ -523,16 +522,19 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="Animation" id="Animation_am8oq"]
 resource_name = "Next"
 step = 0.05
-tracks/0/type = "bezier"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("LevelSelect:position:x")
+tracks/0/path = NodePath("LevelSelect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(253, -0.25, 0, 0.25, 0, -800, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, 253, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.45, 0.55, 1)
+"times": PackedFloat32Array(0.45),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Update"
+}]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -542,23 +544,20 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.45, 0.55),
-"transitions": PackedFloat32Array(1e-05, 1e-05, 1e-05),
+"transitions": PackedFloat32Array(34.2967, 1e-05, 1e-05),
 "update": 1,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/2/type = "method"
+tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("LevelSelect")
+tracks/2/path = NodePath("LevelSelect:position:x")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.45),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"Update"
-}]
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(485, -0.25, 0, 0.25, 0, -1000, -0.25, 0, 0.25, 0, 2000, -0.25, 0, 0.25, 0, 485, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.45, 0.55, 1)
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -576,16 +575,19 @@ tracks/3/keys = {
 [sub_resource type="Animation" id="Animation_kji1l"]
 resource_name = "Previous"
 step = 0.05
-tracks/0/type = "bezier"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("LevelSelect:position:x")
+tracks/0/path = NodePath("LevelSelect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(253, -0.25, 0, 0.25, 0, 1400, -0.25, 0, 0.25, 0, -800, -0.25, 0, 0.25, 0, 253, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.45, 0.55, 1)
+"times": PackedFloat32Array(0.45),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Update"
+}]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -599,19 +601,16 @@ tracks/1/keys = {
 "update": 1,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/2/type = "method"
+tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("LevelSelect")
+tracks/2/path = NodePath("LevelSelect:position:x")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.45),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"Update"
-}]
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(485, -0.25, 0, 0.25, 0, 2000, -0.25, 0, 0.25, 0, -1000, -0.25, 0, 0.25, 0, 485, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.45, 0.55, 1)
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -628,28 +627,28 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_dstj5"]
 length = 0.001
-tracks/0/type = "bezier"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("LevelSelect:position:x")
+tracks/0/path = NodePath("LevelSelect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(253, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
-tracks/1/type = "value"
+tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("LevelSelect:modulate")
+tracks/1/path = NodePath("LevelSelect:position:x")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Color(1, 1, 1, 1)]
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(485, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -715,12 +714,11 @@ Math_expression = "P * (X-3) * (X-3)"
 
 [node name="Camera2D" type="Camera2D" parent="CameraSystem"]
 position = Vector2(0, 28)
-zoom = Vector2(0.27, 0.27)
+zoom = Vector2(0.4, 0.4)
 limit_left = -1792
 limit_top = -1792
 limit_right = 4174
 limit_bottom = 987
-script = ExtResource("2_3irfh")
 
 [node name="CameraBounds" type="ReferenceRect" parent="CameraSystem"]
 offset_left = -1792.0
@@ -943,10 +941,10 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -640.0
-offset_right = 640.0
+offset_right = 1280.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(1280, 360)
+pivot_offset = Vector2(1920, 540)
 texture = SubResource("GradientTexture1D_6ivos")
 expand_mode = 2
 
@@ -957,10 +955,10 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -360.0
-offset_bottom = 360.001
+offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(640, 720)
+pivot_offset = Vector2(960, 1080)
 texture = SubResource("GradientTexture1D_6ivos")
 expand_mode = 4
 
@@ -1009,7 +1007,7 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 2
 
-[node name="Precision Shot" type="TextureButton" parent="HUD/PowerUpPanel/GridContainer" node_paths=PackedStringArray("camera", "powerUp_panel", "amount_label", "highlight", "icon")]
+[node name="Precision Shot" type="TextureButton" parent="HUD/PowerUpPanel/GridContainer" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1018,7 +1016,6 @@ texture_disabled = SubResource("AtlasTexture_p10b5")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("29_vc8lb")
-camera = NodePath("../../../../CameraSystem/Camera2D")
 powerUp_panel = NodePath("../..")
 amount_label = NodePath("Amount")
 highlight = NodePath("Highlight")
@@ -1068,7 +1065,7 @@ texture = SubResource("AtlasTexture_u42hu")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Explosive" type="TextureButton" parent="HUD/PowerUpPanel/GridContainer" node_paths=PackedStringArray("camera", "powerUp_panel", "amount_label", "highlight", "icon")]
+[node name="Explosive" type="TextureButton" parent="HUD/PowerUpPanel/GridContainer" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1077,7 +1074,6 @@ texture_disabled = SubResource("AtlasTexture_57w71")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("29_vc8lb")
-camera = NodePath("../../../../CameraSystem/Camera2D")
 powerUp_panel = NodePath("../..")
 amount_label = NodePath("Amount")
 highlight = NodePath("Highlight")
@@ -1126,7 +1122,7 @@ texture = SubResource("AtlasTexture_8u80r")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Metal" type="TextureButton" parent="HUD/PowerUpPanel/GridContainer" node_paths=PackedStringArray("camera", "powerUp_panel", "amount_label", "highlight", "icon")]
+[node name="Metal" type="TextureButton" parent="HUD/PowerUpPanel/GridContainer" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1135,7 +1131,6 @@ texture_disabled = SubResource("AtlasTexture_fbp8u")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("29_vc8lb")
-camera = NodePath("../../../../CameraSystem/Camera2D")
 powerUp_panel = NodePath("../..")
 amount_label = NodePath("Amount")
 highlight = NodePath("Highlight")
@@ -1184,7 +1179,7 @@ texture = SubResource("AtlasTexture_3urq0")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Paint" type="TextureButton" parent="HUD/PowerUpPanel/GridContainer" node_paths=PackedStringArray("camera", "powerUp_panel", "amount_label", "highlight", "icon")]
+[node name="Paint" type="TextureButton" parent="HUD/PowerUpPanel/GridContainer" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1193,7 +1188,6 @@ texture_disabled = SubResource("AtlasTexture_offtx")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("29_vc8lb")
-camera = NodePath("../../../../CameraSystem/Camera2D")
 powerUp_panel = NodePath("../..")
 amount_label = NodePath("Amount")
 highlight = NodePath("Highlight")
@@ -1370,10 +1364,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -387.0
-offset_top = -220.0
-offset_right = 429.0
-offset_bottom = 268.0
+offset_left = -475.0
+offset_top = -284.0
+offset_right = 475.002
+offset_bottom = 284.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 5
