@@ -731,6 +731,7 @@ border_width = 10.0
 script = ExtResource("3_2i1fh")
 
 [node name="PopupCanvas" type="CanvasLayer" parent="."]
+layer = 50
 visible = false
 
 [node name="BackgroundFilter" type="TextureRect" parent="PopupCanvas"]
@@ -746,13 +747,15 @@ texture = SubResource("PlaceholderTexture2D_2bu5c")
 [node name="ReportScreen" type="Panel" parent="PopupCanvas"]
 visible = false
 modulate = Color(1, 1, 1, 0)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 432.0
-offset_top = 160.0
-offset_right = -432.0
-offset_bottom = -160.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = -228.0
+offset_right = 256.0
+offset_bottom = 232.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("5_1yt0q")
@@ -945,6 +948,7 @@ offset_right = 1280.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(1920, 540)
+mouse_filter = 2
 texture = SubResource("GradientTexture1D_6ivos")
 expand_mode = 2
 
@@ -959,6 +963,7 @@ offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(960, 1080)
+mouse_filter = 2
 texture = SubResource("GradientTexture1D_6ivos")
 expand_mode = 4
 
@@ -1487,7 +1492,7 @@ libraries = {
 [node name="DestroyContainer" type="Node2D" parent="."]
 
 [node name="Sling" type="Node2D" parent="."]
-position = Vector2(-1112, 440)
+position = Vector2(-960, 128)
 script = ExtResource("2_jejid")
 bubble_prefabs = Array[PackedScene]([ExtResource("5_icqf6"), ExtResource("6_rw0qp"), ExtResource("7_nrvhg"), ExtResource("8_pwao1")])
 shoot_strength = 7.5
