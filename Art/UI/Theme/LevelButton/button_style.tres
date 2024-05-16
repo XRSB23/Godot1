@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://b2eexg2334wf2" path="res://Art/UI/Theme/LevelButton/LevelButton.svg" id="1_22s48"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pl2kh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwcrx"]
 atlas = ExtResource("1_22s48")
 region = Rect2(0, 0, 128, 128)
 
 [resource]
-texture = SubResource("AtlasTexture_pl2kh")
+texture = SubResource("AtlasTexture_vwcrx")
 texture_margin_left = 28.0
 texture_margin_top = 28.0
 texture_margin_right = 28.0

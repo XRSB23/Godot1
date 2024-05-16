@@ -60,24 +60,40 @@ func Open():
 	popup_canvas_anim.play("OpenReportScreen")
 
 
-func _on_level_select_button_down():
+func _select_level():
+	get_tree().paused = false
 	transition_player.play("SwipeDown")
 	await  get_tree().create_timer(0.5).timeout
 	hud.visible = false
 	level_select_canvas.visible = true
 	popup_canvas_anim.play("RESET")
+	
 
-
-func _on_retry_button_down():
+func _retry_level():
+	get_tree().paused = false
 	transition_player.play("SwipeLeft")
 	await  get_tree().create_timer(0.5).timeout
 	popup_canvas_anim.play("RESET")
 	gamescene.load_level(gamescene.level_data_base.levels.keys()[level_id])
 	
 
-func _on_next_button_down():
+func _next_level():
+	get_tree().paused = false
 	transition_player.play("SwipeLeft")
 	await  get_tree().create_timer(0.5).timeout
 	popup_canvas_anim.play("RESET")
 	gamescene.load_level(gamescene.level_data_base.levels.keys()[level_id + 1])
 	gamescene.current_level_id += 1
+
+
+func _on_level_select_button_down():
+	_select_level()
+
+
+func _on_retry_button_down():
+	_retry_level()
+	
+
+func _on_next_button_down():
+	_next_level()
+

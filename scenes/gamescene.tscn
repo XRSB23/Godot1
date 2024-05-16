@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=128 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
@@ -24,9 +24,12 @@
 [ext_resource type="PackedScene" uid="uid://c3w1tltsk73hb" path="res://scenes/bubble_metallic_new.tscn" id="8_pwao1"]
 [ext_resource type="Texture2D" uid="uid://bhco3igm4rgrp" path="res://Art/UI/ScoreBar.svg" id="8_v8i6v"]
 [ext_resource type="Script" path="res://Scripts/UI/StarTreshold.gd" id="10_1mpiy"]
+[ext_resource type="Script" path="res://Scripts/UI/PausePanel.gd" id="10_lwgwo"]
 [ext_resource type="Texture2D" uid="uid://cq2oavcga4l3i" path="res://Art/Sling/Line2D_SmoothEdgeTexture.png" id="11_848u5"]
+[ext_resource type="Script" path="res://Scripts/UI/VolumeSlider.gd" id="11_n8bmv"]
 [ext_resource type="Script" path="res://Scripts/Sling/GhostTrajectoryPreview.gd" id="11_o4i07"]
 [ext_resource type="Shader" uid="uid://cvq75rp2rcsub" path="res://Art/UI/Shaders/v_border_fade_UV_shader.tres" id="11_q0ext"]
+[ext_resource type="Texture2D" uid="uid://4s4uykcewom5" path="res://Art/TestResiolution.png" id="11_vwgbi"]
 [ext_resource type="Script" path="res://Scripts/UI/LevelSelect.gd" id="13_gtr2x"]
 [ext_resource type="PackedScene" uid="uid://dmouyuwn7moq0" path="res://scenes/level_button.tscn" id="14_jlmao"]
 [ext_resource type="Script" path="res://addons/radialcontainer_plugin/RadialContainer.gd" id="14_rlae7"]
@@ -36,6 +39,13 @@
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpButton.gd" id="29_vc8lb"]
 [ext_resource type="Texture2D" uid="uid://iirp7pxhk5jt" path="res://Art/[Temp]Background.jpg" id="29_wjtr2"]
 [ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/Shaders/grayscale_shader.tres" id="30_saxga"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqf4f"]
+bg_color = Color(0.243137, 0.243137, 0.243137, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yj1tm"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_30p1y"]
 shader = ExtResource("4_f7t2v")
@@ -127,34 +137,17 @@ font_size = 24
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nnj8f"]
-atlas = ExtResource("29_0bcg4")
-region = Rect2(0, 512, 512, 512)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwcrx"]
+atlas = ExtResource("15_p4r1u")
+region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xbc7x"]
-atlas = ExtResource("29_0bcg4")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="LabelSettings" id="LabelSettings_c5wb0"]
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ov02m"]
-atlas = ExtResource("29_0bcg4")
-region = Rect2(512, 512, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ggm5m"]
-atlas = ExtResource("29_0bcg4")
-region = Rect2(1024, 512, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r07ic"]
-atlas = ExtResource("29_0bcg4")
-region = Rect2(1536, 512, 512, 512)
-
-[sub_resource type="LabelSettings" id="LabelSettings_3jcoi"]
-font_size = 30
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hsecm"]
+texture = SubResource("AtlasTexture_vwcrx")
+texture_margin_left = 28.0
+texture_margin_top = 28.0
+texture_margin_right = 28.0
+texture_margin_bottom = 28.0
+modulate_color = Color(1, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_ci1rc"]
 resource_name = "OpenReportScreen"
@@ -196,6 +189,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BackgroundFilter:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
 
 [sub_resource type="Animation" id="Animation_1rv5b"]
 length = 0.001
@@ -235,12 +240,133 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PausePanel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PausePanel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BackgroundFilter:mouse_filter")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_kmfl3"]
+resource_name = "OpenPausePanel"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroundFilter:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 0), Color(0.0784314, 0.0784314, 0.0784314, 0.678431)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PausePanel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PausePanel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BackgroundFilter:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bdacy"]
 _data = {
+"OpenPausePanel": SubResource("Animation_kmfl3"),
 "OpenReportScreen": SubResource("Animation_ci1rc"),
 "RESET": SubResource("Animation_1rv5b")
 }
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_av6lq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnj8f"]
+atlas = ExtResource("29_0bcg4")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbc7x"]
+atlas = ExtResource("29_0bcg4")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c5wb0"]
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ov02m"]
+atlas = ExtResource("29_0bcg4")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggm5m"]
+atlas = ExtResource("29_0bcg4")
+region = Rect2(1024, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r07ic"]
+atlas = ExtResource("29_0bcg4")
+region = Rect2(1536, 512, 512, 512)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3jcoi"]
+font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rrgu4"]
 shader = ExtResource("5_ucnhw")
@@ -741,7 +867,72 @@ border_width = 10.0
 script = ExtResource("3_2i1fh")
 
 [node name="PopupCanvas" type="CanvasLayer" parent="."]
+process_mode = 3
 layer = 50
+
+[node name="PermanentButtons" type="HBoxContainer" parent="PopupCanvas"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -416.0
+offset_bottom = 104.0
+grow_horizontal = 0
+theme_override_constants/separation = 16
+
+[node name="Shop" type="Control" parent="PopupCanvas/PermanentButtons"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="PopupCanvas/PermanentButtons/Shop"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -262.0
+offset_top = -11.5
+offset_right = -80.0
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_kqf4f")
+text = "Meta-Currency Amount"
+label_settings = SubResource("LabelSettings_yj1tm")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ShopButton" type="TextureButton" parent="PopupCanvas/PermanentButtons/Shop"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -52.0
+offset_bottom = 52.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("8_nev1w")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Pause" type="Button" parent="PopupCanvas/PermanentButtons"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("5_1yt0q")
+text = "||"
 
 [node name="BackgroundFilter" type="TextureRect" parent="PopupCanvas"]
 modulate = Color(0.0784314, 0.0784314, 0.0784314, 0)
@@ -751,6 +942,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("PlaceholderTexture2D_2bu5c")
 
 [node name="ReportScreen" type="Panel" parent="PopupCanvas"]
@@ -928,6 +1120,7 @@ expand_icon = true
 
 [node name="PausePanel" type="Panel" parent="PopupCanvas"]
 visible = false
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -940,6 +1133,7 @@ offset_bottom = 280.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("5_1yt0q")
+script = ExtResource("10_lwgwo")
 
 [node name="Label" type="Label" parent="PopupCanvas/PausePanel"]
 layout_mode = 1
@@ -982,12 +1176,15 @@ vertical_alignment = 1
 [node name="Volume Slider" type="HBoxContainer" parent="PopupCanvas/PausePanel/VolumeControls/Main"]
 layout_mode = 2
 
-[node name="HScrollBar" type="HScrollBar" parent="PopupCanvas/PausePanel/VolumeControls/Main/Volume Slider"]
-custom_minimum_size = Vector2(0, 16)
+[node name="HSlider" type="HSlider" parent="PopupCanvas/PausePanel/VolumeControls/Main/Volume Slider" node_paths=PackedStringArray("label")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-step = 1.0
+max_value = 1.0
+step = 0.01
+script = ExtResource("11_n8bmv")
+bus_name = "Main"
+label = NodePath("../Volume Display")
 
 [node name="Volume Display" type="Label" parent="PopupCanvas/PausePanel/VolumeControls/Main/Volume Slider"]
 custom_minimum_size = Vector2(50, 0)
@@ -1004,7 +1201,7 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="PopupCanvas/PausePanel/VolumeControls/BGM"]
 layout_mode = 2
-text = "Main Volume"
+text = "Music"
 label_settings = SubResource("LabelSettings_wbjgh")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1012,12 +1209,15 @@ vertical_alignment = 1
 [node name="Volume Slider" type="HBoxContainer" parent="PopupCanvas/PausePanel/VolumeControls/BGM"]
 layout_mode = 2
 
-[node name="HScrollBar" type="HScrollBar" parent="PopupCanvas/PausePanel/VolumeControls/BGM/Volume Slider"]
-custom_minimum_size = Vector2(0, 16)
+[node name="HSlider" type="HSlider" parent="PopupCanvas/PausePanel/VolumeControls/BGM/Volume Slider" node_paths=PackedStringArray("label")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-step = 1.0
+max_value = 1.0
+step = 0.01
+script = ExtResource("11_n8bmv")
+bus_name = "BGM"
+label = NodePath("../Volume Display")
 
 [node name="Volume Display" type="Label" parent="PopupCanvas/PausePanel/VolumeControls/BGM/Volume Slider"]
 custom_minimum_size = Vector2(50, 0)
@@ -1034,7 +1234,7 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="PopupCanvas/PausePanel/VolumeControls/SFX"]
 layout_mode = 2
-text = "Main Volume"
+text = "Sound Effects"
 label_settings = SubResource("LabelSettings_wbjgh")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1042,12 +1242,15 @@ vertical_alignment = 1
 [node name="Volume Slider" type="HBoxContainer" parent="PopupCanvas/PausePanel/VolumeControls/SFX"]
 layout_mode = 2
 
-[node name="HScrollBar" type="HScrollBar" parent="PopupCanvas/PausePanel/VolumeControls/SFX/Volume Slider"]
-custom_minimum_size = Vector2(0, 16)
+[node name="HSlider" type="HSlider" parent="PopupCanvas/PausePanel/VolumeControls/SFX/Volume Slider" node_paths=PackedStringArray("label")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-step = 1.0
+max_value = 1.0
+step = 0.01
+script = ExtResource("11_n8bmv")
+bus_name = "SFX"
+label = NodePath("../Volume Display")
 
 [node name="Volume Display" type="Label" parent="PopupCanvas/PausePanel/VolumeControls/SFX/Volume Slider"]
 custom_minimum_size = Vector2(50, 0)
@@ -1122,7 +1325,29 @@ icon = SubResource("AtlasTexture_10h6m")
 icon_alignment = 1
 expand_icon = true
 
-[node name="ShopMenu" type="TabContainer" parent="PopupCanvas"]
+[node name="CloseButton" type="Button" parent="PopupCanvas/PausePanel"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_top = -28.0
+offset_right = 21.0
+offset_bottom = 62.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_hsecm")
+text = "X"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PopupCanvas"]
+libraries = {
+"": SubResource("AnimationLibrary_bdacy")
+}
+
+[node name="ShopPanel" type="Panel" parent="PopupCanvas"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -1135,14 +1360,22 @@ offset_right = 408.0
 offset_bottom = 228.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_av6lq")
+
+[node name="ShopTabs" type="TabContainer" parent="PopupCanvas/ShopPanel"]
+layout_mode = 2
+offset_right = 816.0
+offset_bottom = 456.0
+grow_horizontal = 2
+grow_vertical = 2
 current_tab = 1
 
-[node name="PowerUps" type="Panel" parent="PopupCanvas/ShopMenu"]
+[node name="PowerUps" type="Panel" parent="PopupCanvas/ShopPanel/ShopTabs"]
 visible = false
 layout_mode = 2
 theme_override_styles/panel = ExtResource("5_1yt0q")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PopupCanvas/ShopMenu/PowerUps"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1155,22 +1388,22 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 25
 
-[node name="PrecisionShot" type="VBoxContainer" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer"]
+[node name="PrecisionShot" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/PrecisionShot"]
+[node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot"]
 layout_mode = 2
 text = "Precison Shot"
 label_settings = SubResource("LabelSettings_p0bmt")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Texture" type="Control" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/PrecisionShot"]
+[node name="Texture" type="Control" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/PrecisionShot/Texture"]
+[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Texture"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1181,7 +1414,7 @@ texture = SubResource("AtlasTexture_nnj8f")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Rim" type="TextureRect" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/PrecisionShot/Texture"]
+[node name="Rim" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Texture"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1192,55 +1425,55 @@ texture = SubResource("AtlasTexture_xbc7x")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Buttons" type="HBoxContainer" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/PrecisionShot"]
+[node name="Buttons" type="HBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot"]
 layout_mode = 2
 
-[node name="BuySingle" type="VBoxContainer" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/PrecisionShot/Buttons"]
+[node name="BuySingle" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/PrecisionShot/Buttons/BuySingle"]
+[node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Buttons/BuySingle"]
 layout_mode = 2
 text = "Cost"
 label_settings = SubResource("LabelSettings_c5wb0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/PrecisionShot/Buttons/BuySingle"]
+[node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Buttons/BuySingle"]
 layout_mode = 2
 text = "Buy x1"
 
-[node name="BuyMultiple" type="VBoxContainer" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/PrecisionShot/Buttons"]
+[node name="BuyMultiple" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/PrecisionShot/Buttons/BuyMultiple"]
+[node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Buttons/BuyMultiple"]
 layout_mode = 2
 text = "Cost"
 label_settings = SubResource("LabelSettings_c5wb0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/PrecisionShot/Buttons/BuyMultiple"]
+[node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Buttons/BuyMultiple"]
 layout_mode = 2
 text = "Bux x5"
 
-[node name="Bomb" type="VBoxContainer" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer"]
+[node name="Bomb" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Bomb"]
+[node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb"]
 layout_mode = 2
 text = "Bomb"
 label_settings = SubResource("LabelSettings_p0bmt")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Texture" type="Control" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Bomb"]
+[node name="Texture" type="Control" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Bomb/Texture"]
+[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Texture"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1251,7 +1484,7 @@ texture = SubResource("AtlasTexture_ov02m")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Rim" type="TextureRect" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Bomb/Texture"]
+[node name="Rim" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Texture"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1262,55 +1495,55 @@ texture = SubResource("AtlasTexture_xbc7x")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Buttons" type="HBoxContainer" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Bomb"]
+[node name="Buttons" type="HBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb"]
 layout_mode = 2
 
-[node name="BuySingle" type="VBoxContainer" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Bomb/Buttons"]
+[node name="BuySingle" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Bomb/Buttons/BuySingle"]
+[node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Buttons/BuySingle"]
 layout_mode = 2
 text = "Cost"
 label_settings = SubResource("LabelSettings_c5wb0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Bomb/Buttons/BuySingle"]
+[node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Buttons/BuySingle"]
 layout_mode = 2
 text = "Buy x1"
 
-[node name="BuyMultiple" type="VBoxContainer" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Bomb/Buttons"]
+[node name="BuyMultiple" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Bomb/Buttons/BuyMultiple"]
+[node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Buttons/BuyMultiple"]
 layout_mode = 2
 text = "Cost"
 label_settings = SubResource("LabelSettings_c5wb0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Bomb/Buttons/BuyMultiple"]
+[node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Buttons/BuyMultiple"]
 layout_mode = 2
 text = "Bux x5"
 
-[node name="SpikedBall" type="VBoxContainer" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer"]
+[node name="SpikedBall" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/SpikedBall"]
+[node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall"]
 layout_mode = 2
 text = "Spiked Ball"
 label_settings = SubResource("LabelSettings_p0bmt")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Texture" type="Control" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/SpikedBall"]
+[node name="Texture" type="Control" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/SpikedBall/Texture"]
+[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall/Texture"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1321,7 +1554,7 @@ texture = SubResource("AtlasTexture_ggm5m")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Rim" type="TextureRect" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/SpikedBall/Texture"]
+[node name="Rim" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall/Texture"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1332,55 +1565,55 @@ texture = SubResource("AtlasTexture_xbc7x")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Buttons" type="HBoxContainer" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/SpikedBall"]
+[node name="Buttons" type="HBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall"]
 layout_mode = 2
 
-[node name="BuySingle" type="VBoxContainer" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/SpikedBall/Buttons"]
+[node name="BuySingle" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/SpikedBall/Buttons/BuySingle"]
+[node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall/Buttons/BuySingle"]
 layout_mode = 2
 text = "Cost"
 label_settings = SubResource("LabelSettings_c5wb0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/SpikedBall/Buttons/BuySingle"]
+[node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall/Buttons/BuySingle"]
 layout_mode = 2
 text = "Buy x1"
 
-[node name="BuyMultiple" type="VBoxContainer" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/SpikedBall/Buttons"]
+[node name="BuyMultiple" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/SpikedBall/Buttons/BuyMultiple"]
+[node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall/Buttons/BuyMultiple"]
 layout_mode = 2
 text = "Cost"
 label_settings = SubResource("LabelSettings_c5wb0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/SpikedBall/Buttons/BuyMultiple"]
+[node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall/Buttons/BuyMultiple"]
 layout_mode = 2
 text = "Bux x5"
 
-[node name="Paint" type="VBoxContainer" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer"]
+[node name="Paint" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Paint"]
+[node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint"]
 layout_mode = 2
 text = "Paint"
 label_settings = SubResource("LabelSettings_p0bmt")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Texture" type="Control" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Paint"]
+[node name="Texture" type="Control" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Paint/Texture"]
+[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Texture"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1391,7 +1624,7 @@ texture = SubResource("AtlasTexture_r07ic")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Rim" type="TextureRect" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Paint/Texture"]
+[node name="Rim" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Texture"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1402,40 +1635,40 @@ texture = SubResource("AtlasTexture_xbc7x")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Buttons" type="HBoxContainer" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Paint"]
+[node name="Buttons" type="HBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint"]
 layout_mode = 2
 
-[node name="BuySingle" type="VBoxContainer" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Paint/Buttons"]
+[node name="BuySingle" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Paint/Buttons/BuySingle"]
+[node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Buttons/BuySingle"]
 layout_mode = 2
 text = "Cost"
 label_settings = SubResource("LabelSettings_c5wb0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Paint/Buttons/BuySingle"]
+[node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Buttons/BuySingle"]
 layout_mode = 2
 text = "Buy x1"
 
-[node name="BuyMultiple" type="VBoxContainer" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Paint/Buttons"]
+[node name="BuyMultiple" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Paint/Buttons/BuyMultiple"]
+[node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Buttons/BuyMultiple"]
 layout_mode = 2
 text = "Cost"
 label_settings = SubResource("LabelSettings_c5wb0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="PopupCanvas/ShopMenu/PowerUps/HBoxContainer/Paint/Buttons/BuyMultiple"]
+[node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Buttons/BuyMultiple"]
 layout_mode = 2
 text = "Bux x5"
 
-[node name="Label" type="Label" parent="PopupCanvas/ShopMenu/PowerUps"]
+[node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1447,11 +1680,11 @@ label_settings = SubResource("LabelSettings_3jcoi")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Currency" type="Panel" parent="PopupCanvas/ShopMenu"]
+[node name="Currency" type="Panel" parent="PopupCanvas/ShopPanel/ShopTabs"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("5_1yt0q")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PopupCanvas/ShopMenu/Currency"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/Currency"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1464,125 +1697,123 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 25
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PopupCanvas/ShopMenu/Currency/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopMenu/Currency/HBoxContainer/VBoxContainer"]
+[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("8_nev1w")
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PopupCanvas/ShopMenu/Currency/HBoxContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 
-[node name="Label" type="Label" parent="PopupCanvas/ShopMenu/Currency/HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Ammount"
 label_settings = SubResource("LabelSettings_c5wb0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="PopupCanvas/ShopMenu/Currency/HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Watch Add"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="PopupCanvas/ShopMenu/Currency/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopMenu/Currency/HBoxContainer/VBoxContainer2"]
+[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 texture = ExtResource("8_nev1w")
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PopupCanvas/ShopMenu/Currency/HBoxContainer/VBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 
-[node name="Label" type="Label" parent="PopupCanvas/ShopMenu/Currency/HBoxContainer/VBoxContainer2/VBoxContainer"]
+[node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Ammount"
 label_settings = SubResource("LabelSettings_c5wb0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="PopupCanvas/ShopMenu/Currency/HBoxContainer/VBoxContainer2/VBoxContainer"]
+[node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Price"
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="PopupCanvas/ShopMenu/Currency/HBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopMenu/Currency/HBoxContainer/VBoxContainer3"]
+[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 texture = ExtResource("8_nev1w")
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PopupCanvas/ShopMenu/Currency/HBoxContainer/VBoxContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 
-[node name="Label" type="Label" parent="PopupCanvas/ShopMenu/Currency/HBoxContainer/VBoxContainer3/VBoxContainer"]
+[node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer3/VBoxContainer"]
 layout_mode = 2
 text = "Ammount"
 label_settings = SubResource("LabelSettings_c5wb0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="PopupCanvas/ShopMenu/Currency/HBoxContainer/VBoxContainer3/VBoxContainer"]
+[node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer3/VBoxContainer"]
 layout_mode = 2
 text = "Price"
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="PopupCanvas/ShopMenu/Currency/HBoxContainer"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopMenu/Currency/HBoxContainer/VBoxContainer4"]
+[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer4"]
 layout_mode = 2
 texture = ExtResource("8_nev1w")
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PopupCanvas/ShopMenu/Currency/HBoxContainer/VBoxContainer4"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 
-[node name="Label" type="Label" parent="PopupCanvas/ShopMenu/Currency/HBoxContainer/VBoxContainer4/VBoxContainer"]
+[node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer4/VBoxContainer"]
 layout_mode = 2
 text = "Ammount"
 label_settings = SubResource("LabelSettings_c5wb0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="PopupCanvas/ShopMenu/Currency/HBoxContainer/VBoxContainer4/VBoxContainer"]
+[node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer4/VBoxContainer"]
 layout_mode = 2
 text = "Price
 "
 
-[node name="Pause Button" type="TextureButton" parent="PopupCanvas"]
-modulate = Color(0, 0, 0, 1)
+[node name="CloseButton" type="Button" parent="PopupCanvas/ShopPanel"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -88.0
-offset_top = 16.0
-offset_right = -15.0
-offset_bottom = 89.0
+offset_left = -56.0
+offset_top = -8.0
+offset_right = 29.0
+offset_bottom = 82.0
 grow_horizontal = 0
-texture_normal = ExtResource("8_nev1w")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PopupCanvas"]
-libraries = {
-"": SubResource("AnimationLibrary_bdacy")
-}
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_hsecm")
+text = "X"
 
 [node name="BackgroundCanvas" type="CanvasLayer" parent="."]
 layer = -99
@@ -1594,9 +1825,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("29_wjtr2")
+texture = ExtResource("11_vwgbi")
 
 [node name="TransitionCanvas" type="CanvasLayer" parent="."]
+process_mode = 3
 layer = 99
 
 [node name="BlackHorizontal" type="TextureRect" parent="TransitionCanvas"]
@@ -1635,6 +1867,7 @@ libraries = {
 }
 
 [node name="HUD" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PowerUpPanel" type="Panel" parent="HUD"]
 offset_left = 24.0
@@ -2000,7 +2233,6 @@ offset_bottom = 59.0
 grow_horizontal = 2
 
 [node name="LevelSelectCanvas" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Background" type="TextureRect" parent="LevelSelectCanvas"]
 show_behind_parent = true
@@ -2254,11 +2486,14 @@ position = Vector2(4273, -1649.5)
 shape = SubResource("RectangleShape2D_kkwav")
 
 [connection signal="value_changed" from="CameraSystem/CameraBounds" to="CameraSystem/Camera2D" method="_on_camera_bounds_value_changed"]
+[connection signal="button_down" from="PopupCanvas/PermanentButtons/Pause" to="PopupCanvas/PausePanel" method="_on_pause_button_down"]
 [connection signal="button_down" from="PopupCanvas/ReportScreen/Buttons/LevelSelect" to="PopupCanvas/ReportScreen" method="_on_level_select_button_down"]
 [connection signal="button_down" from="PopupCanvas/ReportScreen/Buttons/Retry" to="PopupCanvas/ReportScreen" method="_on_retry_button_down"]
 [connection signal="button_down" from="PopupCanvas/ReportScreen/Buttons/Next" to="PopupCanvas/ReportScreen" method="_on_next_button_down"]
+[connection signal="button_down" from="PopupCanvas/PausePanel/[Debug]ResetProgress/TextureButton" to="PopupCanvas/PausePanel" method="_on_debug_reset_progress_button_down"]
 [connection signal="button_down" from="PopupCanvas/PausePanel/Buttons/LevelSelect" to="PopupCanvas/ReportScreen" method="_on_level_select_button_down"]
 [connection signal="button_down" from="PopupCanvas/PausePanel/Buttons/Retry" to="PopupCanvas/ReportScreen" method="_on_retry_button_down"]
+[connection signal="pressed" from="PopupCanvas/PausePanel/CloseButton" to="PopupCanvas/PausePanel" method="_on_close_button_pressed"]
 [connection signal="deselect_projectile" from="HUD/PowerUpPanel" to="Sling" method="_on_consumable_panel_deselect_projectile"]
 [connection signal="deselect_shootmode" from="HUD/PowerUpPanel" to="Sling" method="_on_consumable_panel_deselect_shootmode"]
 [connection signal="button_down" from="HUD/PowerUpPanel/GridContainer/Precision Shot" to="HUD/PowerUpPanel/GridContainer/Precision Shot" method="_on_button_down"]
