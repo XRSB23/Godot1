@@ -567,7 +567,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5, 0.9, 1.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1900, 0), Vector2(-930, 0), Vector2(-930, 0), Vector2(-3760, 0)]
+"values": [Vector2(2260, 0), Vector2(-930, 0), Vector2(-930, 0), Vector2(-4120, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pxjn4"]
@@ -1964,6 +1964,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("11_vwgbi")
+stretch_mode = 5
 
 [node name="TransitionCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -1976,7 +1977,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -930.0
-offset_right = 870.0
+offset_right = 869.994
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(1860, 540)
