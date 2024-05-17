@@ -37,11 +37,12 @@ var destroyed_count : int
 
 
 func _ready():
-
 	set_neighbors_coord(cell_size)
 	score_formula.parse(Math_expression,["P","X"])
 	#score display init has been moved to load_level()
 	level_select.Init()
+	if load_user_data().first_launch == true:
+		init_save_data(load_user_data())
 
 #region Init / Load
 
@@ -271,7 +272,7 @@ func drop_bubbles():
 	update_score(get_score())
 #endregion
 
-
+#region Score
 func get_score():
 	var processed_score 
 	processed_score = score_formula.execute([bubble_points,destroyed_count])
@@ -280,3 +281,41 @@ func get_score():
 func update_score(n : int):
 	score_display.score += n
 	destroyed_count = 0
+#endregion
+
+#region UserData
+func load_user_data():
+	if ResourceLoader.exists("res://Resources/save_data_resource.tres"):
+		return load("res://Resources/save_data_resource.tres")
+	return null 
+
+func save_user_data(data : user_data):
+	ResourceSaver.save(data,"user://Resources/save_data_resource.tres")
+
+func update_inventory(_consumable_name : String , amount : int):
+	var data : user_data = load_user_data()
+	#Sécurité power_ups <0 ?
+	data.inventory[_consumable_name] += amount
+	save_user_data(data)
+
+func update_level_data(_id : int , stats : Level_SaveData):
+	var data : user_data = load_user_data()
+	data.level_saveData[_id] = stats
+	save_user_data(data)
+
+func update_currency(amount):
+	var data : user_data = load_user_data()
+	data.currency += amount
+	save_user_data(data)
+
+func update_settings(_setting_name : String, value : int):
+	var data : user_data = load_user_data()
+	data.prefs_settings[_setting_name] = value
+	save_user_data(data)
+
+func init_save_data(user_res : user_data):
+	for key in level_data_base.levels:
+		user_res.level_saveData.append(Level_SaveData.new())
+	user_res.first_launch = false
+	save_user_data(user_res)
+#endregion
