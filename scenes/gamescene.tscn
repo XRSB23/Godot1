@@ -1241,31 +1241,31 @@ offset_bottom = -188.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Main" type="VBoxContainer" parent="PopupCanvas/PausePanel/VolumeControls"]
+[node name="Master" type="VBoxContainer" parent="PopupCanvas/PausePanel/VolumeControls"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="PopupCanvas/PausePanel/VolumeControls/Main"]
+[node name="Label" type="Label" parent="PopupCanvas/PausePanel/VolumeControls/Master"]
 layout_mode = 2
 text = "Main Volume"
 label_settings = SubResource("LabelSettings_wbjgh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Volume Slider" type="HBoxContainer" parent="PopupCanvas/PausePanel/VolumeControls/Main"]
+[node name="Volume Slider" type="HBoxContainer" parent="PopupCanvas/PausePanel/VolumeControls/Master"]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="PopupCanvas/PausePanel/VolumeControls/Main/Volume Slider" node_paths=PackedStringArray("label")]
+[node name="HSlider" type="HSlider" parent="PopupCanvas/PausePanel/VolumeControls/Master/Volume Slider" node_paths=PackedStringArray("label")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 max_value = 1.0
 step = 0.01
 script = ExtResource("11_n8bmv")
-bus_name = "Main"
+bus_name = "Master"
 label = NodePath("../Volume Display")
 
-[node name="Volume Display" type="Label" parent="PopupCanvas/PausePanel/VolumeControls/Main/Volume Slider"]
+[node name="Volume Display" type="Label" parent="PopupCanvas/PausePanel/VolumeControls/Master/Volume Slider"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -1445,10 +1445,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 1
 
 [node name="PowerUps" type="Panel" parent="PopupCanvas/ShopPanel/ShopTabs"]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = ExtResource("5_1yt0q")
 
@@ -1758,6 +1756,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Currency" type="Panel" parent="PopupCanvas/ShopPanel/ShopTabs"]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = ExtResource("5_1yt0q")
 
