@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=130 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" path="res://Scripts/Sling/GhostTrajectoryPreview.gd" id="11_o4i07"]
 [ext_resource type="Shader" uid="uid://cvq75rp2rcsub" path="res://Art/UI/Shaders/v_border_fade_UV_shader.tres" id="11_q0ext"]
 [ext_resource type="Texture2D" uid="uid://4s4uykcewom5" path="res://Art/TestResiolution.png" id="11_vwgbi"]
+[ext_resource type="Script" path="res://Scripts/UI/ShopPanel.gd" id="12_gbqcd"]
 [ext_resource type="Script" path="res://Scripts/UI/LevelSelect.gd" id="13_gtr2x"]
 [ext_resource type="PackedScene" uid="uid://dmouyuwn7moq0" path="res://scenes/level_button.tscn" id="14_jlmao"]
 [ext_resource type="Script" path="res://addons/radialcontainer_plugin/RadialContainer.gd" id="14_rlae7"]
@@ -148,6 +149,37 @@ texture_margin_top = 28.0
 texture_margin_right = 28.0
 texture_margin_bottom = 28.0
 modulate_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_av6lq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnj8f"]
+atlas = ExtResource("29_0bcg4")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbc7x"]
+atlas = ExtResource("29_0bcg4")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c5wb0"]
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ov02m"]
+atlas = ExtResource("29_0bcg4")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggm5m"]
+atlas = ExtResource("29_0bcg4")
+region = Rect2(1024, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r07ic"]
+atlas = ExtResource("29_0bcg4")
+region = Rect2(1536, 512, 512, 512)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3jcoi"]
+font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_ci1rc"]
 resource_name = "OpenReportScreen"
@@ -276,6 +308,30 @@ tracks/5/keys = {
 "update": 1,
 "values": [2]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ShopPanel:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ShopPanel:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_kmfl3"]
 resource_name = "OpenPausePanel"
@@ -330,43 +386,66 @@ tracks/3/keys = {
 "values": [2, 0]
 }
 
+[sub_resource type="Animation" id="Animation_uhti5"]
+resource_name = "OpenShopPanel"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShopPanel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShopPanel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BackgroundFilter:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 0), Color(0.0784314, 0.0784314, 0.0784314, 0.678431)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BackgroundFilter:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bdacy"]
 _data = {
 "OpenPausePanel": SubResource("Animation_kmfl3"),
 "OpenReportScreen": SubResource("Animation_ci1rc"),
+"OpenShopPanel": SubResource("Animation_uhti5"),
 "RESET": SubResource("Animation_1rv5b")
 }
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_av6lq"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nnj8f"]
-atlas = ExtResource("29_0bcg4")
-region = Rect2(0, 512, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xbc7x"]
-atlas = ExtResource("29_0bcg4")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="LabelSettings" id="LabelSettings_c5wb0"]
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ov02m"]
-atlas = ExtResource("29_0bcg4")
-region = Rect2(512, 512, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ggm5m"]
-atlas = ExtResource("29_0bcg4")
-region = Rect2(1024, 512, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r07ic"]
-atlas = ExtResource("29_0bcg4")
-region = Rect2(1536, 512, 512, 512)
-
-[sub_resource type="LabelSettings" id="LabelSettings_3jcoi"]
-font_size = 30
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rrgu4"]
 shader = ExtResource("5_ucnhw")
@@ -1342,30 +1421,28 @@ theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxTexture_hsecm")
 text = "X"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PopupCanvas"]
-libraries = {
-"": SubResource("AnimationLibrary_bdacy")
-}
-
 [node name="ShopPanel" type="Panel" parent="PopupCanvas"]
 visible = false
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -408.0
-offset_top = -228.0
+offset_top = -252.0
 offset_right = 408.0
-offset_bottom = 228.0
+offset_bottom = 252.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_av6lq")
+script = ExtResource("12_gbqcd")
 
 [node name="ShopTabs" type="TabContainer" parent="PopupCanvas/ShopPanel"]
-layout_mode = 2
-offset_right = 816.0
-offset_bottom = 456.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 current_tab = 1
@@ -1381,7 +1458,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 24.0
-offset_top = 89.0
+offset_top = 113.0
 offset_right = -24.0
 offset_bottom = -41.0
 grow_horizontal = 2
@@ -1672,8 +1749,8 @@ text = "Bux x5"
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 25.0
-offset_bottom = 67.0
+offset_top = 33.0
+offset_bottom = 75.0
 grow_horizontal = 2
 text = "Purchase Power Ups"
 label_settings = SubResource("LabelSettings_3jcoi")
@@ -1690,7 +1767,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 24.0
-offset_top = 89.0
+offset_top = 129.0
 offset_right = -24.0
 offset_bottom = -41.0
 grow_horizontal = 2
@@ -1798,6 +1875,18 @@ layout_mode = 2
 text = "Price
 "
 
+[node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/Currency"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 33.0
+offset_bottom = 75.0
+grow_horizontal = 2
+text = "Buy Currency"
+label_settings = SubResource("LabelSettings_3jcoi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="CloseButton" type="Button" parent="PopupCanvas/ShopPanel"]
 custom_minimum_size = Vector2(85, 0)
 layout_mode = 1
@@ -1814,6 +1903,56 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxTexture_hsecm")
 text = "X"
+
+[node name="CurrencyDisplay" type="Control" parent="PopupCanvas/ShopPanel"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = -16.0
+offset_top = 32.0
+offset_right = 212.0
+offset_bottom = 132.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Amount" type="Label" parent="PopupCanvas/ShopPanel/CurrencyDisplay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -11.5
+offset_right = 34.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_kqf4f")
+text = "Amount"
+label_settings = SubResource("LabelSettings_yj1tm")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PopupCanvas/ShopPanel/CurrencyDisplay"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -34.0
+offset_bottom = 34.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("8_nev1w")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PopupCanvas"]
+libraries = {
+"": SubResource("AnimationLibrary_bdacy")
+}
 
 [node name="BackgroundCanvas" type="CanvasLayer" parent="."]
 layer = -99
@@ -2486,6 +2625,7 @@ position = Vector2(4273, -1649.5)
 shape = SubResource("RectangleShape2D_kkwav")
 
 [connection signal="value_changed" from="CameraSystem/CameraBounds" to="CameraSystem/Camera2D" method="_on_camera_bounds_value_changed"]
+[connection signal="button_down" from="PopupCanvas/PermanentButtons/Shop/ShopButton" to="PopupCanvas/ShopPanel" method="_on_shop_button_button_down"]
 [connection signal="button_down" from="PopupCanvas/PermanentButtons/Pause" to="PopupCanvas/PausePanel" method="_on_pause_button_down"]
 [connection signal="button_down" from="PopupCanvas/ReportScreen/Buttons/LevelSelect" to="PopupCanvas/ReportScreen" method="_on_level_select_button_down"]
 [connection signal="button_down" from="PopupCanvas/ReportScreen/Buttons/Retry" to="PopupCanvas/ReportScreen" method="_on_retry_button_down"]
@@ -2494,6 +2634,7 @@ shape = SubResource("RectangleShape2D_kkwav")
 [connection signal="button_down" from="PopupCanvas/PausePanel/Buttons/LevelSelect" to="PopupCanvas/ReportScreen" method="_on_level_select_button_down"]
 [connection signal="button_down" from="PopupCanvas/PausePanel/Buttons/Retry" to="PopupCanvas/ReportScreen" method="_on_retry_button_down"]
 [connection signal="pressed" from="PopupCanvas/PausePanel/CloseButton" to="PopupCanvas/PausePanel" method="_on_close_button_pressed"]
+[connection signal="button_down" from="PopupCanvas/ShopPanel/CloseButton" to="PopupCanvas/ShopPanel" method="_on_close_button_button_down"]
 [connection signal="deselect_projectile" from="HUD/PowerUpPanel" to="Sling" method="_on_consumable_panel_deselect_projectile"]
 [connection signal="deselect_shootmode" from="HUD/PowerUpPanel" to="Sling" method="_on_consumable_panel_deselect_shootmode"]
 [connection signal="button_down" from="HUD/PowerUpPanel/GridContainer/Precision Shot" to="HUD/PowerUpPanel/GridContainer/Precision Shot" method="_on_button_down"]
