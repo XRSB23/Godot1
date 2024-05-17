@@ -47,10 +47,11 @@ func _ready():
 
 func load_level(_level):
 	var levelres = level_data_base.levels[_level]
-	var tr : Array[int]
+	@warning_ignore("unassigned_variable")
+	var _tr : Array[int]
 	for t in levelres.tresholds:
-		tr.append(int(t))
-	score_display.Init(tr, current_level_id)
+		_tr.append(int(t))
+	score_display.Init(_tr, current_level_id)
 	hud.visible = true
 	
 	attempts = levelres.attempts
