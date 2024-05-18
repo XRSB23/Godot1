@@ -15,9 +15,9 @@ extends Resource
 @export var currency : int = 0
 
 @export var prefs_settings = {
-	'Main Volume' : 0,
-	'Music' : 0,
-	'Sounds Effects' : 0
+	'Master' : 80,
+	'BGM' : 80,
+	'SFX' : 80
 }
 
 

@@ -37,13 +37,12 @@ var destroyed_count : int
 
 
 func _ready():
-	DirAccess.make_dir_absolute('user://save')
-	#save_user_data(user_data.new())
 	set_neighbors_coord(cell_size)
 	score_formula.parse(Math_expression,["P","X"])
 	#score display init has been moved to load_level()
 	level_select.Init()
 	if load_user_data().first_launch == true:
+		DirAccess.make_dir_absolute('user://save')
 		init_save_data(load_user_data())
 
 #region Init / Load
@@ -320,4 +319,8 @@ func init_save_data(user_res : user_data):
 		user_res.level_saveData.append(Level_SaveData.new())
 	user_res.first_launch = false
 	save_user_data(user_res)
+
+func debug_reset_data():
+	init_save_data(user_data.new())
+
 #endregion
