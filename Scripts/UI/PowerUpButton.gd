@@ -19,10 +19,11 @@ enum TYPE {ShootMode, Projectile}
 @export var is_highlighted : bool = false
 
 func _ready():
-	Update()
+	pass
+	#Update()
 
 
-func Update():
+func Init():
 	if powerUp_panel.infinite_powerups && OS.has_feature("editor"):
 		amount_label.label_settings.font_size = 31
 		amount_label.text = "∞"
@@ -49,7 +50,7 @@ func Highlight(b :bool):
 
 func on_shoot():
 	if !powerUp_panel.infinite_powerups : gamescene.update_inventory(name,-1) 
-	Update()
+	Init()
 	
 func _on_button_down():
 	match type :

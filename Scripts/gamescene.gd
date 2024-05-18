@@ -33,6 +33,7 @@ var destroyed_count : int
 @onready var hud = $HUD
 @onready var transition_player : AnimationPlayer = $TransitionCanvas/AnimationPlayer
 @onready var attempts_label = $Sling/AttemptsLabel
+@onready var power_up_panel = $HUD/PowerUpPanel
 
 
 
@@ -40,10 +41,11 @@ func _ready():
 	set_neighbors_coord(cell_size)
 	score_formula.parse(Math_expression,["P","X"])
 	#score display init has been moved to load_level()
-	level_select.Init()
-	if load_user_data().first_launch == true:
-		DirAccess.make_dir_absolute('user://save')
-		init_save_data(load_user_data())
+	if load_user_data() == null :
+		init_save_data(user_data.new())
+	for button in power_up_panel.buttons:
+		button.Init()
+	level_select.Init() 
 
 #region Init / Load
 
@@ -286,12 +288,12 @@ func update_score(n : int):
 
 #region UserData
 func load_user_data():
-	if ResourceLoader.exists("user://save/save_data_resource.tres"):
-		return load("user://save/save_data_resource.tres")
-	return null 
+	if ResourceLoader.exists("user://save_data_resource.tres"):
+		return load("user://save_data_resource.tres")
+	return null
 
 func save_user_data(data : user_data):
-	ResourceSaver.save(data,"user://save/save_data_resource.tres")
+	ResourceSaver.save(data,"user://save_data_resource.tres")
 
 func update_inventory(_consumable_name : String , amount : int):
 	var data : user_data = load_user_data()
