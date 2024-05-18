@@ -37,6 +37,8 @@ var destroyed_count : int
 
 
 func _ready():
+	DirAccess.make_dir_absolute('user://save')
+	#save_user_data(user_data.new())
 	set_neighbors_coord(cell_size)
 	score_formula.parse(Math_expression,["P","X"])
 	#score display init has been moved to load_level()
@@ -285,12 +287,12 @@ func update_score(n : int):
 
 #region UserData
 func load_user_data():
-	if ResourceLoader.exists("res://Resources/save_data_resource.tres"):
-		return load("res://Resources/save_data_resource.tres")
+	if ResourceLoader.exists("user://save/save_data_resource.tres"):
+		return load("user://save/save_data_resource.tres")
 	return null 
 
 func save_user_data(data : user_data):
-	ResourceSaver.save(data,"user://Resources/save_data_resource.tres")
+	ResourceSaver.save(data,"user://save/save_data_resource.tres")
 
 func update_inventory(_consumable_name : String , amount : int):
 	var data : user_data = load_user_data()
