@@ -46,7 +46,6 @@ func _ready():
 	for button in power_up_panel.buttons:
 		button.Init()
 	level_select.Init() 
-
 #region Init / Load
 
 func load_level(_level):
@@ -137,7 +136,7 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	reset_sling()
 
 func reset_sling():
-	
+	print(get_remaining_colors())
 	if attempts <= 0 || get_remaining_colors().size() < 1:
 		score_display.report_screen.Open()
 		return
