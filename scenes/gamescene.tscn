@@ -513,6 +513,30 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BlackHorizontal:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3720, 1080)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BlackVertical:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1920, 1920)]
+}
 
 [sub_resource type="Animation" id="Animation_xi1rf"]
 resource_name = "SwipeDown"
@@ -541,6 +565,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [true, true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BlackVertical:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1920, 1920)]
+}
 
 [sub_resource type="Animation" id="Animation_uevhi"]
 resource_name = "SwipeLeft"
@@ -568,6 +604,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(2260, 0), Vector2(-930, 0), Vector2(-930, 0), Vector2(-4120, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BlackHorizontal:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3720, 1080)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pxjn4"]
@@ -1981,8 +2029,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -930.0
-offset_right = 4710.0
-offset_bottom = 2260.0
+offset_right = 870.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(1860, 540)
@@ -1997,7 +2044,6 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -420.0
-offset_right = 3840.0
 offset_bottom = 4260.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -2640,6 +2686,14 @@ shape = SubResource("RectangleShape2D_kkwav")
 [connection signal="button_down" from="PopupCanvas/PausePanel/Buttons/LevelSelect" to="PopupCanvas/ReportScreen" method="_on_level_select_button_down"]
 [connection signal="button_down" from="PopupCanvas/PausePanel/Buttons/Retry" to="PopupCanvas/ReportScreen" method="_on_retry_button_down"]
 [connection signal="pressed" from="PopupCanvas/PausePanel/CloseButton" to="PopupCanvas/PausePanel" method="_on_close_button_pressed"]
+[connection signal="pressed" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Buttons/BuySingle/Button" to="PopupCanvas/ShopPanel" method="_on_button_pressed"]
+[connection signal="pressed" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Buttons/BuyMultiple/Button" to="PopupCanvas/ShopPanel" method="_on_button_pressed"]
+[connection signal="pressed" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Buttons/BuySingle/Button" to="PopupCanvas/ShopPanel" method="_on_button_pressed"]
+[connection signal="pressed" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Buttons/BuyMultiple/Button" to="PopupCanvas/ShopPanel" method="_on_button_pressed"]
+[connection signal="pressed" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall/Buttons/BuySingle/Button" to="PopupCanvas/ShopPanel" method="_on_button_pressed"]
+[connection signal="pressed" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall/Buttons/BuyMultiple/Button" to="PopupCanvas/ShopPanel" method="_on_button_pressed"]
+[connection signal="pressed" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Buttons/BuySingle/Button" to="PopupCanvas/ShopPanel" method="_on_button_pressed"]
+[connection signal="pressed" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Buttons/BuyMultiple/Button" to="PopupCanvas/ShopPanel" method="_on_button_pressed"]
 [connection signal="button_down" from="PopupCanvas/ShopPanel/CloseButton" to="PopupCanvas/ShopPanel" method="_on_close_button_button_down"]
 [connection signal="deselect_projectile" from="HUD/PowerUpPanel" to="Sling" method="_on_consumable_panel_deselect_projectile"]
 [connection signal="deselect_shootmode" from="HUD/PowerUpPanel" to="Sling" method="_on_consumable_panel_deselect_shootmode"]
