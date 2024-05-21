@@ -181,6 +181,59 @@ font_size = 30
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_kmfl3"]
+resource_name = "OpenPausePanel"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroundFilter:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 0), Color(0.0784314, 0.0784314, 0.0784314, 0.678431)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PausePanel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PausePanel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BackgroundFilter:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+
 [sub_resource type="Animation" id="Animation_ci1rc"]
 resource_name = "OpenReportScreen"
 length = 0.6
@@ -220,6 +273,59 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BackgroundFilter:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_uhti5"]
+resource_name = "OpenShopPanel"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShopPanel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShopPanel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BackgroundFilter:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 0), Color(0.0784314, 0.0784314, 0.0784314, 0.678431)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -333,112 +439,6 @@ tracks/7/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_kmfl3"]
-resource_name = "OpenPausePanel"
-length = 0.6
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BackgroundFilter:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.0784314, 0.0784314, 0.0784314, 0), Color(0.0784314, 0.0784314, 0.0784314, 0.678431)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PausePanel:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PausePanel:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.45, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("BackgroundFilter:mouse_filter")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.05),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [2, 0]
-}
-
-[sub_resource type="Animation" id="Animation_uhti5"]
-resource_name = "OpenShopPanel"
-length = 0.6
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ShopPanel:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ShopPanel:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.45, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("BackgroundFilter:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.0784314, 0.0784314, 0.0784314, 0), Color(0.0784314, 0.0784314, 0.0784314, 0.678431)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("BackgroundFilter:mouse_filter")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.05),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [2, 0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bdacy"]
 _data = {
 "OpenPausePanel": SubResource("Animation_kmfl3"),
@@ -487,7 +487,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-640, 0)]
+"values": [Vector2(-930, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -499,7 +499,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -360)]
+"values": [Vector2(0, -420)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -512,6 +512,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BlackHorizontal:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3720, 1080)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BlackVertical:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1920, 1920)]
 }
 
 [sub_resource type="Animation" id="Animation_xi1rf"]
@@ -527,7 +551,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 0.9, 1.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, -2400), Vector2(0, -360), Vector2(0, -360), Vector2(0, 1680)]
+"values": [Vector2(0, -1960), Vector2(0, -420), Vector2(0, -420), Vector2(0, 1120)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -540,6 +564,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BlackVertical:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1920, 1920)]
 }
 
 [sub_resource type="Animation" id="Animation_uevhi"]
@@ -567,7 +603,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5, 0.9, 1.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1800, 0), Vector2(-640, 0), Vector2(-640, 0), Vector2(-3680, 0)]
+"values": [Vector2(2260, 0), Vector2(-930, 0), Vector2(-930, 0), Vector2(-4120, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BlackHorizontal:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3720, 1080)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pxjn4"]
@@ -763,28 +811,29 @@ tracks/1/keys = {
 "update": 1,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/2/type = "bezier"
+tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("LevelSelect:position:x")
+tracks/2/path = NodePath("Next:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(485, -0.25, 0, 0.25, 0, -1000, -0.25, 0, 0.25, 0, 2000, -0.25, 0, 0.25, 0, 485, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.45, 0.55, 1)
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Next:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.35, 0.65),
 "transitions": PackedFloat32Array(3.7, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LevelSelect:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.45, 0.55, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(485, 256), Vector2(-1000, 256), Vector2(2000, 256), Vector2(485, 256)]
 }
 
 [sub_resource type="Animation" id="Animation_kji1l"]
@@ -816,28 +865,29 @@ tracks/1/keys = {
 "update": 1,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/2/type = "bezier"
+tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("LevelSelect:position:x")
+tracks/2/path = NodePath("Previous:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(485, -0.25, 0, 0.25, 0, 2000, -0.25, 0, 0.25, 0, -1000, -0.25, 0, 0.25, 0, 485, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.45, 0.55, 1)
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Previous:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.35, 0.65),
 "transitions": PackedFloat32Array(3.7, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LevelSelect:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.45, 0.55, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(485, 256), Vector2(2000, 256), Vector2(-1000, 256), Vector2(485, 256)]
 }
 
 [sub_resource type="Animation" id="Animation_dstj5"]
@@ -854,21 +904,22 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/1/type = "bezier"
+tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("LevelSelect:position:x")
+tracks/1/path = NodePath("Next:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(485, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Next:scale")
+tracks/2/path = NodePath("Previous:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -880,14 +931,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Previous:scale")
+tracks/3/path = NodePath("LevelSelect:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(485, 256)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v383t"]
@@ -1964,6 +2015,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("11_vwgbi")
+stretch_mode = 5
 
 [node name="TransitionCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -1975,11 +2027,11 @@ material = SubResource("ShaderMaterial_rrgu4")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -640.0
-offset_right = 1280.0
+offset_left = -930.0
+offset_right = 870.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(1920, 540)
+pivot_offset = Vector2(1860, 540)
 mouse_filter = 2
 texture = SubResource("GradientTexture1D_6ivos")
 expand_mode = 2
@@ -1990,11 +2042,11 @@ material = SubResource("ShaderMaterial_2wisb")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -360.0
-offset_bottom = 720.0
+offset_top = -420.0
+offset_bottom = 420.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(960, 1080)
+pivot_offset = Vector2(960, 960)
 mouse_filter = 2
 texture = SubResource("GradientTexture1D_6ivos")
 expand_mode = 4
