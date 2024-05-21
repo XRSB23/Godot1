@@ -36,16 +36,18 @@ func Update():
 		var target : int = buttons.size() * current_page + i
 		if target >= gamescene.level_data_base.levels.size() : buttons[i].Disable()
 		else : 
-			if i < SaveData.level_saveData.size() :
-				buttons[i].Update(target, SaveData.level_saveData[target].gatheredStars)
+			var level_savedata = gamescene.load_user_data().level_saveData
+			if i < level_savedata.size() :
+				buttons[i].Update(target, level_savedata[target].gatheredStars)
 			else : buttons[i].Update(target, 0)
 	
 
 func get_last_level() -> int :
-	for i in range(0, SaveData.level_saveData.size()) :
-		if SaveData.level_saveData[i].gatheredStars == 0 : return i
+	var level_savedata = gamescene.load_user_data().level_saveData
+	for i in range(0, level_savedata.size()) :
+		if level_savedata[i].gatheredStars == 0 : return i
 		
-	return SaveData.level_saveData.size()
+	return level_savedata.size()
 
 
 func UpdatePageButtons(delay : float = 0):
@@ -55,6 +57,10 @@ func UpdatePageButtons(delay : float = 0):
 	
 
 func LoadLevel(id : int):
+	#var debug = gamescene.load_user_data().level_saveData
+	#for i in debug:
+		#print(i.high_score)
+		#print(i.gatheredStars)
 	transition_player.play("SwipeLeft")
 	await get_tree().create_timer(0.5).timeout
 	gamescene.current_level_id = id

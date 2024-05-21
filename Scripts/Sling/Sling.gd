@@ -249,14 +249,18 @@ func _on_precision_shot_selected():
 	trajectory_mode = TrajectoryPreview.MODE.NEWTON
 
 func _on_explosive_selected():
+	ClearBall()
 	load_consumable(level_data.BubbleColor.Empty)
 	await color_select_menu.CloseFade()
 
 func _on_metal_selected():
+	ClearBall()
 	load_consumable(level_data.BubbleColor.Empty)
 	await color_select_menu.CloseFade()
 
 func _on_paint_selected():
+	ClearBall()
+	#BUGFIX ICI +++ CHANGER LE MODE DE COLLECCTION DE COLORS
 	for child : BubbleSelectMenu_Button in color_select_menu.get_children() :
 		child.is_paint_mode = true
 

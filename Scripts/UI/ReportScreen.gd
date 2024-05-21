@@ -22,7 +22,8 @@ var level_id : int :
 	set(value):
 		level_id = value
 		level_label.text = "Level " + str(level_id + 1)
-		highscore.text = Formatting.SpaceNumbers(SaveData.level_saveData[level_id].high_score)
+		var level_savedata = gamescene.load_user_data().level_saveData
+		highscore.text = Formatting.SpaceNumbers(level_savedata[level_id].high_score)
 		
 var stars : Array[StarTreshold]
 
@@ -47,9 +48,13 @@ func Open():
 	next_button.disabled = !stars[0].reached
 	hud.visible = false
 	#Save to SaveData
-	if score > SaveData.level_saveData[level_id].high_score : SaveData.level_saveData[level_id].high_score = score
-	if get_stars() > SaveData.level_saveData[level_id].gatheredStars : SaveData.level_saveData[level_id].gatheredStars = get_stars()
-	
+	var savedata : Level_SaveData = gamescene.load_user_data().level_saveData[level_id]
+	if score > savedata.high_score : 
+		savedata.high_score = score
+	if get_stars() > savedata.gatheredStars :
+		savedata.gatheredStars = get_stars()
+	gamescene.update_level_data(level_id,savedata)
+
 	if get_stars() < 1 : # Loose Condition
 		#Do Loose Anim Here
 		pass
