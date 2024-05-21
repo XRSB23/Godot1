@@ -33,7 +33,7 @@ var destroyed_count : int
 @onready var hud = $HUD
 @onready var transition_player : AnimationPlayer = $TransitionCanvas/AnimationPlayer
 @onready var attempts_label = $Sling/AttemptsLabel
-@onready var power_up_panel = $HUD/PowerUpPanel
+@onready var power_up_panel : PowerUpPanel = $HUD/PowerUpPanel
 
 
 
