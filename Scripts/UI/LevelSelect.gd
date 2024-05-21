@@ -32,6 +32,8 @@ func Init():
 	Update()
 
 func Update():
+	latestUnlocked = get_last_level()
+	
 	for i in range(0, buttons.size()):
 		var target : int = buttons.size() * current_page + i
 		if target >= gamescene.level_data_base.levels.size() : buttons[i].Disable()
@@ -40,6 +42,7 @@ func Update():
 			if i < level_savedata.size() :
 				buttons[i].Update(target, level_savedata[target].gatheredStars)
 			else : buttons[i].Update(target, 0)
+			
 	
 
 func get_last_level() -> int :

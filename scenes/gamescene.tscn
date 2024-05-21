@@ -2425,6 +2425,7 @@ offset_bottom = 59.0
 grow_horizontal = 2
 
 [node name="LevelSelectCanvas" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="Background" type="TextureRect" parent="LevelSelectCanvas"]
 show_behind_parent = true

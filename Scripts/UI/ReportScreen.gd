@@ -54,6 +54,7 @@ func Open():
 	if get_stars() > savedata.gatheredStars :
 		savedata.gatheredStars = get_stars()
 	gamescene.update_level_data(level_id,savedata)
+	gamescene.level_select.Update()
 
 	if get_stars() < 1 : # Loose Condition
 		#Do Loose Anim Here
@@ -89,6 +90,7 @@ func _next_level():
 	popup_canvas_anim.play("RESET")
 	gamescene.load_level(gamescene.level_data_base.levels.keys()[level_id + 1])
 	gamescene.current_level_id += 1
+	level_id +=1
 
 
 func _on_level_select_button_down():

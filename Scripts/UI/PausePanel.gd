@@ -27,6 +27,6 @@ func _on_pause_button_down():
 
 
 func _on_debug_reset_progress_button_down():
-	print('prout')
 	gamescene.debug_reset_data()
+	gamescene.level_select.Update()
  
