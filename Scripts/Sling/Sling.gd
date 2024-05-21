@@ -263,7 +263,8 @@ func _on_paint_selected():
 	#BUGFIX ICI +++ CHANGER LE MODE DE COLLECCTION DE COLORS
 	for child : BubbleSelectMenu_Button in color_select_menu.get_children() :
 		child.is_paint_mode = true
-
+	
+	if color_select_menu.is_open == false : await color_select_menu.Open()
 
 #endregion
 

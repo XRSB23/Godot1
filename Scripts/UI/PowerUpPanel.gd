@@ -34,9 +34,6 @@ func _ready():
 		match button.type:
 			PowerUpButton.TYPE.ShootMode : mode_buttons.append(button)
 			PowerUpButton.TYPE.Projectile : projectile_buttons.append(button)
-				
-
-
 
 func SelectMode(item : PowerUpButton) :
 
@@ -73,3 +70,7 @@ func SelectProjectile(item : PowerUpButton, bypass : bool = false) :
 func ResetSelection(bypass : bool = false):
 	SelectMode(null)
 	SelectProjectile(null, bypass)
+
+func UpdatePanel():
+	for item in buttons:
+		item.UpdateAmount()
