@@ -64,7 +64,7 @@ script = ExtResource("2_ftr2k")
 [node name="Gizmos" type="Node" parent="."]
 
 [node name="Sling Marker" type="Marker2D" parent="Gizmos"]
-position = Vector2(-1180, 410)
+position = Vector2(-1088, 128)
 gizmo_extents = 20.0
 
 [node name="Debug_marker" type="Marker2D" parent="Gizmos"]
@@ -78,9 +78,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -3640.0
-offset_top = 591.0
+offset_top = 452.0
 offset_right = 2360.0
-offset_bottom = 591.0
+offset_bottom = 452.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -89,9 +89,9 @@ border_width = 6.0
 
 [node name="Camera Bounds" type="ReferenceRect" parent="Gizmos"]
 offset_left = -1707.0
-offset_top = -932.0
-offset_right = 1707.0
+offset_top = -1328.0
+offset_right = 2681.0
 offset_bottom = 988.0
 mouse_filter = 2
-border_color = Color(0.576471, 0.4, 0.960784, 1)
-border_width = 6.0
+border_color = Color(0.0862745, 1, 0, 1)
+border_width = 20.0

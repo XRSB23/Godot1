@@ -965,7 +965,7 @@ point_count = 2
 radius = 182.552
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swuy3"]
-size = Vector2(6295.88, 207)
+size = Vector2(5115.88, 207)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkwav"]
 size = Vector2(250, 6305)
@@ -980,7 +980,7 @@ Math_expression = "P * (X-3) * (X-3)"
 
 [node name="Camera2D" type="Camera2D" parent="CameraSystem"]
 position = Vector2(0, 28)
-zoom = Vector2(0.4, 0.4)
+zoom = Vector2(0.43, 0.43)
 limit_left = -1792
 limit_top = -1792
 limit_right = 4174
@@ -988,8 +988,8 @@ limit_bottom = 987
 
 [node name="CameraBounds" type="ReferenceRect" parent="CameraSystem"]
 offset_left = -1792.0
-offset_top = -1792.0
-offset_right = 4174.0
+offset_top = -1520.0
+offset_right = 2672.0
 offset_bottom = 987.0
 mouse_filter = 2
 border_color = Color(0, 1, 0, 1)
@@ -2028,7 +2028,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -930.0
-offset_right = 870.0
+offset_right = 1470.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(1860, 540)
@@ -2045,7 +2045,7 @@ anchor_bottom = 1.0
 offset_left = -360.0
 offset_top = -776.0
 offset_right = 360.0
-offset_bottom = 784.0
+offset_bottom = 6544.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(1320, 1320)
@@ -2565,7 +2565,7 @@ libraries = {
 [node name="DestroyContainer" type="Node2D" parent="."]
 
 [node name="Sling" type="Node2D" parent="."]
-position = Vector2(-960, 128)
+position = Vector2(-1088, 128)
 script = ExtResource("2_jejid")
 bubble_prefabs = Array[PackedScene]([ExtResource("5_icqf6"), ExtResource("6_rw0qp"), ExtResource("7_nrvhg"), ExtResource("8_pwao1")])
 shoot_strength = 7.5
@@ -2666,7 +2666,7 @@ collision_mask = 9
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadzoneContainer/DeadZone"]
-position = Vector2(1032.06, 1054)
+position = Vector2(442.06, 1054)
 shape = SubResource("RectangleShape2D_swuy3")
 
 [node name="DeadZone2" type="Area2D" parent="DeadzoneContainer"]
@@ -2675,7 +2675,7 @@ collision_mask = 9
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadzoneContainer/DeadZone2"]
-position = Vector2(4273, -1649.5)
+position = Vector2(2800, -1648)
 shape = SubResource("RectangleShape2D_kkwav")
 
 [connection signal="value_changed" from="CameraSystem/CameraBounds" to="CameraSystem/Camera2D" method="_on_camera_bounds_value_changed"]
