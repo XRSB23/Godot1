@@ -130,7 +130,7 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	connect_astar(projectile.position)
 	projectile.trail.enabled = false
 	if projectile is Bubble_Explosive || projectile is Bubble_Paint :
-		projectile.OnHit()
+		await projectile.OnHit()
 	else :
 		await process_destruction(get_cells_to_destroy(projectile))
 	reset_sling()
@@ -150,7 +150,7 @@ func explosive_radius(radius_bubbles):
 	var cells = []
 	for bubble in radius_bubbles:
 		cells.append(grid_data.find_key(bubble))
-	process_destruction(cells,true)
+	await process_destruction(cells,true)
 
 func paint_radius(radius_bubbles, color):
 	for bubble in radius_bubbles:
