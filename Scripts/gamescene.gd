@@ -33,16 +33,19 @@ var destroyed_count : int
 @onready var hud = $HUD
 @onready var transition_player : AnimationPlayer = $TransitionCanvas/AnimationPlayer
 @onready var attempts_label = $Sling/AttemptsLabel
+@onready var power_up_panel = $HUD/PowerUpPanel
 
 
 
 func _ready():
-
 	set_neighbors_coord(cell_size)
 	score_formula.parse(Math_expression,["P","X"])
 	#score display init has been moved to load_level()
-	level_select.Init()
-
+	if load_user_data() == null :
+		init_save_data(user_data.new())
+	for button in power_up_panel.buttons:
+		button.Init()
+	level_select.Init() 
 #region Init / Load
 
 func load_level(_level):
@@ -133,7 +136,7 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	reset_sling()
 
 func reset_sling():
-	
+	print(get_remaining_colors())
 	if attempts <= 0 || get_remaining_colors().size() < 1:
 		score_display.report_screen.Open()
 		return
@@ -271,7 +274,7 @@ func drop_bubbles():
 	update_score(get_score())
 #endregion
 
-
+#region Score
 func get_score():
 	var processed_score 
 	processed_score = score_formula.execute([bubble_points,destroyed_count])
@@ -280,3 +283,45 @@ func get_score():
 func update_score(n : int):
 	score_display.score += n
 	destroyed_count = 0
+#endregion
+
+#region UserData
+func load_user_data():
+	if ResourceLoader.exists("user://save_data_resource.tres"):
+		return load("user://save_data_resource.tres")
+	return null
+
+func save_user_data(data : user_data):
+	ResourceSaver.save(data,"user://save_data_resource.tres")
+
+func update_inventory(_consumable_name : String , amount : int):
+	var data : user_data = load_user_data()
+	#Sécurité power_ups <0 ?
+	data.inventory[_consumable_name] += amount
+	save_user_data(data)
+
+func update_level_data(_id : int , stats : Level_SaveData):
+	var data : user_data = load_user_data()
+	data.level_saveData[_id] = stats
+	save_user_data(data)
+
+func update_currency(amount):
+	var data : user_data = load_user_data()
+	data.currency += amount
+	save_user_data(data)
+
+func update_settings(_setting_name : String, value : int):
+	var data : user_data = load_user_data()
+	data.prefs_settings[_setting_name] = value
+	save_user_data(data)
+
+func init_save_data(user_res : user_data):
+	for key in level_data_base.levels:
+		user_res.level_saveData.append(Level_SaveData.new())
+	user_res.first_launch = false
+	save_user_data(user_res)
+
+func debug_reset_data():
+	init_save_data(user_data.new())
+
+#endregion

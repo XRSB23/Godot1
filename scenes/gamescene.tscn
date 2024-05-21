@@ -2441,7 +2441,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -475.0
 offset_top = -284.0
-offset_right = 475.002
+offset_right = 475.0
 offset_bottom = 284.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -2685,6 +2685,14 @@ shape = SubResource("RectangleShape2D_kkwav")
 [connection signal="button_down" from="PopupCanvas/PausePanel/Buttons/LevelSelect" to="PopupCanvas/ReportScreen" method="_on_level_select_button_down"]
 [connection signal="button_down" from="PopupCanvas/PausePanel/Buttons/Retry" to="PopupCanvas/ReportScreen" method="_on_retry_button_down"]
 [connection signal="pressed" from="PopupCanvas/PausePanel/CloseButton" to="PopupCanvas/PausePanel" method="_on_close_button_pressed"]
+[connection signal="button_down" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Buttons/BuySingle/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_single_precision_shot"]
+[connection signal="button_down" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Buttons/BuyMultiple/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_multiple_precision_shot"]
+[connection signal="button_down" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Buttons/BuySingle/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_single_bomb"]
+[connection signal="button_down" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Buttons/BuyMultiple/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_multiple_bomb"]
+[connection signal="button_down" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall/Buttons/BuySingle/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_single_spiked"]
+[connection signal="button_down" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall/Buttons/BuyMultiple/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_multiple_spiked"]
+[connection signal="button_down" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Buttons/BuySingle/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_single_paint"]
+[connection signal="button_down" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Buttons/BuyMultiple/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_multiple_paint"]
 [connection signal="button_down" from="PopupCanvas/ShopPanel/CloseButton" to="PopupCanvas/ShopPanel" method="_on_close_button_button_down"]
 [connection signal="deselect_projectile" from="HUD/PowerUpPanel" to="Sling" method="_on_consumable_panel_deselect_projectile"]
 [connection signal="deselect_shootmode" from="HUD/PowerUpPanel" to="Sling" method="_on_consumable_panel_deselect_shootmode"]

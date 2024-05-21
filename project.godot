@@ -15,11 +15,6 @@ run/main_scene="res://scenes/gamescene.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
-[autoload]
-
-PlayerPrefs="*res://Scripts/Autoload/PlayerPrefs.gd"
-SaveData="*res://Scripts/Autoload/SaveData.gd"
-
 [display]
 
 window/size/viewport_width=1920

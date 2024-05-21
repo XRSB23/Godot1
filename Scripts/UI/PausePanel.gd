@@ -1,5 +1,6 @@
 extends Panel
 
+@onready var gamescene = $"../.."
 @onready var animation_player = $"../AnimationPlayer"
 @onready var level_select_button = $Buttons/LevelSelect
 @onready var retry_button = $Buttons/Retry
@@ -26,5 +27,6 @@ func _on_pause_button_down():
 
 
 func _on_debug_reset_progress_button_down():
-	#Reset Progress goes here
-	pass 
+	print('prout')
+	gamescene.debug_reset_data()
+ 
