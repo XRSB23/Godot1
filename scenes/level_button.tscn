@@ -6,15 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://bhco3igm4rgrp" path="res://Art/UI/ScoreBar.svg" id="3_3cv20"]
 [ext_resource type="Script" path="res://Scripts/UI/StarTreshold.gd" id="4_wodsr"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rlvtd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuyg5"]
+resource_local_to_scene = true
 atlas = ExtResource("3_3cv20")
 region = Rect2(314, 52, 32, 31)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m77h5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyyna"]
+resource_local_to_scene = true
 atlas = ExtResource("3_3cv20")
 region = Rect2(314, 52, 32, 31)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7yghi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_f00k2"]
+resource_local_to_scene = true
 atlas = ExtResource("3_3cv20")
 region = Rect2(314, 52, 32, 31)
 
@@ -45,7 +48,7 @@ grow_horizontal = 2
 material = ExtResource("1_l7w5g")
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_rlvtd")
+texture = SubResource("AtlasTexture_iuyg5")
 expand_mode = 3
 script = ExtResource("4_wodsr")
 rectTrue = Vector2(314, 140)
@@ -55,7 +58,7 @@ rectFalse = Vector2(314, 52)
 material = ExtResource("1_l7w5g")
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_m77h5")
+texture = SubResource("AtlasTexture_kyyna")
 script = ExtResource("4_wodsr")
 rectTrue = Vector2(314, 140)
 rectFalse = Vector2(314, 52)
@@ -64,7 +67,7 @@ rectFalse = Vector2(314, 52)
 material = ExtResource("1_l7w5g")
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_7yghi")
+texture = SubResource("AtlasTexture_f00k2")
 script = ExtResource("4_wodsr")
 rectTrue = Vector2(314, 140)
 rectFalse = Vector2(314, 52)
