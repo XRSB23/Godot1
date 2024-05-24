@@ -13,7 +13,7 @@ const COLOR_ATLAS_RESOURCE = preload("res://Resources/ColorAtlas_Resource.tres")
 @export var is_basic : bool = true
 @export var angular_impulse : float
 
-
+var scoreable : bool = false
 var color : level_data.BubbleColor
 var is_dragging : bool = false
 var shot_v : Vector2 = Vector2.ZERO 

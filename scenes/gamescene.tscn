@@ -974,7 +974,7 @@ size = Vector2(250, 6305)
 script = ExtResource("1_scxi1")
 cell_size = Vector2(106, 116)
 bubble_points = 10
-Math_expression = "P * (X-3) * (X-3)"
+Math_expression = "P * X * X"
 
 [node name="CameraSystem" type="Node" parent="."]
 

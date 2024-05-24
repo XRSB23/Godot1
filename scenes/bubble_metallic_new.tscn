@@ -255,7 +255,7 @@ contact_monitor = true
 linear_damp_mode = 1
 angular_damp_mode = 1
 script = ExtResource("1_h3sip")
-destroy_amount = 4
+destroy_amount = 10
 is_basic = false
 angular_impulse = 4.0
 
