@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dn6qy8xj1s3ch"]
+
+[ext_resource type="StyleBox" uid="uid://b0p1dwequhtip" path="res://Art/UI/Theme/UI_button_normal_StyleBox.tres" id="1_nhvcp"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h0c56"]
+load_path = "res://.godot/imported/UI Art.png-248d3f9583c56223e37c6538f7deced1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20pmy"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_h0c56")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pkvsy"]
+texture = SubResource("AtlasTexture_20pmy")
+modulate_color = Color(0.415686, 0.415686, 0.415686, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e0oog"]
+load_path = "res://.godot/imported/UI Art.png-248d3f9583c56223e37c6538f7deced1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlop4"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_e0oog")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7kxku"]
+texture = SubResource("AtlasTexture_jlop4")
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_pkvsy")
+Button/styles/hover = ExtResource("1_nhvcp")
+Button/styles/normal = ExtResource("1_nhvcp")
+Button/styles/pressed = SubResource("StyleBoxTexture_7kxku")

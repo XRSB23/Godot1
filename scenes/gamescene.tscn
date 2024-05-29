@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=133 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
@@ -34,6 +34,8 @@
 [ext_resource type="Script" path="res://Scripts/UI/LevelSelect.gd" id="13_gtr2x"]
 [ext_resource type="PackedScene" uid="uid://dmouyuwn7moq0" path="res://scenes/level_button.tscn" id="14_jlmao"]
 [ext_resource type="Script" path="res://addons/radialcontainer_plugin/RadialContainer.gd" id="14_rlae7"]
+[ext_resource type="Theme" uid="uid://dn6qy8xj1s3ch" path="res://Art/UI/Theme/power_up_menu_theme.tres" id="14_rueps"]
+[ext_resource type="StyleBox" uid="uid://c5up22doyuqwm" path="res://Art/UI/Theme/power_up_count_StyleBox.tres" id="15_dvsbn"]
 [ext_resource type="Texture2D" uid="uid://b2eexg2334wf2" path="res://Art/UI/Theme/LevelButton/LevelButton.svg" id="15_p4r1u"]
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpPanel.gd" id="28_a1ofm"]
 [ext_resource type="Texture2D" uid="uid://cnpdmjy53lnpb" path="res://Art/UI/PowerUps.svg" id="29_0bcg4"]
@@ -446,6 +448,12 @@ _data = {
 "OpenShopPanel": SubResource("Animation_uhti5"),
 "RESET": SubResource("Animation_1rv5b")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_hh8ju"]
+font_size = 10
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rrgu4"]
 shader = ExtResource("5_ucnhw")
@@ -2004,6 +2012,32 @@ libraries = {
 "": SubResource("AnimationLibrary_bdacy")
 }
 
+[node name="Button" type="Button" parent="PopupCanvas"]
+offset_left = 520.0
+offset_top = 48.0
+offset_right = 560.0
+offset_bottom = 88.0
+theme = ExtResource("14_rueps")
+
+[node name="Label" type="Label" parent="PopupCanvas/Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 24.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = ExtResource("15_dvsbn")
+text = "10"
+label_settings = SubResource("LabelSettings_hh8ju")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="BackgroundCanvas" type="CanvasLayer" parent="."]
 layer = -99
 
@@ -2045,7 +2079,7 @@ anchor_bottom = 1.0
 offset_left = -360.0
 offset_top = -776.0
 offset_right = 360.0
-offset_bottom = 2704.0
+offset_bottom = 784.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(1320, 1320)
@@ -2059,7 +2093,6 @@ libraries = {
 }
 
 [node name="HUD" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="PowerUpPanel" type="Panel" parent="HUD"]
 offset_left = 24.0
@@ -2426,6 +2459,7 @@ grow_horizontal = 2
 
 [node name="LevelSelectCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 
 [node name="Background" type="TextureRect" parent="LevelSelectCanvas"]
 show_behind_parent = true
