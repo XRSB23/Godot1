@@ -73,6 +73,8 @@ func load_level(_level_name):
 	for c in data.coord :
 		set_cell(0,local_to_map(c),0,get_atlas_coord(data.bubbles[i]))
 		i += 1
+	clear_layer(1)
+	print(local_to_map(data.root_node_coord))
 	set_cell(1,local_to_map(data.root_node_coord),5,Vector2.ZERO)
 	level_name = _level_name
 	var k = 0

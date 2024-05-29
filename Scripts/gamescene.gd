@@ -56,9 +56,7 @@ func load_level(_level):
 		_tr.append(int(t))
 	score_display.Init(_tr, current_level_id)
 	hud.visible = true
-	
 	attempts = levelres.attempts
-	
 	root_node_pos = levelres.root_node_coord
 	for i in range(levelres.coord.size()):
 		if levelres.bubbles[i] == level_data.BubbleColor.Empty :
@@ -69,6 +67,7 @@ func load_level(_level):
 			bubbleInstance.position = levelres.coord[i]
 			bubbleInstance.color = levelres.bubbles[i]
 			bubbleInstance.freeze= true
+			bubbleInstance.scoreable = true
 			bubbleInstance.set_color()
 			grid_data[levelres.coord[i]] = bubbleInstance
 	#buttons_container.hide()
@@ -136,7 +135,6 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	reset_sling()
 
 func reset_sling():
-	print(get_remaining_colors())
 	if attempts <= 0 || get_remaining_colors().size() < 1:
 		score_display.report_screen.Open()
 		return
@@ -255,8 +253,9 @@ func process_destruction(cells,explosive = false):
 			grid_data[cell].reparent(destroy_container)
 			grid_data[cell].OnDestroy()
 			await grid_data[cell].animTrigger 
+			if grid_data[cell].scoreable :
+				destroyed_count += 1
 			grid_data[cell] = null
-			destroyed_count += 1
 		drop_bubbles()
 
 		#while destroy_container.get_child_count() > 0 :
@@ -268,7 +267,8 @@ func drop_bubbles():
 		grid_data[cell_coord].call_deferred('reparent',destroy_container)
 		#grid_data[cell_coord].reparent(destroy_container)
 		grid_data[cell_coord].OnDrop()
-		destroyed_count += 1
+		if grid_data[cell_coord].scoreable :
+				destroyed_count += 1
 		update_astar(cell_coord)
 		grid_data[cell_coord] = null
 	update_score(get_score())
