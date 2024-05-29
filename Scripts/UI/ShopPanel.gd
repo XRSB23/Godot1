@@ -1,6 +1,6 @@
 extends Panel
 
-@onready var shop_button_currency = $"../PermanentButtons/Shop/Label"
+#@onready var shop_button_currency = $"../PermanentButtons/Shop/Label"
 @onready var shop_window_currency = $CurrencyDisplay/Amount
 @onready var animation_player = $"../AnimationPlayer"
 @onready var gamescene = $"../.."
@@ -21,7 +21,7 @@ func Close():
 func _set_currency(value : int):
 	
 	gamescene.update_currency(value)
-	shop_button_currency.text = str(value)
+	#shop_button_currency.text = str(value)
 	shop_window_currency.text = str(value)
 
 func _on_shop_button_button_down():

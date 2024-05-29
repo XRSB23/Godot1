@@ -9,3 +9,4 @@ region = Rect2(768, 0, 256, 256)
 
 [resource]
 texture = SubResource("AtlasTexture_20pmy")
+modulate_color = Color(1, 1, 1, 0.827451)

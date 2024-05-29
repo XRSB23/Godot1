@@ -24,9 +24,9 @@ func _ready():
 	mode_buttons.clear()
 	projectile_buttons.clear()
 	
-	var button_container : GridContainer
+	var button_container : Container
 	for child in get_children():
-		if child is GridContainer : button_container = child 
+		if child is Container : button_container = child 
 	for child in button_container.get_children() :
 		if child is PowerUpButton : buttons.append(child)
 		

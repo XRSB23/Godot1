@@ -27,15 +27,15 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
-     inkscape:zoom="0.36569516"
-     inkscape:cx="1055.5239"
-     inkscape:cy="466.23532"
+     inkscape:zoom="0.51717105"
+     inkscape:cx="1410.5584"
+     inkscape:cy="584.91286"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g108"
+     inkscape:current-layer="g124"
      showgrid="true">
     <inkscape:grid
        id="grid1"
@@ -1906,6 +1906,14 @@
        inkscape:label="Bottle Purple"
        transform="matrix(1.5512501,0,0,1.5512501,55.895038,73.021198)"
        style="display:inline">
+      <circle
+         style="display:inline;fill:#cccccc;fill-opacity:0.318486;stroke:none;stroke-width:0.266205;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="circle1-4-2-6-9-8"
+         cx="474.06717"
+         cy="203.19998"
+         r="67.799477"
+         inkscape:label="Background"
+         transform="matrix(0.64464138,0,0,0.64464138,-36.032254,-47.072486)" />
       <g
          id="g108"
          transform="rotate(3.93529,270.1033,85.160937)"
@@ -2065,6 +2073,13 @@
        inkscape:label="Bottle Blue"
        transform="matrix(1.5512501,0,0,1.5512501,-79.571627,73.021198)"
        style="display:inline">
+      <circle
+         style="display:inline;fill:#cccccc;fill-opacity:0.318486;stroke:none;stroke-width:0.171607;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="circle1-4-2-6-9"
+         cx="269.65634"
+         cy="83.918633"
+         r="43.706348"
+         inkscape:label="Background" />
       <g
          id="g126"
          transform="rotate(3.93529,270.1033,85.160937)"
@@ -2224,6 +2239,13 @@
        inkscape:label="Bottle Cyan"
        transform="matrix(1.5512501,0,0,1.5512501,-215.03829,73.021198)"
        style="display:inline">
+      <circle
+         style="display:inline;fill:#cccccc;fill-opacity:0.318486;stroke:none;stroke-width:0.171607;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="circle1-4-2-6"
+         cx="269.74164"
+         cy="83.780106"
+         r="43.706348"
+         inkscape:label="Background" />
       <g
          id="g142"
          transform="rotate(3.93529,270.1033,85.160937)"
@@ -2383,6 +2405,13 @@
        inkscape:label="Bottle Green"
        transform="matrix(1.5512501,0,0,1.5512501,-350.50497,73.021198)"
        style="display:inline">
+      <circle
+         style="display:inline;fill:#cccccc;fill-opacity:0.318486;stroke:none;stroke-width:0.171607;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="circle1-4-2"
+         cx="269.65634"
+         cy="83.918633"
+         r="43.706348"
+         inkscape:label="Background" />
       <g
          id="g159"
          transform="rotate(3.93529,270.1033,85.160937)"
@@ -2542,6 +2571,14 @@
        inkscape:label="Bottle Yellow"
        transform="matrix(1.5512501,0,0,1.5512501,55.895038,-62.445468)"
        style="display:inline">
+      <circle
+         style="display:inline;fill:#cccccc;fill-opacity:0.318486;stroke:none;stroke-width:0.266206;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="circle1-4"
+         cx="474.33176"
+         cy="67.518433"
+         r="67.799477"
+         inkscape:label="Background"
+         transform="matrix(0.64464138,0,0,0.64464138,-36.032254,40.254932)" />
       <g
          id="g80"
          transform="rotate(3.93529,270.1033,85.160937)"
@@ -2701,6 +2738,13 @@
        inkscape:label="Bottle Orange"
        transform="matrix(1.5512501,0,0,1.5512501,-79.571627,-62.445468)"
        style="display:inline">
+      <circle
+         style="display:inline;fill:#cccccc;fill-opacity:0.318486;stroke:none;stroke-width:0.171607;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="circle1-3"
+         cx="269.65634"
+         cy="83.91864"
+         r="43.706348"
+         inkscape:label="Background" />
       <g
          id="g51"
          transform="rotate(3.93529,270.1033,85.160937)"
@@ -2860,6 +2904,13 @@
        inkscape:label="Bottle Red"
        transform="matrix(1.5512501,0,0,1.5512501,-215.03829,-62.445467)"
        style="display:inline">
+      <circle
+         style="display:inline;fill:#cccccc;fill-opacity:0.318486;stroke:none;stroke-width:0.171607;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="circle1-2"
+         cx="269.47516"
+         cy="83.961281"
+         r="43.706348"
+         inkscape:label="Background" />
       <g
          id="g21"
          transform="rotate(3.93529,270.1033,85.160937)"
@@ -3018,6 +3069,14 @@
        inkscape:label="Bottle White"
        transform="matrix(1.5512501,0,0,1.5512501,-350.50496,-62.445467)"
        style="display:inline">
+      <circle
+         style="display:inline;fill:#cccccc;fill-opacity:0.318486;stroke:none;stroke-width:0.266206;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="circle1"
+         cx="67.799477"
+         cy="67.799477"
+         r="67.799477"
+         inkscape:label="Background"
+         transform="matrix(0.64464138,0,0,0.64464138,225.95,40.254932)" />
       <g
          id="g23"
          transform="rotate(3.93529,270.1033,85.160937)"

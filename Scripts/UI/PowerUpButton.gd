@@ -1,4 +1,4 @@
-extends TextureButton
+extends BaseButton
 class_name  PowerUpButton
 
 signal selected()
