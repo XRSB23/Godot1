@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://e55fu4sf0tiq" path="res://Art/Background/DesertNight.png" id="14_st8eq"]
 [ext_resource type="StyleBox" uid="uid://c5up22doyuqwm" path="res://Art/UI/Theme/power_up_count_StyleBox.tres" id="15_dvsbn"]
 [ext_resource type="Texture2D" uid="uid://b2eexg2334wf2" path="res://Art/UI/Theme/LevelButton/LevelButton.svg" id="15_p4r1u"]
+[ext_resource type="Texture2D" uid="uid://cbk7atqhpnm3x" path="res://Art/UI/PowerUpsIcons.svg" id="21_tfky2"]
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpPanel.gd" id="28_a1ofm"]
 [ext_resource type="Texture2D" uid="uid://cnpdmjy53lnpb" path="res://Art/UI/PowerUps.svg" id="29_0bcg4"]
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpButton.gd" id="29_vc8lb"]
@@ -640,12 +641,9 @@ shader = ExtResource("30_saxga")
 shader_parameter/is_grayscale = false
 shader_parameter/Brightness = 0.3
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q3jqy"]
-load_path = "res://.godot/imported/PowerUpsIcons.svg-8096009b0535430e47b62dabe6cb7fb6.ctex"
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_lunyl"]
 resource_local_to_scene = true
-atlas = SubResource("CompressedTexture2D_q3jqy")
+atlas = ExtResource("21_tfky2")
 region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="LabelSettings" id="LabelSettings_p0jsf"]
