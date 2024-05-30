@@ -10,6 +10,7 @@ signal selected()
 @export var amount_label : Label
 @export var highlight : TextureRect
 @export var icon : TextureRect
+@export var particle_controller : ParticleController
 
 @export_category("PowerUp")
 enum TYPE {ShootMode, Projectile}
@@ -46,11 +47,13 @@ func Disable(b: bool):
 	
 	disabled = b
 	icon.material.set_shader_parameter("is_grayscale", b)
-	
+	icon.modulate = Color(1,1,1,0.5) if b else Color(1,1,1,1)
+	amount_label.modulate = Color(1,1,1,0.63) if b else Color(1,1,1,1)
 	
 
 func Highlight(b :bool):
 	highlight.modulate = Color(1,1,1,1) if b else Color(1,1,1,0)
+	particle_controller.EnableEmission(b)
 
 func on_shoot():
 	if !powerUp_panel.infinite_powerups : gamescene.update_inventory(name,-1) 

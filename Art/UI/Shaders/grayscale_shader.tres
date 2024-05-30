@@ -49,7 +49,6 @@ void fragment() {
 	float n_out3p1 = n_out3p0.r;
 	float n_out3p2 = n_out3p0.g;
 	float n_out3p3 = n_out3p0.b;
-	float n_out3p4 = n_out3p0.a;
 
 
 // VectorCompose:6
@@ -85,11 +84,11 @@ void fragment() {
 
 // Output:0
 	COLOR.rgb = n_out10p0;
-	COLOR.a = n_out3p4;
 
 
 }
 "
+graph_offset = Vector2(-1.29971, 20.9514)
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(1037.48, 132.914)
@@ -109,4 +108,4 @@ nodes/fragment/8/node = SubResource("VisualShaderNodeBooleanParameter_qc54l")
 nodes/fragment/8/position = Vector2(480, -280)
 nodes/fragment/10/node = SubResource("VisualShaderNodeIf_wm4jp")
 nodes/fragment/10/position = Vector2(780, -220)
-nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 4, 0, 3, 0, 3, 1, 6, 0, 3, 2, 6, 1, 3, 3, 6, 2, 3, 4, 0, 1, 8, 0, 10, 0, 6, 0, 10, 3, 7, 0, 10, 4, 10, 0, 0, 0, 5, 0, 7, 1, 6, 0, 7, 0)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 4, 0, 3, 0, 3, 1, 6, 0, 3, 2, 6, 1, 3, 3, 6, 2, 8, 0, 10, 0, 6, 0, 10, 3, 7, 0, 10, 4, 10, 0, 0, 0, 5, 0, 7, 1, 6, 0, 7, 0)

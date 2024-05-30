@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=134 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
@@ -38,6 +38,8 @@
 [ext_resource type="StyleBox" uid="uid://c5up22doyuqwm" path="res://Art/UI/Theme/power_up_count_StyleBox.tres" id="15_dvsbn"]
 [ext_resource type="Texture2D" uid="uid://b2eexg2334wf2" path="res://Art/UI/Theme/LevelButton/LevelButton.svg" id="15_p4r1u"]
 [ext_resource type="Texture2D" uid="uid://cbk7atqhpnm3x" path="res://Art/UI/PowerUpsIcons.svg" id="21_tfky2"]
+[ext_resource type="Script" path="res://Scripts/UI/ParticleController.gd" id="22_50gyi"]
+[ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="23_n35ni"]
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpPanel.gd" id="28_a1ofm"]
 [ext_resource type="Texture2D" uid="uid://cnpdmjy53lnpb" path="res://Art/UI/PowerUps.svg" id="29_0bcg4"]
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpButton.gd" id="29_vc8lb"]
@@ -631,10 +633,6 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g3tcd"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8qlp4"]
-atlas = ExtResource("29_0bcg4")
-region = Rect2(1024, 0, 512, 512)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hld0g"]
 resource_local_to_scene = true
 shader = ExtResource("30_saxga")
@@ -651,9 +649,13 @@ font_size = 26
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uwkps"]
-atlas = ExtResource("29_0bcg4")
-region = Rect2(1024, 0, 512, 512)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mxlue"]
+load_path = "res://.godot/imported/UI Art.png-248d3f9583c56223e37c6538f7deced1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eob0k"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_mxlue")
+region = Rect2(0, 256, 256, 256)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dgy7f"]
 resource_local_to_scene = true
@@ -669,9 +671,13 @@ resource_local_to_scene = true
 atlas = SubResource("CompressedTexture2D_2tg4t")
 region = Rect2(100, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ceaf2"]
-atlas = ExtResource("29_0bcg4")
-region = Rect2(1024, 0, 512, 512)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5si2f"]
+load_path = "res://.godot/imported/UI Art.png-248d3f9583c56223e37c6538f7deced1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qcub"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_5si2f")
+region = Rect2(0, 256, 256, 256)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rkfne"]
 resource_local_to_scene = true
@@ -687,9 +693,13 @@ resource_local_to_scene = true
 atlas = SubResource("CompressedTexture2D_mi6fq")
 region = Rect2(200, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_145ck"]
-atlas = ExtResource("29_0bcg4")
-region = Rect2(1024, 0, 512, 512)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wuetc"]
+load_path = "res://.godot/imported/UI Art.png-248d3f9583c56223e37c6538f7deced1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np6p6"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_wuetc")
+region = Rect2(0, 256, 256, 256)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_psl2w"]
 resource_local_to_scene = true
@@ -701,6 +711,14 @@ shader_parameter/Brightness = 0.3
 resource_local_to_scene = true
 atlas = SubResource("CompressedTexture2D_mi6fq")
 region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fgdl5"]
+load_path = "res://.godot/imported/UI Art.png-248d3f9583c56223e37c6538f7deced1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj0fc"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_fgdl5")
+region = Rect2(0, 256, 256, 256)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jku4u"]
 
@@ -1984,7 +2002,6 @@ libraries = {
 }
 
 [node name="HUD" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="PowerUpPanel" type="Panel" parent="HUD"]
 offset_left = 8.0
@@ -2040,7 +2057,7 @@ stretch_mode = 5
 [node name="VSeparator4" type="VSeparator" parent="HUD/PowerUpPanel/Container"]
 layout_mode = 2
 
-[node name="Precision Shot" type="Button" parent="HUD/PowerUpPanel/Container" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon")]
+[node name="Precision Shot" type="Button" parent="HUD/PowerUpPanel/Container" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
 custom_minimum_size = Vector2(82, 82)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -2054,20 +2071,7 @@ powerUp_panel = NodePath("../..")
 amount_label = NodePath("Amount")
 highlight = NodePath("Highlight")
 icon = NodePath("Icon")
-
-[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/Container/Precision Shot"]
-visible = false
-modulate = Color(1, 1, 1, 0)
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_8qlp4")
-expand_mode = 3
-stretch_mode = 5
+particle_controller = NodePath("Particles")
 
 [node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/Container/Precision Shot"]
 material = SubResource("ShaderMaterial_hld0g")
@@ -2083,6 +2087,97 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_lunyl")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Particles" type="Control" parent="HUD/PowerUpPanel/Container/Precision Shot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("22_50gyi")
+
+[node name="ControlD" type="Control" parent="HUD/PowerUpPanel/Container/Precision Shot/Particles"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Precision Shot/Particles/ControlD"]
+emitting = false
+amount = 12
+lifetime = 0.4
+texture = ExtResource("23_n35ni")
+emission_shape = 3
+emission_rect_extents = Vector2(45, 5)
+gravity = Vector2(0, -100)
+scale_amount_min = 0.02
+scale_amount_max = 0.02
+
+[node name="ControlL" type="Control" parent="HUD/PowerUpPanel/Container/Precision Shot/Particles"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_bottom = -4.0
+grow_vertical = 2
+
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Precision Shot/Particles/ControlL"]
+emitting = false
+amount = 12
+lifetime = 0.7
+texture = ExtResource("23_n35ni")
+emission_shape = 3
+emission_rect_extents = Vector2(5, 30)
+gravity = Vector2(0, -100)
+scale_amount_min = 0.02
+scale_amount_max = 0.02
+
+[node name="ControlU" type="Control" parent="HUD/PowerUpPanel/Container/Precision Shot/Particles"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Precision Shot/Particles/ControlU"]
+emitting = false
+amount = 10
+lifetime = 0.5
+texture = ExtResource("23_n35ni")
+emission_shape = 3
+emission_rect_extents = Vector2(30, 5)
+gravity = Vector2(0, -100)
+scale_amount_min = 0.02
+scale_amount_max = 0.02
+
+[node name="ControlR" type="Control" parent="HUD/PowerUpPanel/Container/Precision Shot/Particles"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Precision Shot/Particles/ControlR"]
+emitting = false
+amount = 12
+lifetime = 0.7
+texture = ExtResource("23_n35ni")
+emission_shape = 3
+emission_rect_extents = Vector2(5, 30)
+gravity = Vector2(0, -100)
+scale_amount_min = 0.02
+scale_amount_max = 0.02
 
 [node name="Amount" type="Label" parent="HUD/PowerUpPanel/Container/Precision Shot"]
 custom_minimum_size = Vector2(36, 36)
@@ -2106,10 +2201,26 @@ label_settings = SubResource("LabelSettings_p0jsf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/Container/Precision Shot"]
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_eob0k")
+expand_mode = 1
+
 [node name="VSeparator5" type="VSeparator" parent="HUD/PowerUpPanel/Container"]
 layout_mode = 2
 
-[node name="Explosive" type="Button" parent="HUD/PowerUpPanel/Container" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon")]
+[node name="Explosive" type="Button" parent="HUD/PowerUpPanel/Container" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
 custom_minimum_size = Vector2(82, 82)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -2122,21 +2233,8 @@ powerUp_panel = NodePath("../..")
 amount_label = NodePath("Amount")
 highlight = NodePath("Highlight")
 icon = NodePath("Icon")
+particle_controller = NodePath("Particles")
 type = 1
-
-[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/Container/Explosive"]
-visible = false
-modulate = Color(1, 1, 1, 0)
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_uwkps")
-expand_mode = 3
-stretch_mode = 5
 
 [node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/Container/Explosive"]
 material = SubResource("ShaderMaterial_dgy7f")
@@ -2154,6 +2252,97 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_vq3ra")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Particles" type="Control" parent="HUD/PowerUpPanel/Container/Explosive"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("22_50gyi")
+
+[node name="ControlD" type="Control" parent="HUD/PowerUpPanel/Container/Explosive/Particles"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Explosive/Particles/ControlD"]
+emitting = false
+amount = 12
+lifetime = 0.4
+texture = ExtResource("23_n35ni")
+emission_shape = 3
+emission_rect_extents = Vector2(45, 5)
+gravity = Vector2(0, -100)
+scale_amount_min = 0.02
+scale_amount_max = 0.02
+
+[node name="ControlL" type="Control" parent="HUD/PowerUpPanel/Container/Explosive/Particles"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_bottom = -4.0
+grow_vertical = 2
+
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Explosive/Particles/ControlL"]
+emitting = false
+amount = 12
+lifetime = 0.7
+texture = ExtResource("23_n35ni")
+emission_shape = 3
+emission_rect_extents = Vector2(5, 30)
+gravity = Vector2(0, -100)
+scale_amount_min = 0.02
+scale_amount_max = 0.02
+
+[node name="ControlU" type="Control" parent="HUD/PowerUpPanel/Container/Explosive/Particles"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Explosive/Particles/ControlU"]
+emitting = false
+amount = 10
+lifetime = 0.5
+texture = ExtResource("23_n35ni")
+emission_shape = 3
+emission_rect_extents = Vector2(30, 5)
+gravity = Vector2(0, -100)
+scale_amount_min = 0.02
+scale_amount_max = 0.02
+
+[node name="ControlR" type="Control" parent="HUD/PowerUpPanel/Container/Explosive/Particles"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Explosive/Particles/ControlR"]
+emitting = false
+amount = 12
+lifetime = 0.7
+texture = ExtResource("23_n35ni")
+emission_shape = 3
+emission_rect_extents = Vector2(5, 30)
+gravity = Vector2(0, -100)
+scale_amount_min = 0.02
+scale_amount_max = 0.02
 
 [node name="Amount" type="Label" parent="HUD/PowerUpPanel/Container/Explosive"]
 custom_minimum_size = Vector2(36, 36)
@@ -2176,7 +2365,23 @@ label_settings = SubResource("LabelSettings_p0jsf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Metal" type="Button" parent="HUD/PowerUpPanel/Container" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon")]
+[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/Container/Explosive"]
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_3qcub")
+expand_mode = 1
+
+[node name="Metal" type="Button" parent="HUD/PowerUpPanel/Container" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
 custom_minimum_size = Vector2(82, 82)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -2189,21 +2394,8 @@ powerUp_panel = NodePath("../..")
 amount_label = NodePath("Amount")
 highlight = NodePath("Highlight")
 icon = NodePath("Icon")
+particle_controller = NodePath("Particles")
 type = 1
-
-[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/Container/Metal"]
-visible = false
-modulate = Color(1, 1, 1, 0)
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_ceaf2")
-expand_mode = 3
-stretch_mode = 5
 
 [node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/Container/Metal"]
 material = SubResource("ShaderMaterial_rkfne")
@@ -2223,6 +2415,97 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_60jng")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Particles" type="Control" parent="HUD/PowerUpPanel/Container/Metal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("22_50gyi")
+
+[node name="ControlD" type="Control" parent="HUD/PowerUpPanel/Container/Metal/Particles"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Metal/Particles/ControlD"]
+emitting = false
+amount = 12
+lifetime = 0.4
+texture = ExtResource("23_n35ni")
+emission_shape = 3
+emission_rect_extents = Vector2(45, 5)
+gravity = Vector2(0, -100)
+scale_amount_min = 0.02
+scale_amount_max = 0.02
+
+[node name="ControlL" type="Control" parent="HUD/PowerUpPanel/Container/Metal/Particles"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_bottom = -4.0
+grow_vertical = 2
+
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Metal/Particles/ControlL"]
+emitting = false
+amount = 12
+lifetime = 0.7
+texture = ExtResource("23_n35ni")
+emission_shape = 3
+emission_rect_extents = Vector2(5, 30)
+gravity = Vector2(0, -100)
+scale_amount_min = 0.02
+scale_amount_max = 0.02
+
+[node name="ControlU" type="Control" parent="HUD/PowerUpPanel/Container/Metal/Particles"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Metal/Particles/ControlU"]
+emitting = false
+amount = 10
+lifetime = 0.5
+texture = ExtResource("23_n35ni")
+emission_shape = 3
+emission_rect_extents = Vector2(30, 5)
+gravity = Vector2(0, -100)
+scale_amount_min = 0.02
+scale_amount_max = 0.02
+
+[node name="ControlR" type="Control" parent="HUD/PowerUpPanel/Container/Metal/Particles"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Metal/Particles/ControlR"]
+emitting = false
+amount = 12
+lifetime = 0.7
+texture = ExtResource("23_n35ni")
+emission_shape = 3
+emission_rect_extents = Vector2(5, 30)
+gravity = Vector2(0, -100)
+scale_amount_min = 0.02
+scale_amount_max = 0.02
 
 [node name="Amount" type="Label" parent="HUD/PowerUpPanel/Container/Metal"]
 custom_minimum_size = Vector2(36, 36)
@@ -2245,7 +2528,23 @@ label_settings = SubResource("LabelSettings_p0jsf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Paint" type="Button" parent="HUD/PowerUpPanel/Container" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon")]
+[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/Container/Metal"]
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_np6p6")
+expand_mode = 1
+
+[node name="Paint" type="Button" parent="HUD/PowerUpPanel/Container" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
 custom_minimum_size = Vector2(82, 82)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -2258,21 +2557,8 @@ powerUp_panel = NodePath("../..")
 amount_label = NodePath("Amount")
 highlight = NodePath("Highlight")
 icon = NodePath("Icon")
+particle_controller = NodePath("Particles")
 type = 1
-
-[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/Container/Paint"]
-visible = false
-modulate = Color(1, 1, 1, 0)
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_145ck")
-expand_mode = 3
-stretch_mode = 5
 
 [node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/Container/Paint"]
 material = SubResource("ShaderMaterial_psl2w")
@@ -2292,6 +2578,97 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_icg8l")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Particles" type="Control" parent="HUD/PowerUpPanel/Container/Paint"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("22_50gyi")
+
+[node name="ControlD" type="Control" parent="HUD/PowerUpPanel/Container/Paint/Particles"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Paint/Particles/ControlD"]
+emitting = false
+amount = 12
+lifetime = 0.4
+texture = ExtResource("23_n35ni")
+emission_shape = 3
+emission_rect_extents = Vector2(45, 5)
+gravity = Vector2(0, -100)
+scale_amount_min = 0.02
+scale_amount_max = 0.02
+
+[node name="ControlL" type="Control" parent="HUD/PowerUpPanel/Container/Paint/Particles"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_bottom = -4.0
+grow_vertical = 2
+
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Paint/Particles/ControlL"]
+emitting = false
+amount = 12
+lifetime = 0.7
+texture = ExtResource("23_n35ni")
+emission_shape = 3
+emission_rect_extents = Vector2(5, 30)
+gravity = Vector2(0, -100)
+scale_amount_min = 0.02
+scale_amount_max = 0.02
+
+[node name="ControlU" type="Control" parent="HUD/PowerUpPanel/Container/Paint/Particles"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Paint/Particles/ControlU"]
+emitting = false
+amount = 10
+lifetime = 0.5
+texture = ExtResource("23_n35ni")
+emission_shape = 3
+emission_rect_extents = Vector2(30, 5)
+gravity = Vector2(0, -100)
+scale_amount_min = 0.02
+scale_amount_max = 0.02
+
+[node name="ControlR" type="Control" parent="HUD/PowerUpPanel/Container/Paint/Particles"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Paint/Particles/ControlR"]
+emitting = false
+amount = 12
+lifetime = 0.7
+texture = ExtResource("23_n35ni")
+emission_shape = 3
+emission_rect_extents = Vector2(5, 30)
+gravity = Vector2(0, -100)
+scale_amount_min = 0.02
+scale_amount_max = 0.02
 
 [node name="Amount" type="Label" parent="HUD/PowerUpPanel/Container/Paint"]
 custom_minimum_size = Vector2(36, 36)
@@ -2314,6 +2691,22 @@ text = "10
 label_settings = SubResource("LabelSettings_p0jsf")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/Container/Paint"]
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_yj0fc")
+expand_mode = 1
 
 [node name="VSeparator6" type="VSeparator" parent="HUD/PowerUpPanel/Container"]
 layout_mode = 2
@@ -2419,6 +2812,7 @@ grow_horizontal = 2
 
 [node name="LevelSelectCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 
 [node name="Background" type="TextureRect" parent="LevelSelectCanvas"]
 show_behind_parent = true
