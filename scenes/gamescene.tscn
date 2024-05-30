@@ -1,4 +1,4 @@
-[gd_scene load_steps=134 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=139 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
@@ -31,6 +31,7 @@
 [ext_resource type="Shader" uid="uid://cvq75rp2rcsub" path="res://Art/UI/Shaders/v_border_fade_UV_shader.tres" id="11_q0ext"]
 [ext_resource type="Script" path="res://Scripts/UI/ShopPanel.gd" id="12_gbqcd"]
 [ext_resource type="Script" path="res://Scripts/UI/LevelSelect.gd" id="13_gtr2x"]
+[ext_resource type="Texture2D" uid="uid://ctntcxri8oack" path="res://Art/UI/Theme/UI Art.png" id="14_7vew4"]
 [ext_resource type="PackedScene" uid="uid://dmouyuwn7moq0" path="res://scenes/level_button.tscn" id="14_jlmao"]
 [ext_resource type="Script" path="res://addons/radialcontainer_plugin/RadialContainer.gd" id="14_rlae7"]
 [ext_resource type="Theme" uid="uid://dn6qy8xj1s3ch" path="res://Art/UI/Theme/power_up_menu_theme.tres" id="14_rueps"]
@@ -41,10 +42,14 @@
 [ext_resource type="Script" path="res://Scripts/UI/ParticleController.gd" id="22_50gyi"]
 [ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="23_n35ni"]
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpPanel.gd" id="28_a1ofm"]
-[ext_resource type="Texture2D" uid="uid://cnpdmjy53lnpb" path="res://Art/UI/PowerUps.svg" id="29_0bcg4"]
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpButton.gd" id="29_vc8lb"]
 [ext_resource type="Texture2D" uid="uid://iirp7pxhk5jt" path="res://Art/[Temp]Background.jpg" id="29_wjtr2"]
 [ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/Shaders/grayscale_shader.tres" id="30_saxga"]
+[ext_resource type="Texture2D" uid="uid://cpii6glkarjsh" path="res://Art/Sling/Sling.svg" id="36_78ule"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkk5s"]
+atlas = ExtResource("8_7n0tw")
+region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_30p1y"]
 shader = ExtResource("4_f7t2v")
@@ -150,29 +155,43 @@ modulate_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_av6lq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nnj8f"]
-atlas = ExtResource("29_0bcg4")
-region = Rect2(0, 512, 512, 512)
+[sub_resource type="AtlasTexture" id="AtlasTexture_iybfl"]
+atlas = ExtResource("14_7vew4")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e4fn0"]
+texture = SubResource("AtlasTexture_iybfl")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xbc7x"]
-atlas = ExtResource("29_0bcg4")
-region = Rect2(0, 0, 512, 512)
+atlas = ExtResource("14_7vew4")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gnriw"]
+load_path = "res://.godot/imported/PowerUpsIcons.svg-8096009b0535430e47b62dabe6cb7fb6.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnj8f"]
+atlas = SubResource("CompressedTexture2D_gnriw")
+region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="LabelSettings" id="LabelSettings_c5wb0"]
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ov02m"]
-atlas = ExtResource("29_0bcg4")
-region = Rect2(512, 512, 512, 512)
+atlas = ExtResource("21_tfky2")
+region = Rect2(100, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ggm5m"]
-atlas = ExtResource("29_0bcg4")
-region = Rect2(1024, 512, 512, 512)
+atlas = ExtResource("21_tfky2")
+region = Rect2(200, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r07ic"]
-atlas = ExtResource("29_0bcg4")
-region = Rect2(1536, 512, 512, 512)
+atlas = ExtResource("21_tfky2")
+region = Rect2(300, 0, 100, 100)
 
 [sub_resource type="LabelSettings" id="LabelSettings_3jcoi"]
 font_size = 30
@@ -952,7 +971,7 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ej865"]
-radius = 182.552
+radius = 337.583
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swuy3"]
 size = Vector2(5115.88, 207)
@@ -970,7 +989,7 @@ Math_expression = "P * X * X"
 
 [node name="Camera2D" type="Camera2D" parent="CameraSystem"]
 position = Vector2(0, 28)
-zoom = Vector2(0.43, 0.43)
+zoom = Vector2(0.48, 0.48)
 limit_left = -1792
 limit_top = -1792
 limit_right = 4174
@@ -978,8 +997,8 @@ limit_bottom = 987
 
 [node name="CameraBounds" type="ReferenceRect" parent="CameraSystem"]
 offset_left = -1792.0
-offset_top = -1520.0
-offset_right = 2672.0
+offset_top = -1264.0
+offset_right = 2208.0
 offset_bottom = 987.0
 mouse_filter = 2
 border_color = Color(0, 1, 0, 1)
@@ -998,14 +1017,9 @@ anchor_right = 1.0
 offset_left = -100.0
 offset_bottom = 100.0
 grow_horizontal = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = ExtResource("5_1yt0q")
-text = "||"
+theme = ExtResource("14_rueps")
+theme_override_constants/icon_max_width = 80
+icon = SubResource("AtlasTexture_rkk5s")
 
 [node name="BackgroundFilter" type="TextureRect" parent="PopupCanvas"]
 modulate = Color(0.0784314, 0.0784314, 0.0784314, 0)
@@ -1442,7 +1456,7 @@ grow_vertical = 2
 
 [node name="PowerUps" type="Panel" parent="PopupCanvas/ShopPanel/ShopTabs"]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("5_1yt0q")
+theme_override_styles/panel = SubResource("StyleBoxTexture_e4fn0")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps"]
 layout_mode = 1
@@ -1472,17 +1486,6 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Texture"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_nnj8f")
-expand_mode = 1
-stretch_mode = 5
-
 [node name="Rim" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Texture"]
 layout_mode = 1
 anchors_preset = 15
@@ -1491,6 +1494,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_xbc7x")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Texture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_nnj8f")
 expand_mode = 1
 stretch_mode = 5
 
@@ -1542,17 +1556,6 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Texture"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_ov02m")
-expand_mode = 1
-stretch_mode = 5
-
 [node name="Rim" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Texture"]
 layout_mode = 1
 anchors_preset = 15
@@ -1561,6 +1564,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_xbc7x")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Texture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 35.0
+offset_right = -10.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_ov02m")
 expand_mode = 1
 stretch_mode = 5
 
@@ -1612,17 +1630,6 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall/Texture"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_ggm5m")
-expand_mode = 1
-stretch_mode = 5
-
 [node name="Rim" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall/Texture"]
 layout_mode = 1
 anchors_preset = 15
@@ -1631,6 +1638,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_xbc7x")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall/Texture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 37.0
+offset_right = -15.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_ggm5m")
 expand_mode = 1
 stretch_mode = 5
 
@@ -1682,17 +1704,6 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Texture"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_r07ic")
-expand_mode = 1
-stretch_mode = 5
-
 [node name="Rim" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Texture"]
 layout_mode = 1
 anchors_preset = 15
@@ -1701,6 +1712,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_xbc7x")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Icon" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Texture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 42.0
+offset_right = -4.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_r07ic")
 expand_mode = 1
 stretch_mode = 5
 
@@ -1752,7 +1778,7 @@ vertical_alignment = 1
 [node name="Currency" type="Panel" parent="PopupCanvas/ShopPanel/ShopTabs"]
 visible = false
 layout_mode = 2
-theme_override_styles/panel = ExtResource("5_1yt0q")
+theme_override_styles/panel = SubResource("StyleBoxTexture_e4fn0")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/Currency"]
 layout_mode = 1
@@ -2002,6 +2028,7 @@ libraries = {
 }
 
 [node name="HUD" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PowerUpPanel" type="Panel" parent="HUD"]
 offset_left = 8.0
@@ -2812,7 +2839,6 @@ grow_horizontal = 2
 
 [node name="LevelSelectCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
-visible = false
 
 [node name="Background" type="TextureRect" parent="LevelSelectCanvas"]
 show_behind_parent = true
@@ -2952,7 +2978,7 @@ libraries = {
 [node name="DestroyContainer" type="Node2D" parent="."]
 
 [node name="Sling" type="Node2D" parent="."]
-position = Vector2(-1088, 128)
+position = Vector2(-1216, 256)
 script = ExtResource("2_jejid")
 bubble_prefabs = Array[PackedScene]([ExtResource("5_icqf6"), ExtResource("6_rw0qp"), ExtResource("7_nrvhg"), ExtResource("8_pwao1")])
 shoot_strength = 7.5
@@ -2960,6 +2986,10 @@ min_drag = 20.0
 max_drag = 300.0
 drag_curve = SubResource("Curve_j361q")
 button_prefab = ExtResource("5_2nx2p")
+
+[node name="Art" type="Sprite2D" parent="Sling"]
+z_index = -5
+texture = ExtResource("36_78ule")
 
 [node name="TrajectoryPreview" type="Node2D" parent="Sling"]
 script = ExtResource("5_6swga")
@@ -3013,29 +3043,30 @@ collision_priority = 2.0
 script = ExtResource("5_vwg2f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sling/PickupRadius"]
-visible = false
 scale = Vector2(0.4, 0.4)
 shape = SubResource("CircleShape2D_ej865")
 
 [node name="ColorSelectMenu" type="Control" parent="Sling"]
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 2
 mouse_force_pass_scroll_events = false
 script = ExtResource("14_rlae7")
 anim_control = true
-max_radius = 200.0
-min_radius = 100.0
-split_angle = 45.0
+max_radius = 300.0
+min_radius = 150.0
+origin = -182.0
+split_angle = 66.0
 child_size = Vector2(102, 102)
 
 [node name="AttemptsLabel" type="Label" parent="Sling"]
 anchors_preset = -1
 anchor_right = 0.415625
 anchor_bottom = 0.133333
-offset_left = -242.0
-offset_top = 169.0
-offset_right = -129.0
-offset_bottom = 252.0
+offset_left = -168.0
+offset_top = 72.0
+offset_right = -55.0
+offset_bottom = 155.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 60
