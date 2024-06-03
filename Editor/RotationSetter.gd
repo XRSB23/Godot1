@@ -10,11 +10,11 @@ extends Node2D
 		_rotate = false
 
 func Rotate():
-	position = get_parent().points[id]
+	#position = get_parent().points[id]
 	look_at(target.position)
 
 
-func _process(_delta):
-	if OS.has_feature("editor") :
-		position = get_parent().points[id]
-		look_at(target.position)
+#func _process(_delta):
+	#if OS.has_feature("editor") :
+		#position = get_parent().points[id]
+		#look_at(target.position)
