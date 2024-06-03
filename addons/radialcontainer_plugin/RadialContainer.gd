@@ -32,15 +32,15 @@ class_name RadialContainer
 @export_range(-360, 360) var origin : float = -90
 @export_range(0, 180) var split_angle : float = 0
 
-var child_size : Vector2 = Vector2(40,40) :
+var child_scale : Vector2 = Vector2(1.3,1.3) :
 	set(value) :
-		child_size = value
+		child_scale = value
 		if get_child_count() > 0 && !anim_control :
 			for child in get_children() :
-				child.size = child_size
+				child.scale = child_scale
 
 
-@export var points : Array[Vector2] 
+var points : Array[Vector2] 
 
 var start_angle : float
 var angle_width : float
@@ -60,7 +60,7 @@ signal close_other_menu()
 func _get_property_list() -> Array:
 	return [
 		{
-			"name": "child_size",
+			"name": "child_scale",
 			"type": TYPE_VECTOR2,
 			"hint": PROPERTY_HINT_LINK,
 		}]
@@ -129,38 +129,39 @@ func Open():
 	
 	await get_tree().process_frame
 	for child : Node in get_children() :
-		child.position = position - child.size/2
+		child.position = position
 		child.modulate = Color(1,1,1,0)
-		child.size = Vector2.ZERO
+		child.scale = Vector2.ZERO
 	await get_tree().process_frame
 	
-	await LerpAnim()
+	await LerpAnim(1)
 
 	EnableMenu(true)
 	is_open = true
 
 func CloseLerp():
 	EnableMenu(false)
-	var not_selected : Array[Node] = []
-	var tween = create_tween()
-	tween.set_parallel(true)
-	
-	if selected_item == null :
-		for child in get_children():
-			tween.tween_property(child,"modulate", Color(1,1,1,0), not_selected_close_lerp_speed)
-	else :
-		for child in get_children() :
-			if child != selected_item :
-				not_selected.append(child)
-	
-		for item in not_selected :
-			tween.tween_property(item,"modulate", Color(1,1,1,0), not_selected_close_lerp_speed)
-		tween.tween_property(selected_item,"position", position - child_size/2, selected_close_lerp_speed).from(selected_item.position).set_trans(Tween.TRANS_EXPO)
+	#var not_selected : Array[Node] = []
+	#var tween = create_tween()
+	#tween.set_parallel(true)
+	#
+	#if selected_item == null :
+		#for child in get_children():
+			#tween.tween_property(child,"modulate", Color(1,1,1,0), not_selected_close_lerp_speed)
+	#else :
+		#for child in get_children() :
+			#if child != selected_item :
+				#not_selected.append(child)
+	#
+		#for item in not_selected :
+			#tween.tween_property(item,"modulate", Color(1,1,1,0), not_selected_close_lerp_speed)
+		#tween.tween_property(selected_item,"position", position - child_scale/2, selected_close_lerp_speed).from(selected_item.position).set_trans(Tween.TRANS_EXPO)
+		#
+		#await tween.finished
+		#selected_item.modulate = Color(1,1,1,0)
 		
-		await tween.finished
-		selected_item.modulate = Color(1,1,1,0)
-		
-		is_open = false
+	await LerpAnim(-1)
+	is_open = false
 
 func CloseFade():
 	EnableMenu(false)
@@ -173,25 +174,26 @@ func CloseFade():
 	await tween.finished
 	is_open = false
 
-func LerpAnim():
+func LerpAnim(direction : int = 1):
 	for i in get_child_count() :
 		await get_tree().create_timer(next_cell_delay).timeout
 		if i < get_child_count() -1 : ChildLerp(i)
-		else : await ChildLerp(i)
+		else : await ChildLerp(i, direction)
 
-func ChildLerp(child_index : int):
+func ChildLerp(child_index : int, direction : int = 1):
 	var child = get_child(child_index)
-	var target = points[child_index] - child_size/2
+	var target = points[child_index] if direction > 0 else position # - child_scale/2
 	var tween = create_tween()
 	
 	tween.set_parallel(true)
 	tween.tween_property(child,"position", target, cell_open_tween_duration).from(position)
-	tween.tween_property(child,"size", child_size, cell_open_tween_duration)
-	tween.tween_property(child,"modulate", Color(1,1,1,1), cell_open_tween_duration).set_delay(min_radius * cell_open_tween_duration / max_radius)
+	tween.tween_property(child,"scale", child_scale if direction > 0 else Vector2(0,0), cell_open_tween_duration)
+	tween.tween_property(child,"modulate", Color(1,1,1,1) if direction > 0 else Color(1,1,1,1), 
+		cell_open_tween_duration).set_delay(min_radius * cell_open_tween_duration / max_radius)
 	
 	await tween.finished
 	
 func EnableMenu(b: bool = true):
 	mouse_filter = 0 if b else 2
-	for child : BaseButton in get_children():
-		child.mouse_filter = 0 if b else 2
+	#for child : BaseButton in get_children():
+		#child.mouse_filter = 0 if b else 2

@@ -3,11 +3,11 @@ extends Node2D
 
 @export var id : int
 @export var target : Node2D
-@export var rotate : bool = false :
+@export var _rotate : bool = false :
 	set(value) :
-		rotate = value
+		_rotate = value
 		Rotate()
-		rotate = false
+		_rotate = false
 
 func Rotate():
 	position = get_parent().points[id]
