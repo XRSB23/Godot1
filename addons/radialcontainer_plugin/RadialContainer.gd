@@ -40,7 +40,7 @@ var child_size : Vector2 = Vector2(40,40) :
 				child.size = child_size
 
 
-var points : Array[Vector2] 
+@export var points : Array[Vector2] 
 
 var start_angle : float
 var angle_width : float

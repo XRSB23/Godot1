@@ -60,6 +60,7 @@ func _process(_delta):
 
 #region Input
 func _input(event):
+	
 	if ball && ball.is_dragging :
 		if event is InputEventScreenTouch :
 			HandleTouch(event)

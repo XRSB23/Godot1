@@ -33,6 +33,7 @@ func _ready():
 
 
 func _on_pressed():
+	print("hit")
 	if control is RadialContainer :
 		control.selected_item = self
 		# close consumable menu & deactivate + deselect paint mode

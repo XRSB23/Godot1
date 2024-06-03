@@ -1,5 +1,5 @@
 @tool
-extends Sprite2D
+extends Node2D
 
 
 func _process(_delta):
