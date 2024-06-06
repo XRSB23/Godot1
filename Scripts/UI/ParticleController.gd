@@ -11,7 +11,6 @@ func _ready():
 			for subchild in child.get_children():
 				if subchild is CPUParticles2D : particles_array.append(subchild)
 
-	print(particles_array)
 
 func EnableEmission(b :bool = true):
 	for item in particles_array:
