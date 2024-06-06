@@ -1,4 +1,5 @@
 extends Node2D
+class_name Sling
 
 #region Variables
 
@@ -60,11 +61,13 @@ func _process(_delta):
 
 #region Input
 func _input(event):
+	
 	if ball && ball.is_dragging :
 		if event is InputEventScreenTouch :
 			HandleTouch(event)
 		elif event is InputEventScreenDrag :
 			HandleDrag(event)
+			if color_select_menu.is_open : color_select_menu.Close()
 
 func HandleTouch(event):
 
@@ -72,7 +75,8 @@ func HandleTouch(event):
 		touch_points[event.index] = event.position
 	else:
 		if !is_dragging:
-			if game_scene.get_remaining_colors().size() > 1 : color_select_menu.Open()
+			#if game_scene.get_remaining_colors().size() > 1 : color_select_menu.Open()
+			pass
 		else : 
 			is_dragging = false
 			
@@ -121,26 +125,31 @@ func shoot_ball(v : Vector2):
 	
 
 func init_sling():
-	UpdateColorMenu(game_scene.get_remaining_colors())
-	if game_scene.get_remaining_colors().size() > 1 : color_select_menu.Open()
-	else : load_ball()
+	#UpdateColorMenu(game_scene.get_remaining_colors())
+	#if game_scene.get_remaining_colors().size() > 1 : color_select_menu.Open()
+	#else : load_ball()
+	load_ball()
 	
 	
 func load_ball():
-	
+
 	if game_scene.get_remaining_colors().size() == 0 :
 		return
 	ball = bubble_prefabs[0].instantiate()
 	bubble_container.call_deferred("add_child",ball)
 	ball.set_global_position(position)
 	ball.set_ball_launchable(true)
-	if game_scene.get_remaining_colors().size() > 1 : 
+	if color_select_menu.last_selected_color != null :
+		ball.color = color_select_menu.last_selected_color
+	elif game_scene.get_remaining_colors().size() > 1 : 
 		if color_select_menu.selected_item != null :
-			ball.color = color_select_menu.selected_item.color
+			ball.color = color_select_menu.selected_item.id
 		else : ball.color = game_scene.get_remaining_colors()[0]
 	else : ball.color = game_scene.get_remaining_colors()[0]
 	ball.game_scene = game_scene
 	ball.call_deferred("set_color")
+	color_select_menu.last_selected_color = ball.color
+	color_select_menu.update_color_buttons(self, game_scene.get_remaining_colors())
 
 func load_consumable(color  : level_data.BubbleColor  ):
 
@@ -159,7 +168,7 @@ func load_consumable(color  : level_data.BubbleColor  ):
 
 	ball.game_scene = game_scene
 	ball.call_deferred("set_color")
-
+	color_select_menu.update_color_buttons(self, game_scene.get_remaining_colors())
 	
 func ClearBall():
 	if ball != null :
@@ -177,38 +186,38 @@ func ClearBall():
 
 #region ColorSelect Menu
 
-func UpdateColorMenu(current_colors):
-	# Update Color Array
-	var button_array : Array = []
-	for button : BubbleSelectMenu_Button in color_select_menu.get_children():
-		if button_array.find(button.color) == -1 :
-			button_array.append(button)
-	var button_color_array : Array = []
-	for button : BubbleSelectMenu_Button in button_array :
-		button_color_array.append(button.color)
-	await get_tree().process_frame
-	
-	#Instantiate Pass
-	#If color is in current colors but not in menu array, add color button instance
-	for i in current_colors.size():
-		if button_color_array.find(current_colors[i]) == -1 :
-			InstantiateMenuButton(current_colors[i])
-	
-	#Remove Pass
-	#If color is in menu array but not in current colors, remove color instance
-	for i in button_color_array.size():
-		if current_colors.find(button_color_array[i]) == -1:
-			button_array[i].Destroy()
-		#elif temp_inventory[button_color_array[i]] <= 0 :
+#func UpdateColorMenu(current_colors):
+	## Update Color Array
+	#var button_array : Array = []
+	#for button : BubbleSelectMenu_Button in color_select_menu.get_children():
+		#if button_array.find(button.color) == -1 :
+			#button_array.append(button)
+	#var button_color_array : Array = []
+	#for button : BubbleSelectMenu_Button in button_array :
+		#button_color_array.append(button.color)
+	#await get_tree().process_frame
+	#
+	##Instantiate Pass
+	##If color is in current colors but not in menu array, add color button instance
+	#for i in current_colors.size():
+		#if button_color_array.find(current_colors[i]) == -1 :
+			#InstantiateMenuButton(current_colors[i])
+	#
+	##Remove Pass
+	##If color is in menu array but not in current colors, remove color instance
+	#for i in button_color_array.size():
+		#if current_colors.find(button_color_array[i]) == -1:
 			#button_array[i].Destroy()
-	
-	await get_tree().process_frame
-
-func InstantiateMenuButton(color):
-	var instance = button_prefab.instantiate()
-	color_select_menu.add_child(instance)
-	instance.set_color(color)
-	instance.size = color_select_menu.child_size
+		##elif temp_inventory[button_color_array[i]] <= 0 :
+			##button_array[i].Destroy()
+	#
+	#await get_tree().process_frame
+#
+#func InstantiateMenuButton(color):
+	#var instance = button_prefab.instantiate()
+	#color_select_menu.add_child(instance)
+	#instance.set_color(color)
+	#instance.size = color_select_menu.child_size
 
 #endregion
 
@@ -221,26 +230,37 @@ func _on_dead_zone(body):
 		
 	if !body is Bubble_Metal : #body.bubble_type != Bubble.BubbleType.Metal:
 		body.queue_free()
-		if game_scene.get_remaining_colors().size() > 1 : color_select_menu.Open()
-		else : load_ball()
+		#if game_scene.get_remaining_colors().size() > 1 : color_select_menu.Open()
+		#else : load_ball()
+		load_ball()
 		trajectory_preview.UpdateGhost()
 	else:
 		body.on_metal_end_effect()
 		
 
 func _on_color_select_menu_color_picked():
-	if powerUp_panel.selected_projectile != null && powerUp_panel.selected_projectile.name == "Paint" : 
-		load_consumable(color_select_menu.selected_item.color)
-	else : load_ball()
+
+	if ball is Bubble_Explosive || ball is Bubble_Metal : return
+	
+	ball.color = color_select_menu.selected_item.id
+	ball.call_deferred("set_color")
+	color_select_menu.last_selected_color = ball.color
+
+	#if powerUp_panel.selected_projectile != null && powerUp_panel.selected_projectile.name == "Paint" : 
+		#load_consumable(color_select_menu.selected_item.id)
+	#else : load_ball()
 
 func _on_color_select_menu_opened():
-	ClearBall()
+	#ClearBall()
+	pass
 
 func _on_consumable_panel_deselect_projectile(bypass : bool):
-	for child : BubbleSelectMenu_Button in color_select_menu.get_children() :
-		child.is_paint_mode = false
-	if !color_select_menu.is_open && !bypass: color_select_menu.Open() #ici !!!
-	ClearBall()
+	#for child : BubbleSelectMenu_Button in color_select_menu.get_children() :
+		#child.is_paint_mode = false
+	#if !color_select_menu.is_open && !bypass: color_select_menu.Open() #ici !!!
+	if bypass == false :
+		ClearBall()
+		load_ball()
 
 func _on_consumable_panel_deselect_shootmode():
 	trajectory_mode = TrajectoryPreview.MODE.VECTOR
@@ -251,18 +271,21 @@ func _on_precision_shot_selected():
 func _on_explosive_selected():
 	ClearBall()
 	load_consumable(level_data.BubbleColor.Empty)
-	await color_select_menu.CloseFade()
+	#await color_select_menu.CloseFade()
 
 func _on_metal_selected():
 	ClearBall()
 	load_consumable(level_data.BubbleColor.Empty)
-	await color_select_menu.CloseFade()
+	#await color_select_menu.CloseFade()
 
 func _on_paint_selected():
+	var _color = ball.color
 	ClearBall()
+	load_consumable(level_data.BubbleColor.Empty)
+	ball.color = _color
 	#BUGFIX ICI +++ CHANGER LE MODE DE COLLECCTION DE COLORS
-	for child : BubbleSelectMenu_Button in color_select_menu.get_children() :
-		child.is_paint_mode = true
+	#for child : BubbleSelectMenu_Button in color_select_menu.get_children() :
+		#child.is_paint_mode = true
 	
 	if color_select_menu.is_open == false : await color_select_menu.Open()
 

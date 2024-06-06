@@ -8,7 +8,12 @@ class_name RadialContainer
 		is_visible = value
 		visible = value
 		
-@export var anim_control : bool 
+#@export var anim_control : bool 
+@export var animator : AnimationPlayer
+
+@export_group("Buttons")
+@export var buttons : Array[BaseButton]
+
 
 @export_group("Gizmo")
 @export var gizmo_visible : bool = true
@@ -16,13 +21,14 @@ class_name RadialContainer
 @export var line_width : float = 1 
 @export var point_size : float = 3
 
-@export_group("Animation")
-@export var open_delay : float = 0
-@export var cell_open_tween_duration : float = 0.35
-@export var next_cell_delay : float = 0.05
-@export var selected_close_lerp_speed : float = 0.3
-@export var not_selected_close_lerp_speed : float = 0.01
-@export var close_fade_speed : float = 0.2
+#@export_group("Animation")
+#@export var open_delay : float = 0
+#@export var cell_open_tween_duration : float = 0.35
+#@export var next_cell_delay : float = 0.05
+#@export var selected_close_lerp_speed : float = 0.3
+#@export var not_selected_close_lerp_speed : float = 0.01
+#@export var close_fade_speed : float = 0.2
+
 
 @export_group("Shape")
 @export var max_radius : float = 100
@@ -32,12 +38,12 @@ class_name RadialContainer
 @export_range(-360, 360) var origin : float = -90
 @export_range(0, 180) var split_angle : float = 0
 
-var child_size : Vector2 = Vector2(40,40) :
-	set(value) :
-		child_size = value
-		if get_child_count() > 0 && !anim_control :
-			for child in get_children() :
-				child.size = child_size
+#var child_scale : Vector2 = Vector2(1.3,1.3) :
+	#set(value) :
+		#child_scale = value
+		#if get_child_count() > 0 && !anim_control :
+			#for child in get_children() :
+				#child.scale = child_scale
 
 
 var points : Array[Vector2] 
@@ -46,7 +52,9 @@ var start_angle : float
 var angle_width : float
 
 var selected_item : BaseButton
+var last_selected_color
 var is_open : bool
+
 
 signal opened() 
 signal color_picked()
@@ -57,13 +65,14 @@ signal close_other_menu()
 
 #region Node Override
 
-func _get_property_list() -> Array:
-	return [
-		{
-			"name": "child_size",
-			"type": TYPE_VECTOR2,
-			"hint": PROPERTY_HINT_LINK,
-		}]
+#func _get_property_list() -> Array:
+	#return [
+		#{
+			#"name": "child_scale",
+			#"type": TYPE_VECTOR2,
+			#"hint": PROPERTY_HINT_LINK,
+		#}]
+		
 #endregion
 
 func _ready():
@@ -113,85 +122,127 @@ func DrawPoints():
 	
 	points.reverse()
 	
-	if !anim_control :
-		for i in get_child_count() :
-			var child = get_child(i)
-			child.position = points[i] - child.size/2
+	#if !anim_control :
+		#for i in get_child_count() :
+			#var child = get_child(i)
+			#child.position = points[i] - child.size/2
 	
 
 #endregion
 
 func Open():
 	
+	if animator.is_playing(): 
+		#push_warning("Tried to open Color Select Menu while it was still in the middle of an animation")
+		return
+	
 	selected_item = null
-	if open_delay > 0 : await get_tree().create_timer(open_delay).timeout
 	opened.emit()
-	
-	await get_tree().process_frame
-	for child : Node in get_children() :
-		child.position = position - child.size/2
-		child.modulate = Color(1,1,1,0)
-		child.size = Vector2.ZERO
-	await get_tree().process_frame
-	
-	await LerpAnim()
-
+	animator.play("Open")
+	await animator.animation_finished
 	EnableMenu(true)
 	is_open = true
 
-func CloseLerp():
-	EnableMenu(false)
-	var not_selected : Array[Node] = []
-	var tween = create_tween()
-	tween.set_parallel(true)
 	
-	if selected_item == null :
-		for child in get_children():
-			tween.tween_property(child,"modulate", Color(1,1,1,0), not_selected_close_lerp_speed)
-	else :
-		for child in get_children() :
-			if child != selected_item :
-				not_selected.append(child)
 	
-		for item in not_selected :
-			tween.tween_property(item,"modulate", Color(1,1,1,0), not_selected_close_lerp_speed)
-		tween.tween_property(selected_item,"position", position - child_size/2, selected_close_lerp_speed).from(selected_item.position).set_trans(Tween.TRANS_EXPO)
-		
-		await tween.finished
-		selected_item.modulate = Color(1,1,1,0)
-		
-		is_open = false
+	#is_in_anim = true
+	#selected_item = null
+	#if open_delay > 0 : await get_tree().create_timer(open_delay).timeout
+	#opened.emit()
+	#
+	#await get_tree().process_frame
+	#for child : Node in get_children() :
+		#child.position = position
+		#child.modulate = Color(1,1,1,0)
+		#child.scale = Vector2.ZERO
+	#await get_tree().process_frame
+	#
+	#await LerpAnim(1)
+#
+	#EnableMenu(true)
+	#is_open = true
+	#is_in_anim = false
 
-func CloseFade():
-	EnableMenu(false)
-	var tween = create_tween()
-	tween.set_parallel(true)
-	
-	for child in get_children():
-			tween.tween_property(child,"modulate", Color(1,1,1,0), close_fade_speed)
+func Close():
 
-	await tween.finished
+	if animator.is_playing(): 
+		#push_warning("Tried to close Color Select Menu while it was still in the middle of an animation")
+		return
+		
+	EnableMenu(false)
+	animator.play_backwards("Open")
+	await animator.animation_finished
 	is_open = false
-
-func LerpAnim():
-	for i in get_child_count() :
-		await get_tree().create_timer(next_cell_delay).timeout
-		if i < get_child_count() -1 : ChildLerp(i)
-		else : await ChildLerp(i)
-
-func ChildLerp(child_index : int):
-	var child = get_child(child_index)
-	var target = points[child_index] - child_size/2
-	var tween = create_tween()
 	
-	tween.set_parallel(true)
-	tween.tween_property(child,"position", target, cell_open_tween_duration).from(position)
-	tween.tween_property(child,"size", child_size, cell_open_tween_duration)
-	tween.tween_property(child,"modulate", Color(1,1,1,1), cell_open_tween_duration).set_delay(min_radius * cell_open_tween_duration / max_radius)
-	
-	await tween.finished
+	#var not_selected : Array[Node] = []
+	#var tween = create_tween()
+	#tween.set_parallel(true)
+	#
+	#if selected_item == null :
+		#for child in get_children():
+			#tween.tween_property(child,"modulate", Color(1,1,1,0), not_selected_close_lerp_speed)
+	#else :
+		#for child in get_children() :
+			#if child != selected_item :
+				#not_selected.append(child)
+	#
+		#for item in not_selected :
+			#tween.tween_property(item,"modulate", Color(1,1,1,0), not_selected_close_lerp_speed)
+		#tween.tween_property(selected_item,"position", position - child_scale/2, selected_close_lerp_speed).from(selected_item.position).set_trans(Tween.TRANS_EXPO)
+		#
+		#await tween.finished
+		#selected_item.modulate = Color(1,1,1,0)
+		
+	#await LerpAnim(-1)
+	#is_open = false
+	#is_in_anim = false
+
+#func CloseFade():
+	#EnableMenu(false)
+	#var tween = create_tween()
+	#tween.set_parallel(true)
+	#
+	#for child in get_children():
+			#tween.tween_property(child,"modulate", Color(1,1,1,0), close_fade_speed)
+#
+	#await tween.finished
+	#is_open = false
+
+#func LerpAnim(direction : int = 1):
+	#for i in get_child_count() :
+		#await get_tree().create_timer(next_cell_delay).timeout
+		#if i < get_child_count() -1 : ChildLerp(i, direction)
+		#else : await ChildLerp(i, direction)
+#
+#func ChildLerp(child_index : int, direction : int = 1):
+	#var child = get_child(child_index)
+	#var target = points[child_index] if direction > 0 else position # - child_scale/2
+	#var tween = create_tween()
+	#
+	#tween.set_parallel(true)
+	#tween.tween_property(child,"position", target, cell_open_tween_duration).from(position)
+	#tween.tween_property(child,"scale", child_scale if direction > 0 else Vector2(0,0), cell_open_tween_duration)
+	#tween.tween_property(child,"modulate", Color(1,1,1,1) if direction > 0 else Color(1,1,1,1), 
+		#cell_open_tween_duration).set_delay(min_radius * cell_open_tween_duration / max_radius)
+	#
+	#await tween.finished
 	
 func EnableMenu(b: bool = true):
-	mouse_filter = 0 if b else 2
-	for child : BaseButton in get_children():
-		child.mouse_filter = 0 if b else 2
+	pass
+	#mouse_filter = 0 if b else 2
+	#for child : BaseButton in get_children():
+		#child.mouse_filter = 0 if b else 2
+
+func update_color_buttons(sling : Sling, remaining_colors : Array):
+	if sling.ball is Bubble_Explosive || sling.ball is Bubble_Metal :
+		for item in buttons :
+			item.set_button_enable(false)
+	else :
+		for item in buttons :
+			item.set_button_enable(false) if remaining_colors.find(item.id) == -1  else item.set_button_enable(true)
+	
+
+func _on_color_select_button_button_down():
+	if !animator.is_playing() :
+		if is_open : Close()
+		else : Open()
