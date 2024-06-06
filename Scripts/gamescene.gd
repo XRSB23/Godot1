@@ -49,6 +49,7 @@ func _ready():
 #region Init / Load
 
 func load_level(_level):
+	clear_level()
 	var levelres = level_data_base.levels[_level]
 	@warning_ignore("unassigned_variable")
 	var _tr : Array[int]
@@ -80,6 +81,11 @@ func load_level(_level):
 	set_up_astar(levelres.astar_points , levelres.astar_connections)
 #endregion
 
+func clear_level():
+	for cell in grid_data:
+		if grid_data[cell] != null :
+			grid_data[cell].queue_free()
+	grid_data.clear()
 #region A*
 
 func set_up_astar(_astarpoints , _astarconnections):
