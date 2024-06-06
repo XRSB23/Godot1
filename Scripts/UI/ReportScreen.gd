@@ -95,6 +95,8 @@ func _next_level():
 
 func _on_level_select_button_down():
 	_select_level()
+	gamescene.sling.modulate = Color(1,1,1,0)
+	gamescene.sling.ClearBall()
 
 
 func _on_retry_button_down():

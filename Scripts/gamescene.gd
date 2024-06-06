@@ -28,7 +28,7 @@ var destroyed_count : int
 @onready var sling = $Sling
 @onready var bubble_container = $BubbleContainer
 @onready var destroy_container = $DestroyContainer
-@onready var score_display : ScoreDisplay = $HUD/ScoreDisplay
+@onready var score_display : ScoreDisplay = $HUD/ScorePanel/ScoreDisplay
 @onready var level_select : LevelSelect = $LevelSelectCanvas/LevelSelect
 @onready var hud = $HUD
 @onready var transition_player : AnimationPlayer = $TransitionCanvas/AnimationPlayer
@@ -72,6 +72,7 @@ func load_level(_level):
 			grid_data[levelres.coord[i]] = bubbleInstance
 	#buttons_container.hide()
 	
+	sling.modulate = Color(1,1,1,1)
 	await  transition_player.animation_finished
 	
 	sling.init_sling()
@@ -135,14 +136,16 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	reset_sling()
 
 func reset_sling():
+	print("call")
 	if attempts <= 0 || get_remaining_colors().size() < 1:
 		score_display.report_screen.Open()
 		return
 		
 	sling.trajectory_preview.UpdateGhost()
-	await sling.UpdateColorMenu(get_remaining_colors()) # Await for instance process to be done before opening menu, else can have menu problems
-	if get_remaining_colors().size() > 1 : sling.color_select_menu.Open()
-	else : sling.load_ball()
+	#await sling.UpdateColorMenu(get_remaining_colors()) # Await for instance process to be done before opening menu, else can have menu problems
+	#if get_remaining_colors().size() > 1 : sling.color_select_menu.Open()
+	#else : sling.load_ball()
+	sling.load_ball()
 
 func explosive_radius(radius_bubbles):
 	var cells = []

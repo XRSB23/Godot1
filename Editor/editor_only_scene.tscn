@@ -86,10 +86,10 @@ border_color = Color(0, 0.592157, 0.745098, 1)
 border_width = 6.0
 
 [node name="Camera Bounds" type="ReferenceRect" parent="Gizmos"]
-offset_left = -1707.0
-offset_top = -1328.0
-offset_right = 2681.0
-offset_bottom = 988.0
+offset_left = -1792.0
+offset_top = -1264.0
+offset_right = 2208.0
+offset_bottom = 987.0
 mouse_filter = 2
 border_color = Color(0.0862745, 1, 0, 1)
 border_width = 20.0
