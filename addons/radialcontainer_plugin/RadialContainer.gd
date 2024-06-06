@@ -48,6 +48,7 @@ var start_angle : float
 var angle_width : float
 
 var selected_item : BaseButton
+var last_selected_color
 var is_open : bool
 
 
