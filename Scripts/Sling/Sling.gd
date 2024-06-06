@@ -1,4 +1,5 @@
 extends Node2D
+class_name Sling
 
 #region Variables
 
@@ -130,7 +131,7 @@ func init_sling():
 	
 	
 func load_ball():
-	print("hit")
+
 	if game_scene.get_remaining_colors().size() == 0 :
 		return
 	ball = bubble_prefabs[0].instantiate()
@@ -147,6 +148,7 @@ func load_ball():
 	ball.game_scene = game_scene
 	ball.call_deferred("set_color")
 	color_select_menu.last_selected_color = ball.color
+	color_select_menu.update_color_buttons(self, game_scene.get_remaining_colors())
 
 func load_consumable(color  : level_data.BubbleColor  ):
 
@@ -165,7 +167,7 @@ func load_consumable(color  : level_data.BubbleColor  ):
 
 	ball.game_scene = game_scene
 	ball.call_deferred("set_color")
-
+	color_select_menu.update_color_buttons(self, game_scene.get_remaining_colors())
 	
 func ClearBall():
 	if ball != null :

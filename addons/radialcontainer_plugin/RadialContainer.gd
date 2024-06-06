@@ -11,6 +11,10 @@ class_name RadialContainer
 #@export var anim_control : bool 
 @export var animator : AnimationPlayer
 
+@export_group("Buttons")
+@export var buttons : Array[BaseButton]
+
+
 @export_group("Gizmo")
 @export var gizmo_visible : bool = true
 @export var color_fill : Color = Color("05ff2c", 1)
@@ -129,7 +133,7 @@ func DrawPoints():
 func Open():
 	
 	if animator.is_playing(): 
-		push_warning("Tried to open Color Select Menu while it was still in the middle of an animation")
+		#push_warning("Tried to open Color Select Menu while it was still in the middle of an animation")
 		return
 	
 	selected_item = null
@@ -162,7 +166,7 @@ func Open():
 func Close():
 
 	if animator.is_playing(): 
-		push_warning("Tried to close Color Select Menu while it was still in the middle of an animation")
+		#push_warning("Tried to close Color Select Menu while it was still in the middle of an animation")
 		return
 		
 	EnableMenu(false)
@@ -229,6 +233,14 @@ func EnableMenu(b: bool = true):
 	#for child : BaseButton in get_children():
 		#child.mouse_filter = 0 if b else 2
 
+func update_color_buttons(sling : Sling, remaining_colors : Array):
+	if sling.ball is Bubble_Explosive || sling.ball is Bubble_Metal :
+		for item in buttons :
+			item.set_button_enable(false)
+	else :
+		for item in buttons :
+			item.set_button_enable(false) if remaining_colors.find(item.id) == -1  else item.set_button_enable(true)
+	
 
 func _on_color_select_button_button_down():
 	if !animator.is_playing() :

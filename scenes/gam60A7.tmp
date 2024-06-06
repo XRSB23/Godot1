@@ -1,4 +1,4 @@
-[gd_scene load_steps=161 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=163 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
@@ -49,6 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://djiuyvr2vpmg3" path="res://Art/Sling/ColorButton.svg" id="47_6tkc1"]
 [ext_resource type="Script" path="res://Editor/RotationSetter.gd" id="48_ejjtx"]
 [ext_resource type="Script" path="res://Scripts/LockRotation.gd" id="49_7fkp4"]
+[ext_resource type="Texture2D" uid="uid://bwkmcghulkf8v" path="res://Art/Bubble/Bubbles.svg" id="50_flgpe"]
 [ext_resource type="Script" path="res://Scripts/Sling/UI/BubbleSelectMenu_Button.gd" id="50_wa58b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkk5s"]
@@ -1554,6 +1555,11 @@ size = Vector2(5115.88, 207)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkwav"]
 size = Vector2(250, 6305)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1j11"]
+resource_local_to_scene = true
+atlas = ExtResource("50_flgpe")
+region = Rect2(102.4, 0, 102.4, 102.4)
+
 [node name="Gamescene" type="Node2D"]
 script = ExtResource("1_scxi1")
 cell_size = Vector2(106, 116)
@@ -2589,7 +2595,7 @@ anchor_bottom = 1.0
 offset_left = -360.0
 offset_top = -776.0
 offset_right = 360.0
-offset_bottom = 784.0
+offset_bottom = 2704.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(1320, 1320)
@@ -3635,14 +3641,13 @@ libraries = {
 "": SubResource("AnimationLibrary_e50hh")
 }
 
-[node name="ColorSelectMenu" type="Control" parent="Sling" node_paths=PackedStringArray("animator", "buttons")]
+[node name="ColorSelectMenu" type="Control" parent="Sling" node_paths=PackedStringArray("animator")]
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 1
 mouse_force_pass_scroll_events = false
 script = ExtResource("14_rlae7")
 animator = NodePath("../AnimationPlayer")
-buttons = [NodePath("ColorButton1/Marker2D/TextureButton"), NodePath("ColorButton2/Marker2D/TextureButton"), NodePath("ColorButton3/Marker2D/TextureButton"), NodePath("ColorButton4/Marker2D/TextureButton"), NodePath("ColorButton5/Marker2D/TextureButton"), NodePath("ColorButton6/Marker2D/TextureButton"), NodePath("ColorButton7/Marker2D/TextureButton")]
 max_radius = 330.0
 min_radius = 200.0
 origin = -180.0
@@ -3665,7 +3670,7 @@ scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_ku3hc")
 script = ExtResource("49_7fkp4")
 
-[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton1/Marker2D" node_paths=PackedStringArray("control", "node_background", "node_icon")]
+[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton1/Marker2D"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -3679,11 +3684,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("50_wa58b")
 id = 1
-control = NodePath("../../..")
-node_background = NodePath("../..")
 modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.52549)
-node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
+control = null
+node_background = null
+node_icon = null
 
 [node name="ColorButton2" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
@@ -3702,7 +3707,7 @@ scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_783pr")
 script = ExtResource("49_7fkp4")
 
-[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton2/Marker2D" node_paths=PackedStringArray("control", "node_background", "node_icon")]
+[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton2/Marker2D"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -3716,11 +3721,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("50_wa58b")
 id = 2
-control = NodePath("../../..")
-node_background = NodePath("../..")
 modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.52549)
-node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
+control = null
+node_background = null
+node_icon = null
 
 [node name="ColorButton3" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
@@ -3739,7 +3744,7 @@ scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_bxwxx")
 script = ExtResource("49_7fkp4")
 
-[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton3/Marker2D" node_paths=PackedStringArray("control", "node_background", "node_icon")]
+[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton3/Marker2D"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -3753,11 +3758,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("50_wa58b")
 id = 3
-control = NodePath("../../..")
-node_background = NodePath("../..")
 modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.52549)
-node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
+control = null
+node_background = null
+node_icon = null
 
 [node name="ColorButton4" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
@@ -3776,7 +3781,7 @@ scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_4bwlr")
 script = ExtResource("49_7fkp4")
 
-[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton4/Marker2D" node_paths=PackedStringArray("control", "node_background", "node_icon")]
+[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton4/Marker2D"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -3790,11 +3795,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("50_wa58b")
 id = 4
-control = NodePath("../../..")
-node_background = NodePath("../..")
 modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.52549)
-node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
+control = null
+node_background = null
+node_icon = null
 
 [node name="ColorButton5" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
@@ -3813,7 +3818,7 @@ scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_crhhx")
 script = ExtResource("49_7fkp4")
 
-[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton5/Marker2D" node_paths=PackedStringArray("control", "node_background", "node_icon")]
+[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton5/Marker2D"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -3827,11 +3832,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("50_wa58b")
 id = 5
-control = NodePath("../../..")
-node_background = NodePath("../..")
 modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.52549)
-node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
+control = null
+node_background = null
+node_icon = null
 
 [node name="ColorButton6" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
@@ -3850,7 +3855,7 @@ scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_bnnt7")
 script = ExtResource("49_7fkp4")
 
-[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton6/Marker2D" node_paths=PackedStringArray("control", "node_background", "node_icon")]
+[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton6/Marker2D"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -3864,11 +3869,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("50_wa58b")
 id = 6
-control = NodePath("../../..")
-node_background = NodePath("../..")
 modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.52549)
-node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
+control = null
+node_background = null
+node_icon = null
 
 [node name="ColorButton7" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
@@ -3887,7 +3892,7 @@ scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_0vj8o")
 script = ExtResource("49_7fkp4")
 
-[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton7/Marker2D" node_paths=PackedStringArray("control", "node_background", "node_icon")]
+[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton7/Marker2D"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -3901,11 +3906,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("50_wa58b")
 id = 7
-control = NodePath("../../..")
-node_background = NodePath("../..")
 modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.52549)
-node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
+control = null
+node_background = null
+node_icon = null
 
 [node name="AttemptsLabel" type="Label" parent="Sling"]
 anchors_preset = -1
@@ -3944,6 +3949,14 @@ input_pickable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadzoneContainer/DeadZone2"]
 position = Vector2(2800, -1648)
 shape = SubResource("RectangleShape2D_kkwav")
+
+[node name="BubbleSelectMenuButton" parent="." instance=ExtResource("5_2nx2p")]
+visible = false
+offset_left = -1280.0
+offset_top = -56.0
+offset_right = -1178.0
+offset_bottom = 46.0
+texture_normal = SubResource("AtlasTexture_b1j11")
 
 [connection signal="value_changed" from="CameraSystem/CameraBounds" to="CameraSystem/Camera2D" method="_on_camera_bounds_value_changed"]
 [connection signal="button_down" from="PopupCanvas/Pause" to="PopupCanvas/PausePanel" method="_on_pause_button_down"]
