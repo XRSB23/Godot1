@@ -66,6 +66,7 @@ func set_neighbors_coord(v : Vector2):
 
 func load_level(_level_name):
 	var data : level_data = load_level_resource().levels[_level_name]
+	clear_layer(0)
 	tresholds.clear()
 	for i in range(3):
 		tresholds.append('')
@@ -74,7 +75,6 @@ func load_level(_level_name):
 		set_cell(0,local_to_map(c),0,get_atlas_coord(data.bubbles[i]))
 		i += 1
 	clear_layer(1)
-	print(local_to_map(data.root_node_coord))
 	set_cell(1,local_to_map(data.root_node_coord),5,Vector2.ZERO)
 	level_name = _level_name
 	var k = 0
