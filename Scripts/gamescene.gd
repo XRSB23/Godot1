@@ -28,7 +28,7 @@ var destroyed_count : int
 @onready var sling = $Sling
 @onready var bubble_container = $BubbleContainer
 @onready var destroy_container = $DestroyContainer
-@onready var score_display : ScoreDisplay = $HUD/ScoreDisplay
+@onready var score_display : ScoreDisplay = $HUD/ScorePanel/ScoreDisplay
 @onready var level_select : LevelSelect = $LevelSelectCanvas/LevelSelect
 @onready var hud = $HUD
 @onready var transition_player : AnimationPlayer = $TransitionCanvas/AnimationPlayer
@@ -72,6 +72,7 @@ func load_level(_level):
 			grid_data[levelres.coord[i]] = bubbleInstance
 	#buttons_container.hide()
 	
+	sling.modulate = Color(1,1,1,1)
 	await  transition_player.animation_finished
 	
 	sling.init_sling()

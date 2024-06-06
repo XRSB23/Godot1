@@ -75,7 +75,8 @@ func HandleTouch(event):
 		touch_points[event.index] = event.position
 	else:
 		if !is_dragging:
-			if game_scene.get_remaining_colors().size() > 1 : color_select_menu.Open()
+			#if game_scene.get_remaining_colors().size() > 1 : color_select_menu.Open()
+			pass
 		else : 
 			is_dragging = false
 			
