@@ -270,13 +270,13 @@ func _on_precision_shot_selected():
 	trajectory_mode = TrajectoryPreview.MODE.NEWTON
 
 func _on_explosive_selected():
-	color_select_menu.Close()
+	if color_select_menu.is_open : color_select_menu.Close()
 	ClearBall()
 	load_consumable(level_data.BubbleColor.Empty)
 	#await color_select_menu.CloseFade()
 
 func _on_metal_selected():
-	color_select_menu.Close()
+	if color_select_menu.is_open : color_select_menu.Close()
 	ClearBall()
 	load_consumable(level_data.BubbleColor.Empty)
 	#await color_select_menu.CloseFade()
