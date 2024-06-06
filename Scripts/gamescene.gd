@@ -76,6 +76,7 @@ func load_level(_level):
 	sling.modulate = Color(1,1,1,1)
 	await  transition_player.animation_finished
 	
+	if sling.ball != null : sling.ClearBall()
 	sling.init_sling()
 	astar.clear()
 	set_up_astar(levelres.astar_points , levelres.astar_connections)

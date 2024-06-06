@@ -1,4 +1,4 @@
-[gd_scene load_steps=160 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=161 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
@@ -45,6 +45,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpButton.gd" id="29_vc8lb"]
 [ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/Shaders/grayscale_shader.tres" id="30_saxga"]
 [ext_resource type="Texture2D" uid="uid://cpii6glkarjsh" path="res://Art/Sling/Sling.svg" id="36_78ule"]
+[ext_resource type="Texture2D" uid="uid://b4ss4b28rlg1j" path="res://Art/Sling/ColorPicker.svg" id="45_puaac"]
 [ext_resource type="Texture2D" uid="uid://djiuyvr2vpmg3" path="res://Art/Sling/ColorButton.svg" id="47_6tkc1"]
 [ext_resource type="Script" path="res://Editor/RotationSetter.gd" id="48_ejjtx"]
 [ext_resource type="Script" path="res://Scripts/LockRotation.gd" id="49_7fkp4"]
@@ -3570,7 +3571,6 @@ libraries = {
 [node name="DestroyContainer" type="Node2D" parent="."]
 
 [node name="Sling" type="Node2D" parent="."]
-modulate = Color(1, 1, 1, 0)
 position = Vector2(-1216, 256)
 script = ExtResource("2_jejid")
 bubble_prefabs = Array[PackedScene]([ExtResource("5_icqf6"), ExtResource("6_rw0qp"), ExtResource("7_nrvhg"), ExtResource("8_pwao1")])
@@ -3640,11 +3640,12 @@ scale = Vector2(0.36, 0.36)
 shape = SubResource("CircleShape2D_ej865")
 
 [node name="ColorSelectButton" type="TextureButton" parent="Sling"]
-offset_left = -185.0
-offset_top = -186.0
-offset_right = -50.0
-offset_bottom = -51.0
-texture_normal = ExtResource("8_nev1w")
+offset_left = -177.0
+offset_top = -179.0
+offset_right = -58.0
+offset_bottom = -56.0
+texture_normal = ExtResource("45_puaac")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sling"]
