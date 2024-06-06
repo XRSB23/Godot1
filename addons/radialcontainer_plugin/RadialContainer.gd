@@ -223,7 +223,8 @@ func Close():
 	#await tween.finished
 	
 func EnableMenu(b: bool = true):
-	mouse_filter = 0 if b else 2
+	pass
+	#mouse_filter = 0 if b else 2
 	#for child : BaseButton in get_children():
 		#child.mouse_filter = 0 if b else 2
 

@@ -137,7 +137,7 @@ func load_ball():
 	ball.set_ball_launchable(true)
 	if game_scene.get_remaining_colors().size() > 1 : 
 		if color_select_menu.selected_item != null :
-			ball.color = color_select_menu.selected_item.color
+			ball.color = color_select_menu.selected_item.id
 		else : ball.color = game_scene.get_remaining_colors()[0]
 	else : ball.color = game_scene.get_remaining_colors()[0]
 	ball.game_scene = game_scene
@@ -231,7 +231,7 @@ func _on_dead_zone(body):
 
 func _on_color_select_menu_color_picked():
 	if powerUp_panel.selected_projectile != null && powerUp_panel.selected_projectile.name == "Paint" : 
-		load_consumable(color_select_menu.selected_item.color)
+		load_consumable(color_select_menu.selected_item.id)
 	else : load_ball()
 
 func _on_color_select_menu_opened():

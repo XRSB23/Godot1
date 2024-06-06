@@ -1,4 +1,4 @@
-[gd_scene load_steps=162 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=163 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
@@ -50,6 +50,7 @@
 [ext_resource type="Script" path="res://Editor/RotationSetter.gd" id="48_ejjtx"]
 [ext_resource type="Script" path="res://Scripts/LockRotation.gd" id="49_7fkp4"]
 [ext_resource type="Texture2D" uid="uid://bwkmcghulkf8v" path="res://Art/Bubble/Bubbles.svg" id="50_flgpe"]
+[ext_resource type="Script" path="res://Scripts/Sling/UI/BubbleSelectMenu_Button.gd" id="50_wa58b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkk5s"]
 atlas = ExtResource("8_7n0tw")
@@ -984,7 +985,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorSelectMenu/ColorButton0:position")
+tracks/0/path = NodePath("ColorSelectMenu/ColorButton1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -996,7 +997,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorSelectMenu/ColorButton0:scale")
+tracks/1/path = NodePath("ColorSelectMenu/ColorButton1:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1008,7 +1009,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ColorSelectMenu/ColorButton0:modulate")
+tracks/2/path = NodePath("ColorSelectMenu/ColorButton1:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1020,7 +1021,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ColorSelectMenu/ColorButton1:position")
+tracks/3/path = NodePath("ColorSelectMenu/ColorButton2:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1032,7 +1033,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ColorSelectMenu/ColorButton1:scale")
+tracks/4/path = NodePath("ColorSelectMenu/ColorButton2:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1044,7 +1045,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("ColorSelectMenu/ColorButton1:modulate")
+tracks/5/path = NodePath("ColorSelectMenu/ColorButton2:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -1056,7 +1057,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("ColorSelectMenu/ColorButton2:position")
+tracks/6/path = NodePath("ColorSelectMenu/ColorButton3:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -1068,7 +1069,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("ColorSelectMenu/ColorButton2:scale")
+tracks/7/path = NodePath("ColorSelectMenu/ColorButton3:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -1080,7 +1081,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("ColorSelectMenu/ColorButton2:modulate")
+tracks/8/path = NodePath("ColorSelectMenu/ColorButton3:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -1092,7 +1093,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("ColorSelectMenu/ColorButton3:position")
+tracks/9/path = NodePath("ColorSelectMenu/ColorButton4:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -1104,7 +1105,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("ColorSelectMenu/ColorButton3:scale")
+tracks/10/path = NodePath("ColorSelectMenu/ColorButton4:scale")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -1116,7 +1117,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("ColorSelectMenu/ColorButton3:modulate")
+tracks/11/path = NodePath("ColorSelectMenu/ColorButton4:modulate")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -1128,7 +1129,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("ColorSelectMenu/ColorButton4:position")
+tracks/12/path = NodePath("ColorSelectMenu/ColorButton5:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -1140,7 +1141,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("ColorSelectMenu/ColorButton4:scale")
+tracks/13/path = NodePath("ColorSelectMenu/ColorButton5:scale")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -1152,7 +1153,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("ColorSelectMenu/ColorButton4:modulate")
+tracks/14/path = NodePath("ColorSelectMenu/ColorButton5:modulate")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -1164,7 +1165,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("ColorSelectMenu/ColorButton5:position")
+tracks/15/path = NodePath("ColorSelectMenu/ColorButton6:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -1176,7 +1177,7 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("ColorSelectMenu/ColorButton5:scale")
+tracks/16/path = NodePath("ColorSelectMenu/ColorButton6:scale")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -1188,7 +1189,7 @@ tracks/16/keys = {
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("ColorSelectMenu/ColorButton5:modulate")
+tracks/17/path = NodePath("ColorSelectMenu/ColorButton6:modulate")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
@@ -1200,7 +1201,7 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("ColorSelectMenu/ColorButton6:position")
+tracks/18/path = NodePath("ColorSelectMenu/ColorButton7:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -1212,7 +1213,7 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("ColorSelectMenu/ColorButton6:scale")
+tracks/19/path = NodePath("ColorSelectMenu/ColorButton7:scale")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
@@ -1224,7 +1225,7 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("ColorSelectMenu/ColorButton6:modulate")
+tracks/20/path = NodePath("ColorSelectMenu/ColorButton7:modulate")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -1239,7 +1240,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorSelectMenu/ColorButton0:position")
+tracks/0/path = NodePath("ColorSelectMenu/ColorButton1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1251,7 +1252,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorSelectMenu/ColorButton0:scale")
+tracks/1/path = NodePath("ColorSelectMenu/ColorButton1:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1263,7 +1264,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ColorSelectMenu/ColorButton0:modulate")
+tracks/2/path = NodePath("ColorSelectMenu/ColorButton1:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1275,7 +1276,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ColorSelectMenu/ColorButton1:position")
+tracks/3/path = NodePath("ColorSelectMenu/ColorButton2:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1287,7 +1288,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ColorSelectMenu/ColorButton1:scale")
+tracks/4/path = NodePath("ColorSelectMenu/ColorButton2:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1299,7 +1300,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("ColorSelectMenu/ColorButton1:modulate")
+tracks/5/path = NodePath("ColorSelectMenu/ColorButton2:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -1311,7 +1312,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("ColorSelectMenu/ColorButton2:position")
+tracks/6/path = NodePath("ColorSelectMenu/ColorButton3:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -1323,7 +1324,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("ColorSelectMenu/ColorButton2:scale")
+tracks/7/path = NodePath("ColorSelectMenu/ColorButton3:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -1335,7 +1336,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("ColorSelectMenu/ColorButton2:modulate")
+tracks/8/path = NodePath("ColorSelectMenu/ColorButton3:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -1347,7 +1348,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("ColorSelectMenu/ColorButton3:position")
+tracks/9/path = NodePath("ColorSelectMenu/ColorButton4:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -1359,7 +1360,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("ColorSelectMenu/ColorButton3:scale")
+tracks/10/path = NodePath("ColorSelectMenu/ColorButton4:scale")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -1371,7 +1372,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("ColorSelectMenu/ColorButton3:modulate")
+tracks/11/path = NodePath("ColorSelectMenu/ColorButton4:modulate")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -1383,7 +1384,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("ColorSelectMenu/ColorButton4:position")
+tracks/12/path = NodePath("ColorSelectMenu/ColorButton5:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -1395,7 +1396,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("ColorSelectMenu/ColorButton4:scale")
+tracks/13/path = NodePath("ColorSelectMenu/ColorButton5:scale")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -1407,7 +1408,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("ColorSelectMenu/ColorButton4:modulate")
+tracks/14/path = NodePath("ColorSelectMenu/ColorButton5:modulate")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -1419,7 +1420,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("ColorSelectMenu/ColorButton5:position")
+tracks/15/path = NodePath("ColorSelectMenu/ColorButton6:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -1431,7 +1432,7 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("ColorSelectMenu/ColorButton5:scale")
+tracks/16/path = NodePath("ColorSelectMenu/ColorButton6:scale")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -1443,7 +1444,7 @@ tracks/16/keys = {
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("ColorSelectMenu/ColorButton5:modulate")
+tracks/17/path = NodePath("ColorSelectMenu/ColorButton6:modulate")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
@@ -1455,7 +1456,7 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("ColorSelectMenu/ColorButton6:position")
+tracks/18/path = NodePath("ColorSelectMenu/ColorButton7:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -1467,7 +1468,7 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("ColorSelectMenu/ColorButton6:scale")
+tracks/19/path = NodePath("ColorSelectMenu/ColorButton7:scale")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
@@ -1479,7 +1480,7 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("ColorSelectMenu/ColorButton6:modulate")
+tracks/20/path = NodePath("ColorSelectMenu/ColorButton7:modulate")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -3643,7 +3644,7 @@ libraries = {
 [node name="ColorSelectMenu" type="Control" parent="Sling" node_paths=PackedStringArray("animator")]
 layout_mode = 3
 anchors_preset = 0
-mouse_filter = 2
+mouse_filter = 1
 mouse_force_pass_scroll_events = false
 script = ExtResource("14_rlae7")
 animator = NodePath("../AnimationPlayer")
@@ -3652,7 +3653,7 @@ min_radius = 200.0
 origin = -180.0
 split_angle = 72.0
 
-[node name="ColorButton0" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
+[node name="ColorButton1" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
 rotation = 1.52592
 scale = Vector2(1e-05, 1e-05)
@@ -3661,15 +3662,15 @@ offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
 target = NodePath("../..")
 
-[node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton0"]
+[node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton1"]
 
-[node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton0/Marker2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton1/Marker2D"]
 rotation = -1.52592
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_ku3hc")
 script = ExtResource("49_7fkp4")
 
-[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton0/Marker2D"]
+[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton1/Marker2D" node_paths=PackedStringArray("control")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -3681,27 +3682,28 @@ offset_right = 51.0
 offset_bottom = 50.9999
 grow_horizontal = 2
 grow_vertical = 2
-disabled = true
+script = ExtResource("50_wa58b")
+id = 1
+control = NodePath("../../..")
 
-[node name="ColorButton1" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
+[node name="ColorButton2" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
 rotation = 2.06448
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("47_6tkc1")
 offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
-id = 1
 target = NodePath("../..")
 
-[node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton1"]
+[node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton2"]
 
-[node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton1/Marker2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton2/Marker2D"]
 rotation = -2.06448
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_783pr")
 script = ExtResource("49_7fkp4")
 
-[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton1/Marker2D"]
+[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton2/Marker2D" node_paths=PackedStringArray("control")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -3713,26 +3715,28 @@ offset_right = 51.0
 offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("50_wa58b")
+id = 2
+control = NodePath("../../..")
 
-[node name="ColorButton2" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
+[node name="ColorButton3" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
 rotation = 2.60303
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("47_6tkc1")
 offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
-id = 2
 target = NodePath("../..")
 
-[node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton2"]
+[node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton3"]
 
-[node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton2/Marker2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton3/Marker2D"]
 rotation = -2.60303
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_bxwxx")
 script = ExtResource("49_7fkp4")
 
-[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton2/Marker2D"]
+[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton3/Marker2D" node_paths=PackedStringArray("control")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -3744,26 +3748,28 @@ offset_right = 51.0
 offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("50_wa58b")
+id = 3
+control = NodePath("../../..")
 
-[node name="ColorButton3" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
+[node name="ColorButton4" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
 rotation = 3.14159
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("47_6tkc1")
 offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
-id = 3
 target = NodePath("../..")
 
-[node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton3"]
+[node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton4"]
 
-[node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton3/Marker2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton4/Marker2D"]
 rotation = -3.14159
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_4bwlr")
 script = ExtResource("49_7fkp4")
 
-[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton3/Marker2D"]
+[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton4/Marker2D" node_paths=PackedStringArray("control")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -3775,26 +3781,28 @@ offset_right = 51.0
 offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("50_wa58b")
+id = 4
+control = NodePath("../../..")
 
-[node name="ColorButton4" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
+[node name="ColorButton5" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
 rotation = 3.68015
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("47_6tkc1")
 offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
-id = 4
 target = NodePath("../..")
 
-[node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton4"]
+[node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton5"]
 
-[node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton4/Marker2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton5/Marker2D"]
 rotation = 2.60304
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_crhhx")
 script = ExtResource("49_7fkp4")
 
-[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton4/Marker2D"]
+[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton5/Marker2D" node_paths=PackedStringArray("control")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -3806,26 +3814,28 @@ offset_right = 51.0
 offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("50_wa58b")
+id = 5
+control = NodePath("../../..")
 
-[node name="ColorButton5" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
+[node name="ColorButton6" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
 rotation = 4.21871
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("47_6tkc1")
 offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
-id = 5
 target = NodePath("../..")
 
-[node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton5"]
+[node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton6"]
 
-[node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton5/Marker2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton6/Marker2D"]
 rotation = 2.06448
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_bnnt7")
 script = ExtResource("49_7fkp4")
 
-[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton5/Marker2D"]
+[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton6/Marker2D" node_paths=PackedStringArray("control")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -3837,26 +3847,28 @@ offset_right = 51.0
 offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("50_wa58b")
+id = 6
+control = NodePath("../../..")
 
-[node name="ColorButton6" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
+[node name="ColorButton7" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
 rotation = -1.52592
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("47_6tkc1")
 offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
-id = 6
 target = NodePath("../..")
 
-[node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton6"]
+[node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton7"]
 
-[node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton6/Marker2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton7/Marker2D"]
 rotation = 1.52592
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_0vj8o")
 script = ExtResource("49_7fkp4")
 
-[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton6/Marker2D"]
+[node name="TextureButton" type="TextureButton" parent="Sling/ColorSelectMenu/ColorButton7/Marker2D" node_paths=PackedStringArray("control")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -3868,6 +3880,9 @@ offset_right = 51.0
 offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("50_wa58b")
+id = 7
+control = NodePath("../../..")
 
 [node name="AttemptsLabel" type="Label" parent="Sling"]
 anchors_preset = -1
@@ -3950,5 +3965,12 @@ texture_normal = SubResource("AtlasTexture_b1j11")
 [connection signal="button_down" from="Sling/ColorSelectButton" to="Sling/ColorSelectMenu" method="_on_color_select_button_button_down"]
 [connection signal="color_picked" from="Sling/ColorSelectMenu" to="Sling" method="_on_color_select_menu_color_picked"]
 [connection signal="opened" from="Sling/ColorSelectMenu" to="Sling" method="_on_color_select_menu_opened"]
+[connection signal="button_down" from="Sling/ColorSelectMenu/ColorButton1/Marker2D/TextureButton" to="Sling/ColorSelectMenu/ColorButton1/Marker2D/TextureButton" method="_on_button_down"]
+[connection signal="button_down" from="Sling/ColorSelectMenu/ColorButton2/Marker2D/TextureButton" to="Sling/ColorSelectMenu/ColorButton2/Marker2D/TextureButton" method="_on_button_down"]
+[connection signal="button_down" from="Sling/ColorSelectMenu/ColorButton3/Marker2D/TextureButton" to="Sling/ColorSelectMenu/ColorButton3/Marker2D/TextureButton" method="_on_button_down"]
+[connection signal="button_down" from="Sling/ColorSelectMenu/ColorButton4/Marker2D/TextureButton" to="Sling/ColorSelectMenu/ColorButton4/Marker2D/TextureButton" method="_on_button_down"]
+[connection signal="button_down" from="Sling/ColorSelectMenu/ColorButton5/Marker2D/TextureButton" to="Sling/ColorSelectMenu/ColorButton5/Marker2D/TextureButton" method="_on_button_down"]
+[connection signal="button_down" from="Sling/ColorSelectMenu/ColorButton6/Marker2D/TextureButton" to="Sling/ColorSelectMenu/ColorButton6/Marker2D/TextureButton" method="_on_button_down"]
+[connection signal="button_down" from="Sling/ColorSelectMenu/ColorButton7/Marker2D/TextureButton" to="Sling/ColorSelectMenu/ColorButton7/Marker2D/TextureButton" method="_on_button_down"]
 [connection signal="body_entered" from="DeadzoneContainer/DeadZone" to="Sling" method="_on_dead_zone"]
 [connection signal="body_entered" from="DeadzoneContainer/DeadZone2" to="Sling" method="_on_dead_zone"]
