@@ -43,9 +43,9 @@
 [ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="23_n35ni"]
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpPanel.gd" id="28_a1ofm"]
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpButton.gd" id="29_vc8lb"]
-[ext_resource type="Texture2D" uid="uid://iirp7pxhk5jt" path="res://Art/[Temp]Background.jpg" id="29_wjtr2"]
 [ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/Shaders/grayscale_shader.tres" id="30_saxga"]
 [ext_resource type="Texture2D" uid="uid://cpii6glkarjsh" path="res://Art/Sling/Sling.svg" id="36_78ule"]
+[ext_resource type="Texture2D" uid="uid://b4ss4b28rlg1j" path="res://Art/Sling/ColorPicker.svg" id="45_puaac"]
 [ext_resource type="Texture2D" uid="uid://djiuyvr2vpmg3" path="res://Art/Sling/ColorButton.svg" id="47_6tkc1"]
 [ext_resource type="Script" path="res://Editor/RotationSetter.gd" id="48_ejjtx"]
 [ext_resource type="Script" path="res://Scripts/LockRotation.gd" id="49_7fkp4"]
@@ -2576,8 +2576,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -930.0
-offset_right = 2790.0
-offset_bottom = 1080.0
+offset_right = 870.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(1860, 540)
@@ -2593,8 +2592,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -360.0
 offset_top = -776.0
-offset_right = 2280.0
-offset_bottom = 3784.0
+offset_right = 360.0
+offset_bottom = 784.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(1320, 1320)
@@ -3434,14 +3433,13 @@ rectFalse = Vector2(306, 0)
 process_mode = 3
 
 [node name="Background" type="TextureRect" parent="LevelSelectCanvas"]
-visible = false
 show_behind_parent = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("29_wjtr2")
+texture = ExtResource("14_st8eq")
 
 [node name="LevelSelect" type="GridContainer" parent="LevelSelectCanvas"]
 anchors_preset = 8
@@ -3449,10 +3447,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 485.0
-offset_top = 256.0
-offset_right = 1435.0
-offset_bottom = 824.0
+offset_left = -475.0
+offset_top = -284.0
+offset_right = 475.0
+offset_bottom = 284.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 5
@@ -3572,7 +3570,6 @@ libraries = {
 [node name="DestroyContainer" type="Node2D" parent="."]
 
 [node name="Sling" type="Node2D" parent="."]
-modulate = Color(1, 1, 1, 0)
 position = Vector2(-1216, 256)
 script = ExtResource("2_jejid")
 bubble_prefabs = Array[PackedScene]([ExtResource("5_icqf6"), ExtResource("6_rw0qp"), ExtResource("7_nrvhg"), ExtResource("8_pwao1")])
@@ -3642,11 +3639,12 @@ scale = Vector2(0.36, 0.36)
 shape = SubResource("CircleShape2D_ej865")
 
 [node name="ColorSelectButton" type="TextureButton" parent="Sling"]
-offset_left = -185.0
-offset_top = -186.0
-offset_right = -50.0
-offset_bottom = -51.0
-texture_normal = ExtResource("8_nev1w")
+offset_left = -177.0
+offset_top = -179.0
+offset_right = -58.0
+offset_bottom = -56.0
+texture_normal = ExtResource("45_puaac")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sling"]

@@ -242,6 +242,7 @@ func _on_color_select_menu_color_picked():
 
 	if ball is Bubble_Explosive || ball is Bubble_Metal : return
 	
+	color_select_menu.Close()
 	ball.color = color_select_menu.selected_item.id
 	ball.call_deferred("set_color")
 	color_select_menu.last_selected_color = ball.color
@@ -269,11 +270,13 @@ func _on_precision_shot_selected():
 	trajectory_mode = TrajectoryPreview.MODE.NEWTON
 
 func _on_explosive_selected():
+	if color_select_menu.is_open : color_select_menu.Close()
 	ClearBall()
 	load_consumable(level_data.BubbleColor.Empty)
 	#await color_select_menu.CloseFade()
 
 func _on_metal_selected():
+	if color_select_menu.is_open : color_select_menu.Close()
 	ClearBall()
 	load_consumable(level_data.BubbleColor.Empty)
 	#await color_select_menu.CloseFade()

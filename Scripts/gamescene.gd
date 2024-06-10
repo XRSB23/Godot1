@@ -49,6 +49,7 @@ func _ready():
 #region Init / Load
 
 func load_level(_level):
+	clear_level()
 	var levelres = level_data_base.levels[_level]
 	@warning_ignore("unassigned_variable")
 	var _tr : Array[int]
@@ -75,11 +76,17 @@ func load_level(_level):
 	sling.modulate = Color(1,1,1,1)
 	await  transition_player.animation_finished
 	
+	if sling.ball != null : sling.ClearBall()
 	sling.init_sling()
 	astar.clear()
 	set_up_astar(levelres.astar_points , levelres.astar_connections)
 #endregion
 
+func clear_level():
+	for cell in grid_data:
+		if grid_data[cell] != null :
+			grid_data[cell].queue_free()
+	grid_data.clear()
 #region A*
 
 func set_up_astar(_astarpoints , _astarconnections):
@@ -136,7 +143,6 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	reset_sling()
 
 func reset_sling():
-	print("call")
 	if attempts <= 0 || get_remaining_colors().size() < 1:
 		score_display.report_screen.Open()
 		return
