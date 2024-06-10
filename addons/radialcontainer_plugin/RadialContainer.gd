@@ -46,7 +46,7 @@ class_name RadialContainer
 				#child.scale = child_scale
 
 
-var points : Array[Vector2] 
+@export var points : Array[Vector2] 
 
 var start_angle : float
 var angle_width : float

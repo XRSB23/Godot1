@@ -1,4 +1,4 @@
-[gd_scene load_steps=161 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=159 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
@@ -50,6 +50,11 @@
 [ext_resource type="Script" path="res://Editor/RotationSetter.gd" id="48_ejjtx"]
 [ext_resource type="Script" path="res://Scripts/LockRotation.gd" id="49_7fkp4"]
 [ext_resource type="Script" path="res://Scripts/Sling/UI/BubbleSelectMenu_Button.gd" id="50_wa58b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yj1tm"]
+font_size = 30
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkk5s"]
 atlas = ExtResource("8_7n0tw")
@@ -204,11 +209,6 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqf4f"]
 bg_color = Color(0.243137, 0.243137, 0.243137, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_yj1tm"]
-font_size = 24
-outline_size = 3
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_kmfl3"]
 resource_name = "OpenPausePanel"
@@ -654,8 +654,6 @@ _data = {
 "SwipeLeft": SubResource("Animation_uevhi")
 }
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g3tcd"]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hld0g"]
 resource_local_to_scene = true
 shader = ExtResource("30_saxga")
@@ -742,8 +740,6 @@ load_path = "res://.godot/imported/UI Art.png-248d3f9583c56223e37c6538f7deced1.c
 resource_local_to_scene = true
 atlas = SubResource("CompressedTexture2D_fgdl5")
 region = Rect2(0, 256, 256, 256)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jku4u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pda5x"]
 
@@ -991,7 +987,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.35),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-11.8892, -264.733)]
+"values": [Vector2(0, 0), Vector2(14.7441, -319.66)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1003,7 +999,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.35),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.3, 1.3)]
+"values": [Vector2(0, 0), Vector2(1.5, 1.5)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1027,7 +1023,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.05, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(125.575, -233.358)]
+"values": [Vector2(0, 0), Vector2(168.439, -272.082)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1039,7 +1035,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0.05, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.3, 1.3)]
+"values": [Vector2(0, 0), Vector2(1.5, 1.5)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -1063,7 +1059,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0.1, 0.45),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(227.489, -135.918)]
+"values": [Vector2(0, 0), Vector2(279.554, -155.724)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -1075,7 +1071,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0.1, 0.45),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.3, 1.3)]
+"values": [Vector2(0, 0), Vector2(1.5, 1.5)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -1099,7 +1095,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0.15, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(265, -6.49041e-14)]
+"values": [Vector2(0, 0), Vector2(320, -7.83748e-14)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -1111,7 +1107,7 @@ tracks/10/keys = {
 "times": PackedFloat32Array(0.15, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.3, 1.3)]
+"values": [Vector2(0, 0), Vector2(1.5, 1.5)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -1135,7 +1131,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0.2, 0.55),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(227.489, 135.918)]
+"values": [Vector2(0, 0), Vector2(279.554, 155.724)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -1147,7 +1143,7 @@ tracks/13/keys = {
 "times": PackedFloat32Array(0.2, 0.55),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.3, 1.3)]
+"values": [Vector2(0, 0), Vector2(1.5, 1.5)]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
@@ -1171,7 +1167,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0.25, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(125.575, 233.358)]
+"values": [Vector2(0, 0), Vector2(168.439, 272.082)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -1183,7 +1179,7 @@ tracks/16/keys = {
 "times": PackedFloat32Array(0.25, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.3, 1.3)]
+"values": [Vector2(0, 0), Vector2(1.5, 1.5)]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
@@ -1207,7 +1203,7 @@ tracks/18/keys = {
 "times": PackedFloat32Array(0.3, 0.65),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-11.8892, 264.733)]
+"values": [Vector2(0, 0), Vector2(14.7441, 319.66)]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
@@ -1219,7 +1215,7 @@ tracks/19/keys = {
 "times": PackedFloat32Array(0.3, 0.65),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.3, 1.3)]
+"values": [Vector2(0, 0), Vector2(1.5, 1.5)]
 }
 tracks/20/type = "value"
 tracks/20/imported = false
@@ -1584,15 +1580,62 @@ script = ExtResource("3_2i1fh")
 process_mode = 3
 layer = 50
 
+[node name="ShopButton" type="Panel" parent="PopupCanvas"]
+offset_left = -24.0
+offset_top = 16.0
+offset_right = 330.0
+offset_bottom = 141.0
+theme = ExtResource("14_rueps")
+
+[node name="Shop" type="HBoxContainer" parent="PopupCanvas/ShopButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.5
+offset_top = -49.5
+offset_right = 149.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="ShopButton" type="TextureButton" parent="PopupCanvas/ShopButton/Shop"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("8_nev1w")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PopupCanvas/ShopButton/Shop"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "123 456"
+label_settings = SubResource("LabelSettings_yj1tm")
+vertical_alignment = 1
+
+[node name="GoldIcon" type="TextureRect" parent="PopupCanvas/ShopButton/Shop"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("8_nev1w")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Pause" type="Button" parent="PopupCanvas"]
 custom_minimum_size = Vector2(100, 100)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -88.0
-offset_top = 8.0
-offset_right = 12.0
-offset_bottom = 108.0
+offset_left = -120.0
+offset_top = 16.0
+offset_right = 10.0
+offset_bottom = 146.0
 grow_horizontal = 0
 scale = Vector2(0.8, 0.8)
 theme = ExtResource("14_rueps")
@@ -2607,69 +2650,41 @@ libraries = {
 }
 
 [node name="HUD" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="PowerUpPanel" type="Panel" parent="HUD"]
-offset_left = 8.0
-offset_top = -24.0
-offset_right = 776.0
-offset_bottom = 104.0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -364.0
+offset_right = 129.0
+offset_bottom = 140.0
+grow_vertical = 2
 theme = ExtResource("14_rueps")
 script = ExtResource("28_a1ofm")
 
-[node name="Container" type="HBoxContainer" parent="HUD/PowerUpPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/PowerUpPanel"]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -96.0
-offset_right = 768.0
-offset_bottom = -14.0
-grow_vertical = 0
-theme_override_constants/separation = 24
-
-[node name="VSeparator" type="VSeparator" parent="HUD/PowerUpPanel/Container"]
-layout_mode = 2
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -232.0
+offset_right = -13.0
+offset_bottom = 236.0
+grow_horizontal = 0
+grow_vertical = 2
 theme_override_constants/separation = 10
-theme_override_styles/separator = SubResource("StyleBoxEmpty_g3tcd")
 
-[node name="Shop" type="HBoxContainer" parent="HUD/PowerUpPanel/Container"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-
-[node name="ShopButton" type="TextureButton" parent="HUD/PowerUpPanel/Container/Shop"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-texture_normal = ExtResource("8_nev1w")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="HUD/PowerUpPanel/Container/Shop"]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_kqf4f")
-text = "123 456"
-label_settings = SubResource("LabelSettings_yj1tm")
-vertical_alignment = 1
-
-[node name="GoldIcon" type="TextureRect" parent="HUD/PowerUpPanel/Container/Shop"]
-modulate = Color(0, 0, 0, 1)
-custom_minimum_size = Vector2(42, 42)
-layout_mode = 2
-texture = ExtResource("8_nev1w")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="VSeparator4" type="VSeparator" parent="HUD/PowerUpPanel/Container"]
-layout_mode = 2
-
-[node name="Precision Shot" type="Button" parent="HUD/PowerUpPanel/Container" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
-custom_minimum_size = Vector2(82, 82)
+[node name="Precision Shot" type="Button" parent="HUD/PowerUpPanel/VBoxContainer" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("14_rueps")
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_hld0g"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(83, 83),"layout_direction":0,"layout_mode":1,"anchors_preset":8,"anchor_left":0.5,"anchor_top":0.5,"anchor_right":0.5,"anchor_bottom":0.5,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_lunyl"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
+icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_hld0g"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(83, 83),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_lunyl"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
 
 icon_alignment = 1
 script = ExtResource("29_vc8lb")
@@ -2679,22 +2694,20 @@ highlight = NodePath("Highlight")
 icon = NodePath("Icon")
 particle_controller = NodePath("Particles")
 
-[node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/Container/Precision Shot"]
+[node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot"]
 material = SubResource("ShaderMaterial_hld0g")
 custom_minimum_size = Vector2(83, 83)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_lunyl")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Particles" type="Control" parent="HUD/PowerUpPanel/Container/Precision Shot"]
+[node name="Particles" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2703,7 +2716,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("22_50gyi")
 
-[node name="ControlD" type="Control" parent="HUD/PowerUpPanel/Container/Precision Shot/Particles"]
+[node name="ControlD" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot/Particles"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -2713,18 +2726,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Precision Shot/Particles/ControlD"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot/Particles/ControlD"]
 emitting = false
 amount = 12
 lifetime = 0.4
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(45, 5)
+emission_rect_extents = Vector2(50, 5)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlL" type="Control" parent="HUD/PowerUpPanel/Container/Precision Shot/Particles"]
+[node name="ControlL" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot/Particles"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -2733,36 +2746,36 @@ offset_top = -4.0
 offset_bottom = -4.0
 grow_vertical = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Precision Shot/Particles/ControlL"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot/Particles/ControlL"]
 emitting = false
 amount = 12
 lifetime = 0.7
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(5, 30)
+emission_rect_extents = Vector2(5, 35)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlU" type="Control" parent="HUD/PowerUpPanel/Container/Precision Shot/Particles"]
+[node name="ControlU" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot/Particles"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Precision Shot/Particles/ControlU"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot/Particles/ControlU"]
 emitting = false
 amount = 10
 lifetime = 0.5
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(30, 5)
+emission_rect_extents = Vector2(35, 5)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlR" type="Control" parent="HUD/PowerUpPanel/Container/Precision Shot/Particles"]
+[node name="ControlR" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot/Particles"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -2774,18 +2787,18 @@ offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Precision Shot/Particles/ControlR"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot/Particles/ControlR"]
 emitting = false
 amount = 12
 lifetime = 0.7
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(5, 30)
+emission_rect_extents = Vector2(5, 35)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="Amount" type="Label" parent="HUD/PowerUpPanel/Container/Precision Shot"]
+[node name="Amount" type="Label" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot"]
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 1
 anchors_preset = 3
@@ -2807,7 +2820,7 @@ label_settings = SubResource("LabelSettings_p0jsf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/Container/Precision Shot"]
+[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot"]
 modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
 layout_mode = 1
@@ -2823,16 +2836,17 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_eob0k")
 expand_mode = 1
 
-[node name="VSeparator5" type="VSeparator" parent="HUD/PowerUpPanel/Container"]
+[node name="VSeparator5" type="HSeparator" parent="HUD/PowerUpPanel/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
-[node name="Explosive" type="Button" parent="HUD/PowerUpPanel/Container" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
-custom_minimum_size = Vector2(82, 82)
+[node name="Explosive" type="Button" parent="HUD/PowerUpPanel/VBoxContainer" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("14_rueps")
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_dgy7f"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(70, 70),"layout_direction":0,"layout_mode":1,"anchors_preset":8,"anchor_left":0.5,"anchor_top":0.5,"anchor_right":0.5,"anchor_bottom":0.5,"offset_left":-15.75,"offset_top":0.0,"offset_right":15.75,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_vq3ra"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
+icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_dgy7f"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(84, 84),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":5.0,"offset_top":5.0,"offset_right":-5.0,"offset_bottom":-5.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_vq3ra"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
 
 script = ExtResource("29_vc8lb")
 powerUp_panel = NodePath("../..")
@@ -2842,24 +2856,24 @@ icon = NodePath("Icon")
 particle_controller = NodePath("Particles")
 type = 1
 
-[node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/Container/Explosive"]
+[node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/Explosive"]
 material = SubResource("ShaderMaterial_dgy7f")
-custom_minimum_size = Vector2(70, 70)
+custom_minimum_size = Vector2(84, 84)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -15.75
-offset_right = 15.75
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_vq3ra")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Particles" type="Control" parent="HUD/PowerUpPanel/Container/Explosive"]
+[node name="Particles" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Explosive"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2868,7 +2882,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("22_50gyi")
 
-[node name="ControlD" type="Control" parent="HUD/PowerUpPanel/Container/Explosive/Particles"]
+[node name="ControlD" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Explosive/Particles"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -2878,18 +2892,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Explosive/Particles/ControlD"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Explosive/Particles/ControlD"]
 emitting = false
 amount = 12
 lifetime = 0.4
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(45, 5)
+emission_rect_extents = Vector2(50, 5)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlL" type="Control" parent="HUD/PowerUpPanel/Container/Explosive/Particles"]
+[node name="ControlL" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Explosive/Particles"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -2898,36 +2912,36 @@ offset_top = -4.0
 offset_bottom = -4.0
 grow_vertical = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Explosive/Particles/ControlL"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Explosive/Particles/ControlL"]
 emitting = false
 amount = 12
 lifetime = 0.7
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(5, 30)
+emission_rect_extents = Vector2(5, 35)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlU" type="Control" parent="HUD/PowerUpPanel/Container/Explosive/Particles"]
+[node name="ControlU" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Explosive/Particles"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Explosive/Particles/ControlU"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Explosive/Particles/ControlU"]
 emitting = false
 amount = 10
 lifetime = 0.5
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(30, 5)
+emission_rect_extents = Vector2(35, 5)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlR" type="Control" parent="HUD/PowerUpPanel/Container/Explosive/Particles"]
+[node name="ControlR" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Explosive/Particles"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -2939,18 +2953,18 @@ offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Explosive/Particles/ControlR"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Explosive/Particles/ControlR"]
 emitting = false
 amount = 12
 lifetime = 0.7
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(5, 30)
+emission_rect_extents = Vector2(5, 35)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="Amount" type="Label" parent="HUD/PowerUpPanel/Container/Explosive"]
+[node name="Amount" type="Label" parent="HUD/PowerUpPanel/VBoxContainer/Explosive"]
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 1
 anchors_preset = 3
@@ -2971,7 +2985,7 @@ label_settings = SubResource("LabelSettings_p0jsf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/Container/Explosive"]
+[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/Explosive"]
 modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
 layout_mode = 1
@@ -2987,13 +3001,13 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_3qcub")
 expand_mode = 1
 
-[node name="Metal" type="Button" parent="HUD/PowerUpPanel/Container" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
-custom_minimum_size = Vector2(82, 82)
+[node name="Metal" type="Button" parent="HUD/PowerUpPanel/VBoxContainer" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("14_rueps")
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_rkfne"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(70, 70),"layout_direction":0,"layout_mode":1,"anchors_preset":8,"anchor_left":0.5,"anchor_top":0.5,"anchor_right":0.5,"anchor_bottom":0.5,"offset_left":-35.0,"offset_top":-35.0,"offset_right":35.0,"offset_bottom":35.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_60jng"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
+icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_rkfne"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(70, 70),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":8.0,"offset_top":8.0,"offset_right":-8.0,"offset_bottom":-8.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_60jng"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
 
 script = ExtResource("29_vc8lb")
 powerUp_panel = NodePath("../..")
@@ -3003,26 +3017,24 @@ icon = NodePath("Icon")
 particle_controller = NodePath("Particles")
 type = 1
 
-[node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/Container/Metal"]
+[node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/Metal"]
 material = SubResource("ShaderMaterial_rkfne")
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -35.0
-offset_top = -35.0
-offset_right = 35.0
-offset_bottom = 35.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_60jng")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Particles" type="Control" parent="HUD/PowerUpPanel/Container/Metal"]
+[node name="Particles" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Metal"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -3031,7 +3043,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("22_50gyi")
 
-[node name="ControlD" type="Control" parent="HUD/PowerUpPanel/Container/Metal/Particles"]
+[node name="ControlD" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Metal/Particles"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -3041,18 +3053,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Metal/Particles/ControlD"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Metal/Particles/ControlD"]
 emitting = false
 amount = 12
 lifetime = 0.4
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(45, 5)
+emission_rect_extents = Vector2(50, 5)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlL" type="Control" parent="HUD/PowerUpPanel/Container/Metal/Particles"]
+[node name="ControlL" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Metal/Particles"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -3061,36 +3073,36 @@ offset_top = -4.0
 offset_bottom = -4.0
 grow_vertical = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Metal/Particles/ControlL"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Metal/Particles/ControlL"]
 emitting = false
 amount = 12
 lifetime = 0.7
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(5, 30)
+emission_rect_extents = Vector2(5, 35)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlU" type="Control" parent="HUD/PowerUpPanel/Container/Metal/Particles"]
+[node name="ControlU" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Metal/Particles"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Metal/Particles/ControlU"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Metal/Particles/ControlU"]
 emitting = false
 amount = 10
 lifetime = 0.5
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(30, 5)
+emission_rect_extents = Vector2(35, 5)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlR" type="Control" parent="HUD/PowerUpPanel/Container/Metal/Particles"]
+[node name="ControlR" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Metal/Particles"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -3102,18 +3114,18 @@ offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Metal/Particles/ControlR"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Metal/Particles/ControlR"]
 emitting = false
 amount = 12
 lifetime = 0.7
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(5, 30)
+emission_rect_extents = Vector2(5, 35)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="Amount" type="Label" parent="HUD/PowerUpPanel/Container/Metal"]
+[node name="Amount" type="Label" parent="HUD/PowerUpPanel/VBoxContainer/Metal"]
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 1
 anchors_preset = 3
@@ -3134,7 +3146,7 @@ label_settings = SubResource("LabelSettings_p0jsf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/Container/Metal"]
+[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/Metal"]
 modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
 layout_mode = 1
@@ -3150,13 +3162,13 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_np6p6")
 expand_mode = 1
 
-[node name="Paint" type="Button" parent="HUD/PowerUpPanel/Container" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
-custom_minimum_size = Vector2(82, 82)
+[node name="Paint" type="Button" parent="HUD/PowerUpPanel/VBoxContainer" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("14_rueps")
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_psl2w"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(70, 70),"layout_direction":0,"layout_mode":1,"anchors_preset":8,"anchor_left":0.5,"anchor_top":0.5,"anchor_right":0.5,"anchor_bottom":0.5,"offset_left":-35.0,"offset_top":-35.0,"offset_right":35.0,"offset_bottom":35.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_icg8l"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
+icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_psl2w"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(70, 70),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":9.0,"offset_top":9.0,"offset_right":-9.0,"offset_bottom":-9.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_icg8l"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
 
 script = ExtResource("29_vc8lb")
 powerUp_panel = NodePath("../..")
@@ -3166,26 +3178,24 @@ icon = NodePath("Icon")
 particle_controller = NodePath("Particles")
 type = 1
 
-[node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/Container/Paint"]
+[node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/Paint"]
 material = SubResource("ShaderMaterial_psl2w")
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -35.0
-offset_top = -35.0
-offset_right = 35.0
-offset_bottom = 35.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = -9.0
+offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_icg8l")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Particles" type="Control" parent="HUD/PowerUpPanel/Container/Paint"]
+[node name="Particles" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Paint"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -3194,7 +3204,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("22_50gyi")
 
-[node name="ControlD" type="Control" parent="HUD/PowerUpPanel/Container/Paint/Particles"]
+[node name="ControlD" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Paint/Particles"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -3204,18 +3214,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Paint/Particles/ControlD"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Paint/Particles/ControlD"]
 emitting = false
 amount = 12
 lifetime = 0.4
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(45, 5)
+emission_rect_extents = Vector2(50, 5)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlL" type="Control" parent="HUD/PowerUpPanel/Container/Paint/Particles"]
+[node name="ControlL" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Paint/Particles"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -3224,36 +3234,36 @@ offset_top = -4.0
 offset_bottom = -4.0
 grow_vertical = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Paint/Particles/ControlL"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Paint/Particles/ControlL"]
 emitting = false
 amount = 12
 lifetime = 0.7
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(5, 30)
+emission_rect_extents = Vector2(5, 35)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlU" type="Control" parent="HUD/PowerUpPanel/Container/Paint/Particles"]
+[node name="ControlU" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Paint/Particles"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Paint/Particles/ControlU"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Paint/Particles/ControlU"]
 emitting = false
 amount = 10
 lifetime = 0.5
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(30, 5)
+emission_rect_extents = Vector2(35, 5)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlR" type="Control" parent="HUD/PowerUpPanel/Container/Paint/Particles"]
+[node name="ControlR" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Paint/Particles"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -3265,18 +3275,18 @@ offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/Container/Paint/Particles/ControlR"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Paint/Particles/ControlR"]
 emitting = false
 amount = 12
 lifetime = 0.7
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(5, 30)
+emission_rect_extents = Vector2(5, 35)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="Amount" type="Label" parent="HUD/PowerUpPanel/Container/Paint"]
+[node name="Amount" type="Label" parent="HUD/PowerUpPanel/VBoxContainer/Paint"]
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 1
 anchors_preset = 3
@@ -3298,7 +3308,7 @@ label_settings = SubResource("LabelSettings_p0jsf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/Container/Paint"]
+[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/Paint"]
 modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
 layout_mode = 1
@@ -3314,43 +3324,24 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_yj0fc")
 expand_mode = 1
 
-[node name="VSeparator6" type="VSeparator" parent="HUD/PowerUpPanel/Container"]
-layout_mode = 2
-theme_override_constants/separation = 10
-theme_override_styles/separator = SubResource("StyleBoxEmpty_jku4u")
-
-[node name="ProgressBar" type="ProgressBar" parent="HUD"]
-visible = false
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -128.0
-offset_top = 32.0
-offset_right = 128.0
-offset_bottom = 59.0
-grow_horizontal = 2
-
 [node name="ScorePanel" type="Panel" parent="HUD"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 16.0
-offset_top = -24.0
-offset_right = 704.0
-offset_bottom = 104.0
+offset_left = -232.0
+offset_top = 16.0
+offset_right = 456.0
+offset_bottom = 120.0
 grow_horizontal = 2
 theme = ExtResource("14_rueps")
 
 [node name="ScoreDisplay" type="HBoxContainer" parent="HUD/ScorePanel"]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -104.0
-offset_bottom = -11.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 theme_override_constants/separation = 60
 alignment = 1
 script = ExtResource("8_puymx")
@@ -3431,6 +3422,7 @@ rectFalse = Vector2(306, 0)
 
 [node name="LevelSelectCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 
 [node name="Background" type="TextureRect" parent="LevelSelectCanvas"]
 show_behind_parent = true
@@ -3570,7 +3562,7 @@ libraries = {
 [node name="DestroyContainer" type="Node2D" parent="."]
 
 [node name="Sling" type="Node2D" parent="."]
-position = Vector2(-1216, 256)
+position = Vector2(-1216, 312)
 script = ExtResource("2_jejid")
 bubble_prefabs = Array[PackedScene]([ExtResource("5_icqf6"), ExtResource("6_rw0qp"), ExtResource("7_nrvhg"), ExtResource("8_pwao1")])
 shoot_strength = 7.5
@@ -3581,6 +3573,7 @@ button_prefab = ExtResource("5_2nx2p")
 
 [node name="Art" type="Sprite2D" parent="Sling"]
 z_index = -5
+scale = Vector2(1.17633, 1.17633)
 texture = ExtResource("36_78ule")
 
 [node name="TrajectoryPreview" type="Node2D" parent="Sling"]
@@ -3639,10 +3632,10 @@ scale = Vector2(0.36, 0.36)
 shape = SubResource("CircleShape2D_ej865")
 
 [node name="ColorSelectButton" type="TextureButton" parent="Sling"]
-offset_left = -177.0
-offset_top = -179.0
-offset_right = -58.0
-offset_bottom = -56.0
+offset_left = -207.5
+offset_top = -211.5
+offset_right = -68.5
+offset_bottom = -65.5
 texture_normal = ExtResource("45_puaac")
 ignore_texture_size = true
 stretch_mode = 5
@@ -3660,24 +3653,26 @@ mouse_force_pass_scroll_events = false
 script = ExtResource("14_rlae7")
 animator = NodePath("../AnimationPlayer")
 buttons = [NodePath("ColorButton1/Marker2D/TextureButton"), NodePath("ColorButton2/Marker2D/TextureButton"), NodePath("ColorButton3/Marker2D/TextureButton"), NodePath("ColorButton4/Marker2D/TextureButton"), NodePath("ColorButton5/Marker2D/TextureButton"), NodePath("ColorButton6/Marker2D/TextureButton"), NodePath("ColorButton7/Marker2D/TextureButton")]
-max_radius = 330.0
-min_radius = 200.0
+max_radius = 390.0
+min_radius = 250.0
 origin = -180.0
-split_angle = 72.0
+split_angle = 78.081
+points = Array[Vector2]([Vector2(14.7441, -319.66), Vector2(168.439, -272.082), Vector2(279.554, -155.724), Vector2(320, -7.83748e-14), Vector2(279.554, 155.724), Vector2(168.439, 272.082), Vector2(14.7441, 319.66)])
 
 [node name="ColorButton1" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
-rotation = 1.52592
+rotation = 1.61689
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("47_6tkc1")
 offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
+id = null
 target = NodePath("../..")
 
 [node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton1"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton1/Marker2D"]
-rotation = -1.52592
+rotation = -1.61689
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_ku3hc")
 script = ExtResource("49_7fkp4")
@@ -3704,17 +3699,18 @@ modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
 [node name="ColorButton2" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
-rotation = 2.06448
+rotation = 2.12512
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("47_6tkc1")
 offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
+id = 1
 target = NodePath("../..")
 
 [node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton2"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton2/Marker2D"]
-rotation = -2.06448
+rotation = -2.12512
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_783pr")
 script = ExtResource("49_7fkp4")
@@ -3741,17 +3737,18 @@ modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
 [node name="ColorButton3" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
-rotation = 2.60303
+rotation = 2.63336
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("47_6tkc1")
 offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
+id = 2
 target = NodePath("../..")
 
 [node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton3"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton3/Marker2D"]
-rotation = -2.60303
+rotation = -2.63336
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_bxwxx")
 script = ExtResource("49_7fkp4")
@@ -3783,12 +3780,13 @@ scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("47_6tkc1")
 offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
+id = 3
 target = NodePath("../..")
 
 [node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton4"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton4/Marker2D"]
-rotation = -3.14159
+rotation = 3.14159
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_4bwlr")
 script = ExtResource("49_7fkp4")
@@ -3815,17 +3813,18 @@ modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
 [node name="ColorButton5" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
-rotation = 3.68015
+rotation = 3.64983
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("47_6tkc1")
 offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
+id = 4
 target = NodePath("../..")
 
 [node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton5"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton5/Marker2D"]
-rotation = 2.60304
+rotation = 2.63336
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_crhhx")
 script = ExtResource("49_7fkp4")
@@ -3852,17 +3851,18 @@ modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
 [node name="ColorButton6" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
-rotation = 4.21871
+rotation = 4.15806
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("47_6tkc1")
 offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
+id = 5
 target = NodePath("../..")
 
 [node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton6"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton6/Marker2D"]
-rotation = 2.06448
+rotation = 2.12512
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_bnnt7")
 script = ExtResource("49_7fkp4")
@@ -3889,17 +3889,18 @@ modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
 [node name="ColorButton7" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
-rotation = -1.52592
+rotation = -1.61689
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("47_6tkc1")
 offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
+id = 6
 target = NodePath("../..")
 
 [node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton7"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton7/Marker2D"]
-rotation = 1.52592
+rotation = 1.61689
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_0vj8o")
 script = ExtResource("49_7fkp4")
@@ -3928,10 +3929,10 @@ modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 anchors_preset = -1
 anchor_right = 0.415625
 anchor_bottom = 0.133333
-offset_left = -176.0
-offset_top = 72.0
-offset_right = -63.0
-offset_bottom = 168.0
+offset_left = -193.5
+offset_top = 88.5
+offset_right = -80.5
+offset_bottom = 184.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 60
@@ -3963,6 +3964,7 @@ position = Vector2(2800, -1648)
 shape = SubResource("RectangleShape2D_kkwav")
 
 [connection signal="value_changed" from="CameraSystem/CameraBounds" to="CameraSystem/Camera2D" method="_on_camera_bounds_value_changed"]
+[connection signal="button_down" from="PopupCanvas/ShopButton/Shop/ShopButton" to="PopupCanvas/ShopPanel" method="_on_shop_button_button_down"]
 [connection signal="button_down" from="PopupCanvas/Pause" to="PopupCanvas/PausePanel" method="_on_pause_button_down"]
 [connection signal="button_down" from="PopupCanvas/ReportScreen/Buttons/LevelSelect" to="PopupCanvas/ReportScreen" method="_on_level_select_button_down"]
 [connection signal="button_down" from="PopupCanvas/ReportScreen/Buttons/Retry" to="PopupCanvas/ReportScreen" method="_on_retry_button_down"]
@@ -3982,15 +3984,14 @@ shape = SubResource("RectangleShape2D_kkwav")
 [connection signal="button_down" from="PopupCanvas/ShopPanel/CloseButton" to="PopupCanvas/ShopPanel" method="_on_close_button_button_down"]
 [connection signal="deselect_projectile" from="HUD/PowerUpPanel" to="Sling" method="_on_consumable_panel_deselect_projectile"]
 [connection signal="deselect_shootmode" from="HUD/PowerUpPanel" to="Sling" method="_on_consumable_panel_deselect_shootmode"]
-[connection signal="button_down" from="HUD/PowerUpPanel/Container/Shop/ShopButton" to="PopupCanvas/ShopPanel" method="_on_shop_button_button_down"]
-[connection signal="button_down" from="HUD/PowerUpPanel/Container/Precision Shot" to="HUD/PowerUpPanel/Container/Precision Shot" method="_on_button_down"]
-[connection signal="selected" from="HUD/PowerUpPanel/Container/Precision Shot" to="Sling" method="_on_precision_shot_selected"]
-[connection signal="button_down" from="HUD/PowerUpPanel/Container/Explosive" to="HUD/PowerUpPanel/Container/Explosive" method="_on_button_down"]
-[connection signal="selected" from="HUD/PowerUpPanel/Container/Explosive" to="Sling" method="_on_explosive_selected"]
-[connection signal="button_down" from="HUD/PowerUpPanel/Container/Metal" to="HUD/PowerUpPanel/Container/Metal" method="_on_button_down"]
-[connection signal="selected" from="HUD/PowerUpPanel/Container/Metal" to="Sling" method="_on_metal_selected"]
-[connection signal="button_down" from="HUD/PowerUpPanel/Container/Paint" to="HUD/PowerUpPanel/Container/Paint" method="_on_button_down"]
-[connection signal="selected" from="HUD/PowerUpPanel/Container/Paint" to="Sling" method="_on_paint_selected"]
+[connection signal="button_down" from="HUD/PowerUpPanel/VBoxContainer/Precision Shot" to="HUD/PowerUpPanel/VBoxContainer/Precision Shot" method="_on_button_down"]
+[connection signal="selected" from="HUD/PowerUpPanel/VBoxContainer/Precision Shot" to="Sling" method="_on_precision_shot_selected"]
+[connection signal="button_down" from="HUD/PowerUpPanel/VBoxContainer/Explosive" to="HUD/PowerUpPanel/VBoxContainer/Explosive" method="_on_button_down"]
+[connection signal="selected" from="HUD/PowerUpPanel/VBoxContainer/Explosive" to="Sling" method="_on_explosive_selected"]
+[connection signal="button_down" from="HUD/PowerUpPanel/VBoxContainer/Metal" to="HUD/PowerUpPanel/VBoxContainer/Metal" method="_on_button_down"]
+[connection signal="selected" from="HUD/PowerUpPanel/VBoxContainer/Metal" to="Sling" method="_on_metal_selected"]
+[connection signal="button_down" from="HUD/PowerUpPanel/VBoxContainer/Paint" to="HUD/PowerUpPanel/VBoxContainer/Paint" method="_on_button_down"]
+[connection signal="selected" from="HUD/PowerUpPanel/VBoxContainer/Paint" to="Sling" method="_on_paint_selected"]
 [connection signal="button_down" from="LevelSelectCanvas/Previous" to="LevelSelectCanvas/LevelSelect" method="_on_previous_button_down"]
 [connection signal="button_down" from="LevelSelectCanvas/Next" to="LevelSelectCanvas/LevelSelect" method="_on_next_button_down"]
 [connection signal="input_event" from="Sling/PickupRadius" to="Sling/PickupRadius" method="_on_input_event"]

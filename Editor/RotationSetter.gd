@@ -2,6 +2,7 @@
 extends Node2D
 class_name ColorButton
 
+@export var id : int
 
 @export var target : Node2D
 @export var _rotate : bool = false :
