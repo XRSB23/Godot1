@@ -3666,7 +3666,6 @@ scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("47_6tkc1")
 offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
-id = null
 target = NodePath("../..")
 
 [node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton1"]
