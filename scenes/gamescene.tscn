@@ -2635,14 +2635,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -360.0
 offset_top = -776.0
-offset_right = 360.0
+offset_right = 673560.0
 offset_bottom = 784.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(1320, 1320)
 mouse_filter = 2
 texture = SubResource("GradientTexture1D_6ivos")
-expand_mode = 4
+expand_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionCanvas"]
 libraries = {
@@ -2650,6 +2650,7 @@ libraries = {
 }
 
 [node name="HUD" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PowerUpPanel" type="Panel" parent="HUD"]
 anchors_preset = 4
@@ -3422,7 +3423,6 @@ rectFalse = Vector2(306, 0)
 
 [node name="LevelSelectCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
-visible = false
 
 [node name="Background" type="TextureRect" parent="LevelSelectCanvas"]
 show_behind_parent = true
@@ -3785,7 +3785,7 @@ target = NodePath("../..")
 [node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton4"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton4/Marker2D"]
-rotation = 3.14159
+rotation = -3.14159
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_4bwlr")
 script = ExtResource("49_7fkp4")
@@ -3861,7 +3861,7 @@ target = NodePath("../..")
 [node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton6"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton6/Marker2D"]
-rotation = 2.12512
+rotation = 2.12513
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_bnnt7")
 script = ExtResource("49_7fkp4")

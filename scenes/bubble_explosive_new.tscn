@@ -420,7 +420,7 @@ linear_damp_mode = 1
 angular_damp_mode = 1
 angular_damp = 0.4
 script = ExtResource("1_g4rna")
-effect_radius = 3
+effect_radius = 6
 is_basic = false
 angular_impulse = 6.0
 
