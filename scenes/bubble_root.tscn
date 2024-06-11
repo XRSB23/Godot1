@@ -1,32 +1,44 @@
-[gd_scene load_steps=22 format=3 uid="uid://c3w1tltsk73hb"]
+[gd_scene load_steps=32 format=3 uid="uid://cixp0wridt6lu"]
 
-[ext_resource type="Script" path="res://Scripts/Bubble/Bubble_Metal.gd" id="1_h3sip"]
-[ext_resource type="Texture2D" uid="uid://cyo7nva76v510" path="res://Art/Bubble/SpecialBubbles.svg" id="2_qkcxu"]
-[ext_resource type="Texture2D" uid="uid://cvvalvnxooypg" path="res://Art/Bubble/FragmentSpecial.svg" id="3_afkk5"]
-[ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/particleStar4.svg" id="7_rce60"]
-[ext_resource type="Script" path="res://Scripts/Bubble/TrailParticles.gd" id="8_e5kjr"]
-[ext_resource type="Texture2D" uid="uid://ct0n0s212lh1r" path="res://Art/Bubble/particleStar5.svg" id="9_d2dux"]
-[ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="10_6il74"]
-[ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/trail_shader_material.tres" id="11_t3nit"]
-[ext_resource type="Script" path="res://addons/trail2D_plugin/Trail2D.gd" id="12_vllgc"]
+[ext_resource type="Script" path="res://Scripts/Bubble/Bubble.gd" id="1_kstin"]
+[ext_resource type="Texture2D" uid="uid://bfmfr7tv11ykp" path="res://Art/Bubble/Gems.svg" id="2_iv44r"]
+[ext_resource type="Script" path="res://Scripts/Bubble/BubbleParticleSystem.gd" id="3_3b1th"]
+[ext_resource type="Texture2D" uid="uid://ttyw5anbspan" path="res://Art/Bubble/GemsShine.svg" id="3_bj3rh"]
+[ext_resource type="Texture2D" uid="uid://c6sk0w7i560do" path="res://Art/Bubble/Fragment1.svg" id="4_l67cd"]
+[ext_resource type="Script" path="res://Scripts/Bubble/ParticlesAtlasCoordinates.gd" id="5_balq6"]
+[ext_resource type="Texture2D" uid="uid://dyxu758m1wig7" path="res://Art/Bubble/Fragment2.svg" id="6_ob1on"]
+[ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/particleStar4.svg" id="7_qb1o2"]
+[ext_resource type="Script" path="res://Scripts/Bubble/TrailParticles.gd" id="8_xdgk7"]
+[ext_resource type="Texture2D" uid="uid://ct0n0s212lh1r" path="res://Art/Bubble/particleStar5.svg" id="9_eojx2"]
+[ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="10_7mw2i"]
+[ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/trail_shader_material.tres" id="11_ivvow"]
+[ext_resource type="Script" path="res://addons/trail2D_plugin/Trail2D.gd" id="12_mqaht"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fyk6a"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o55xo"]
 radius = 52.0384
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bxtkl"]
-atlas = ExtResource("3_afkk5")
-region = Rect2(0, 0, 512, 512)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjrhs"]
+resource_local_to_scene = true
+atlas = ExtResource("4_l67cd")
+region = Rect2(571, 144, 400, 246)
 
 [sub_resource type="Curve" id="Curve_t2dma"]
 _data = [Vector2(0.59322, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.30981, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_is56f"]
-atlas = ExtResource("3_afkk5")
-region = Rect2(512, 0, 512, 512)
+[sub_resource type="AtlasTexture" id="AtlasTexture_24rqh"]
+resource_local_to_scene = true
+atlas = ExtResource("6_ob1on")
+region = Rect2(621, 165, 289, 220)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4h4d"]
-atlas = ExtResource("7_rce60")
+atlas = ExtResource("7_qb1o2")
 region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5v3if"]
@@ -39,6 +51,16 @@ particles_anim_loop = false
 [sub_resource type="Curve" id="Curve_c3tev"]
 _data = [Vector2(0, 1), 0.0, 1.4, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nk132"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_vmun0"]
+_data = [Vector2(0, 1), 0.0, -0.0428956, 0, 0, Vector2(0.447653, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.00147712), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="Animation" id="Animation_miwir"]
 resource_name = "Burst"
@@ -128,7 +150,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(0.241, 1),
 "update": 0,
-"values": [Vector2(1.57, 1.57), Vector2(2.355, 2.355)]
+"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -215,7 +237,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1.57, 1.57)]
+"values": [Vector2(1, 1)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -229,24 +251,63 @@ tracks/6/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Shine:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_2njfx"]
+resource_name = "Shine"
+length = 5.5
+loop_mode = 1
+step = 0.03
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shine:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21, 0.24),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mqw2o"]
 _data = {
 "Burst": SubResource("Animation_miwir"),
-"RESET": SubResource("Animation_b0ysj")
+"RESET": SubResource("Animation_b0ysj"),
+"Shine": SubResource("Animation_2njfx")
 }
 
 [sub_resource type="Curve" id="Curve_ulcjw"]
 _data = [Vector2(0, 1), 0.0, -0.151722, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6auqj"]
-radius = 59.6657
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_47ugs"]
+animation = &"Shine"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kthxu"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_i3umb"]
+states/Shine/node = SubResource("AnimationNodeAnimation_47ugs")
+states/Shine/position = Vector2(479, 100)
+states/Start/position = Vector2(257, 100)
+transitions = ["Start", "Shine", SubResource("AnimationNodeStateMachineTransition_kthxu")]
 
 [node name="Bubble" type="RigidBody2D"]
-z_index = 1
-collision_layer = 8
-collision_mask = 2
+material = SubResource("CanvasItemMaterial_fyk6a")
+collision_mask = 3
 lock_rotation = true
 freeze = true
 continuous_cd = 2
@@ -254,34 +315,36 @@ max_contacts_reported = 1
 contact_monitor = true
 linear_damp_mode = 1
 angular_damp_mode = 1
-script = ExtResource("1_h3sip")
-destroy_amount = 16
-is_basic = false
-angular_impulse = 4.0
+script = ExtResource("1_kstin")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.57, 1.57)
-texture = ExtResource("2_qkcxu")
+texture = ExtResource("2_iv44r")
 hframes = 4
 vframes = 2
 frame = 1
+
+[node name="Shine" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("3_bj3rh")
+hframes = 4
+vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CircleShape2D_o55xo")
 
 [node name="ParticleSystem" type="Node2D" parent="."]
+script = ExtResource("3_3b1th")
 
 [node name="Fragment1" type="CPUParticles2D" parent="ParticleSystem"]
 z_index = 4
 emitting = false
 amount = 3
-lifetime = 1.2
 one_shot = true
 explosiveness = 1.0
 lifetime_randomness = 0.5
 local_coords = true
-texture = SubResource("AtlasTexture_bxtkl")
+texture = SubResource("AtlasTexture_gjrhs")
 direction = Vector2(0, -2)
 spread = 132.59
 gravity = Vector2(0, 100)
@@ -289,9 +352,14 @@ initial_velocity_min = 80.0
 initial_velocity_max = 130.0
 angular_velocity_min = -360.0
 angular_velocity_max = 360.0
-scale_amount_min = 0.15
-scale_amount_max = 0.2
+scale_amount_min = 0.1
+scale_amount_max = 0.15
 scale_amount_curve = SubResource("Curve_t2dma")
+script = ExtResource("5_balq6")
+offset = Vector2(58, 144)
+spacing = Vector2(512, 513)
+hframe = 4
+vframe = 2
 
 [node name="Fragment2" type="CPUParticles2D" parent="ParticleSystem"]
 z_index = 3
@@ -301,7 +369,7 @@ one_shot = true
 explosiveness = 1.0
 lifetime_randomness = 0.5
 local_coords = true
-texture = SubResource("AtlasTexture_is56f")
+texture = SubResource("AtlasTexture_24rqh")
 direction = Vector2(0, -2)
 spread = 180.0
 gravity = Vector2(0, 100)
@@ -309,9 +377,14 @@ initial_velocity_min = 80.0
 initial_velocity_max = 130.0
 angular_velocity_min = -360.0
 angular_velocity_max = 360.0
-scale_amount_min = 0.15
-scale_amount_max = 0.2
+scale_amount_min = 0.08
+scale_amount_max = 0.13
 scale_amount_curve = SubResource("Curve_t2dma")
+script = ExtResource("5_balq6")
+offset = Vector2(109, 165)
+spacing = Vector2(512, 512)
+hframe = 4
+vframe = 2
 
 [node name="Trail" type="CPUParticles2D" parent="ParticleSystem"]
 z_index = -1
@@ -328,7 +401,7 @@ angle_min = -720.0
 angle_max = 720.0
 scale_amount_min = 0.05
 scale_amount_max = 0.15
-script = ExtResource("8_e5kjr")
+script = ExtResource("8_xdgk7")
 
 [node name="Stars" type="CPUParticles2D" parent="ParticleSystem"]
 modulate = Color(1, 1, 1, 0.705882)
@@ -341,7 +414,7 @@ one_shot = true
 explosiveness = 1.0
 lifetime_randomness = 1.0
 local_coords = true
-texture = ExtResource("9_d2dux")
+texture = ExtResource("9_eojx2")
 emission_shape = 1
 emission_sphere_radius = 50.0
 direction = Vector2(0, 0)
@@ -362,7 +435,45 @@ anim_offset_max = 0.4
 modulate = Color(1, 1, 1, 0)
 z_index = -1
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("10_6il74")
+texture = ExtResource("10_7mw2i")
+
+[node name="ShinePrimary" type="CPUParticles2D" parent="ParticleSystem"]
+material = SubResource("CanvasItemMaterial_nk132")
+amount = 2
+lifetime = 0.8
+texture = ExtResource("7_qb1o2")
+emission_shape = 5
+emission_points = PackedVector2Array(11, -26, -10, 25, 26, -11, -39, -4)
+emission_normals = PackedVector2Array()
+emission_colors = PackedColorArray()
+gravity = Vector2(0, 0)
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+scale_amount_min = 0.04
+scale_amount_max = 0.06
+scale_amount_curve = SubResource("Curve_vmun0")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+anim_offset_max = 0.4
+
+[node name="ShineSecondary" type="CPUParticles2D" parent="ParticleSystem"]
+material = SubResource("CanvasItemMaterial_nk132")
+amount = 1
+lifetime = 0.6
+texture = ExtResource("7_qb1o2")
+emission_shape = 5
+emission_points = PackedVector2Array(36, -32, 28, 36, -28, -30)
+emission_normals = PackedVector2Array()
+emission_colors = PackedColorArray()
+gravity = Vector2(0, 0)
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+scale_amount_min = 0.01
+scale_amount_max = 0.03
+scale_amount_curve = SubResource("Curve_vmun0")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+anim_offset_max = 0.4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -372,22 +483,22 @@ libraries = {
 [node name="Trail2D" type="Line2D" parent="."]
 top_level = true
 z_index = -2
-material = ExtResource("11_t3nit")
+material = ExtResource("11_ivvow")
 width = 100.0
 width_curve = SubResource("Curve_ulcjw")
 texture_mode = 2
 joint_mode = 2
-script = ExtResource("12_vllgc")
+script = ExtResource("12_mqaht")
 max_length = 50
 min_velocity = 0.5
 
-[node name="DestructionArea" type="Area2D" parent="."]
-
-[node name="DestructionAreaShape" type="CollisionShape2D" parent="DestructionArea"]
-visible = false
-shape = SubResource("CircleShape2D_6auqj")
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mqw2o")
+}
+tree_root = SubResource("AnimationNodeStateMachine_i3umb")
+anim_player = NodePath("../AnimationPlayer")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="body_entered" from="DestructionArea" to="." method="_on_destruction_area_body_entered"]
