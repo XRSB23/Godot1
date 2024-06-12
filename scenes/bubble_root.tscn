@@ -1,10 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://cixp0wridt6lu"]
+[gd_scene load_steps=33 format=3 uid="uid://cixp0wridt6lu"]
 
 [ext_resource type="Script" path="res://Scripts/Bubble/Bubble.gd" id="1_kstin"]
 [ext_resource type="Texture2D" uid="uid://bfmfr7tv11ykp" path="res://Art/Bubble/Gems.svg" id="2_iv44r"]
 [ext_resource type="Script" path="res://Scripts/Bubble/BubbleParticleSystem.gd" id="3_3b1th"]
 [ext_resource type="Texture2D" uid="uid://ttyw5anbspan" path="res://Art/Bubble/GemsShine.svg" id="3_bj3rh"]
 [ext_resource type="Texture2D" uid="uid://c6sk0w7i560do" path="res://Art/Bubble/Fragment1.svg" id="4_l67cd"]
+[ext_resource type="Texture2D" uid="uid://dxrsa7rbn1500" path="res://Art/Bubble/Backlight.svg" id="4_teg6f"]
 [ext_resource type="Script" path="res://Scripts/Bubble/ParticlesAtlasCoordinates.gd" id="5_balq6"]
 [ext_resource type="Texture2D" uid="uid://dyxu758m1wig7" path="res://Art/Bubble/Fragment2.svg" id="6_ob1on"]
 [ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/particleStar4.svg" id="7_qb1o2"]
@@ -263,12 +264,60 @@ tracks/7/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Backlight:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Backlight:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Backlight2:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.628319]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Backlight2:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 0.8)]
+}
 
 [sub_resource type="Animation" id="Animation_2njfx"]
 resource_name = "Shine"
 length = 5.5
 loop_mode = 1
-step = 0.03
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -280,6 +329,54 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Backlight:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.75, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -3.14159, -6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Backlight:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.75, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.3, 0.3), Vector2(0.5, 0.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Backlight2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.375, 2.75, 4.25, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.628319, 3.76991, 6.9115, 10.0531, 13.1947]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Backlight2:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.375, 2.75, 4.25, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.4, 0.4), Vector2(0.3, 0.3), Vector2(0.4, 0.4), Vector2(0.3, 0.3), Vector2(0.4, 0.4)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mqw2o"]
@@ -328,6 +425,16 @@ z_index = 1
 texture = ExtResource("3_bj3rh")
 hframes = 4
 vframes = 2
+
+[node name="Backlight" type="Sprite2D" parent="."]
+show_behind_parent = true
+texture = ExtResource("4_teg6f")
+
+[node name="Backlight2" type="Sprite2D" parent="."]
+show_behind_parent = true
+rotation = 0.628319
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_teg6f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
