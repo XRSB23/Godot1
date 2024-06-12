@@ -2619,7 +2619,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -930.0
-offset_right = 1470.0
+offset_right = 870.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(1860, 540)
@@ -2635,7 +2635,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -360.0
 offset_top = -776.0
-offset_right = 1.503e+06
+offset_right = 950040.0
 offset_bottom = 784.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -2650,7 +2650,6 @@ libraries = {
 }
 
 [node name="HUD" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="PowerUpPanel" type="Panel" parent="HUD"]
 anchors_preset = 4
@@ -3329,9 +3328,9 @@ expand_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -232.0
+offset_left = -600.0
 offset_top = 16.0
-offset_right = 456.0
+offset_right = 88.0
 offset_bottom = 120.0
 grow_horizontal = 2
 theme = ExtResource("14_rueps")
@@ -3423,6 +3422,7 @@ rectFalse = Vector2(306, 0)
 
 [node name="LevelSelectCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 
 [node name="Background" type="TextureRect" parent="LevelSelectCanvas"]
 show_behind_parent = true
