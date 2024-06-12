@@ -10,8 +10,9 @@ class_name LevelSelect
 
 @export var debug_unlock_all : bool :
 	get :
-		if OS.has_feature("editor") : return debug_unlock_all
-		else : return false
+		#if OS.has_feature("editor") : 
+		return debug_unlock_all
+		#else : return false
 
 var buttons : Array[LevelButton]
 var page_amount : int
