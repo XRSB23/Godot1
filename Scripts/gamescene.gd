@@ -3,6 +3,7 @@ class_name GameScene
 
 var level_data_base = preload("res://Resources/levels_resource.tres")
 var bubble_prefab = preload("res://scenes/bubble.tscn")
+var root_node_prefab = preload("res://scenes/bubble_root.tscn")
 var neighbors_coord : Array[Vector2] 
 
 @export var cell_size : Vector2
@@ -63,15 +64,8 @@ func load_level(_level):
 		if levelres.bubbles[i] == level_data.BubbleColor.Empty :
 			grid_data[levelres.coord[i]] = null
 		else :
-			var bubbleInstance = bubble_prefab.instantiate()
-			bubble_container.add_child(bubbleInstance)
-			bubbleInstance.position = levelres.coord[i]
-			bubbleInstance.color = levelres.bubbles[i]
-			bubbleInstance.freeze= true
-			bubbleInstance.scoreable = true
-			bubbleInstance.set_color()
-			grid_data[levelres.coord[i]] = bubbleInstance
-	#buttons_container.hide()
+			set_bubble(bubble_prefab,levelres.coord[i],levelres.bubbles[i])
+	set_bubble(root_node_prefab,root_node_pos,grid_data[root_node_pos].color)
 	
 	sling.modulate = Color(1,1,1,1)
 	await  transition_player.animation_finished
@@ -80,7 +74,18 @@ func load_level(_level):
 	sling.init_sling()
 	astar.clear()
 	set_up_astar(levelres.astar_points , levelres.astar_connections)
+	
+func set_bubble(_bubbletype, _position , _color):
+	var bubbleInstance = _bubbletype.instantiate()
+	bubble_container.add_child(bubbleInstance)
+	bubbleInstance.position = _position
+	bubbleInstance.color = _color
+	bubbleInstance.freeze= true
+	bubbleInstance.scoreable = true
+	bubbleInstance.set_color()
+	grid_data[_position] = bubbleInstance
 #endregion
+
 
 func clear_level():
 	for cell in grid_data:
