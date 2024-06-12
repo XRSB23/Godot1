@@ -65,6 +65,7 @@ func load_level(_level):
 			grid_data[levelres.coord[i]] = null
 		else :
 			set_bubble(bubble_prefab,levelres.coord[i],levelres.bubbles[i])
+	grid_data[root_node_pos].queue_free()
 	set_bubble(root_node_prefab,root_node_pos,grid_data[root_node_pos].color)
 	
 	sling.modulate = Color(1,1,1,1)
@@ -92,6 +93,7 @@ func clear_level():
 		if grid_data[cell] != null :
 			grid_data[cell].queue_free()
 	grid_data.clear()
+	
 #region A*
 
 func set_up_astar(_astarpoints , _astarconnections):
