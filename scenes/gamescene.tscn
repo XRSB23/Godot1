@@ -3425,7 +3425,6 @@ rectFalse = Vector2(306, 0)
 process_mode = 3
 
 [node name="Background" type="TextureRect" parent="LevelSelectCanvas"]
-visible = false
 show_behind_parent = true
 anchors_preset = 15
 anchor_right = 1.0
