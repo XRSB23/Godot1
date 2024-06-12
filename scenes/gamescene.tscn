@@ -35,9 +35,9 @@
 [ext_resource type="PackedScene" uid="uid://dmouyuwn7moq0" path="res://scenes/level_button.tscn" id="14_jlmao"]
 [ext_resource type="Script" path="res://addons/radialcontainer_plugin/RadialContainer.gd" id="14_rlae7"]
 [ext_resource type="Theme" uid="uid://dn6qy8xj1s3ch" path="res://Art/UI/Theme/power_up_menu_theme.tres" id="14_rueps"]
-[ext_resource type="Texture2D" uid="uid://e55fu4sf0tiq" path="res://Art/Background/DesertNight.png" id="14_st8eq"]
 [ext_resource type="StyleBox" uid="uid://c5up22doyuqwm" path="res://Art/UI/Theme/power_up_count_StyleBox.tres" id="15_dvsbn"]
 [ext_resource type="Texture2D" uid="uid://b2eexg2334wf2" path="res://Art/UI/Theme/LevelButton/LevelButton.svg" id="15_p4r1u"]
+[ext_resource type="Texture2D" uid="uid://dnp87slkwpbty" path="res://Art/Background/DesertTwillight.png" id="16_4vjwh"]
 [ext_resource type="Texture2D" uid="uid://cbk7atqhpnm3x" path="res://Art/UI/PowerUpsIcons.svg" id="21_tfky2"]
 [ext_resource type="Script" path="res://Scripts/UI/ParticleController.gd" id="22_50gyi"]
 [ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="23_n35ni"]
@@ -2605,7 +2605,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("14_st8eq")
+texture = ExtResource("16_4vjwh")
 stretch_mode = 5
 
 [node name="TransitionCanvas" type="CanvasLayer" parent="."]
@@ -2635,7 +2635,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -360.0
 offset_top = -776.0
-offset_right = 950040.0
+offset_right = 673560.0
 offset_bottom = 784.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -2650,6 +2650,7 @@ libraries = {
 }
 
 [node name="HUD" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PowerUpPanel" type="Panel" parent="HUD"]
 anchors_preset = 4
@@ -3422,7 +3423,6 @@ rectFalse = Vector2(306, 0)
 
 [node name="LevelSelectCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
-visible = false
 
 [node name="Background" type="TextureRect" parent="LevelSelectCanvas"]
 show_behind_parent = true
@@ -3431,7 +3431,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("14_st8eq")
+texture = ExtResource("16_4vjwh")
 
 [node name="LevelSelect" type="GridContainer" parent="LevelSelectCanvas"]
 anchors_preset = 8
