@@ -144,12 +144,16 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	connect_astar(projectile.position)
 	projectile.trail.enabled = false
 	if projectile is Bubble_Explosive || projectile is Bubble_Paint :
+		print("add bubble")
 		await projectile.OnHit()
 	else :
 		await process_destruction(get_cells_to_destroy(projectile))
 	reset_sling()
+	print('after reset ?')
 
 func reset_sling():
+	print('reset sling')
+	print(get_remaining_colors().size())
 	if attempts <= 0 || get_remaining_colors().size() < 1:
 		score_display.report_screen.Open()
 		return
@@ -161,6 +165,7 @@ func reset_sling():
 	sling.load_ball()
 
 func explosive_radius(radius_bubbles):
+	print(explosive_radius)
 	var cells = []
 	for bubble in radius_bubbles:
 		cells.append(grid_data.find_key(bubble))
@@ -263,12 +268,14 @@ func set_neighbors_coord(v : Vector2):
 
 #region Destruction
 func process_destruction(cells,explosive = false):
+	print('process destruc')
 	if explosive or cells.size()>= 3 :
 		for cell in cells :
 			update_astar(cell)
 			grid_data[cell].reparent(destroy_container)
 			grid_data[cell].OnDestroy()
-			await grid_data[cell].animTrigger 
+			if !explosive:
+				await grid_data[cell].animTrigger 
 			if grid_data[cell].scoreable :
 				destroyed_count += 1
 			grid_data[cell] = null
@@ -278,6 +285,7 @@ func process_destruction(cells,explosive = false):
 			#await get_tree().process_frame
 
 func drop_bubbles():
+	print('drop bubbles')
 	var cell_to_drop = get_cells_to_drop()
 	for cell_coord in cell_to_drop:
 		grid_data[cell_coord].call_deferred('reparent',destroy_container)
@@ -299,6 +307,7 @@ func get_score():
 func update_score(n : int):
 	score_display.score += n
 	destroyed_count = 0
+	print('update_score')
 #endregion
 
 #region UserData
