@@ -1,9 +1,10 @@
-[gd_scene load_steps=159 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=160 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraBounds.gd" id="3_2i1fh"]
 [ext_resource type="Shader" uid="uid://bb2tscdlsvyov" path="res://Art/UI/Shaders/monochrome_shader.tres" id="4_f7t2v"]
+[ext_resource type="Texture2D" uid="uid://bx070xg3hhki0" path="res://Art/UI/ShopPlaceholder.svg" id="4_wcnu3"]
 [ext_resource type="StyleBox" uid="uid://cc5a14af53fp5" path="res://Art/UI/Theme/LevelButton/button_style.tres" id="5_1yt0q"]
 [ext_resource type="PackedScene" uid="uid://bngunx6u5dfq7" path="res://scenes/BubbleSelectMenu_Button.tscn" id="5_2nx2p"]
 [ext_resource type="Script" path="res://Scripts/Sling/TrajectoryPreview.gd" id="5_6swga"]
@@ -187,6 +188,7 @@ atlas = SubResource("CompressedTexture2D_gnriw")
 region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="LabelSettings" id="LabelSettings_c5wb0"]
+font_size = 24
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
@@ -1607,7 +1609,7 @@ size_flags_vertical = 4
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("8_nev1w")
+texture_normal = ExtResource("4_wcnu3")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -2059,10 +2061,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -408.0
-offset_top = -252.0
-offset_right = 408.0
-offset_bottom = 252.0
+offset_left = -603.0
+offset_top = -373.0
+offset_right = 603.0
+offset_bottom = 373.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_av6lq")
@@ -2075,8 +2077,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+current_tab = 1
 
 [node name="PowerUps" type="Panel" parent="PopupCanvas/ShopPanel/ShopTabs"]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_e4fn0")
 
@@ -2096,6 +2100,7 @@ theme_override_constants/separation = 25
 [node name="PrecisionShot" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 62
 
 [node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot"]
 layout_mode = 2
@@ -2105,8 +2110,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Texture" type="Control" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot"]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="Rim" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Texture"]
 layout_mode = 1
@@ -2130,8 +2135,9 @@ texture = SubResource("AtlasTexture_nnj8f")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Buttons" type="HBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot"]
+[node name="Buttons" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot"]
 layout_mode = 2
+theme_override_constants/separation = 27
 
 [node name="BuySingle" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Buttons"]
 layout_mode = 2
@@ -2145,7 +2151,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Buttons/BuySingle"]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
 text = "Buy x1"
 
 [node name="BuyMultiple" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Buttons"]
@@ -2160,12 +2169,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Buttons/BuyMultiple"]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
 text = "Bux x5"
 
 [node name="Bomb" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 62
 
 [node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb"]
 layout_mode = 2
@@ -2175,8 +2188,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Texture" type="Control" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb"]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="Rim" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Texture"]
 layout_mode = 1
@@ -2195,17 +2208,18 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
-offset_top = 35.0
+offset_top = 15.0
 offset_right = -10.0
-offset_bottom = -39.0
+offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_ov02m")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Buttons" type="HBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb"]
+[node name="Buttons" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb"]
 layout_mode = 2
+theme_override_constants/separation = 27
 
 [node name="BuySingle" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Buttons"]
 layout_mode = 2
@@ -2219,7 +2233,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Buttons/BuySingle"]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
 text = "Buy x1"
 
 [node name="BuyMultiple" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Buttons"]
@@ -2234,12 +2251,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Buttons/BuyMultiple"]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
 text = "Bux x5"
 
 [node name="SpikedBall" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 62
 
 [node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall"]
 layout_mode = 2
@@ -2249,8 +2270,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Texture" type="Control" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall"]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="Rim" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall/Texture"]
 layout_mode = 1
@@ -2269,17 +2290,18 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 15.0
-offset_top = 37.0
+offset_top = 17.0
 offset_right = -15.0
-offset_bottom = -41.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_ggm5m")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Buttons" type="HBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall"]
+[node name="Buttons" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall"]
 layout_mode = 2
+theme_override_constants/separation = 27
 
 [node name="BuySingle" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall/Buttons"]
 layout_mode = 2
@@ -2293,7 +2315,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall/Buttons/BuySingle"]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
 text = "Buy x1"
 
 [node name="BuyMultiple" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall/Buttons"]
@@ -2308,12 +2333,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/SpikedBall/Buttons/BuyMultiple"]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
 text = "Bux x5"
 
 [node name="Paint" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 62
 
 [node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint"]
 layout_mode = 2
@@ -2323,8 +2352,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Texture" type="Control" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint"]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="Rim" type="TextureRect" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Texture"]
 layout_mode = 1
@@ -2343,17 +2372,18 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
-offset_top = 42.0
+offset_top = 22.0
 offset_right = -4.0
-offset_bottom = -39.0
+offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_r07ic")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Buttons" type="HBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint"]
+[node name="Buttons" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint"]
 layout_mode = 2
+theme_override_constants/separation = 27
 
 [node name="BuySingle" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Buttons"]
 layout_mode = 2
@@ -2367,7 +2397,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Buttons/BuySingle"]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 27
 text = "Buy x1"
 
 [node name="BuyMultiple" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Buttons"]
@@ -2382,7 +2415,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Buttons/BuyMultiple"]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
 text = "Bux x5"
 
 [node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/PowerUps"]
@@ -2398,7 +2434,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Currency" type="Panel" parent="PopupCanvas/ShopPanel/ShopTabs"]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_e4fn0")
 
@@ -2408,9 +2443,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 24.0
-offset_top = 129.0
+offset_top = 190.0
 offset_right = -24.0
-offset_bottom = -41.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 25
@@ -2431,13 +2466,15 @@ size_flags_vertical = 6
 
 [node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Ammount"
+text = "Amount"
 label_settings = SubResource("LabelSettings_c5wb0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Watch Add"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer"]
@@ -2456,13 +2493,15 @@ size_flags_vertical = 6
 
 [node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-text = "Ammount"
+text = "Amount"
 label_settings = SubResource("LabelSettings_c5wb0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Price"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer"]
@@ -2481,13 +2520,15 @@ size_flags_vertical = 6
 
 [node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer3/VBoxContainer"]
 layout_mode = 2
-text = "Ammount"
+text = "Amount"
 label_settings = SubResource("LabelSettings_c5wb0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Price"
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer"]
@@ -2506,13 +2547,15 @@ size_flags_vertical = 6
 
 [node name="Label" type="Label" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer4/VBoxContainer"]
 layout_mode = 2
-text = "Ammount"
+text = "Amount"
 label_settings = SubResource("LabelSettings_c5wb0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="PopupCanvas/ShopPanel/ShopTabs/Currency/HBoxContainer/VBoxContainer4/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Price
 "
 
@@ -2635,7 +2678,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -360.0
 offset_top = -776.0
-offset_right = 950040.0
+offset_right = 673560.0
 offset_bottom = 784.0
 grow_horizontal = 2
 grow_vertical = 2
