@@ -1,4 +1,4 @@
-[gd_scene load_steps=161 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=164 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
@@ -46,6 +46,8 @@
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpButton.gd" id="29_vc8lb"]
 [ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/Shaders/grayscale_shader.tres" id="30_saxga"]
 [ext_resource type="Texture2D" uid="uid://cpii6glkarjsh" path="res://Art/Sling/Sling.svg" id="36_78ule"]
+[ext_resource type="Shader" uid="uid://dxnj1xto4ex41" path="res://Art/Sling/vector_shader.tres" id="44_t3pm5"]
+[ext_resource type="Texture2D" uid="uid://dbeuo7kbbujd2" path="res://Art/Sling/HologramLines.png" id="45_5ctud"]
 [ext_resource type="Texture2D" uid="uid://b4ss4b28rlg1j" path="res://Art/Sling/ColorPicker.svg" id="45_puaac"]
 [ext_resource type="Texture2D" uid="uid://djiuyvr2vpmg3" path="res://Art/Sling/ColorButton.svg" id="47_6tkc1"]
 [ext_resource type="Script" path="res://Editor/RotationSetter.gd" id="48_ejjtx"]
@@ -661,6 +663,8 @@ resource_local_to_scene = true
 shader = ExtResource("30_saxga")
 shader_parameter/is_grayscale = false
 shader_parameter/Brightness = 0.3
+shader_parameter/Hologram = false
+shader_parameter/ScrollSpeed = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lunyl"]
 resource_local_to_scene = true
@@ -691,6 +695,8 @@ resource_local_to_scene = true
 shader = ExtResource("30_saxga")
 shader_parameter/is_grayscale = false
 shader_parameter/Brightness = 0.3
+shader_parameter/Hologram = false
+shader_parameter/ScrollSpeed = 1.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2tg4t"]
 load_path = "res://.godot/imported/PowerUpsIcons.svg-8096009b0535430e47b62dabe6cb7fb6.ctex"
@@ -713,6 +719,8 @@ resource_local_to_scene = true
 shader = ExtResource("30_saxga")
 shader_parameter/is_grayscale = false
 shader_parameter/Brightness = 0.3
+shader_parameter/Hologram = false
+shader_parameter/ScrollSpeed = 1.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mi6fq"]
 load_path = "res://.godot/imported/PowerUpsIcons.svg-8096009b0535430e47b62dabe6cb7fb6.ctex"
@@ -735,6 +743,8 @@ resource_local_to_scene = true
 shader = ExtResource("30_saxga")
 shader_parameter/is_grayscale = false
 shader_parameter/Brightness = 0.3
+shader_parameter/Hologram = false
+shader_parameter/ScrollSpeed = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_icg8l"]
 resource_local_to_scene = true
@@ -972,6 +982,18 @@ point_count = 3
 [sub_resource type="Curve" id="Curve_nb6el"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v0dky"]
+resource_local_to_scene = true
+shader = ExtResource("44_t3pm5")
+shader_parameter/Whiten = 0.6
+shader_parameter/InputColor = Color(0.556863, 0.039216, 0.713726, 1)
+shader_parameter/Darken = 0.05
+shader_parameter/LengthRatio = 1.0
+shader_parameter/Invert = false
+shader_parameter/Hologram = true
+shader_parameter/ScrollSpeed = -0.1
+shader_parameter/HologramTexture = ExtResource("45_5ctud")
 
 [sub_resource type="Curve" id="Curve_4jdw3"]
 bake_resolution = 1000
@@ -3672,8 +3694,9 @@ trajectory_points_amount = 1000
 max_trajectory_range = 10000.0
 
 [node name="Ghost" type="Line2D" parent="Sling/TrajectoryPreview"]
-modulate = Color(0, 0, 0, 0.231373)
+modulate = Color(0, 0, 0, 0.443137)
 texture_filter = 5
+material = SubResource("ShaderMaterial_v0dky")
 points = PackedVector2Array(0, 0, 0, 0)
 width_curve = SubResource("Curve_4jdw3")
 texture = ExtResource("11_848u5")

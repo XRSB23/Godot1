@@ -1,6 +1,7 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://jiup2jy3aui2"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://jiup2jy3aui2"]
 
 [ext_resource type="Shader" uid="uid://dxnj1xto4ex41" path="res://Art/Sling/vector_shader.tres" id="1_15khf"]
+[ext_resource type="Texture2D" uid="uid://dbeuo7kbbujd2" path="res://Art/Sling/HologramLines.png" id="2_ofdhi"]
 
 [resource]
 shader = ExtResource("1_15khf")
@@ -9,3 +10,6 @@ shader_parameter/InputColor = Color(0.556863, 0.039216, 0.713726, 1)
 shader_parameter/Darken = 0.05
 shader_parameter/LengthRatio = 1.0
 shader_parameter/Invert = false
+shader_parameter/Hologram = false
+shader_parameter/ScrollSpeed = 0.1
+shader_parameter/HologramTexture = ExtResource("2_ofdhi")

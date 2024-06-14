@@ -115,6 +115,7 @@ func shoot_ball(v : Vector2):
 	ball.shot_v = v*shoot_strength
 	trajectory_preview.ClearPreview()
 	trajectory_preview.last_v = v
+	trajectory_preview.last_color = ball.color
 	ball.OnShoot()
 	ball = null
 	game_scene.attempts -= 1
