@@ -7,6 +7,7 @@ enum MODE {VECTOR, NEWTON}
 @onready var newton = $Newton
 @onready var ghost = $Ghost
 var last_v : Vector2
+var last_color : int
 
 func ClearPreview():
 	vector.clear_points()
@@ -14,6 +15,7 @@ func ClearPreview():
 	
 func UpdateGhost():
 	ghost.clear_points()
+	ghost.SetColor(last_color)
 	ghost.display_trajectory(last_v)
 	
 

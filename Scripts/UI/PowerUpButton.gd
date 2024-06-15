@@ -26,11 +26,11 @@ func _ready():
 
 func Init():
 	if powerUp_panel.infinite_powerups && OS.has_feature("editor"):
-		amount_label.label_settings.font_size = 31
+		amount_label.label_settings.font_size = 37
 		amount_label.text = "∞"
 		Disable(false)
 	else :
-		amount_label.label_settings.font_size = 20
+		amount_label.label_settings.font_size = 34
 		var user_inventory = gamescene.load_user_data().inventory
 		amount_label.text = str(user_inventory[name])
 		Disable(user_inventory[name] <= 0)

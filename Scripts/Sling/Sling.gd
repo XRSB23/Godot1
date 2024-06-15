@@ -115,6 +115,7 @@ func shoot_ball(v : Vector2):
 	ball.shot_v = v*shoot_strength
 	trajectory_preview.ClearPreview()
 	trajectory_preview.last_v = v
+	trajectory_preview.last_color = ball.color
 	ball.OnShoot()
 	ball = null
 	game_scene.attempts -= 1
@@ -184,42 +185,6 @@ func ClearBall():
 
 #endregion
 
-#region ColorSelect Menu
-
-#func UpdateColorMenu(current_colors):
-	## Update Color Array
-	#var button_array : Array = []
-	#for button : BubbleSelectMenu_Button in color_select_menu.get_children():
-		#if button_array.find(button.color) == -1 :
-			#button_array.append(button)
-	#var button_color_array : Array = []
-	#for button : BubbleSelectMenu_Button in button_array :
-		#button_color_array.append(button.color)
-	#await get_tree().process_frame
-	#
-	##Instantiate Pass
-	##If color is in current colors but not in menu array, add color button instance
-	#for i in current_colors.size():
-		#if button_color_array.find(current_colors[i]) == -1 :
-			#InstantiateMenuButton(current_colors[i])
-	#
-	##Remove Pass
-	##If color is in menu array but not in current colors, remove color instance
-	#for i in button_color_array.size():
-		#if current_colors.find(button_color_array[i]) == -1:
-			#button_array[i].Destroy()
-		##elif temp_inventory[button_color_array[i]] <= 0 :
-			##button_array[i].Destroy()
-	#
-	#await get_tree().process_frame
-#
-#func InstantiateMenuButton(color):
-	#var instance = button_prefab.instantiate()
-	#color_select_menu.add_child(instance)
-	#instance.set_color(color)
-	#instance.size = color_select_menu.child_size
-
-#endregion
 
 #region Signals
 

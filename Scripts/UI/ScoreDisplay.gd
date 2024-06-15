@@ -1,7 +1,7 @@
 extends HBoxContainer
 class_name ScoreDisplay
 
-@onready var score_display : Label = $ScoreContainer/Score
+#@onready var score_display : Label = $ScoreContainer/Score
 @onready var score_bar : TextureProgressBar = $ScoreBar
 @onready var report_screen : ReportScreen = $"../../../PopupCanvas/ReportScreen"
 
@@ -15,7 +15,7 @@ var collected_stars : int = 0 :
 var score : int = 0 :
 	set(value) :
 		score = value
-		score_display.text = Formatting.SpaceNumbers(value)
+		#score_display.text = Formatting.SpaceNumbers(value)
 		report_screen.score = score
 		UpdateBar()
 
@@ -38,9 +38,9 @@ func GetTresholdsMarkers():
 func PlaceMarkers(input_treshold_array : Array[int]):
 	score_bar.max_value = input_treshold_array[2]*1.2
 	@warning_ignore("integer_division")
-	treshold_markers[0].position.x = 280*input_treshold_array[0]/input_treshold_array[2]
+	treshold_markers[0].position.x = treshold_markers[2].position.x * input_treshold_array[0]/input_treshold_array[2]
 	@warning_ignore("integer_division")
-	treshold_markers[1].position.x = 280*input_treshold_array[1]/input_treshold_array[2]
+	treshold_markers[1].position.x = treshold_markers[2].position.x * input_treshold_array[1]/input_treshold_array[2]
 	
 	for i in range(0, treshold_markers.size()) :
 		treshold_markers[i].score = input_treshold_array[i]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=160 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=164 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
@@ -46,6 +46,8 @@
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpButton.gd" id="29_vc8lb"]
 [ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/Shaders/grayscale_shader.tres" id="30_saxga"]
 [ext_resource type="Texture2D" uid="uid://cpii6glkarjsh" path="res://Art/Sling/Sling.svg" id="36_78ule"]
+[ext_resource type="Shader" uid="uid://dxnj1xto4ex41" path="res://Art/Sling/vector_shader.tres" id="44_t3pm5"]
+[ext_resource type="Texture2D" uid="uid://dbeuo7kbbujd2" path="res://Art/Sling/HologramLines.png" id="45_5ctud"]
 [ext_resource type="Texture2D" uid="uid://b4ss4b28rlg1j" path="res://Art/Sling/ColorPicker.svg" id="45_puaac"]
 [ext_resource type="Texture2D" uid="uid://djiuyvr2vpmg3" path="res://Art/Sling/ColorButton.svg" id="47_6tkc1"]
 [ext_resource type="Script" path="res://Editor/RotationSetter.gd" id="48_ejjtx"]
@@ -661,6 +663,8 @@ resource_local_to_scene = true
 shader = ExtResource("30_saxga")
 shader_parameter/is_grayscale = false
 shader_parameter/Brightness = 0.3
+shader_parameter/Hologram = false
+shader_parameter/ScrollSpeed = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lunyl"]
 resource_local_to_scene = true
@@ -668,7 +672,7 @@ atlas = ExtResource("21_tfky2")
 region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="LabelSettings" id="LabelSettings_p0jsf"]
-font_size = 26
+font_size = 37
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
@@ -680,11 +684,19 @@ resource_local_to_scene = true
 atlas = SubResource("CompressedTexture2D_mxlue")
 region = Rect2(0, 256, 256, 256)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrxh7"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dgy7f"]
 resource_local_to_scene = true
 shader = ExtResource("30_saxga")
 shader_parameter/is_grayscale = false
 shader_parameter/Brightness = 0.3
+shader_parameter/Hologram = false
+shader_parameter/ScrollSpeed = 1.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2tg4t"]
 load_path = "res://.godot/imported/PowerUpsIcons.svg-8096009b0535430e47b62dabe6cb7fb6.ctex"
@@ -707,6 +719,8 @@ resource_local_to_scene = true
 shader = ExtResource("30_saxga")
 shader_parameter/is_grayscale = false
 shader_parameter/Brightness = 0.3
+shader_parameter/Hologram = false
+shader_parameter/ScrollSpeed = 1.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mi6fq"]
 load_path = "res://.godot/imported/PowerUpsIcons.svg-8096009b0535430e47b62dabe6cb7fb6.ctex"
@@ -729,6 +743,8 @@ resource_local_to_scene = true
 shader = ExtResource("30_saxga")
 shader_parameter/is_grayscale = false
 shader_parameter/Brightness = 0.3
+shader_parameter/Hologram = false
+shader_parameter/ScrollSpeed = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_icg8l"]
 resource_local_to_scene = true
@@ -912,7 +928,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
@@ -967,13 +983,25 @@ point_count = 3
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v0dky"]
+resource_local_to_scene = true
+shader = ExtResource("44_t3pm5")
+shader_parameter/Whiten = 0.6
+shader_parameter/InputColor = Color(0.556863, 0.039216, 0.713726, 1)
+shader_parameter/Darken = 0.05
+shader_parameter/LengthRatio = 1.0
+shader_parameter/Invert = false
+shader_parameter/Hologram = true
+shader_parameter/ScrollSpeed = -0.1
+shader_parameter/HologramTexture = ExtResource("45_5ctud")
+
 [sub_resource type="Curve" id="Curve_4jdw3"]
 bake_resolution = 1000
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ej865"]
-radius = 337.583
+radius = 441.745
 
 [sub_resource type="Animation" id="Animation_owk2k"]
 resource_name = "Open"
@@ -989,7 +1017,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.35),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(14.7441, -319.66)]
+"values": [Vector2(0, 0), Vector2(18.1998, -394.581)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1001,7 +1029,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.35),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.5, 1.5)]
+"values": [Vector2(0, 0), Vector2(1.8, 1.8)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1025,7 +1053,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.05, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(168.439, -272.082)]
+"values": [Vector2(0, 0), Vector2(207.916, -335.851)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1037,7 +1065,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0.05, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.5, 1.5)]
+"values": [Vector2(0, 0), Vector2(1.8, 1.8)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -1061,7 +1089,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0.1, 0.45),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(279.554, -155.724)]
+"values": [Vector2(0, 0), Vector2(345.074, -192.221)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -1073,7 +1101,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0.1, 0.45),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.5, 1.5)]
+"values": [Vector2(0, 0), Vector2(1.8, 1.8)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -1097,7 +1125,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0.15, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(320, -7.83748e-14)]
+"values": [Vector2(0, 0), Vector2(395, -9.67439e-14)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -1109,7 +1137,7 @@ tracks/10/keys = {
 "times": PackedFloat32Array(0.15, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.5, 1.5)]
+"values": [Vector2(0, 0), Vector2(1.8, 1.8)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -1133,7 +1161,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0.2, 0.55),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(279.554, 155.724)]
+"values": [Vector2(0, 0), Vector2(345.074, 192.221)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -1145,7 +1173,7 @@ tracks/13/keys = {
 "times": PackedFloat32Array(0.2, 0.55),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.5, 1.5)]
+"values": [Vector2(0, 0), Vector2(1.8, 1.8)]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
@@ -1169,7 +1197,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0.25, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(168.439, 272.082)]
+"values": [Vector2(0, 0), Vector2(207.916, 335.851)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -1181,7 +1209,7 @@ tracks/16/keys = {
 "times": PackedFloat32Array(0.25, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.5, 1.5)]
+"values": [Vector2(0, 0), Vector2(1.8, 1.8)]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
@@ -1205,7 +1233,7 @@ tracks/18/keys = {
 "times": PackedFloat32Array(0.3, 0.65),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(14.7441, 319.66)]
+"values": [Vector2(0, 0), Vector2(18.1998, 394.581)]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
@@ -1217,7 +1245,7 @@ tracks/19/keys = {
 "times": PackedFloat32Array(0.3, 0.65),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.5, 1.5)]
+"values": [Vector2(0, 0), Vector2(1.8, 1.8)]
 }
 tracks/20/type = "value"
 tracks/20/imported = false
@@ -1543,7 +1571,7 @@ atlas = SubResource("CompressedTexture2D_83dke")
 region = Rect2(307.2, 102.4, 102.4, 102.4)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ruudt"]
-font_size = 70
+font_size = 120
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swuy3"]
@@ -1585,7 +1613,7 @@ layer = 50
 [node name="ShopButton" type="Panel" parent="PopupCanvas"]
 offset_left = -24.0
 offset_top = 16.0
-offset_right = 330.0
+offset_right = 376.0
 offset_bottom = 141.0
 theme = ExtResource("14_rueps")
 
@@ -1596,14 +1624,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -136.5
-offset_top = -49.5
-offset_right = 149.5
-offset_bottom = 50.5
+offset_left = -160.0
+offset_top = -50.5
+offset_right = 191.0
+offset_bottom = 49.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+theme_override_constants/separation = 11
 
 [node name="ShopButton" type="TextureButton" parent="PopupCanvas/ShopButton/Shop"]
 custom_minimum_size = Vector2(100, 100)
@@ -1616,7 +1645,7 @@ stretch_mode = 5
 [node name="Label" type="Label" parent="PopupCanvas/ShopButton/Shop"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "123 456"
+text = "Placeholder"
 label_settings = SubResource("LabelSettings_yj1tm")
 vertical_alignment = 1
 
@@ -1624,7 +1653,6 @@ vertical_alignment = 1
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-size_flags_horizontal = 3
 texture = ExtResource("8_nev1w")
 expand_mode = 1
 stretch_mode = 5
@@ -1634,14 +1662,14 @@ custom_minimum_size = Vector2(100, 100)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -120.0
+offset_left = -128.0
 offset_top = 16.0
-offset_right = 10.0
-offset_bottom = 146.0
+offset_right = 12.0
+offset_bottom = 156.0
 grow_horizontal = 0
 scale = Vector2(0.8, 0.8)
 theme = ExtResource("14_rueps")
-theme_override_constants/icon_max_width = 80
+theme_override_constants/icon_max_width = 110
 icon = SubResource("AtlasTexture_rkk5s")
 icon_alignment = 1
 
@@ -2077,6 +2105,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/side_margin = 0
+theme_override_font_sizes/font_size = 36
 
 [node name="PowerUps" type="Panel" parent="PopupCanvas/ShopPanel/ShopTabs"]
 layout_mode = 2
@@ -2700,8 +2730,8 @@ anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = -24.0
 offset_top = -364.0
-offset_right = 129.0
-offset_bottom = 140.0
+offset_right = 160.0
+offset_bottom = 212.0
 grow_vertical = 2
 theme = ExtResource("14_rueps")
 script = ExtResource("28_a1ofm")
@@ -2713,16 +2743,16 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -121.0
-offset_top = -232.0
-offset_right = -13.0
-offset_bottom = 236.0
+offset_left = -144.0
+offset_top = -272.0
+offset_right = -24.0
+offset_bottom = 268.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/separation = 10
 
 [node name="Precision Shot" type="Button" parent="HUD/PowerUpPanel/VBoxContainer" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -2775,7 +2805,7 @@ amount = 12
 lifetime = 0.4
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(50, 5)
+emission_rect_extents = Vector2(60, 5)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
@@ -2795,7 +2825,7 @@ amount = 12
 lifetime = 0.7
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(5, 35)
+emission_rect_extents = Vector2(5, 45)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
@@ -2813,7 +2843,7 @@ amount = 10
 lifetime = 0.5
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(35, 5)
+emission_rect_extents = Vector2(60, 5)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
@@ -2836,21 +2866,21 @@ amount = 12
 lifetime = 0.7
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(5, 35)
+emission_rect_extents = Vector2(5, 45)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
 [node name="Amount" type="Label" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot"]
-custom_minimum_size = Vector2(36, 36)
+custom_minimum_size = Vector2(52, 52)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -26.0
-offset_top = -29.0
+offset_left = -35.0
+offset_top = -38.0
 offset_right = 10.0
 offset_bottom = 7.0
 grow_horizontal = 0
@@ -2882,14 +2912,15 @@ expand_mode = 1
 [node name="VSeparator5" type="HSeparator" parent="HUD/PowerUpPanel/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxFlat_xrxh7")
 
 [node name="Explosive" type="Button" parent="HUD/PowerUpPanel/VBoxContainer" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("14_rueps")
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_dgy7f"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(84, 84),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":5.0,"offset_top":5.0,"offset_right":-5.0,"offset_bottom":-5.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_vq3ra"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
+icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_dgy7f"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(84, 84),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":11.0,"offset_top":4.0,"offset_right":-11.0,"offset_bottom":-4.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_vq3ra"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
 
 script = ExtResource("29_vc8lb")
 powerUp_panel = NodePath("../..")
@@ -2906,10 +2937,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = -5.0
-offset_bottom = -5.0
+offset_left = 11.0
+offset_top = 4.0
+offset_right = -11.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_vq3ra")
@@ -2941,7 +2972,7 @@ amount = 12
 lifetime = 0.4
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(50, 5)
+emission_rect_extents = Vector2(60, 5)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
@@ -2961,7 +2992,7 @@ amount = 12
 lifetime = 0.7
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(5, 35)
+emission_rect_extents = Vector2(5, 45)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
@@ -2979,7 +3010,7 @@ amount = 10
 lifetime = 0.5
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(35, 5)
+emission_rect_extents = Vector2(60, 5)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
@@ -3002,21 +3033,21 @@ amount = 12
 lifetime = 0.7
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(5, 35)
+emission_rect_extents = Vector2(5, 45)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
 [node name="Amount" type="Label" parent="HUD/PowerUpPanel/VBoxContainer/Explosive"]
-custom_minimum_size = Vector2(36, 36)
+custom_minimum_size = Vector2(52, 52)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -26.0
-offset_top = -29.0
+offset_left = -35.0
+offset_top = -36.0
 offset_right = 10.0
 offset_bottom = 7.0
 grow_horizontal = 0
@@ -3045,12 +3076,12 @@ texture = SubResource("AtlasTexture_3qcub")
 expand_mode = 1
 
 [node name="Metal" type="Button" parent="HUD/PowerUpPanel/VBoxContainer" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("14_rueps")
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_rkfne"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(70, 70),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":8.0,"offset_top":8.0,"offset_right":-8.0,"offset_bottom":-8.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_60jng"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
+icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_rkfne"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(70, 70),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":11.0,"offset_top":12.0,"offset_right":-11.0,"offset_bottom":-12.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_60jng"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
 
 script = ExtResource("29_vc8lb")
 powerUp_panel = NodePath("../..")
@@ -3067,10 +3098,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = -8.0
-offset_bottom = -8.0
+offset_left = 11.0
+offset_top = 12.0
+offset_right = -11.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_60jng")
@@ -3102,7 +3133,7 @@ amount = 12
 lifetime = 0.4
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(50, 5)
+emission_rect_extents = Vector2(60, 5)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
@@ -3122,7 +3153,7 @@ amount = 12
 lifetime = 0.7
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(5, 35)
+emission_rect_extents = Vector2(5, 45)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
@@ -3140,7 +3171,7 @@ amount = 10
 lifetime = 0.5
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(35, 5)
+emission_rect_extents = Vector2(60, 5)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
@@ -3163,13 +3194,13 @@ amount = 12
 lifetime = 0.7
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(5, 35)
+emission_rect_extents = Vector2(5, 45)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
 [node name="Amount" type="Label" parent="HUD/PowerUpPanel/VBoxContainer/Metal"]
-custom_minimum_size = Vector2(36, 36)
+custom_minimum_size = Vector2(52, 52)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -3206,12 +3237,12 @@ texture = SubResource("AtlasTexture_np6p6")
 expand_mode = 1
 
 [node name="Paint" type="Button" parent="HUD/PowerUpPanel/VBoxContainer" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("14_rueps")
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_psl2w"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(70, 70),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":9.0,"offset_top":9.0,"offset_right":-9.0,"offset_bottom":-9.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_icg8l"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
+icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_psl2w"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(70, 70),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":11.0,"offset_top":12.0,"offset_right":-11.0,"offset_bottom":-12.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_icg8l"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
 
 script = ExtResource("29_vc8lb")
 powerUp_panel = NodePath("../..")
@@ -3228,10 +3259,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 9.0
-offset_top = 9.0
-offset_right = -9.0
-offset_bottom = -9.0
+offset_left = 11.0
+offset_top = 12.0
+offset_right = -11.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_icg8l")
@@ -3263,7 +3294,7 @@ amount = 12
 lifetime = 0.4
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(50, 5)
+emission_rect_extents = Vector2(60, 5)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
@@ -3283,7 +3314,7 @@ amount = 12
 lifetime = 0.7
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(5, 35)
+emission_rect_extents = Vector2(5, 45)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
@@ -3301,7 +3332,7 @@ amount = 10
 lifetime = 0.5
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(35, 5)
+emission_rect_extents = Vector2(60, 5)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
@@ -3324,13 +3355,13 @@ amount = 12
 lifetime = 0.7
 texture = ExtResource("23_n35ni")
 emission_shape = 3
-emission_rect_extents = Vector2(5, 35)
+emission_rect_extents = Vector2(5, 45)
 gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
 [node name="Amount" type="Label" parent="HUD/PowerUpPanel/VBoxContainer/Paint"]
-custom_minimum_size = Vector2(36, 36)
+custom_minimum_size = Vector2(52, 52)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -3368,13 +3399,13 @@ texture = SubResource("AtlasTexture_yj0fc")
 expand_mode = 1
 
 [node name="ScorePanel" type="Panel" parent="HUD"]
+self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -600.0
-offset_top = 16.0
-offset_right = 88.0
-offset_bottom = 120.0
+offset_left = -528.0
+offset_right = -32.0
+offset_bottom = 136.0
 grow_horizontal = 2
 theme = ExtResource("14_rueps")
 
@@ -3383,6 +3414,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -32.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 60
@@ -3390,6 +3422,7 @@ alignment = 1
 script = ExtResource("8_puymx")
 
 [node name="ScoreContainer" type="VBoxContainer" parent="HUD/ScorePanel/ScoreDisplay"]
+visible = false
 custom_minimum_size = Vector2(227, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -3416,18 +3449,24 @@ vertical_alignment = 1
 
 [node name="ScoreBar" type="TextureProgressBar" parent="HUD/ScorePanel/ScoreDisplay"]
 layout_mode = 2
+size_flags_horizontal = 3
 value = 42.0
 allow_greater = true
+nine_patch_stretch = true
 texture_over = SubResource("AtlasTexture_68kct")
 texture_progress = SubResource("AtlasTexture_k1y5r")
 
 [node name="StarTreshold0" type="TextureRect" parent="HUD/ScorePanel/ScoreDisplay/ScoreBar"]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.993
-offset_left = 88.0
-offset_right = -215.858
-offset_bottom = 88.0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 103.0
+offset_top = -31.0
+offset_right = 103.0
+offset_bottom = 9.0
+grow_vertical = 2
+scale = Vector2(1.7, 1.7)
 texture = SubResource("AtlasTexture_hqm2n")
 expand_mode = 1
 stretch_mode = 3
@@ -3437,11 +3476,15 @@ rectFalse = Vector2(306, 0)
 
 [node name="StarTreshold1" type="TextureRect" parent="HUD/ScorePanel/ScoreDisplay/ScoreBar"]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.993
-offset_left = 176.0
-offset_right = -127.858
-offset_bottom = 88.0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 262.0
+offset_top = -31.0
+offset_right = 262.0
+offset_bottom = 9.0
+grow_vertical = 2
+scale = Vector2(1.7, 1.7)
 texture = SubResource("AtlasTexture_x6uui")
 expand_mode = 1
 stretch_mode = 3
@@ -3453,9 +3496,11 @@ rectFalse = Vector2(306, 0)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.993
-offset_left = 264.0
-offset_right = -39.858
-offset_bottom = 88.0
+offset_left = 413.0
+offset_top = 38.0
+offset_right = -47.752
+offset_bottom = 78.0
+scale = Vector2(1.7, 1.7)
 texture = SubResource("AtlasTexture_tg6aj")
 expand_mode = 1
 stretch_mode = 3
@@ -3604,7 +3649,7 @@ libraries = {
 [node name="DestroyContainer" type="Node2D" parent="."]
 
 [node name="Sling" type="Node2D" parent="."]
-position = Vector2(-1216, 312)
+position = Vector2(-1048, 400)
 script = ExtResource("2_jejid")
 bubble_prefabs = Array[PackedScene]([ExtResource("5_icqf6"), ExtResource("6_rw0qp"), ExtResource("7_nrvhg"), ExtResource("8_pwao1")])
 shoot_strength = 7.5
@@ -3615,7 +3660,7 @@ button_prefab = ExtResource("5_2nx2p")
 
 [node name="Art" type="Sprite2D" parent="Sling"]
 z_index = -5
-scale = Vector2(1.17633, 1.17633)
+scale = Vector2(1.57367, 1.57367)
 texture = ExtResource("36_78ule")
 
 [node name="TrajectoryPreview" type="Node2D" parent="Sling"]
@@ -3649,8 +3694,9 @@ trajectory_points_amount = 1000
 max_trajectory_range = 10000.0
 
 [node name="Ghost" type="Line2D" parent="Sling/TrajectoryPreview"]
-modulate = Color(0, 0, 0, 0.231373)
+modulate = Color(0, 0, 0, 0.443137)
 texture_filter = 5
+material = SubResource("ShaderMaterial_v0dky")
 points = PackedVector2Array(0, 0, 0, 0)
 width_curve = SubResource("Curve_4jdw3")
 texture = ExtResource("11_848u5")
@@ -3674,10 +3720,10 @@ scale = Vector2(0.36, 0.36)
 shape = SubResource("CircleShape2D_ej865")
 
 [node name="ColorSelectButton" type="TextureButton" parent="Sling"]
-offset_left = -207.5
-offset_top = -211.5
-offset_right = -68.5
-offset_bottom = -65.5
+offset_left = -278.0
+offset_top = -283.0
+offset_right = -92.0
+offset_bottom = -89.0
 texture_normal = ExtResource("45_puaac")
 ignore_texture_size = true
 stretch_mode = 5
@@ -3695,11 +3741,11 @@ mouse_force_pass_scroll_events = false
 script = ExtResource("14_rlae7")
 animator = NodePath("../AnimationPlayer")
 buttons = [NodePath("ColorButton1/Marker2D/TextureButton"), NodePath("ColorButton2/Marker2D/TextureButton"), NodePath("ColorButton3/Marker2D/TextureButton"), NodePath("ColorButton4/Marker2D/TextureButton"), NodePath("ColorButton5/Marker2D/TextureButton"), NodePath("ColorButton6/Marker2D/TextureButton"), NodePath("ColorButton7/Marker2D/TextureButton")]
-max_radius = 390.0
-min_radius = 250.0
+max_radius = 470.0
+min_radius = 320.0
 origin = -180.0
 split_angle = 78.081
-points = Array[Vector2]([Vector2(14.7441, -319.66), Vector2(168.439, -272.082), Vector2(279.554, -155.724), Vector2(320, -7.83748e-14), Vector2(279.554, 155.724), Vector2(168.439, 272.082), Vector2(14.7441, 319.66)])
+points = Array[Vector2]([Vector2(18.1998, -394.581), Vector2(207.916, -335.851), Vector2(345.074, -192.221), Vector2(395, -9.67439e-14), Vector2(345.074, 192.221), Vector2(207.916, 335.851), Vector2(18.1998, 394.581)])
 
 [node name="ColorButton1" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
@@ -3970,14 +4016,14 @@ modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 anchors_preset = -1
 anchor_right = 0.415625
 anchor_bottom = 0.133333
-offset_left = -193.5
-offset_top = 88.5
-offset_right = -80.5
-offset_bottom = 184.5
+offset_left = -256.0
+offset_top = 104.0
+offset_right = -118.0
+offset_bottom = 269.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 60
-text = "
+text = "9
 "
 label_settings = SubResource("LabelSettings_ruudt")
 horizontal_alignment = 1
