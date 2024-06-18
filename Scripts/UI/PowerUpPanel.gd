@@ -6,6 +6,7 @@ var mode_buttons : Array[PowerUpButton]
 var projectile_buttons : Array[PowerUpButton]
 var selected_mode : PowerUpButton
 var selected_projectile : PowerUpButton
+var is_locked : bool = false
 
 signal deselect_shootmode(bypass : bool)
 signal deselect_projectile(bypass : bool)

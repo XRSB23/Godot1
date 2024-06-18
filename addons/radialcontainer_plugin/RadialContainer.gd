@@ -3,6 +3,8 @@ extends Control
 class_name RadialContainer
 #region Variables
 
+@onready var sling = $".."
+
 @export var is_visible : bool = true :
 	set(value) : 
 		is_visible = value
@@ -99,6 +101,7 @@ func DrawPoints():
 func Open():
 	
 	if animator.is_playing(): return
+	if sling.ball == null : return
 	
 	selected_item = null
 	opened.emit()
