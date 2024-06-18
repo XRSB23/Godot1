@@ -45,7 +45,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpPanel.gd" id="28_a1ofm"]
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpButton.gd" id="29_vc8lb"]
 [ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/Shaders/grayscale_shader.tres" id="30_saxga"]
-[ext_resource type="Texture2D" uid="uid://cpii6glkarjsh" path="res://Art/Sling/Sling.svg" id="36_78ule"]
+[ext_resource type="Texture2D" uid="uid://dwo7jmqlgeeen" path="res://Art/Sling.svg" id="36_5vqpt"]
 [ext_resource type="Shader" uid="uid://dxnj1xto4ex41" path="res://Art/Sling/vector_shader.tres" id="44_t3pm5"]
 [ext_resource type="Texture2D" uid="uid://dbeuo7kbbujd2" path="res://Art/Sling/HologramLines.png" id="45_5ctud"]
 [ext_resource type="Texture2D" uid="uid://b4ss4b28rlg1j" path="res://Art/Sling/ColorPicker.svg" id="45_puaac"]
@@ -1001,7 +1001,7 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ej865"]
-radius = 480.237
+radius = 602.652
 
 [sub_resource type="Animation" id="Animation_owk2k"]
 resource_name = "Open"
@@ -1017,7 +1017,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.35),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(18.1998, -394.581)]
+"values": [Vector2(0, 0), Vector2(-31.7603, -423.812)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1029,7 +1029,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.35),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.8, 1.8)]
+"values": [Vector2(0, 0), Vector2(1.9, 1.9)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1053,7 +1053,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.05, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(207.916, -335.851)]
+"values": [Vector2(0, 0), Vector2(193.89, -378.196)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1065,7 +1065,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0.05, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.8, 1.8)]
+"values": [Vector2(0, 0), Vector2(1.9, 1.9)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -1089,7 +1089,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0.1, 0.45),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(345.074, -192.221)]
+"values": [Vector2(0, 0), Vector2(362.649, -221.61)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -1101,7 +1101,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0.1, 0.45),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.8, 1.8)]
+"values": [Vector2(0, 0), Vector2(1.9, 1.9)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -1125,7 +1125,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0.15, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(395, -9.67439e-14)]
+"values": [Vector2(0, 0), Vector2(425, -1.04092e-13)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -1137,7 +1137,7 @@ tracks/10/keys = {
 "times": PackedFloat32Array(0.15, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.8, 1.8)]
+"values": [Vector2(0, 0), Vector2(1.9, 1.9)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -1161,7 +1161,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0.2, 0.55),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(345.074, 192.221)]
+"values": [Vector2(0, 0), Vector2(362.649, 221.61)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -1173,7 +1173,7 @@ tracks/13/keys = {
 "times": PackedFloat32Array(0.2, 0.55),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.8, 1.8)]
+"values": [Vector2(0, 0), Vector2(1.9, 1.9)]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
@@ -1197,7 +1197,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0.25, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(207.916, 335.851)]
+"values": [Vector2(0, 0), Vector2(193.89, 378.196)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -1209,7 +1209,7 @@ tracks/16/keys = {
 "times": PackedFloat32Array(0.25, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.8, 1.8)]
+"values": [Vector2(0, 0), Vector2(1.9, 1.9)]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
@@ -1233,7 +1233,7 @@ tracks/18/keys = {
 "times": PackedFloat32Array(0.3, 0.65),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(18.1998, 394.581)]
+"values": [Vector2(0, 0), Vector2(-31.7603, 423.812)]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
@@ -1245,7 +1245,7 @@ tracks/19/keys = {
 "times": PackedFloat32Array(0.3, 0.65),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.8, 1.8)]
+"values": [Vector2(0, 0), Vector2(1.9, 1.9)]
 }
 tracks/20/type = "value"
 tracks/20/imported = false
@@ -3649,7 +3649,7 @@ libraries = {
 [node name="DestroyContainer" type="Node2D" parent="."]
 
 [node name="Sling" type="Node2D" parent="."]
-position = Vector2(-982.875, 334.875)
+position = Vector2(-940, 292)
 script = ExtResource("2_jejid")
 bubble_prefabs = Array[PackedScene]([ExtResource("5_icqf6"), ExtResource("6_rw0qp"), ExtResource("7_nrvhg"), ExtResource("8_pwao1")])
 shoot_strength = 7.5
@@ -3660,8 +3660,7 @@ button_prefab = ExtResource("5_2nx2p")
 
 [node name="Art" type="Sprite2D" parent="Sling"]
 z_index = -5
-scale = Vector2(1.9, 1.9)
-texture = ExtResource("36_78ule")
+texture = ExtResource("36_5vqpt")
 
 [node name="TrajectoryPreview" type="Node2D" parent="Sling"]
 script = ExtResource("5_6swga")
@@ -3720,10 +3719,10 @@ scale = Vector2(0.36, 0.36)
 shape = SubResource("CircleShape2D_ej865")
 
 [node name="ColorSelectButton" type="TextureButton" parent="Sling"]
-offset_left = -335.0
-offset_top = -341.0
-offset_right = -111.0
-offset_bottom = -107.0
+offset_left = -361.125
+offset_top = -314.875
+offset_right = -143.125
+offset_bottom = -86.875
 texture_normal = ExtResource("45_puaac")
 ignore_texture_size = true
 stretch_mode = 5
@@ -3741,15 +3740,15 @@ mouse_force_pass_scroll_events = false
 script = ExtResource("14_rlae7")
 animator = NodePath("../AnimationPlayer")
 buttons = [NodePath("ColorButton1/Marker2D/TextureButton"), NodePath("ColorButton2/Marker2D/TextureButton"), NodePath("ColorButton3/Marker2D/TextureButton"), NodePath("ColorButton4/Marker2D/TextureButton"), NodePath("ColorButton5/Marker2D/TextureButton"), NodePath("ColorButton6/Marker2D/TextureButton"), NodePath("ColorButton7/Marker2D/TextureButton")]
-max_radius = 470.0
-min_radius = 320.0
+max_radius = 500.0
+min_radius = 350.0
 origin = -180.0
-split_angle = 78.081
-points = Array[Vector2]([Vector2(18.1998, -394.581), Vector2(207.916, -335.851), Vector2(345.074, -192.221), Vector2(395, -9.67439e-14), Vector2(345.074, 192.221), Vector2(207.916, 335.851), Vector2(18.1998, 394.581)])
+split_angle = 70.0
+points = Array[Vector2]([Vector2(-31.7603, -423.812), Vector2(193.89, -378.196), Vector2(362.649, -221.61), Vector2(425, -1.04092e-13), Vector2(362.649, 221.61), Vector2(193.89, 378.196), Vector2(-31.7603, 423.812)])
 
 [node name="ColorButton1" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
-rotation = 1.61689
+rotation = 1.496
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("47_6tkc1")
 offset = Vector2(56.5, 0)
@@ -3759,7 +3758,7 @@ target = NodePath("../..")
 [node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton1"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton1/Marker2D"]
-rotation = -1.61689
+rotation = -1.496
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_ku3hc")
 script = ExtResource("49_7fkp4")
@@ -3786,7 +3785,7 @@ modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
 [node name="ColorButton2" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
-rotation = 2.12512
+rotation = 2.04453
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("47_6tkc1")
 offset = Vector2(56.5, 0)
@@ -3797,7 +3796,7 @@ target = NodePath("../..")
 [node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton2"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton2/Marker2D"]
-rotation = -2.12512
+rotation = -2.04453
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_783pr")
 script = ExtResource("49_7fkp4")
@@ -3824,7 +3823,7 @@ modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
 [node name="ColorButton3" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
-rotation = 2.63336
+rotation = 2.59306
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("47_6tkc1")
 offset = Vector2(56.5, 0)
@@ -3835,7 +3834,7 @@ target = NodePath("../..")
 [node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton3"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton3/Marker2D"]
-rotation = -2.63336
+rotation = -2.59306
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_bxwxx")
 script = ExtResource("49_7fkp4")
@@ -3873,7 +3872,7 @@ target = NodePath("../..")
 [node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton4"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton4/Marker2D"]
-rotation = -3.14159
+rotation = 3.14159
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_4bwlr")
 script = ExtResource("49_7fkp4")
@@ -3900,7 +3899,7 @@ modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
 [node name="ColorButton5" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
-rotation = 3.64983
+rotation = 3.69012
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("47_6tkc1")
 offset = Vector2(56.5, 0)
@@ -3911,7 +3910,7 @@ target = NodePath("../..")
 [node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton5"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton5/Marker2D"]
-rotation = 2.63336
+rotation = 2.59306
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_crhhx")
 script = ExtResource("49_7fkp4")
@@ -3938,7 +3937,7 @@ modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
 [node name="ColorButton6" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
-rotation = 4.15806
+rotation = 4.23866
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("47_6tkc1")
 offset = Vector2(56.5, 0)
@@ -3949,7 +3948,7 @@ target = NodePath("../..")
 [node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton6"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton6/Marker2D"]
-rotation = 2.12513
+rotation = 2.04453
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_bnnt7")
 script = ExtResource("49_7fkp4")
@@ -3976,7 +3975,7 @@ modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
 [node name="ColorButton7" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
-rotation = -1.61689
+rotation = -1.496
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("47_6tkc1")
 offset = Vector2(56.5, 0)
@@ -3987,7 +3986,7 @@ target = NodePath("../..")
 [node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton7"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton7/Marker2D"]
-rotation = 1.61689
+rotation = 1.496
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_0vj8o")
 script = ExtResource("49_7fkp4")
@@ -4016,10 +4015,10 @@ modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 anchors_preset = -1
 anchor_right = 0.415625
 anchor_bottom = 0.133333
-offset_left = -295.125
-offset_top = 142.125
-offset_right = -157.125
-offset_bottom = 307.125
+offset_left = -323.125
+offset_top = 134.125
+offset_right = -185.125
+offset_bottom = 299.125
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 60

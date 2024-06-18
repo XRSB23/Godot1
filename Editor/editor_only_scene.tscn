@@ -63,11 +63,11 @@ script = ExtResource("2_ftr2k")
 [node name="Gizmos" type="Node" parent="."]
 
 [node name="Sling Marker" type="Marker2D" parent="Gizmos"]
-position = Vector2(-982.875, 334.875)
+position = Vector2(-940, 292)
 gizmo_extents = 20.0
 script = ExtResource("4_3jh8g")
 color = Color(0, 1, 0.215686, 1)
-radius = 470
+radius = 500
 
 [node name="Debug_marker" type="Marker2D" parent="Gizmos"]
 position = Vector2(955, 576)
