@@ -254,7 +254,6 @@ void fragment() {
 	vec4 n_out86p0;
 // Texture2D:86
 	n_out86p0 = texture(HologramTexture, n_out90p0);
-	float n_out86p4 = n_out86p0.a;
 
 
 	vec3 n_out91p0;
@@ -284,7 +283,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(310.629, -179.599)
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(5220, 1120)
