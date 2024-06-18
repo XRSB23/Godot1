@@ -56,7 +56,6 @@ func SelectProjectile(item : PowerUpButton, bypass : bool = false) :
 
 	if item == null :
 		deselect_projectile.emit(bypass)
-		#selected_projectile.Highlight(false)
 		selected_projectile = null
 		for button in projectile_buttons:
 			button.Highlight(false)
