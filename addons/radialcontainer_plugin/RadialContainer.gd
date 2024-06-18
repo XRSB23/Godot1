@@ -3,6 +3,8 @@ extends Control
 class_name RadialContainer
 #region Variables
 
+@onready var sling = $".."
+
 @export var is_visible : bool = true :
 	set(value) : 
 		is_visible = value
@@ -99,6 +101,7 @@ func DrawPoints():
 func Open():
 	
 	if animator.is_playing(): return
+	if sling.ball == null : return
 	
 	selected_item = null
 	opened.emit()
@@ -141,3 +144,9 @@ func _on_color_select_button_button_down():
 	if !animator.is_playing() :
 		if is_open : Close()
 		else : Open()
+
+
+func _on_background_gui_input(event):
+	if event is InputEventScreenTouch && is_open:
+		if event.pressed :
+			Close()

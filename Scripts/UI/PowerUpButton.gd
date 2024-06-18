@@ -3,7 +3,7 @@ class_name  PowerUpButton
 
 signal selected()
 
-@onready var gamescene = $"../../../.."
+@onready var gamescene : GameScene = $"../../../.."
 
 @export_category("Node Connexion")
 @export var powerUp_panel : PowerUpPanel
@@ -60,6 +60,9 @@ func on_shoot():
 	Init()
 	
 func _on_button_down():
+	
+	if gamescene.sling.ball == null : return
+	
 	match type :
 		TYPE.ShootMode :
 			powerUp_panel.SelectMode(null if powerUp_panel.selected_mode == self else self)

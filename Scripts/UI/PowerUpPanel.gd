@@ -6,6 +6,7 @@ var mode_buttons : Array[PowerUpButton]
 var projectile_buttons : Array[PowerUpButton]
 var selected_mode : PowerUpButton
 var selected_projectile : PowerUpButton
+var is_locked : bool = false
 
 signal deselect_shootmode(bypass : bool)
 signal deselect_projectile(bypass : bool)
@@ -55,9 +56,10 @@ func SelectProjectile(item : PowerUpButton, bypass : bool = false) :
 
 	if item == null :
 		deselect_projectile.emit(bypass)
+		selected_projectile.Highlight(false)
 		selected_projectile = null
 		for button in projectile_buttons:
-			button.Highlight(false)
+			#button.Highlight(false)
 			button.Disable(false)
 	else :
 		selected_projectile = item
