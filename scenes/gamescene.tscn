@@ -3872,7 +3872,7 @@ target = NodePath("../..")
 [node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton4"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton4/Marker2D"]
-rotation = 3.14159
+rotation = -3.14159
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_4bwlr")
 script = ExtResource("49_7fkp4")
@@ -3910,7 +3910,7 @@ target = NodePath("../..")
 [node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton5"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton5/Marker2D"]
-rotation = 2.59306
+rotation = 2.59307
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_crhhx")
 script = ExtResource("49_7fkp4")
