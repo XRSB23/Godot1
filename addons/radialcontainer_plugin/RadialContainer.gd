@@ -144,3 +144,9 @@ func _on_color_select_button_button_down():
 	if !animator.is_playing() :
 		if is_open : Close()
 		else : Open()
+
+
+func _on_background_gui_input(event):
+	if event is InputEventScreenTouch && is_open:
+		if event.pressed :
+			Close()

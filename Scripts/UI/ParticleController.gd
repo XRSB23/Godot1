@@ -14,9 +14,9 @@ func _ready():
 
 func EnableEmission(b :bool = true):
 	for item in particles_array:
-		if !b :
-			var tween = get_tree().create_tween()
-			tween.tween_property(item, "color", Color(1,1,1,0), 0.3)
+		if !b : item.color = Color(1,1,1,0)
+			#var tween = get_tree().create_tween()
+			#tween.tween_property(item, "color", Color(1,1,1,0), 0.3)
 		else : item.color = Color(1,1,1,1)
 		
 		

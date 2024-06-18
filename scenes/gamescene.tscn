@@ -4069,6 +4069,7 @@ shape = SubResource("RectangleShape2D_kkwav")
 [connection signal="button_down" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Buttons/BuySingle/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_single_paint"]
 [connection signal="button_down" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Buttons/BuyMultiple/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_multiple_paint"]
 [connection signal="button_down" from="PopupCanvas/ShopPanel/CloseButton" to="PopupCanvas/ShopPanel" method="_on_close_button_button_down"]
+[connection signal="gui_input" from="BackgroundCanvas/Background" to="Sling/ColorSelectMenu" method="_on_background_gui_input"]
 [connection signal="deselect_projectile" from="HUD/PowerUpPanel" to="Sling" method="_on_consumable_panel_deselect_projectile"]
 [connection signal="deselect_shootmode" from="HUD/PowerUpPanel" to="Sling" method="_on_consumable_panel_deselect_shootmode"]
 [connection signal="button_down" from="HUD/PowerUpPanel/VBoxContainer/Precision Shot" to="HUD/PowerUpPanel/VBoxContainer/Precision Shot" method="_on_button_down"]
