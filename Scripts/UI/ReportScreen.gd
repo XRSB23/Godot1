@@ -45,7 +45,9 @@ func get_stars() -> int:
 	return i
 
 func Open():
-	next_button.disabled = !stars[0].reached
+	if !gamescene.level_select.is_next_level_playable(level_id + 1):
+		#Le next button doit etre disable ici
+		next_button.disabled
 	hud.visible = false
 	#Save to SaveData
 	var savedata : Level_SaveData = gamescene.load_user_data().level_saveData[level_id]

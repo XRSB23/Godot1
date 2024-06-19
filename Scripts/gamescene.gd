@@ -302,6 +302,7 @@ func get_score():
 func update_score(n : int):
 	score_display.score += n
 	if grid_data[root_node_pos] == null:
+		@warning_ignore("narrowing_conversion")
 		score_display.score = score_display.score * (1 + percentageperattempts*attempts)
 	destroyed_count = 0
 #endregion

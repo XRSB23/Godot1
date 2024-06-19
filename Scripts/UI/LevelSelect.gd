@@ -36,15 +36,15 @@ func Init():
 	Update()
 
 func Update():
-	
-	for i in range(0, buttons.size()):
-		var target : int = buttons.size() * current_page + i
-		if target >= gamescene.level_data_base.levels.size() : buttons[i].Disable()
-		else : 
-			var level_savedata = gamescene.load_user_data().level_saveData
-			if i < level_savedata.size() :
-				buttons[i].Update(target, level_savedata[target].gatheredStars)
-			else : buttons[i].Update(target, 0)
+	#
+	#for i in range(0, buttons.size()):
+		#var target : int = buttons.size() * current_page + i
+		#if target >= gamescene.level_data_base.levels.size() : buttons[i].Disable()
+		#else : 
+			#var level_savedata = gamescene.load_user_data().level_saveData
+			#if i < level_savedata.size() :
+				#buttons[i].Update(target, level_savedata[target].gatheredStars)
+			#else : buttons[i].Update(target, 0)
 			
 	var page_treshold = current_page * stars_per_page
 	if current_page == 0 or page_treshold < gamescene.load_user_data().stars_amount :
@@ -54,7 +54,6 @@ func Update():
 func load_page(lock : bool, treshold : int = 0):
 	if lock :
 		for i in range(0, buttons.size()):
-			var target : int = buttons.size() * current_page + i
 			buttons[i].Disable()
 		placeholder_unlock_panel.show()
 		placeholder_label.text = 'Stars to collect until unlock : ' + str(treshold)
@@ -62,12 +61,13 @@ func load_page(lock : bool, treshold : int = 0):
 		placeholder_unlock_panel.hide()
 		for i in range(0, buttons.size()):
 			var target : int = buttons.size() * current_page + i
-			if target >= gamescene.level_data_base.levels.size() : buttons[i].Disable()
+			if target >= gamescene.level_data_base.levels.size() : 
+				buttons[i].Disable()
 			else : 
 				var level_savedata = gamescene.load_user_data().level_saveData
 				if i < level_savedata.size() :
-					buttons[i].Update(target, level_savedata[target].gatheredStars)
-				else : buttons[i].Update(target, 0)
+					buttons[i].Update(target, level_savedata[target].gatheredStars,false)
+				else : buttons[i].Update(target, 0,false)
 	
 
 #func get_last_level() -> int :
@@ -97,6 +97,13 @@ func LoadLevel(id : int):
 func Hide(b : bool = true):
 	level_select_canvas.visible = !b
 
+func is_next_level_playable(id) -> bool :
+	if id % buttons.size() == 0 :
+		var next_page_treshold = (current_page + 1) * stars_per_page
+		if next_page_treshold > gamescene.load_user_data().stars_amount :
+			return false
+	return true
+	
 
 func _on_previous_button_down():
 	current_page = clamp(current_page - 1, 0, page_amount)
