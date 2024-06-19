@@ -52,6 +52,7 @@ func Open():
 	if score > savedata.high_score : 
 		savedata.high_score = score
 	if get_stars() > savedata.gatheredStars :
+		gamescene.update_stars_amount(get_stars() - savedata.gatheredStars)
 		savedata.gatheredStars = get_stars()
 	gamescene.update_level_data(level_id,savedata)
 	gamescene.level_select.Update()

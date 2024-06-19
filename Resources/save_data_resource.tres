@@ -35,3 +35,5 @@ prefs_settings = {
 "Music": 0,
 "Sounds Effects": 0
 }
+stars_amount = 0
+last_opened_level = 1

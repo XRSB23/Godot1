@@ -22,6 +22,7 @@ var astar = AStar2D.new()
 
 @export_group('Scoring Parameters')
 @export var bubble_points : int
+@export var percentageperattempts : float
 @export var Math_expression : String ## Expression de f(x) avec P pour bubble_points et X pour le nombre de bille détruite a chaque tir attention ne pas oublier les * entre parentheses ex P*(X-5) et non pas P(X-5)
 var score_formula : Expression = Expression.new()
 var destroyed_count : int 
@@ -85,7 +86,7 @@ func set_bubble(_bubbletype, _position , _color):
 	bubbleInstance.scoreable = true
 	bubbleInstance.set_color()
 	grid_data[_position] = bubbleInstance
-#endregion
+
 
 
 func clear_level():
@@ -93,7 +94,8 @@ func clear_level():
 		if grid_data[cell] != null :
 			grid_data[cell].queue_free()
 	grid_data.clear()
-	
+
+#endregion
 #region A*
 
 func set_up_astar(_astarpoints , _astarconnections):
@@ -144,16 +146,12 @@ func add_bubble_to_grid(projectile : RigidBody2D , grid_bubble : RigidBody2D):
 	connect_astar(projectile.position)
 	projectile.trail.enabled = false
 	if projectile is Bubble_Explosive || projectile is Bubble_Paint :
-		print("add bubble")
 		await projectile.OnHit()
 	else :
 		await process_destruction(get_cells_to_destroy(projectile))
 	reset_sling()
-	print('after reset ?')
 
 func reset_sling():
-	print('reset sling')
-	print(get_remaining_colors().size())
 	if attempts <= 0 || get_remaining_colors().size() < 1:
 		score_display.report_screen.Open()
 		return
@@ -165,7 +163,6 @@ func reset_sling():
 	sling.load_ball()
 
 func explosive_radius(radius_bubbles):
-	print(explosive_radius)
 	var cells = []
 	for bubble in radius_bubbles:
 		cells.append(grid_data.find_key(bubble))
@@ -268,7 +265,6 @@ func set_neighbors_coord(v : Vector2):
 
 #region Destruction
 func process_destruction(cells,explosive = false):
-	print('process destruc')
 	if explosive or cells.size()>= 3 :
 		for cell in cells :
 			update_astar(cell)
@@ -285,7 +281,6 @@ func process_destruction(cells,explosive = false):
 			#await get_tree().process_frame
 
 func drop_bubbles():
-	print('drop bubbles')
 	var cell_to_drop = get_cells_to_drop()
 	for cell_coord in cell_to_drop:
 		grid_data[cell_coord].call_deferred('reparent',destroy_container)
@@ -306,8 +301,9 @@ func get_score():
 
 func update_score(n : int):
 	score_display.score += n
+	if grid_data[root_node_pos] == null:
+		score_display.score = score_display.score * (1 + percentageperattempts*attempts)
 	destroyed_count = 0
-	print('update_score')
 #endregion
 
 #region UserData
@@ -338,6 +334,16 @@ func update_currency(amount):
 func update_settings(_setting_name : String, value : int):
 	var data : user_data = load_user_data()
 	data.prefs_settings[_setting_name] = value
+	save_user_data(data)
+
+func update_stars_amount(amount):
+	var data : user_data = load_user_data()
+	data.stars_amount += amount
+	save_user_data(data)
+
+func update_last_opened(id):
+	var data : user_data = load_user_data()
+	data.last_opened_level = id
 	save_user_data(data)
 
 func init_save_data(user_res : user_data):

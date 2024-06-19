@@ -20,5 +20,8 @@ extends Resource
 	'SFX' : 80
 }
 
+@export var stars_amount = 0
+
+@export var last_opened_level = 1 
 
 
