@@ -12,6 +12,7 @@ class_name LevelSelect
 @onready var placeholder_label = $"../PlaceholderUnlockPanel/Label2"
 
 @export var stars_per_page : int
+@export var debug_max_levels : int
 @export var debug_unlock_all : bool :
 	get :  
 		#if OS.has_feature("editor") : 
@@ -61,7 +62,7 @@ func load_page(lock : bool, treshold : int = 0):
 		placeholder_unlock_panel.hide()
 		for i in range(0, buttons.size()):
 			var target : int = buttons.size() * current_page + i
-			if target >= gamescene.level_data_base.levels.size() : 
+			if target >= gamescene.level_data_base.levels.size() or target > debug_max_levels: 
 				buttons[i].Disable()
 			else : 
 				var level_savedata = gamescene.load_user_data().level_saveData
@@ -100,7 +101,7 @@ func Hide(b : bool = true):
 func is_next_level_playable(id) -> bool :
 	if id % buttons.size() == 0 :
 		var next_page_treshold = (current_page + 1) * stars_per_page
-		if next_page_treshold > gamescene.load_user_data().stars_amount :
+		if next_page_treshold > gamescene.load_user_data().stars_amount or  id == debug_max_levels :
 			return false
 	return true
 	
