@@ -9,7 +9,7 @@ class_name LevelSelect
 @onready var transition_player : AnimationPlayer = $"../../TransitionCanvas/AnimationPlayer"
 
 @onready var placeholder_unlock_panel = $"../PlaceholderUnlockPanel"
-@onready var placeholder_label = $"../PlaceholderUnlockPanel/Label2"
+@onready var placeholder_label = $"../PlaceholderUnlockPanel/HBoxContainer/Amount"
 
 @export var stars_per_page : int
 @export var debug_max_levels : int
@@ -57,7 +57,7 @@ func load_page(lock : bool, treshold : int = 0):
 		for i in range(0, buttons.size()):
 			buttons[i].Disable()
 		placeholder_unlock_panel.show()
-		placeholder_label.text = 'Stars to collect until unlock : ' + str(treshold)
+		placeholder_label.text = str(treshold)
 	else:
 		placeholder_unlock_panel.hide()
 		for i in range(0, buttons.size()):

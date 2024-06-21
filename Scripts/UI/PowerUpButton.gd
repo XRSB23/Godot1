@@ -41,7 +41,7 @@ func UpdateAmount():
 	var user_inventory = gamescene.load_user_data().inventory
 	amount_label.text = str(user_inventory[name])
 	Disable(user_inventory[name] <= 0)
-	amount_label.theme.set_stylebox()
+
 	
 func Disable(b: bool):
 	var user_inventory = gamescene.load_user_data().inventory

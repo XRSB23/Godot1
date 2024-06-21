@@ -94,6 +94,8 @@ func clear_level():
 		if grid_data[cell] != null :
 			grid_data[cell].queue_free()
 	grid_data.clear()
+	sling.ClearBall()
+	sling.trajectory_preview.ghost.clear_points()
 
 #endregion
 #region A*
