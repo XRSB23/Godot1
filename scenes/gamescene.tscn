@@ -2710,7 +2710,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -360.0
 offset_top = -776.0
-offset_right = 950040.0
+offset_right = 673560.0
 offset_bottom = 784.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -3825,7 +3825,7 @@ script = ExtResource("50_wa58b")
 id = 1
 control = NodePath("../../..")
 node_background = NodePath("../..")
-modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.52549)
+modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.235294)
 node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
@@ -3863,7 +3863,7 @@ script = ExtResource("50_wa58b")
 id = 2
 control = NodePath("../../..")
 node_background = NodePath("../..")
-modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.52549)
+modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.235294)
 node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
@@ -3901,7 +3901,7 @@ script = ExtResource("50_wa58b")
 id = 3
 control = NodePath("../../..")
 node_background = NodePath("../..")
-modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.52549)
+modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.235294)
 node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
@@ -3939,7 +3939,7 @@ script = ExtResource("50_wa58b")
 id = 4
 control = NodePath("../../..")
 node_background = NodePath("../..")
-modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.52549)
+modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.235294)
 node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
@@ -3977,7 +3977,7 @@ script = ExtResource("50_wa58b")
 id = 5
 control = NodePath("../../..")
 node_background = NodePath("../..")
-modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.52549)
+modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.235294)
 node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
@@ -4015,7 +4015,7 @@ script = ExtResource("50_wa58b")
 id = 6
 control = NodePath("../../..")
 node_background = NodePath("../..")
-modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.52549)
+modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.235294)
 node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
@@ -4053,7 +4053,7 @@ script = ExtResource("50_wa58b")
 id = 7
 control = NodePath("../../..")
 node_background = NodePath("../..")
-modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.52549)
+modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.235294)
 node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
