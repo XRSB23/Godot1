@@ -57,7 +57,7 @@ func load_page(lock : bool, treshold : int = 0):
 		for i in range(0, buttons.size()):
 			buttons[i].Disable()
 		placeholder_unlock_panel.show()
-		placeholder_label.text = str(treshold)
+		placeholder_label.text = str(treshold - gamescene.load_user_data().stars_amount)
 	else:
 		placeholder_unlock_panel.hide()
 		for i in range(0, buttons.size()):
