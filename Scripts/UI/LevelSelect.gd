@@ -26,6 +26,11 @@ var current_page : int
 var latestUnlocked : int
 
 func Init():
+	
+	CenterAnimPosition("Next")
+	CenterAnimPosition("Previous")
+	
+	
 	buttons.clear()
 	for child in get_children():
 		if child is LevelButton : buttons.append(child)
@@ -35,6 +40,15 @@ func Init():
 	current_page = floor(float(latestUnlocked) / float(buttons.size()))
 	UpdatePageButtons()
 	Update()
+
+func CenterAnimPosition(anim_name : String):
+	
+	var position_centered = get_viewport_rect().size/2 - size/2
+	var anim : Animation = animation_player.get_animation(anim_name)
+	var anim_idx = anim.find_track("LevelSelect:position", Animation.TYPE_VALUE)
+	anim.track_set_key_value(anim_idx,0,position_centered)
+	anim.track_set_key_value(anim_idx,3,position_centered)
+
 
 func Update():
 	#
