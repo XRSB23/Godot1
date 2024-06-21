@@ -8,6 +8,8 @@ signal selected()
 @export_category("Node Connexion")
 @export var powerUp_panel : PowerUpPanel
 @export var amount_label : Label
+@export var normal_stylebox : StyleBox
+@export var empty_stylebox : StyleBox
 @export var highlight : TextureRect
 @export var icon : TextureRect
 @export var particle_controller : ParticleController
@@ -39,6 +41,7 @@ func UpdateAmount():
 	var user_inventory = gamescene.load_user_data().inventory
 	amount_label.text = str(user_inventory[name])
 	Disable(user_inventory[name] <= 0)
+	amount_label.theme.set_stylebox()
 	
 func Disable(b: bool):
 	var user_inventory = gamescene.load_user_data().inventory
