@@ -1587,7 +1587,7 @@ region = Rect2(307.2, 102.4, 102.4, 102.4)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ruudt"]
 font_size = 120
-outline_size = 20
+font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swuy3"]
@@ -3835,6 +3835,7 @@ mouse_force_pass_scroll_events = false
 script = ExtResource("14_rlae7")
 animator = NodePath("../AnimationPlayer")
 buttons = [NodePath("ColorButton1/Marker2D/TextureButton"), NodePath("ColorButton2/Marker2D/TextureButton"), NodePath("ColorButton3/Marker2D/TextureButton"), NodePath("ColorButton4/Marker2D/TextureButton"), NodePath("ColorButton5/Marker2D/TextureButton"), NodePath("ColorButton6/Marker2D/TextureButton"), NodePath("ColorButton7/Marker2D/TextureButton")]
+gizmo_visible = false
 max_radius = 500.0
 min_radius = 350.0
 origin = -180.0
