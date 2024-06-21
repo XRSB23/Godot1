@@ -3751,7 +3751,6 @@ drag_curve = SubResource("Curve_j361q")
 button_prefab = ExtResource("5_2nx2p")
 
 [node name="Art" type="Sprite2D" parent="Sling"]
-self_modulate = Color(1, 1, 1, 0.568627)
 z_index = -5
 texture = ExtResource("36_5vqpt")
 
