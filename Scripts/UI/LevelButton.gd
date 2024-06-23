@@ -30,12 +30,12 @@ func GetControl() -> LevelSelect :
 	return parent if parent is LevelSelect else null
 	
 
-func Update(id : int, reachedStars : int):
+func Update(id : int, reachedStars : int,unlocked : bool):
 	text = str(id + 1)
 	stars[0].reached = true if reachedStars >= 1 else false
 	stars[1].reached = true if reachedStars >= 2 else false
 	stars[2].reached = true if reachedStars >= 3 else false
-	Disable(id > control.latestUnlocked && !control.debug_unlock_all)
+	Disable(unlocked && !control.debug_unlock_all)
 
 func _on_pressed():
 	if control == null :

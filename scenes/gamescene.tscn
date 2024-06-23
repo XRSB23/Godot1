@@ -1,4 +1,4 @@
-[gd_scene load_steps=164 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=170 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
@@ -30,13 +30,14 @@
 [ext_resource type="Script" path="res://Scripts/UI/VolumeSlider.gd" id="11_n8bmv"]
 [ext_resource type="Script" path="res://Scripts/Sling/GhostTrajectoryPreview.gd" id="11_o4i07"]
 [ext_resource type="Shader" uid="uid://cvq75rp2rcsub" path="res://Art/UI/Shaders/v_border_fade_UV_shader.tres" id="11_q0ext"]
+[ext_resource type="StyleBox" uid="uid://b0p1dwequhtip" path="res://Art/UI/Theme/UI_button_normal_StyleBox.tres" id="11_qjxhj"]
 [ext_resource type="Script" path="res://Scripts/UI/ShopPanel.gd" id="12_gbqcd"]
 [ext_resource type="Script" path="res://Scripts/UI/LevelSelect.gd" id="13_gtr2x"]
 [ext_resource type="Texture2D" uid="uid://ctntcxri8oack" path="res://Art/UI/Theme/UI Art.png" id="14_7vew4"]
 [ext_resource type="PackedScene" uid="uid://dmouyuwn7moq0" path="res://scenes/level_button.tscn" id="14_jlmao"]
 [ext_resource type="Script" path="res://addons/radialcontainer_plugin/RadialContainer.gd" id="14_rlae7"]
 [ext_resource type="Theme" uid="uid://dn6qy8xj1s3ch" path="res://Art/UI/Theme/power_up_menu_theme.tres" id="14_rueps"]
-[ext_resource type="StyleBox" uid="uid://c5up22doyuqwm" path="res://Art/UI/Theme/power_up_count_StyleBox.tres" id="15_dvsbn"]
+[ext_resource type="StyleBox" uid="uid://c5up22doyuqwm" path="res://Art/UI/Theme/power_up_count_StyleBox_Green.tres" id="15_dvsbn"]
 [ext_resource type="Texture2D" uid="uid://b2eexg2334wf2" path="res://Art/UI/Theme/LevelButton/LevelButton.svg" id="15_p4r1u"]
 [ext_resource type="Texture2D" uid="uid://dnp87slkwpbty" path="res://Art/Background/DesertTwillight.png" id="16_4vjwh"]
 [ext_resource type="Texture2D" uid="uid://cbk7atqhpnm3x" path="res://Art/UI/PowerUpsIcons.svg" id="21_tfky2"]
@@ -44,6 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="23_n35ni"]
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpPanel.gd" id="28_a1ofm"]
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpButton.gd" id="29_vc8lb"]
+[ext_resource type="Texture2D" uid="uid://cmbyfnm3n0pm5" path="res://Art/UI/UI_Stars.svg" id="30_df1ht"]
 [ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/Shaders/grayscale_shader.tres" id="30_saxga"]
 [ext_resource type="Texture2D" uid="uid://dwo7jmqlgeeen" path="res://Art/Sling.svg" id="36_5vqpt"]
 [ext_resource type="Shader" uid="uid://dxnj1xto4ex41" path="res://Art/Sling/vector_shader.tres" id="44_t3pm5"]
@@ -73,6 +75,51 @@ shader_parameter/Color = Color(0.215686, 0.215686, 0.215686, 1)
 font_size = 25
 outline_size = 9
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wbjgh"]
+font_size = 24
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pl2kh"]
+atlas = ExtResource("15_p4r1u")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_48k41"]
+texture = SubResource("AtlasTexture_pl2kh")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+modulate_color = Color(0, 0.545098, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8owhp"]
+texture = SubResource("AtlasTexture_pl2kh")
+texture_margin_left = 28.0
+texture_margin_top = 28.0
+texture_margin_right = 28.0
+texture_margin_bottom = 28.0
+modulate_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1rlr"]
+atlas = ExtResource("8_7n0tw")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10h6m"]
+atlas = ExtResource("8_7n0tw")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwcrx"]
+atlas = ExtResource("15_p4r1u")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hsecm"]
+texture = SubResource("AtlasTexture_vwcrx")
+texture_margin_left = 28.0
+texture_margin_top = 28.0
+texture_margin_right = 28.0
+texture_margin_bottom = 28.0
+modulate_color = Color(1, 0, 0, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ktcax"]
 load_path = "res://.godot/imported/UI_Stars.svg-81c8b1844452c4bdbc387d6cd906465c.ctex"
@@ -116,54 +163,9 @@ font_size = 24
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pl2kh"]
-atlas = ExtResource("15_p4r1u")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_48k41"]
-texture = SubResource("AtlasTexture_pl2kh")
-texture_margin_left = 18.0
-texture_margin_top = 18.0
-texture_margin_right = 18.0
-texture_margin_bottom = 18.0
-modulate_color = Color(0, 0.545098, 1, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8owhp"]
-texture = SubResource("AtlasTexture_pl2kh")
-texture_margin_left = 28.0
-texture_margin_top = 28.0
-texture_margin_right = 28.0
-texture_margin_bottom = 28.0
-modulate_color = Color(0.2, 0.2, 0.2, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k1rlr"]
-atlas = ExtResource("8_7n0tw")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_10h6m"]
-atlas = ExtResource("8_7n0tw")
-region = Rect2(128, 0, 128, 128)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_0dj25"]
 atlas = ExtResource("8_7n0tw")
 region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="LabelSettings" id="LabelSettings_wbjgh"]
-font_size = 24
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vwcrx"]
-atlas = ExtResource("15_p4r1u")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hsecm"]
-texture = SubResource("AtlasTexture_vwcrx")
-texture_margin_left = 28.0
-texture_margin_top = 28.0
-texture_margin_right = 28.0
-texture_margin_bottom = 28.0
-modulate_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_av6lq"]
 
@@ -975,6 +977,19 @@ _data = {
 "RESET": SubResource("Animation_dstj5")
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8bha6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6oxib"]
+font_size = 50
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n73i4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr60w"]
+atlas = ExtResource("30_df1ht")
+region = Rect2(128, 0, 128, 128)
+
 [sub_resource type="Curve" id="Curve_j361q"]
 _data = [Vector2(0, 0), 0.0, 2.425, 0, 0, Vector2(0.1, 0.4), 1.75882, 0.666667, 0, 0, Vector2(1, 1), 0.666667, 0.0, 0, 0]
 point_count = 3
@@ -992,7 +1007,7 @@ shader_parameter/Darken = 0.05
 shader_parameter/LengthRatio = 1.0
 shader_parameter/Invert = false
 shader_parameter/Hologram = true
-shader_parameter/ScrollSpeed = -0.1
+shader_parameter/ScrollSpeed = 0.1
 shader_parameter/HologramTexture = ExtResource("45_5ctud")
 
 [sub_resource type="Curve" id="Curve_4jdw3"]
@@ -1573,6 +1588,7 @@ region = Rect2(307.2, 102.4, 102.4, 102.4)
 [sub_resource type="LabelSettings" id="LabelSettings_ruudt"]
 font_size = 120
 font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swuy3"]
 size = Vector2(5115.88, 207)
@@ -1583,8 +1599,9 @@ size = Vector2(250, 6305)
 [node name="Gamescene" type="Node2D"]
 script = ExtResource("1_scxi1")
 cell_size = Vector2(106, 116)
-bubble_points = 10
-Math_expression = "P * X * X"
+bubble_points = 1
+percentageperattempts = 0.1
+Math_expression = "P * X"
 
 [node name="CameraSystem" type="Node" parent="."]
 
@@ -1638,6 +1655,7 @@ theme_override_constants/separation = 11
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
+disabled = true
 texture_normal = ExtResource("4_wcnu3")
 ignore_texture_size = true
 stretch_mode = 5
@@ -1645,11 +1663,13 @@ stretch_mode = 5
 [node name="Label" type="Label" parent="PopupCanvas/ShopButton/Shop"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Placeholder"
+text = "Work in Progress"
 label_settings = SubResource("LabelSettings_yj1tm")
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GoldIcon" type="TextureRect" parent="PopupCanvas/ShopButton/Shop"]
+visible = false
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
@@ -1684,179 +1704,6 @@ grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("PlaceholderTexture2D_2bu5c")
 
-[node name="ReportScreen" type="Panel" parent="PopupCanvas"]
-visible = false
-modulate = Color(1, 1, 1, 0)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -246.0
-offset_top = -228.0
-offset_right = 256.0
-offset_bottom = 232.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("5_1yt0q")
-script = ExtResource("6_kt0mt")
-
-[node name="LevelLabel" type="Label" parent="PopupCanvas/ReportScreen"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 96.0
-offset_top = -32.0
-offset_right = -96.0
-offset_bottom = 59.0
-grow_horizontal = 2
-theme_override_styles/normal = ExtResource("5_1yt0q")
-text = "Level 1"
-label_settings = SubResource("LabelSettings_p0bmt")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="StarContainer" type="HBoxContainer" parent="PopupCanvas/ReportScreen"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 72.0
-offset_top = 56.0
-offset_right = -72.0
-offset_bottom = -256.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Star0" type="TextureRect" parent="PopupCanvas/ReportScreen/StarContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = SubResource("AtlasTexture_lt07u")
-expand_mode = 1
-stretch_mode = 5
-script = ExtResource("10_1mpiy")
-rectTrue = Vector2(128, 0)
-
-[node name="Star1" type="TextureRect" parent="PopupCanvas/ReportScreen/StarContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = SubResource("AtlasTexture_48jaj")
-expand_mode = 1
-stretch_mode = 5
-script = ExtResource("10_1mpiy")
-rectTrue = Vector2(128, 0)
-
-[node name="Star2" type="TextureRect" parent="PopupCanvas/ReportScreen/StarContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = SubResource("AtlasTexture_gf1s4")
-expand_mode = 1
-stretch_mode = 5
-script = ExtResource("10_1mpiy")
-rectTrue = Vector2(128, 0)
-
-[node name="ScoreLabel" type="Label" parent="PopupCanvas/ReportScreen"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -48.0
-offset_right = 120.0
-offset_bottom = 41.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_qfi8m")
-text = "152 689 024"
-label_settings = SubResource("LabelSettings_cxa46")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Highscore" type="HBoxContainer" parent="PopupCanvas/ReportScreen"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 40.0
-offset_top = 56.0
-offset_right = -40.0
-offset_bottom = 90.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="PopupCanvas/ReportScreen/Highscore"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "High Score :"
-label_settings = SubResource("LabelSettings_ojk6x")
-vertical_alignment = 1
-
-[node name="Value" type="Label" parent="PopupCanvas/ReportScreen/Highscore"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = " 542 695 247"
-label_settings = SubResource("LabelSettings_unqf8")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Buttons" type="HBoxContainer" parent="PopupCanvas/ReportScreen"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = -88.0
-offset_right = -38.0
-offset_bottom = 22.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="LevelSelect" type="Button" parent="PopupCanvas/ReportScreen/Buttons"]
-custom_minimum_size = Vector2(110, 110)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_48k41")
-theme_override_styles/hover = SubResource("StyleBoxTexture_48k41")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_8owhp")
-theme_override_styles/focus = SubResource("StyleBoxTexture_48k41")
-icon = SubResource("AtlasTexture_k1rlr")
-icon_alignment = 1
-expand_icon = true
-
-[node name="Retry" type="Button" parent="PopupCanvas/ReportScreen/Buttons"]
-custom_minimum_size = Vector2(110, 110)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_48k41")
-theme_override_styles/hover = SubResource("StyleBoxTexture_48k41")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_8owhp")
-theme_override_styles/focus = SubResource("StyleBoxTexture_48k41")
-icon = SubResource("AtlasTexture_10h6m")
-icon_alignment = 1
-expand_icon = true
-
-[node name="Next" type="Button" parent="PopupCanvas/ReportScreen/Buttons"]
-custom_minimum_size = Vector2(110, 110)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_48k41")
-theme_override_styles/hover = SubResource("StyleBoxTexture_48k41")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_8owhp")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_8owhp")
-theme_override_styles/focus = SubResource("StyleBoxTexture_48k41")
-icon = SubResource("AtlasTexture_0dj25")
-icon_alignment = 1
-expand_icon = true
-
 [node name="PausePanel" type="Panel" parent="PopupCanvas"]
 visible = false
 modulate = Color(1, 1, 1, 0)
@@ -1865,10 +1712,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -280.0
-offset_top = -280.0
-offset_right = 280.0
-offset_bottom = 280.0
+offset_left = -472.0
+offset_top = -348.0
+offset_right = 472.0
+offset_bottom = 348.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("5_1yt0q")
@@ -1878,9 +1725,9 @@ script = ExtResource("10_lwgwo")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 96.0
+offset_left = 312.0
 offset_top = -32.0
-offset_right = -96.0
+offset_right = -312.0
 offset_bottom = 59.0
 grow_horizontal = 2
 theme_override_styles/normal = ExtResource("5_1yt0q")
@@ -1894,10 +1741,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = 116.0
-offset_right = -32.0
-offset_bottom = -188.0
+offset_left = 152.0
+offset_top = 96.0
+offset_right = -152.0
+offset_bottom = -272.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -2005,10 +1852,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 96.0
-offset_top = 380.0
-offset_right = -96.0
-offset_bottom = -92.0
+offset_left = 272.0
+offset_top = 442.0
+offset_right = -272.0
+offset_bottom = -154.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -2018,12 +1865,14 @@ size_flags_horizontal = 3
 text = "Debug Reset Progress"
 label_settings = SubResource("LabelSettings_p0bmt")
 
-[node name="TextureButton" type="TextureButton" parent="PopupCanvas/PausePanel/[Debug]ResetProgress"]
+[node name="Button" type="Button" parent="PopupCanvas/PausePanel/[Debug]ResetProgress"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-size_flags_horizontal = 3
-texture_normal = ExtResource("8_nev1w")
-ignore_texture_size = true
-stretch_mode = 5
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("11_qjxhj")
+text = "Reset"
 
 [node name="Buttons" type="HBoxContainer" parent="PopupCanvas/PausePanel"]
 layout_mode = 1
@@ -2031,15 +1880,15 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 146.0
-offset_top = -88.0
-offset_right = -144.0
-offset_bottom = 22.0
+offset_left = 274.0
+offset_top = -109.0
+offset_right = -272.0
+offset_bottom = 43.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="LevelSelect" type="Button" parent="PopupCanvas/PausePanel/Buttons"]
-custom_minimum_size = Vector2(110, 110)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -2052,7 +1901,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Retry" type="Button" parent="PopupCanvas/PausePanel/Buttons"]
-custom_minimum_size = Vector2(110, 110)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -2080,6 +1929,181 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxTexture_hsecm")
 text = "X"
+
+[node name="ReportScreen" type="Panel" parent="PopupCanvas"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -356.0
+offset_top = -248.0
+offset_right = 366.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("5_1yt0q")
+script = ExtResource("6_kt0mt")
+
+[node name="LevelLabel" type="Label" parent="PopupCanvas/ReportScreen"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 201.0
+offset_top = -32.0
+offset_right = -201.0
+offset_bottom = 59.0
+grow_horizontal = 2
+theme_override_styles/normal = ExtResource("5_1yt0q")
+text = "Level 1"
+label_settings = SubResource("LabelSettings_p0bmt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StarContainer" type="HBoxContainer" parent="PopupCanvas/ReportScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 72.0
+offset_top = 102.0
+offset_right = -72.0
+offset_bottom = -210.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Star0" type="TextureRect" parent="PopupCanvas/ReportScreen/StarContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_lt07u")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("10_1mpiy")
+rectTrue = Vector2(128, 0)
+
+[node name="Star1" type="TextureRect" parent="PopupCanvas/ReportScreen/StarContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_48jaj")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("10_1mpiy")
+rectTrue = Vector2(128, 0)
+
+[node name="Star2" type="TextureRect" parent="PopupCanvas/ReportScreen/StarContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_gf1s4")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("10_1mpiy")
+rectTrue = Vector2(128, 0)
+
+[node name="ScoreLabel" type="Label" parent="PopupCanvas/ReportScreen"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -48.0
+offset_right = 120.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_qfi8m")
+text = "152 689 024"
+label_settings = SubResource("LabelSettings_cxa46")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Highscore" type="HBoxContainer" parent="PopupCanvas/ReportScreen"]
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = 56.0
+offset_right = -40.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PopupCanvas/ReportScreen/Highscore"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "High Score :"
+label_settings = SubResource("LabelSettings_ojk6x")
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="PopupCanvas/ReportScreen/Highscore"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = " 542 695 247"
+label_settings = SubResource("LabelSettings_unqf8")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="PopupCanvas/ReportScreen"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -88.0
+offset_right = -38.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LevelSelect" type="Button" parent="PopupCanvas/ReportScreen/Buttons"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_48k41")
+theme_override_styles/hover = SubResource("StyleBoxTexture_48k41")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8owhp")
+theme_override_styles/focus = SubResource("StyleBoxTexture_48k41")
+icon = SubResource("AtlasTexture_k1rlr")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Retry" type="Button" parent="PopupCanvas/ReportScreen/Buttons"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_48k41")
+theme_override_styles/hover = SubResource("StyleBoxTexture_48k41")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8owhp")
+theme_override_styles/focus = SubResource("StyleBoxTexture_48k41")
+icon = SubResource("AtlasTexture_10h6m")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Next" type="Button" parent="PopupCanvas/ReportScreen/Buttons"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_48k41")
+theme_override_styles/hover = SubResource("StyleBoxTexture_48k41")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8owhp")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_8owhp")
+theme_override_styles/focus = SubResource("StyleBoxTexture_48k41")
+icon = SubResource("AtlasTexture_0dj25")
+icon_alignment = 1
+expand_icon = true
 
 [node name="ShopPanel" type="Panel" parent="PopupCanvas"]
 visible = false
@@ -2707,7 +2731,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -360.0
 offset_top = -776.0
-offset_right = 673560.0
+offset_right = 950040.0
 offset_bottom = 784.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -3532,9 +3556,13 @@ offset_right = 475.0
 offset_bottom = 284.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(475, 284)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 columns = 5
 script = ExtResource("13_gtr2x")
-debug_unlock_all = true
+stars_per_page = 25
+debug_max_levels = 30
 
 [node name="LevelButton0" parent="LevelSelectCanvas/LevelSelect" instance=ExtResource("14_jlmao")]
 layout_mode = 2
@@ -3644,6 +3672,73 @@ libraries = {
 "": SubResource("AnimationLibrary_v383t")
 }
 
+[node name="PlaceholderUnlockPanel" type="Panel" parent="LevelSelectCanvas"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -504.0
+offset_top = -376.0
+offset_right = 502.0
+offset_bottom = -284.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("14_rueps")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelSelectCanvas/PlaceholderUnlockPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 13
+
+[node name="VSeparator" type="VSeparator" parent="LevelSelectCanvas/PlaceholderUnlockPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 23
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8bha6")
+
+[node name="Text" type="Label" parent="LevelSelectCanvas/PlaceholderUnlockPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 57
+text = "Unlock this page by collecting :
+"
+label_settings = SubResource("LabelSettings_6oxib")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VSeparator2" type="VSeparator" parent="LevelSelectCanvas/PlaceholderUnlockPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 23
+theme_override_styles/separator = SubResource("StyleBoxEmpty_n73i4")
+
+[node name="Amount" type="Label" parent="LevelSelectCanvas/PlaceholderUnlockPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 57
+text = "25"
+label_settings = SubResource("LabelSettings_6oxib")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="StarTexture" type="TextureRect" parent="LevelSelectCanvas/PlaceholderUnlockPanel/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_pr60w")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
 [node name="BubbleContainer" type="Node2D" parent="."]
 
 [node name="DestroyContainer" type="Node2D" parent="."]
@@ -3740,6 +3835,7 @@ mouse_force_pass_scroll_events = false
 script = ExtResource("14_rlae7")
 animator = NodePath("../AnimationPlayer")
 buttons = [NodePath("ColorButton1/Marker2D/TextureButton"), NodePath("ColorButton2/Marker2D/TextureButton"), NodePath("ColorButton3/Marker2D/TextureButton"), NodePath("ColorButton4/Marker2D/TextureButton"), NodePath("ColorButton5/Marker2D/TextureButton"), NodePath("ColorButton6/Marker2D/TextureButton"), NodePath("ColorButton7/Marker2D/TextureButton")]
+gizmo_visible = false
 max_radius = 500.0
 min_radius = 350.0
 origin = -180.0
@@ -3779,7 +3875,7 @@ script = ExtResource("50_wa58b")
 id = 1
 control = NodePath("../../..")
 node_background = NodePath("../..")
-modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.52549)
+modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.235294)
 node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
@@ -3817,7 +3913,7 @@ script = ExtResource("50_wa58b")
 id = 2
 control = NodePath("../../..")
 node_background = NodePath("../..")
-modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.52549)
+modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.235294)
 node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
@@ -3855,7 +3951,7 @@ script = ExtResource("50_wa58b")
 id = 3
 control = NodePath("../../..")
 node_background = NodePath("../..")
-modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.52549)
+modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.235294)
 node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
@@ -3893,7 +3989,7 @@ script = ExtResource("50_wa58b")
 id = 4
 control = NodePath("../../..")
 node_background = NodePath("../..")
-modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.52549)
+modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.235294)
 node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
@@ -3931,7 +4027,7 @@ script = ExtResource("50_wa58b")
 id = 5
 control = NodePath("../../..")
 node_background = NodePath("../..")
-modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.52549)
+modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.235294)
 node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
@@ -3969,7 +4065,7 @@ script = ExtResource("50_wa58b")
 id = 6
 control = NodePath("../../..")
 node_background = NodePath("../..")
-modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.52549)
+modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.235294)
 node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
@@ -4007,7 +4103,7 @@ script = ExtResource("50_wa58b")
 id = 7
 control = NodePath("../../..")
 node_background = NodePath("../..")
-modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.52549)
+modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.235294)
 node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
@@ -4052,13 +4148,13 @@ shape = SubResource("RectangleShape2D_kkwav")
 [connection signal="value_changed" from="CameraSystem/CameraBounds" to="CameraSystem/Camera2D" method="_on_camera_bounds_value_changed"]
 [connection signal="button_down" from="PopupCanvas/ShopButton/Shop/ShopButton" to="PopupCanvas/ShopPanel" method="_on_shop_button_button_down"]
 [connection signal="button_down" from="PopupCanvas/Pause" to="PopupCanvas/PausePanel" method="_on_pause_button_down"]
-[connection signal="button_down" from="PopupCanvas/ReportScreen/Buttons/LevelSelect" to="PopupCanvas/ReportScreen" method="_on_level_select_button_down"]
-[connection signal="button_down" from="PopupCanvas/ReportScreen/Buttons/Retry" to="PopupCanvas/ReportScreen" method="_on_retry_button_down"]
-[connection signal="button_down" from="PopupCanvas/ReportScreen/Buttons/Next" to="PopupCanvas/ReportScreen" method="_on_next_button_down"]
-[connection signal="button_down" from="PopupCanvas/PausePanel/[Debug]ResetProgress/TextureButton" to="PopupCanvas/PausePanel" method="_on_debug_reset_progress_button_down"]
+[connection signal="button_down" from="PopupCanvas/PausePanel/[Debug]ResetProgress/Button" to="PopupCanvas/PausePanel" method="_on_debug_reset_progress_button_down"]
 [connection signal="button_down" from="PopupCanvas/PausePanel/Buttons/LevelSelect" to="PopupCanvas/ReportScreen" method="_on_level_select_button_down"]
 [connection signal="button_down" from="PopupCanvas/PausePanel/Buttons/Retry" to="PopupCanvas/ReportScreen" method="_on_retry_button_down"]
 [connection signal="pressed" from="PopupCanvas/PausePanel/CloseButton" to="PopupCanvas/PausePanel" method="_on_close_button_pressed"]
+[connection signal="button_down" from="PopupCanvas/ReportScreen/Buttons/LevelSelect" to="PopupCanvas/ReportScreen" method="_on_level_select_button_down"]
+[connection signal="button_down" from="PopupCanvas/ReportScreen/Buttons/Retry" to="PopupCanvas/ReportScreen" method="_on_retry_button_down"]
+[connection signal="button_down" from="PopupCanvas/ReportScreen/Buttons/Next" to="PopupCanvas/ReportScreen" method="_on_next_button_down"]
 [connection signal="button_down" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Buttons/BuySingle/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_single_precision_shot"]
 [connection signal="button_down" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Buttons/BuyMultiple/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_multiple_precision_shot"]
 [connection signal="button_down" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Buttons/BuySingle/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_single_bomb"]
