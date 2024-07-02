@@ -980,7 +980,7 @@ _data = {
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8bha6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6oxib"]
-font_size = 50
+font_size = 54
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
@@ -2732,7 +2732,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -360.0
 offset_top = -776.0
-offset_right = 950040.0
+offset_right = 673560.0
 offset_bottom = 784.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -3673,7 +3673,7 @@ libraries = {
 "": SubResource("AnimationLibrary_v383t")
 }
 
-[node name="PlaceholderUnlockPanel" type="Panel" parent="LevelSelectCanvas"]
+[node name="UnlockBanner" type="Panel" parent="LevelSelectCanvas"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -3681,30 +3681,32 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -504.0
-offset_top = -376.0
+offset_top = -396.0
 offset_right = 502.0
-offset_bottom = -284.0
+offset_bottom = -288.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("14_rueps")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="LevelSelectCanvas/PlaceholderUnlockPanel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelSelectCanvas/UnlockBanner"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -10.0
+offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 13
+theme_override_constants/separation = 4
 
-[node name="VSeparator" type="VSeparator" parent="LevelSelectCanvas/PlaceholderUnlockPanel/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="LevelSelectCanvas/UnlockBanner/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 23
 theme_override_styles/separator = SubResource("StyleBoxEmpty_8bha6")
 
-[node name="Text" type="Label" parent="LevelSelectCanvas/PlaceholderUnlockPanel/HBoxContainer"]
+[node name="Text" type="Label" parent="LevelSelectCanvas/UnlockBanner/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 57
@@ -3715,12 +3717,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="VSeparator2" type="VSeparator" parent="LevelSelectCanvas/PlaceholderUnlockPanel/HBoxContainer"]
+[node name="VSeparator2" type="VSeparator" parent="LevelSelectCanvas/UnlockBanner/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 23
+theme_override_constants/separation = 0
 theme_override_styles/separator = SubResource("StyleBoxEmpty_n73i4")
 
-[node name="Amount" type="Label" parent="LevelSelectCanvas/PlaceholderUnlockPanel/HBoxContainer"]
+[node name="Amount" type="Label" parent="LevelSelectCanvas/UnlockBanner/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 57
@@ -3730,7 +3732,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="StarTexture" type="TextureRect" parent="LevelSelectCanvas/PlaceholderUnlockPanel/HBoxContainer"]
+[node name="StarTexture" type="TextureRect" parent="LevelSelectCanvas/UnlockBanner/HBoxContainer"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6

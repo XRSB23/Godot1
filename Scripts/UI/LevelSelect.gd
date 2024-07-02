@@ -8,8 +8,8 @@ class_name LevelSelect
 @onready var level_select_canvas = $".."
 @onready var transition_player : AnimationPlayer = $"../../TransitionCanvas/AnimationPlayer"
 
-@onready var placeholder_unlock_panel = $"../PlaceholderUnlockPanel"
-@onready var placeholder_label = $"../PlaceholderUnlockPanel/HBoxContainer/Amount"
+@onready var unlock_banner = $"../UnlockBanner"
+@onready var unlock_amount : Label = $"../UnlockBanner/HBoxContainer/Amount"
 
 @export var stars_per_page : int
 @export var debug_max_levels : int
@@ -70,10 +70,10 @@ func load_page(lock : bool, treshold : int = 0):
 	if lock :
 		for i in range(0, buttons.size()):
 			buttons[i].Disable()
-		placeholder_unlock_panel.show()
-		placeholder_label.text = str(treshold - gamescene.load_user_data().stars_amount)
+		unlock_banner.show()
+		unlock_amount.text = str(treshold - gamescene.load_user_data().stars_amount)
 	else:
-		placeholder_unlock_panel.hide()
+		unlock_banner.hide()
 		for i in range(0, buttons.size()):
 			var target : int = buttons.size() * current_page + i
 			if target >= gamescene.level_data_base.levels.size() or target > debug_max_levels: 
