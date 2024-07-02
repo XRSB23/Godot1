@@ -68,7 +68,7 @@ func Open():
 	
 	else : 
 		next_button.disabled = false
-		locked_display.visible = true
+		locked_display.visible = false
 		
 	hud.visible = false
 	
