@@ -12,6 +12,9 @@ class_name ReportScreen
 @onready var hud = $"../../HUD"
 @onready var level_select_canvas = $"../../LevelSelectCanvas"
 @onready var transition_player : AnimationPlayer = $"../../TransitionCanvas/AnimationPlayer"
+@onready var locked_display = $Buttons/Next/LockedDisplay
+@onready var locked_stars_label : Label = $Buttons/Next/LockedDisplay/HBoxContainer/Label
+
 
 var score : int = 0 :
 	set(value):
@@ -45,11 +48,7 @@ func get_stars() -> int:
 	return i
 
 func Open():
-	if !gamescene.level_select.is_next_level_playable(level_id + 1):
-		#Le next button doit etre disable ici
-		next_button.disabled = true
-	else : next_button.disabled = false
-	hud.visible = false
+	
 	#Save to SaveData
 	var savedata : Level_SaveData = gamescene.load_user_data().level_saveData[level_id]
 	if score > savedata.high_score : 
@@ -59,6 +58,20 @@ func Open():
 		savedata.gatheredStars = get_stars()
 	gamescene.update_level_data(level_id,savedata)
 	gamescene.level_select.Update()
+	
+	if !gamescene.level_select.is_next_level_playable(level_id + 1):
+		#Le next button doit etre disable ici
+		next_button.disabled = true
+		locked_display.visible = true
+		var next_page_treshold = (gamescene.level_select.current_page + 1) * gamescene.level_select.stars_per_page
+		locked_stars_label.text = str(next_page_treshold - gamescene.load_user_data().stars_amount)
+	
+	else : 
+		next_button.disabled = false
+		locked_display.visible = false
+		
+	hud.visible = false
+	
 
 	if get_stars() < 1 : # Loose Condition
 		#Do Loose Anim Here

@@ -70,7 +70,8 @@ func _input(event):
 			if color_select_menu.is_open : color_select_menu.Close()
 
 func HandleTouch(event):
-
+	if event.index > 0 : return
+	
 	if event.pressed :
 		touch_points[event.index] = event.position
 	else:
@@ -86,13 +87,15 @@ func HandleTouch(event):
 				else : cancel_shot()
 
 func HandleDrag(event):
+	if event.index > 0 : return
+	
 	touch_points[event.index] = event.position
-	if start_point == Vector2.ZERO : start_point = get_local_mouse_position()
+	if start_point == Vector2.ZERO : start_point = touch_points[event.index]
 	if touch_points.size() == 1:
 		is_dragging = true
 		
 		debug_drag_start = start_point
-		input_direction = start_point - get_local_mouse_position()
+		input_direction = start_point - touch_points[event.index]
 		input_direction = input_direction.normalized() * min(max_drag, input_direction.length()) # Cap Drag lenghth
 		debug_drag_end = -input_direction
 		

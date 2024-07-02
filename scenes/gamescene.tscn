@@ -1,4 +1,4 @@
-[gd_scene load_steps=170 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=172 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
@@ -39,7 +39,7 @@
 [ext_resource type="Theme" uid="uid://dn6qy8xj1s3ch" path="res://Art/UI/Theme/power_up_menu_theme.tres" id="14_rueps"]
 [ext_resource type="StyleBox" uid="uid://c5up22doyuqwm" path="res://Art/UI/Theme/power_up_count_StyleBox_Green.tres" id="15_dvsbn"]
 [ext_resource type="Texture2D" uid="uid://b2eexg2334wf2" path="res://Art/UI/Theme/LevelButton/LevelButton.svg" id="15_p4r1u"]
-[ext_resource type="Texture2D" uid="uid://dnp87slkwpbty" path="res://Art/Background/DesertTwillight.png" id="16_4vjwh"]
+[ext_resource type="Texture2D" uid="uid://dhsriyl3j3gsv" path="res://Art/Background/SeasideCliff.png" id="18_vaaux"]
 [ext_resource type="Texture2D" uid="uid://cbk7atqhpnm3x" path="res://Art/UI/PowerUpsIcons.svg" id="21_tfky2"]
 [ext_resource type="Script" path="res://Scripts/UI/ParticleController.gd" id="22_50gyi"]
 [ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="23_n35ni"]
@@ -166,6 +166,19 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="AtlasTexture" id="AtlasTexture_0dj25"]
 atlas = ExtResource("8_7n0tw")
 region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nou4m"]
+atlas = ExtResource("8_7n0tw")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ax8f6"]
+font_size = 55
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr60w"]
+atlas = ExtResource("30_df1ht")
+region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_av6lq"]
 
@@ -980,15 +993,11 @@ _data = {
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8bha6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6oxib"]
-font_size = 50
+font_size = 54
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n73i4"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pr60w"]
-atlas = ExtResource("30_df1ht")
-region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="Curve" id="Curve_j361q"]
 _data = [Vector2(0, 0), 0.0, 2.425, 0, 0, Vector2(0.1, 0.4), 1.75882, 0.666667, 0, 0, Vector2(1, 1), 0.666667, 0.0, 0, 0]
@@ -1703,6 +1712,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("PlaceholderTexture2D_2bu5c")
+expand_mode = 3
 
 [node name="PausePanel" type="Panel" parent="PopupCanvas"]
 visible = false
@@ -2101,9 +2111,55 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_48k41")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_8owhp")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_8owhp")
 theme_override_styles/focus = SubResource("StyleBoxTexture_48k41")
+disabled = true
 icon = SubResource("AtlasTexture_0dj25")
 icon_alignment = 1
 expand_icon = true
+
+[node name="LockedDisplay" type="VBoxContainer" parent="PopupCanvas/ReportScreen/Buttons/Next"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -107.0
+offset_right = 61.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -14
+
+[node name="LockIcon" type="TextureRect" parent="PopupCanvas/ReportScreen/Buttons/Next/LockedDisplay"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_nou4m")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupCanvas/ReportScreen/Buttons/Next/LockedDisplay"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="PopupCanvas/ReportScreen/Buttons/Next/LockedDisplay/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "25"
+label_settings = SubResource("LabelSettings_ax8f6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StarTexture" type="TextureRect" parent="PopupCanvas/ReportScreen/Buttons/Next/LockedDisplay/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_pr60w")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="ShopPanel" type="Panel" parent="PopupCanvas"]
 visible = false
@@ -2701,7 +2757,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("16_4vjwh")
+texture = ExtResource("18_vaaux")
 stretch_mode = 5
 
 [node name="TransitionCanvas" type="CanvasLayer" parent="."]
@@ -2731,7 +2787,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -360.0
 offset_top = -776.0
-offset_right = 950040.0
+offset_right = 673560.0
 offset_bottom = 784.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -3542,7 +3598,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("16_4vjwh")
+texture = ExtResource("18_vaaux")
 
 [node name="LevelSelect" type="GridContainer" parent="LevelSelectCanvas"]
 anchors_preset = 8
@@ -3672,7 +3728,7 @@ libraries = {
 "": SubResource("AnimationLibrary_v383t")
 }
 
-[node name="PlaceholderUnlockPanel" type="Panel" parent="LevelSelectCanvas"]
+[node name="UnlockBanner" type="Panel" parent="LevelSelectCanvas"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -3680,30 +3736,32 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -504.0
-offset_top = -376.0
+offset_top = -396.0
 offset_right = 502.0
-offset_bottom = -284.0
+offset_bottom = -288.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("14_rueps")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="LevelSelectCanvas/PlaceholderUnlockPanel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelSelectCanvas/UnlockBanner"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -10.0
+offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 13
+theme_override_constants/separation = 4
 
-[node name="VSeparator" type="VSeparator" parent="LevelSelectCanvas/PlaceholderUnlockPanel/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="LevelSelectCanvas/UnlockBanner/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 23
 theme_override_styles/separator = SubResource("StyleBoxEmpty_8bha6")
 
-[node name="Text" type="Label" parent="LevelSelectCanvas/PlaceholderUnlockPanel/HBoxContainer"]
+[node name="Text" type="Label" parent="LevelSelectCanvas/UnlockBanner/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 57
@@ -3714,12 +3772,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="VSeparator2" type="VSeparator" parent="LevelSelectCanvas/PlaceholderUnlockPanel/HBoxContainer"]
+[node name="VSeparator2" type="VSeparator" parent="LevelSelectCanvas/UnlockBanner/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 23
+theme_override_constants/separation = 0
 theme_override_styles/separator = SubResource("StyleBoxEmpty_n73i4")
 
-[node name="Amount" type="Label" parent="LevelSelectCanvas/PlaceholderUnlockPanel/HBoxContainer"]
+[node name="Amount" type="Label" parent="LevelSelectCanvas/UnlockBanner/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 57
@@ -3729,7 +3787,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="StarTexture" type="TextureRect" parent="LevelSelectCanvas/PlaceholderUnlockPanel/HBoxContainer"]
+[node name="StarTexture" type="TextureRect" parent="LevelSelectCanvas/UnlockBanner/HBoxContainer"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
