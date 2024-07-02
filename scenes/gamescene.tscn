@@ -39,7 +39,7 @@
 [ext_resource type="Theme" uid="uid://dn6qy8xj1s3ch" path="res://Art/UI/Theme/power_up_menu_theme.tres" id="14_rueps"]
 [ext_resource type="StyleBox" uid="uid://c5up22doyuqwm" path="res://Art/UI/Theme/power_up_count_StyleBox_Green.tres" id="15_dvsbn"]
 [ext_resource type="Texture2D" uid="uid://b2eexg2334wf2" path="res://Art/UI/Theme/LevelButton/LevelButton.svg" id="15_p4r1u"]
-[ext_resource type="Texture2D" uid="uid://dnp87slkwpbty" path="res://Art/Background/DesertTwillight.png" id="16_4vjwh"]
+[ext_resource type="Texture2D" uid="uid://dhsriyl3j3gsv" path="res://Art/Background/SeasideCliff.png" id="18_vaaux"]
 [ext_resource type="Texture2D" uid="uid://cbk7atqhpnm3x" path="res://Art/UI/PowerUpsIcons.svg" id="21_tfky2"]
 [ext_resource type="Script" path="res://Scripts/UI/ParticleController.gd" id="22_50gyi"]
 [ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="23_n35ni"]
@@ -1703,6 +1703,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("PlaceholderTexture2D_2bu5c")
+expand_mode = 3
 
 [node name="PausePanel" type="Panel" parent="PopupCanvas"]
 visible = false
@@ -2701,7 +2702,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("16_4vjwh")
+texture = ExtResource("18_vaaux")
 stretch_mode = 5
 
 [node name="TransitionCanvas" type="CanvasLayer" parent="."]
@@ -3542,7 +3543,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("16_4vjwh")
+texture = ExtResource("18_vaaux")
 
 [node name="LevelSelect" type="GridContainer" parent="LevelSelectCanvas"]
 anchors_preset = 8
