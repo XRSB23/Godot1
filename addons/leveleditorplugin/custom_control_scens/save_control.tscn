@@ -40,7 +40,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.152941, 0.227451, 0.364706, 1)
-text = "Tresholds"
+text = "Tresholds(shots)"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer"]
@@ -68,6 +68,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="LineEdit2" type="LineEdit" parent="HBoxContainer/VBoxContainer2/HBoxContainer"]
+modulate = Color(0.721569, 0.45098, 0.2, 1)
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -77,6 +78,7 @@ placeholder_text = "Type here..."
 alignment = 1
 
 [node name="LineEdit3" type="LineEdit" parent="HBoxContainer/VBoxContainer2/HBoxContainer"]
+modulate = Color(0.313726, 0.356863, 0.380392, 1)
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -86,6 +88,7 @@ placeholder_text = "Type here..."
 alignment = 1
 
 [node name="LineEdit4" type="LineEdit" parent="HBoxContainer/VBoxContainer2/HBoxContainer"]
+modulate = Color(1, 0.843137, 0, 1)
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3

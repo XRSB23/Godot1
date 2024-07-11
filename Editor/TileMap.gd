@@ -6,6 +6,8 @@ var tresholds : Array[String] = ['','','']
 var attempts : String = ""
 
 var save_comp_instance
+@export var percentage_per_attempts : float 
+@export var score_reach_offset : int
 
 func is_level_already_exists(_level_name : String):
 	var levelres = load_level_resource()
@@ -21,7 +23,7 @@ func load_level_resource():
 func save_level(n,t,a):
 	var res = load_level_resource()
 	var level = level_data.new()
-	level.tresholds = t
+	var N : int = 0
 	level.attempts = a
 	var tiles = get_used_cells(0)
 	var points : Array[Vector2]
@@ -31,8 +33,11 @@ func save_level(n,t,a):
 		var s = get_cell_tile_data(0,tile).get_custom_data_by_layer_id(0)
 		if s != "Empty":
 			points.append(tile_coord)
+			N += 1
 		level.bubbles.append(level_data.BubbleColor[s])
+	level.amount = N
 	level.astar_points = points
+	level.tresholds = convert_shots_to_score(t,a,N)
 	level.astar_connections = set_astar_connections(points)
 	level.root_node_coord = map_to_local(get_used_cells(1)[0])
 	res.levels[n] = level
@@ -78,7 +83,8 @@ func load_level(_level_name):
 	set_cell(1,local_to_map(data.root_node_coord),5,Vector2.ZERO)
 	level_name = _level_name
 	var k = 0
-	for treshold in data.tresholds :
+	var score_treshold = convert_score_to_shots(data.tresholds,data.attempts,data.amount)
+	for treshold in score_treshold :
 		tresholds[k] = str(treshold) 
 		k += 1
 	attempts = str(data.attempts)
@@ -96,3 +102,17 @@ func get_atlas_coord(b_color : level_data.BubbleColor):
 		6:	atlas_coord = Vector2(2,1)
 		7:	atlas_coord = Vector2(3,1)
 	return atlas_coord
+
+func convert_score_to_shots(t : Array,a : int,N : int ):
+	var shots_t = []
+	for treshold in t :
+		var shot = a - (1/ percentage_per_attempts) * ((treshold - N + score_reach_offset) / N)
+		shots_t.append(shot)
+	return shots_t
+	
+func convert_shots_to_score(t : Array,a : int,N : int):
+	var score_t  = []
+	for treshold in t :
+		var score = N * ( 1 + percentage_per_attempts * (a - treshold)) - score_reach_offset
+		score_t.append(score)
+	return score_t
