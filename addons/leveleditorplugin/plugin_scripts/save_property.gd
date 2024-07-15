@@ -44,10 +44,13 @@ func on_save_button_pressed():
 		display_message("Attempts value is not an int" , Color.RED)
 		return
 	for treshold in t:
-		if treshold < 0 :
+		if treshold <= 0 :
 			display_message("Treshold value must be greater than 0" , Color.RED)
 			return
-	if t[0] < t[1] and t[1] < t[2]:
+		if treshold > a:
+			display_message("Treshold value can't be more than max attempts",Color.RED)
+			return
+	if t[0] > t[1] and t[1] > t[2]:
 		pass
 	else :
 		display_message("Tresholds must be growing values" , Color.RED)
