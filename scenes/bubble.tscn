@@ -1,10 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://bkohxp01r1a8b"]
+[gd_scene load_steps=24 format=3 uid="uid://bkohxp01r1a8b"]
 
 [ext_resource type="Script" path="res://Scripts/Bubble/Bubble.gd" id="1_dxulh"]
-[ext_resource type="Texture2D" uid="uid://c6sk0w7i560do" path="res://Art/Bubble/Fragment1.svg" id="4_ek7xo"]
 [ext_resource type="Script" path="res://Scripts/Bubble/BubbleParticleSystem.gd" id="4_hgmxw"]
 [ext_resource type="Script" path="res://Scripts/Bubble/ParticlesAtlasCoordinates.gd" id="6_b4px6"]
-[ext_resource type="Texture2D" uid="uid://dyxu758m1wig7" path="res://Art/Bubble/Fragment2.svg" id="6_wj5gc"]
 [ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/particleStar4.svg" id="8_4k1bp"]
 [ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/trail_shader_material.tres" id="8_bmxv1"]
 [ext_resource type="Script" path="res://Scripts/Bubble/TrailParticles.gd" id="8_se1nf"]
@@ -19,11 +17,8 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_okf3c"]
-load_path = "res://.godot/imported/BubbleAtlas_Neutral.svg-3cd9323a84511d4effdb827f9b8ec127.ctex"
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ipgr1"]
-atlas = SubResource("CompressedTexture2D_okf3c")
+atlas = ExtResource("10_8y8vm")
 region = Rect2(0, 0, 410, 204)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o55xo"]
@@ -31,8 +26,8 @@ radius = 52.0384
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gjrhs"]
 resource_local_to_scene = true
-atlas = ExtResource("4_ek7xo")
-region = Rect2(571, 144, 400, 246)
+atlas = ExtResource("10_8y8vm")
+region = Rect2(102, 204, 102, 102)
 
 [sub_resource type="Curve" id="Curve_t2dma"]
 _data = [Vector2(0.59322, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.30981, 0.0, 0, 0]
@@ -40,8 +35,8 @@ point_count = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24rqh"]
 resource_local_to_scene = true
-atlas = ExtResource("6_wj5gc")
-region = Rect2(621, 165, 289, 220)
+atlas = ExtResource("10_8y8vm")
+region = Rect2(102, 408, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4h4d"]
 atlas = ExtResource("8_4k1bp")
@@ -57,10 +52,6 @@ particles_anim_loop = false
 [sub_resource type="Curve" id="Curve_c3tev"]
 _data = [Vector2(0, 1), 0.0, 1.4, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w3x3o"]
-atlas = ExtResource("10_8y8vm")
-region = Rect2(0, 204, 102, 102)
 
 [sub_resource type="Animation" id="Animation_miwir"]
 resource_name = "Burst"
@@ -303,12 +294,12 @@ initial_velocity_min = 80.0
 initial_velocity_max = 130.0
 angular_velocity_min = -360.0
 angular_velocity_max = 360.0
-scale_amount_min = 0.1
-scale_amount_max = 0.15
+scale_amount_min = 0.75
+scale_amount_max = 1.25
 scale_amount_curve = SubResource("Curve_t2dma")
 script = ExtResource("6_b4px6")
-offset = Vector2(58, 144)
-spacing = Vector2(512, 513)
+origin = Vector2(0, 204)
+cell_size = Vector2(102, 102)
 hframe = 4
 vframe = 2
 
@@ -328,12 +319,12 @@ initial_velocity_min = 80.0
 initial_velocity_max = 130.0
 angular_velocity_min = -360.0
 angular_velocity_max = 360.0
-scale_amount_min = 0.08
-scale_amount_max = 0.13
+scale_amount_min = 0.8
+scale_amount_max = 1.3
 scale_amount_curve = SubResource("Curve_t2dma")
 script = ExtResource("6_b4px6")
-offset = Vector2(109, 165)
-spacing = Vector2(512, 512)
+origin = Vector2(0, 408)
+cell_size = Vector2(102, 102)
 hframe = 4
 vframe = 2
 
@@ -387,9 +378,6 @@ modulate = Color(1, 1, 1, 0)
 z_index = -1
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("11_uhnul")
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="ParticleSystem"]
-texture = SubResource("AtlasTexture_w3x3o")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

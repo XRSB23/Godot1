@@ -1,8 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://cko1bo128vv83"]
+[gd_scene load_steps=26 format=3 uid="uid://cko1bo128vv83"]
 
 [ext_resource type="Script" path="res://Scripts/Bubble/Bubble_Paint.gd" id="1_82h1v"]
 [ext_resource type="Texture2D" uid="uid://cyo7nva76v510" path="res://Art/Bubble/SpecialBubbles.svg" id="2_nsgn8"]
-[ext_resource type="Texture2D" uid="uid://d03puw7wni1og" path="res://Art/Bubble/Paint_Liquid_only.svg" id="3_ajjjt"]
 [ext_resource type="Script" path="res://Scripts/LockRotation.gd" id="4_a6lhe"]
 [ext_resource type="Texture2D" uid="uid://cvvalvnxooypg" path="res://Art/Bubble/FragmentSpecial.svg" id="5_43th0"]
 [ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/particleStar4.svg" id="7_1loar"]
@@ -17,6 +16,13 @@ particles_animation = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7h06g"]
+load_path = "res://.godot/imported/BubbleAtlas_Neutral.svg-3cd9323a84511d4effdb827f9b8ec127.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3xhu"]
+atlas = SubResource("CompressedTexture2D_7h06g")
+region = Rect2(0, 1428, 408, 204)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o55xo"]
 radius = 52.0384
@@ -278,7 +284,7 @@ frame = 2
 [node name="Paint" type="Sprite2D" parent="Sprite2D"]
 show_behind_parent = true
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("3_ajjjt")
+texture = SubResource("AtlasTexture_e3xhu")
 hframes = 4
 vframes = 2
 script = ExtResource("4_a6lhe")

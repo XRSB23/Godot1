@@ -1,4 +1,4 @@
-[gd_scene load_steps=172 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=166 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
@@ -55,6 +55,7 @@
 [ext_resource type="Script" path="res://Editor/RotationSetter.gd" id="48_ejjtx"]
 [ext_resource type="Script" path="res://Scripts/LockRotation.gd" id="49_7fkp4"]
 [ext_resource type="Script" path="res://Scripts/Sling/UI/BubbleSelectMenu_Button.gd" id="50_wa58b"]
+[ext_resource type="Texture2D" uid="uid://dw6lf43dbhq81" path="res://Art/Bubble/BubbleAtlas_Neutral.svg" id="54_qupo8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yj1tm"]
 font_size = 30
@@ -1545,54 +1546,33 @@ _data = {
 "RESET": SubResource("Animation_46eh3")
 }
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eja06"]
-load_path = "res://.godot/imported/Bubbles.svg-87314ac24e09233e959a48afe62838a4.ctex"
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ku3hc"]
-atlas = SubResource("CompressedTexture2D_eja06")
-region = Rect2(102.4, 0, 102.4, 102.4)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xgthv"]
-load_path = "res://.godot/imported/Bubbles.svg-87314ac24e09233e959a48afe62838a4.ctex"
+atlas = ExtResource("54_qupo8")
+region = Rect2(102, 0, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_783pr"]
-atlas = SubResource("CompressedTexture2D_xgthv")
-region = Rect2(204.8, 0, 102.4, 102.4)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lbdiv"]
-load_path = "res://.godot/imported/Bubbles.svg-87314ac24e09233e959a48afe62838a4.ctex"
+atlas = ExtResource("54_qupo8")
+region = Rect2(204, 0, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bxwxx"]
-atlas = SubResource("CompressedTexture2D_lbdiv")
-region = Rect2(307.2, 0, 102.4, 102.4)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ej8xp"]
-load_path = "res://.godot/imported/Bubbles.svg-87314ac24e09233e959a48afe62838a4.ctex"
+atlas = ExtResource("54_qupo8")
+region = Rect2(306, 0, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4bwlr"]
-atlas = SubResource("CompressedTexture2D_ej8xp")
-region = Rect2(0, 102.4, 102.4, 102.4)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o7s6m"]
-load_path = "res://.godot/imported/Bubbles.svg-87314ac24e09233e959a48afe62838a4.ctex"
+atlas = ExtResource("54_qupo8")
+region = Rect2(0, 102, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_crhhx"]
-atlas = SubResource("CompressedTexture2D_o7s6m")
-region = Rect2(102.4, 102.4, 102.4, 102.4)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qlj4m"]
-load_path = "res://.godot/imported/Bubbles.svg-87314ac24e09233e959a48afe62838a4.ctex"
+atlas = ExtResource("54_qupo8")
+region = Rect2(102, 102, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bnnt7"]
-atlas = SubResource("CompressedTexture2D_qlj4m")
-region = Rect2(204.8, 102.4, 102.4, 102.4)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_83dke"]
-load_path = "res://.godot/imported/Bubbles.svg-87314ac24e09233e959a48afe62838a4.ctex"
+atlas = ExtResource("54_qupo8")
+region = Rect2(204, 102, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0vj8o"]
-atlas = SubResource("CompressedTexture2D_83dke")
-region = Rect2(307.2, 102.4, 102.4, 102.4)
+atlas = ExtResource("54_qupo8")
+region = Rect2(306, 102, 102, 102)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ruudt"]
 font_size = 120
@@ -2787,7 +2767,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -360.0
 offset_top = -776.0
-offset_right = 673560.0
+offset_right = 950040.0
 offset_bottom = 784.0
 grow_horizontal = 2
 grow_vertical = 2
