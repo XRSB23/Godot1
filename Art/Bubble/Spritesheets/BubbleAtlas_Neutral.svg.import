@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct0n0s212lh1r"
-path="res://.godot/imported/particleStar5.svg-4e577b59ec0cb6b41b17d2c71b386b4d.ctex"
+uid="uid://dw6lf43dbhq81"
+path="res://.godot/imported/BubbleAtlas_Neutral.svg-acd9ce296b24d191b47e90432daf396f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Bubble/particleStar5.svg"
-dest_files=["res://.godot/imported/particleStar5.svg-4e577b59ec0cb6b41b17d2c71b386b4d.ctex"]
+source_file="res://Art/Bubble/Spritesheets/BubbleAtlas_Neutral.svg"
+dest_files=["res://.godot/imported/BubbleAtlas_Neutral.svg-acd9ce296b24d191b47e90432daf396f.ctex"]
 
 [params]
 

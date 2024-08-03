@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4f7e8xq8nkyd"
-path="res://.godot/imported/ExplosionEffect.svg-061a491d96051409b2304a1089b3b574.ctex"
+uid="uid://ct0n0s212lh1r"
+path="res://.godot/imported/particleStar5.svg-3c030a0a933fa8234c55a10751c5514e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Bubble/ExplosionEffect.svg"
-dest_files=["res://.godot/imported/ExplosionEffect.svg-061a491d96051409b2304a1089b3b574.ctex"]
+source_file="res://Art/Bubble/Effects/particleStar5.svg"
+dest_files=["res://.godot/imported/particleStar5.svg-3c030a0a933fa8234c55a10751c5514e.ctex"]
 
 [params]
 

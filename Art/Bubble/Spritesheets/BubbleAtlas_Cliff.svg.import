@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqqbexvetbl24"
-path="res://.godot/imported/TrailTexture.svg-ec9be72cf578183470e3e0d81349de36.ctex"
+uid="uid://bvo3expmyrf8r"
+path="res://.godot/imported/BubbleAtlas_Cliff.svg-dbe0de81e31aeb0dd3a84de3ec88115b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Bubble/TrailTexture.svg"
-dest_files=["res://.godot/imported/TrailTexture.svg-ec9be72cf578183470e3e0d81349de36.ctex"]
+source_file="res://Art/Bubble/Spritesheets/BubbleAtlas_Cliff.svg"
+dest_files=["res://.godot/imported/BubbleAtlas_Cliff.svg-dbe0de81e31aeb0dd3a84de3ec88115b.ctex"]
 
 [params]
 

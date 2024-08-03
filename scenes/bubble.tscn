@@ -1,15 +1,15 @@
 [gd_scene load_steps=24 format=3 uid="uid://bkohxp01r1a8b"]
 
 [ext_resource type="Script" path="res://Scripts/Bubble/Bubble.gd" id="1_dxulh"]
+[ext_resource type="Texture2D" uid="uid://dw6lf43dbhq81" path="res://Art/Bubble/Spritesheets/BubbleAtlas_Neutral.svg" id="2_ohgif"]
 [ext_resource type="Script" path="res://Scripts/Bubble/BubbleParticleSystem.gd" id="4_hgmxw"]
+[ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/Effects/particleStar4.svg" id="5_k4pvb"]
 [ext_resource type="Script" path="res://Scripts/Bubble/ParticlesAtlasCoordinates.gd" id="6_b4px6"]
-[ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/particleStar4.svg" id="8_4k1bp"]
-[ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/trail_shader_material.tres" id="8_bmxv1"]
+[ext_resource type="Texture2D" uid="uid://ct0n0s212lh1r" path="res://Art/Bubble/Effects/particleStar5.svg" id="7_vse5h"]
+[ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/Effects/radialGradient.svg" id="8_ganag"]
 [ext_resource type="Script" path="res://Scripts/Bubble/TrailParticles.gd" id="8_se1nf"]
 [ext_resource type="Script" path="res://addons/trail2D_plugin/Trail2D.gd" id="8_x4wus"]
-[ext_resource type="Texture2D" uid="uid://dw6lf43dbhq81" path="res://Art/Bubble/BubbleAtlas_Neutral.svg" id="10_8y8vm"]
-[ext_resource type="Texture2D" uid="uid://ct0n0s212lh1r" path="res://Art/Bubble/particleStar5.svg" id="10_mviey"]
-[ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="11_uhnul"]
+[ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/Shaders/trail_shader_material.tres" id="9_gskvc"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fyk6a"]
 particles_animation = true
@@ -18,7 +18,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ipgr1"]
-atlas = ExtResource("10_8y8vm")
+atlas = ExtResource("2_ohgif")
 region = Rect2(0, 0, 410, 204)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o55xo"]
@@ -26,7 +26,7 @@ radius = 52.0384
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gjrhs"]
 resource_local_to_scene = true
-atlas = ExtResource("10_8y8vm")
+atlas = ExtResource("2_ohgif")
 region = Rect2(102, 204, 102, 102)
 
 [sub_resource type="Curve" id="Curve_t2dma"]
@@ -35,11 +35,11 @@ point_count = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24rqh"]
 resource_local_to_scene = true
-atlas = ExtResource("10_8y8vm")
+atlas = ExtResource("2_ohgif")
 region = Rect2(102, 408, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4h4d"]
-atlas = ExtResource("8_4k1bp")
+atlas = ExtResource("5_k4pvb")
 region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5v3if"]
@@ -356,7 +356,7 @@ one_shot = true
 explosiveness = 1.0
 lifetime_randomness = 1.0
 local_coords = true
-texture = ExtResource("10_mviey")
+texture = ExtResource("7_vse5h")
 emission_shape = 1
 emission_sphere_radius = 50.0
 direction = Vector2(0, 0)
@@ -377,7 +377,7 @@ anim_offset_max = 0.4
 modulate = Color(1, 1, 1, 0)
 z_index = -1
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("11_uhnul")
+texture = ExtResource("8_ganag")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -387,7 +387,7 @@ libraries = {
 [node name="Trail2D" type="Line2D" parent="."]
 top_level = true
 z_index = -2
-material = ExtResource("8_bmxv1")
+material = ExtResource("9_gskvc")
 width = 100.0
 width_curve = SubResource("Curve_ulcjw")
 texture_mode = 2

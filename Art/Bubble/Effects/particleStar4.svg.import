@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ttyw5anbspan"
-path="res://.godot/imported/GemsShine.svg-3f22af5c47caf0edd61db11588a04e69.ctex"
+uid="uid://dwp65udxlxesk"
+path="res://.godot/imported/particleStar4.svg-5d97643f80ada965b8bc70d791637426.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Bubble/GemsShine.svg"
-dest_files=["res://.godot/imported/GemsShine.svg-3f22af5c47caf0edd61db11588a04e69.ctex"]
+source_file="res://Art/Bubble/Effects/particleStar4.svg"
+dest_files=["res://.godot/imported/particleStar4.svg-5d97643f80ada965b8bc70d791637426.ctex"]
 
 [params]
 
@@ -32,6 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=0.2
+svg/scale=1.0
 editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false

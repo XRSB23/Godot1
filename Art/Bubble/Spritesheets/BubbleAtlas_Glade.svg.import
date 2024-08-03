@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blym7xotyntl6"
-path="res://.godot/imported/BubbleAtlas_Sunset.svg-328b05ccced3546ae9f761fdc6719308.ctex"
+uid="uid://cyr5fka6wlvy4"
+path="res://.godot/imported/BubbleAtlas_Glade.svg-d76e1ec32ebdcace4f84dff7878a1fcb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Bubble/BubbleAtlas_Sunset.svg"
-dest_files=["res://.godot/imported/BubbleAtlas_Sunset.svg-328b05ccced3546ae9f761fdc6719308.ctex"]
+source_file="res://Art/Bubble/Spritesheets/BubbleAtlas_Glade.svg"
+dest_files=["res://.godot/imported/BubbleAtlas_Glade.svg-d76e1ec32ebdcace4f84dff7878a1fcb.ctex"]
 
 [params]
 

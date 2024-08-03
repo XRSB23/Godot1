@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwo7jmqlgeeen"
-path="res://.godot/imported/Sling.svg-e46ffe6ffec6910f75c5f58d761061ee.ctex"
+uid="uid://bqqbexvetbl24"
+path="res://.godot/imported/TrailTexture.svg-b424cc3ae706d06b6494c56759c6eb13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sling.svg"
-dest_files=["res://.godot/imported/Sling.svg-e46ffe6ffec6910f75c5f58d761061ee.ctex"]
+source_file="res://Art/Bubble/Effects/TrailTexture.svg"
+dest_files=["res://.godot/imported/TrailTexture.svg-b424cc3ae706d06b6494c56759c6eb13.ctex"]
 
 [params]
 

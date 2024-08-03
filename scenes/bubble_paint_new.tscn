@@ -1,14 +1,14 @@
 [gd_scene load_steps=26 format=3 uid="uid://cko1bo128vv83"]
 
 [ext_resource type="Script" path="res://Scripts/Bubble/Bubble_Paint.gd" id="1_82h1v"]
-[ext_resource type="Texture2D" uid="uid://cyo7nva76v510" path="res://Art/Bubble/SpecialBubbles.svg" id="2_nsgn8"]
+[ext_resource type="Texture2D" uid="uid://cyo7nva76v510" path="res://Art/Bubble/Spritesheets/SpecialBubbles.svg" id="2_tig7i"]
 [ext_resource type="Script" path="res://Scripts/LockRotation.gd" id="4_a6lhe"]
-[ext_resource type="Texture2D" uid="uid://cvvalvnxooypg" path="res://Art/Bubble/FragmentSpecial.svg" id="5_43th0"]
-[ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/particleStar4.svg" id="7_1loar"]
+[ext_resource type="Texture2D" uid="uid://cvvalvnxooypg" path="res://Art/Bubble/Effects/FragmentSpecial.svg" id="5_43th0"]
+[ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/Effects/particleStar4.svg" id="7_1loar"]
 [ext_resource type="Script" path="res://Scripts/Bubble/TrailParticles.gd" id="8_388tw"]
-[ext_resource type="Texture2D" uid="uid://ct0n0s212lh1r" path="res://Art/Bubble/particleStar5.svg" id="9_2d55r"]
-[ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="10_y6btr"]
-[ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/trail_shader_material.tres" id="11_338ut"]
+[ext_resource type="Texture2D" uid="uid://ct0n0s212lh1r" path="res://Art/Bubble/Effects/particleStar5.svg" id="9_2d55r"]
+[ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/Shaders/trail_shader_material.tres" id="9_gtb3f"]
+[ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/Effects/radialGradient.svg" id="10_y6btr"]
 [ext_resource type="Script" path="res://addons/trail2D_plugin/Trail2D.gd" id="12_mx2it"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fyk6a"]
@@ -276,7 +276,7 @@ angular_impulse = 6.0
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
 scale = Vector2(1.1, 1.1)
-texture = ExtResource("2_nsgn8")
+texture = ExtResource("2_tig7i")
 hframes = 4
 vframes = 2
 frame = 2
@@ -394,7 +394,7 @@ libraries = {
 [node name="Trail2D" type="Line2D" parent="."]
 top_level = true
 z_index = -2
-material = ExtResource("11_338ut")
+material = ExtResource("9_gtb3f")
 width = 100.0
 width_curve = SubResource("Curve_ulcjw")
 texture_mode = 2

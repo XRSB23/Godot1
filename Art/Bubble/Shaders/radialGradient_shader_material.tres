@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cme715qbwu7ky"]
 
-[ext_resource type="Shader" uid="uid://dgkmkibxae257" path="res://Art/Bubble/radialGradient_Shader.tres" id="1_d56cp"]
+[ext_resource type="Shader" uid="uid://dgkmkibxae257" path="res://Art/Bubble/Shaders/radialGradient_Shader.tres" id="1_d56cp"]
 
 [resource]
 resource_local_to_scene = true

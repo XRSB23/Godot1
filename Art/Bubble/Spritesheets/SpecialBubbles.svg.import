@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iirp7pxhk5jt"
-path="res://.godot/imported/[Temp]Background.jpg-2d7afe341eb8eb9df2fe607018660317.ctex"
+uid="uid://cyo7nva76v510"
+path="res://.godot/imported/SpecialBubbles.svg-6051102036085356a8e732cb0496db3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/[Temp]Background.jpg"
-dest_files=["res://.godot/imported/[Temp]Background.jpg-2d7afe341eb8eb9df2fe607018660317.ctex"]
+source_file="res://Art/Bubble/Spritesheets/SpecialBubbles.svg"
+dest_files=["res://.godot/imported/SpecialBubbles.svg-6051102036085356a8e732cb0496db3e.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=0.18
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

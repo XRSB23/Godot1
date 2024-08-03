@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwp65udxlxesk"
-path="res://.godot/imported/particleStar4.svg-ac27020b3b6cdaf514f0d8aba373e5ed.ctex"
+uid="uid://cvvalvnxooypg"
+path="res://.godot/imported/FragmentSpecial.svg-9bd233f5b1297cb4dc93615aecd61a70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Bubble/particleStar4.svg"
-dest_files=["res://.godot/imported/particleStar4.svg-ac27020b3b6cdaf514f0d8aba373e5ed.ctex"]
+source_file="res://Art/Bubble/Effects/FragmentSpecial.svg"
+dest_files=["res://.godot/imported/FragmentSpecial.svg-9bd233f5b1297cb4dc93615aecd61a70.ctex"]
 
 [params]
 

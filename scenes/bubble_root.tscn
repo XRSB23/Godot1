@@ -1,15 +1,15 @@
 [gd_scene load_steps=32 format=3 uid="uid://cixp0wridt6lu"]
 
 [ext_resource type="Script" path="res://Scripts/Bubble/Bubble.gd" id="1_kstin"]
-[ext_resource type="Texture2D" uid="uid://dw6lf43dbhq81" path="res://Art/Bubble/BubbleAtlas_Neutral.svg" id="2_xvxqf"]
+[ext_resource type="Texture2D" uid="uid://dw6lf43dbhq81" path="res://Art/Bubble/Spritesheets/BubbleAtlas_Neutral.svg" id="2_8o645"]
 [ext_resource type="Script" path="res://Scripts/Bubble/BubbleParticleSystem.gd" id="3_3b1th"]
-[ext_resource type="Texture2D" uid="uid://dxrsa7rbn1500" path="res://Art/Bubble/Backlight.svg" id="4_teg6f"]
+[ext_resource type="Texture2D" uid="uid://dxrsa7rbn1500" path="res://Art/Bubble/Effects/Backlight.svg" id="3_yafwr"]
 [ext_resource type="Script" path="res://Scripts/Bubble/ParticlesAtlasCoordinates.gd" id="5_balq6"]
-[ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/particleStar4.svg" id="7_qb1o2"]
+[ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/Effects/particleStar4.svg" id="6_1iqqi"]
+[ext_resource type="Texture2D" uid="uid://ct0n0s212lh1r" path="res://Art/Bubble/Effects/particleStar5.svg" id="8_skpib"]
 [ext_resource type="Script" path="res://Scripts/Bubble/TrailParticles.gd" id="8_xdgk7"]
-[ext_resource type="Texture2D" uid="uid://ct0n0s212lh1r" path="res://Art/Bubble/particleStar5.svg" id="9_eojx2"]
-[ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="10_7mw2i"]
-[ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/trail_shader_material.tres" id="11_ivvow"]
+[ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/Effects/radialGradient.svg" id="9_pjavf"]
+[ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/Shaders/trail_shader_material.tres" id="10_nsksb"]
 [ext_resource type="Script" path="res://addons/trail2D_plugin/Trail2D.gd" id="12_mqaht"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fyk6a"]
@@ -19,11 +19,11 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_75ebq"]
-atlas = ExtResource("2_xvxqf")
+atlas = ExtResource("2_8o645")
 region = Rect2(0, 612, 410, 204)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gb0uj"]
-atlas = ExtResource("2_xvxqf")
+atlas = ExtResource("2_8o645")
 region = Rect2(0, 1224, 408, 204)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o55xo"]
@@ -31,7 +31,7 @@ radius = 52.0384
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gjrhs"]
 resource_local_to_scene = true
-atlas = ExtResource("2_xvxqf")
+atlas = ExtResource("2_8o645")
 region = Rect2(102, 816, 102, 102)
 
 [sub_resource type="Curve" id="Curve_t2dma"]
@@ -40,11 +40,11 @@ point_count = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24rqh"]
 resource_local_to_scene = true
-atlas = ExtResource("2_xvxqf")
+atlas = ExtResource("2_8o645")
 region = Rect2(102, 1020, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4h4d"]
-atlas = ExtResource("7_qb1o2")
+atlas = ExtResource("6_1iqqi")
 region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5v3if"]
@@ -433,13 +433,13 @@ vframes = 2
 
 [node name="Backlight" type="Sprite2D" parent="."]
 show_behind_parent = true
-texture = ExtResource("4_teg6f")
+texture = ExtResource("3_yafwr")
 
 [node name="Backlight2" type="Sprite2D" parent="."]
 show_behind_parent = true
 rotation = 0.628319
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("4_teg6f")
+texture = ExtResource("3_yafwr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -526,7 +526,7 @@ one_shot = true
 explosiveness = 1.0
 lifetime_randomness = 1.0
 local_coords = true
-texture = ExtResource("9_eojx2")
+texture = ExtResource("8_skpib")
 emission_shape = 1
 emission_sphere_radius = 50.0
 direction = Vector2(0, 0)
@@ -547,13 +547,13 @@ anim_offset_max = 0.4
 modulate = Color(1, 1, 1, 0)
 z_index = -1
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("10_7mw2i")
+texture = ExtResource("9_pjavf")
 
 [node name="ShinePrimary" type="CPUParticles2D" parent="ParticleSystem"]
 material = SubResource("CanvasItemMaterial_nk132")
 amount = 2
 lifetime = 0.8
-texture = ExtResource("7_qb1o2")
+texture = ExtResource("6_1iqqi")
 emission_shape = 5
 emission_points = PackedVector2Array(11, -26, -10, 25, 26, -11, -39, -4)
 emission_normals = PackedVector2Array()
@@ -572,7 +572,7 @@ anim_offset_max = 0.4
 material = SubResource("CanvasItemMaterial_nk132")
 amount = 1
 lifetime = 0.6
-texture = ExtResource("7_qb1o2")
+texture = ExtResource("6_1iqqi")
 emission_shape = 5
 emission_points = PackedVector2Array(36, -32, 28, 36, -28, -30)
 emission_normals = PackedVector2Array()
@@ -595,7 +595,7 @@ libraries = {
 [node name="Trail2D" type="Line2D" parent="."]
 top_level = true
 z_index = -2
-material = ExtResource("11_ivvow")
+material = ExtResource("10_nsksb")
 width = 100.0
 width_curve = SubResource("Curve_ulcjw")
 texture_mode = 2

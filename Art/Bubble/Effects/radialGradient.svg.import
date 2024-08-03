@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d03puw7wni1og"
-path="res://.godot/imported/Paint_Liquid_only.svg-8ee06db8b9771d8ee030270bd96f83c8.ctex"
+uid="uid://c7ib2slaua6yj"
+path="res://.godot/imported/radialGradient.svg-7cd206f8a16ef85fc218be621f3b228d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Bubble/Paint_Liquid_only.svg"
-dest_files=["res://.godot/imported/Paint_Liquid_only.svg-8ee06db8b9771d8ee030270bd96f83c8.ctex"]
+source_file="res://Art/Bubble/Effects/radialGradient.svg"
+dest_files=["res://.godot/imported/radialGradient.svg-7cd206f8a16ef85fc218be621f3b228d.ctex"]
 
 [params]
 
@@ -32,6 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=0.2
+svg/scale=1.0
 editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false
