@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LevelTheme" load_steps=4 format=3 uid="uid://dj7ydxpdleuw5"]
+
+[ext_resource type="Texture2D" uid="uid://dw6lf43dbhq81" path="res://Art/Bubble/Spritesheets/BubbleAtlas_Neutral.svg" id="1_uldqn"]
+[ext_resource type="Texture2D" uid="uid://dnp87slkwpbty" path="res://Art/Background/DesertTwillight.png" id="2_5conm"]
+[ext_resource type="Script" path="res://Scripts/Class/LevelTheme.gd" id="3_3ojam"]
+
+[resource]
+script = ExtResource("3_3ojam")
+Atlas = ExtResource("1_uldqn")
+Background = ExtResource("2_5conm")

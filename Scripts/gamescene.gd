@@ -20,6 +20,7 @@ var treshold : float
 var root_node_pos : Vector2
 var astar = AStar2D.new()
 
+
 @export_group('Scoring Parameters')
 @export var bubble_points : int
 @export var percentageperattempts : float
@@ -36,6 +37,7 @@ var destroyed_count : int
 @onready var transition_player : AnimationPlayer = $TransitionCanvas/AnimationPlayer
 @onready var attempts_label = $Sling/AttemptsLabel
 @onready var power_up_panel : PowerUpPanel = $HUD/PowerUpPanel
+@onready var level_theme_manager : LevelTheme_Manager = $LevelTheme_Manager
 
 
 
@@ -49,6 +51,7 @@ func _ready():
 		button.Init()
 	level_select.Init() 
 #region Init / Load
+
 
 func load_level(_level):
 	clear_level()
@@ -78,13 +81,19 @@ func load_level(_level):
 	set_up_astar(levelres.astar_points , levelres.astar_connections)
 	
 func set_bubble(_bubbletype, _position , _color):
-	var bubbleInstance = _bubbletype.instantiate()
+	var bubbleInstance = _bubbletype.instantiate() as Bubble
 	bubble_container.add_child(bubbleInstance)
+	bubbleInstance.game_scene = self
+	bubbleInstance.call_deferred(
+		"UpdateAtlas",
+		level_theme_manager.current_theme.Atlas, 
+		level_theme_manager.current_theme.ColorArray)
+	
 	bubbleInstance.position = _position
 	bubbleInstance.color = _color
 	bubbleInstance.freeze= true
 	bubbleInstance.scoreable = true
-	bubbleInstance.set_color()
+	bubbleInstance.call_deferred("set_color")
 	grid_data[_position] = bubbleInstance
 
 

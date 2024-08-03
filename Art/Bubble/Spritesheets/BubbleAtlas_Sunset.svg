@@ -24,9 +24,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
-     inkscape:zoom="0.52850975"
-     inkscape:cx="-19.867183"
-     inkscape:cy="721.84099"
+     inkscape:zoom="1.0570195"
+     inkscape:cx="325.91641"
+     inkscape:cy="185.90007"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="-8"
@@ -8464,7 +8464,7 @@
        fx="64.372116"
        fy="-57.623447"
        r="6.5115709"
-       gradientTransform="matrix(1.7013441,-1.5673064e-8,-2.2027652e-8,3.0777259,-46.944644,113.457)"
+       gradientTransform="matrix(1.7013441,-1.5673064e-8,-2.2027653e-8,3.0777259,-46.944644,113.457)"
        gradientUnits="userSpaceOnUse" />
     <radialGradient
        inkscape:collect="always"
@@ -8535,7 +8535,7 @@
        fx="64.372116"
        fy="-57.623447"
        r="6.5115709"
-       gradientTransform="matrix(1.7013441,-1.5673062e-8,-2.2027652e-8,3.0777259,-46.944644,113.457)"
+       gradientTransform="matrix(1.7013441,-1.5673062e-8,-2.2027653e-8,3.0777259,-46.944644,113.457)"
        gradientUnits="userSpaceOnUse" />
     <radialGradient
        inkscape:collect="always"
@@ -12768,7 +12768,7 @@
      id="layer1-0"
      style="display:inline"
      inkscape:highlight-color="#44ff5b"
-     transform="matrix(0.19868426,0,0,0.19917013,-3.4620902e-6,2.3416751e-7)">
+     transform="matrix(0.19868426,0,0,0.19917013,0.26450369,9.6441968e-4)">
     <g
        id="g17-0-2"
        transform="matrix(1.3835355,0,0,1.3801603,-52.284379,106.38473)"

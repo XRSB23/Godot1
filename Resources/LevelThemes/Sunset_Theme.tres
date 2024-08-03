@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="LevelTheme" load_steps=6 format=3 uid="uid://cw2ygtbr511d0"]
+
+[ext_resource type="Texture2D" uid="uid://blym7xotyntl6" path="res://Art/Bubble/Spritesheets/BubbleAtlas_Sunset.svg" id="1_yi6sx"]
+[ext_resource type="Texture2D" uid="uid://dbko4ghfo4vml" path="res://Art/Background/Sunset.png" id="2_yy82g"]
+[ext_resource type="Script" path="res://Scripts/Class/ColorAtlas.gd" id="3_bhuld"]
+[ext_resource type="Script" path="res://Scripts/Class/LevelTheme.gd" id="4_3hub6"]
+
+[sub_resource type="Resource" id="Resource_w352v"]
+script = ExtResource("3_bhuld")
+colors = Array[Color]([Color(0.643137, 0.643137, 0.643137, 1), Color(0.227451, 0.227451, 0.227451, 1), Color(0.858824, 0.184314, 0.141176, 1), Color(0.952941, 0.701961, 0.027451, 1), Color(0.294118, 0.831373, 0.254902, 1), Color(0.164706, 0.780392, 0.898039, 1), Color(0.0745098, 0.423529, 0.862745, 1), Color(0.803922, 0.0627451, 0.858824, 1)])
+
+[resource]
+script = ExtResource("4_3hub6")
+Atlas = ExtResource("1_yi6sx")
+ColorArray = SubResource("Resource_w352v")
+Background = ExtResource("2_yy82g")

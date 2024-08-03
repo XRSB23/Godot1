@@ -3,7 +3,7 @@ class_name Sling
 
 #region Variables
 
-@onready var game_scene = $".."
+@onready var game_scene : GameScene = $".."
 @onready var bubble_container = $"../BubbleContainer"
 @onready var trajectory_preview : TrajectoryPreview = $TrajectoryPreview 
 @onready var color_select_menu = $ColorSelectMenu
@@ -139,9 +139,15 @@ func load_ball():
 
 	if game_scene.get_remaining_colors().size() == 0 :
 		return
-	ball = bubble_prefabs[0].instantiate()
+	ball = bubble_prefabs[0].instantiate() as Bubble
 	bubble_container.call_deferred("add_child",ball)
+	ball.game_scene = game_scene
 	ball.set_global_position(position)
+	ball.call_deferred(
+		"UpdateAtlas",
+		game_scene.level_theme_manager.current_theme.Atlas,
+		game_scene.level_theme_manager.current_theme.ColorArray)
+		
 	ball.set_ball_launchable(true)
 	if color_select_menu.last_selected_color != null :
 		ball.color = color_select_menu.last_selected_color
@@ -150,7 +156,7 @@ func load_ball():
 			ball.color = color_select_menu.selected_item.id
 		else : ball.color = game_scene.get_remaining_colors()[0]
 	else : ball.color = game_scene.get_remaining_colors()[0]
-	ball.game_scene = game_scene
+	
 	ball.call_deferred("set_color")
 	color_select_menu.last_selected_color = ball.color
 	color_select_menu.update_color_buttons(self, game_scene.get_remaining_colors())

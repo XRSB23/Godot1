@@ -8,6 +8,8 @@ class_name BubbleSelectMenu_Button
 @export var node_icon : Sprite2D
 @export var modulate_icon_disabled : Color
 
+@onready var sprite_2d : Sprite2D = $"../Sprite2D"
+
 	
 func set_button_enable(b : bool = true):
 	disabled = !b
@@ -24,4 +26,5 @@ func _on_button_down():
 func Destroy():
 	queue_free()
 
-
+func UpdateAtlas(_atlas):
+	sprite_2d.texture.atlas = _atlas
