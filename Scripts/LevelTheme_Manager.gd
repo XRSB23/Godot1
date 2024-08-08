@@ -9,8 +9,9 @@ var current_theme : LevelTheme
 @onready var trajectory_preview = $"../Sling/TrajectoryPreview"
 
 func UpdateTheme(page : int):
+	
 	current_theme = ConvertPageToTheme(page)
-	background = current_theme.Background
+	background.texture = current_theme.Background
 	for button : BubbleSelectMenu_Button in color_select_menu.buttons :
 		button.UpdateAtlas(current_theme.Atlas)
 	trajectory_preview.UpdateAtlas(current_theme.ColorArray)

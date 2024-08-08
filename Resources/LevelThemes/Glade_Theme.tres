@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="LevelTheme" load_steps=6 format=3 uid="uid://bh35rfgmycbaq"]
 
-[ext_resource type="Texture2D" uid="uid://cyr5fka6wlvy4" path="res://Art/Bubble/Spritesheets/BubbleAtlas_Glade.svg" id="1_rra0p"]
+[ext_resource type="Texture2D" uid="uid://x4yptgc3kc8s" path="res://Art/Bubble/Spritesheets/BubbleAtlas_Glade.png" id="1_1l7y3"]
 [ext_resource type="Texture2D" uid="uid://bpactpm64frr1" path="res://Art/Background/glade.png" id="2_kn68m"]
 [ext_resource type="Script" path="res://Scripts/Class/ColorAtlas.gd" id="3_571ew"]
 [ext_resource type="Script" path="res://Scripts/Class/LevelTheme.gd" id="4_dstiv"]
@@ -11,6 +11,6 @@ colors = Array[Color]([Color(0.643137, 0.643137, 0.643137, 1), Color(0.917647, 0
 
 [resource]
 script = ExtResource("4_dstiv")
-Atlas = ExtResource("1_rra0p")
+Atlas = ExtResource("1_1l7y3")
 ColorArray = SubResource("Resource_w352v")
 Background = ExtResource("2_kn68m")

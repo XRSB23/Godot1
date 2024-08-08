@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="LevelTheme" load_steps=6 format=3 uid="uid://cfmr2udaacrlb"]
 
-[ext_resource type="Texture2D" uid="uid://bvo3expmyrf8r" path="res://Art/Bubble/Spritesheets/BubbleAtlas_Cliff.svg" id="1_g07um"]
+[ext_resource type="Texture2D" uid="uid://bq512y34dsqk7" path="res://Art/Bubble/Spritesheets/BubbleAtlas_Cliff.png" id="1_ulemu"]
 [ext_resource type="Texture2D" uid="uid://dhsriyl3j3gsv" path="res://Art/Background/SeasideCliff.png" id="2_arihi"]
 [ext_resource type="Script" path="res://Scripts/Class/ColorAtlas.gd" id="3_2ochx"]
 [ext_resource type="Script" path="res://Scripts/Class/LevelTheme.gd" id="4_v283f"]
@@ -11,6 +11,6 @@ colors = Array[Color]([Color(0.643137, 0.643137, 0.643137, 1), Color(0.905882, 0
 
 [resource]
 script = ExtResource("4_v283f")
-Atlas = ExtResource("1_g07um")
+Atlas = ExtResource("1_ulemu")
 ColorArray = SubResource("Resource_w352v")
 Background = ExtResource("2_arihi")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvo3expmyrf8r"
-path="res://.godot/imported/BubbleAtlas_Cliff.svg-dbe0de81e31aeb0dd3a84de3ec88115b.ctex"
+uid="uid://x4yptgc3kc8s"
+path="res://.godot/imported/BubbleAtlas_Glade.png-a9afe1ef146fcff2c4940ca61d9d3064.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Bubble/Spritesheets/BubbleAtlas_Cliff.svg"
-dest_files=["res://.godot/imported/BubbleAtlas_Cliff.svg-dbe0de81e31aeb0dd3a84de3ec88115b.ctex"]
+source_file="res://Art/Bubble/Spritesheets/BubbleAtlas_Glade.png"
+dest_files=["res://.godot/imported/BubbleAtlas_Glade.png-a9afe1ef146fcff2c4940ca61d9d3064.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

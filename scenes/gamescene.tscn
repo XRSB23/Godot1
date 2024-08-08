@@ -1,4 +1,4 @@
-[gd_scene load_steps=173 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=172 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/LevelTheme_Manager.gd" id="2_2ith4"]
@@ -14,7 +14,6 @@
 [ext_resource type="Resource" uid="uid://dj7ydxpdleuw5" path="res://Resources/LevelThemes/Neutral_Theme.tres" id="5_idyd8"]
 [ext_resource type="Shader" uid="uid://d2fhjui4q67pl" path="res://Art/UI/Shaders/h_border_fade_UV_shader.tres" id="5_ucnhw"]
 [ext_resource type="Script" path="res://Scripts/Sling/PickupRadius.gd" id="5_vwg2f"]
-[ext_resource type="Resource" uid="uid://cfmr2udaacrlb" path="res://Resources/LevelThemes/Cliff_Theme.tres" id="6_4i8k4"]
 [ext_resource type="Script" path="res://Scripts/Sling/NewtonTrajectoryPreview.gd" id="6_aqxdd"]
 [ext_resource type="Script" path="res://Scripts/Sling/VectorTrajectoryPreview.gd" id="6_b45vb"]
 [ext_resource type="Script" path="res://Scripts/UI/ReportScreen.gd" id="6_kt0mt"]
@@ -1617,7 +1616,7 @@ Math_expression = "P * X"
 
 [node name="LevelTheme_Manager" type="Node" parent="."]
 script = ExtResource("2_2ith4")
-themes = Array[Resource("res://Scripts/Class/LevelTheme.gd")]([ExtResource("3_cn8f1"), ExtResource("4_vfqvc"), ExtResource("5_idyd8"), ExtResource("6_4i8k4")])
+themes = Array[Resource("res://Scripts/Class/LevelTheme.gd")]([ExtResource("3_cn8f1"), ExtResource("3_cn8f1"), ExtResource("4_vfqvc"), ExtResource("5_idyd8")])
 
 [node name="CameraSystem" type="Node" parent="."]
 
@@ -2778,8 +2777,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -930.0
-offset_right = 2790.0
-offset_bottom = 1080.0
+offset_right = 870.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(1860, 540)
@@ -2795,8 +2793,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -360.0
 offset_top = -776.0
-offset_right = 675480.0
-offset_bottom = 1864.0
+offset_right = 673560.0
+offset_bottom = 784.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(1320, 1320)
@@ -3614,10 +3612,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 485.0
-offset_top = 256.0
-offset_right = 1435.0
-offset_bottom = 824.0
+offset_left = -475.0
+offset_top = -284.0
+offset_right = 475.0
+offset_bottom = 284.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(475, 284)
