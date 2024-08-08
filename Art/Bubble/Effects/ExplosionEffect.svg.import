@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwo7jmqlgeeen"
-path="res://.godot/imported/Sling.svg-59e3729b3097952451510a6e798a3fec.ctex"
+uid="uid://d4f7e8xq8nkyd"
+path="res://.godot/imported/ExplosionEffect.svg-0e1960deb69a0783d11b9c36244072f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sling/Sling.svg"
-dest_files=["res://.godot/imported/Sling.svg-59e3729b3097952451510a6e798a3fec.ctex"]
+source_file="res://Art/Bubble/Effects/ExplosionEffect.svg"
+dest_files=["res://.godot/imported/ExplosionEffect.svg-0e1960deb69a0783d11b9c36244072f8.ctex"]
 
 [params]
 

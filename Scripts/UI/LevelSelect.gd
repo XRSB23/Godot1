@@ -10,6 +10,7 @@ class_name LevelSelect
 
 @onready var unlock_banner = $"../UnlockBanner"
 @onready var unlock_amount : Label = $"../UnlockBanner/HBoxContainer/Amount"
+@onready var level_theme_manager : LevelTheme_Manager = $"../../LevelTheme_Manager"
 
 @export var stars_per_page : int
 @export var debug_max_levels : int
@@ -101,6 +102,7 @@ func UpdatePageButtons(delay : float = 0):
 	
 
 func LoadLevel(id : int):
+	level_theme_manager.UpdateTheme(current_page)
 	transition_player.play("SwipeLeft")
 	await get_tree().create_timer(0.5).timeout
 	gamescene.current_level_id = id
@@ -124,9 +126,11 @@ func _on_previous_button_down():
 	current_page = clamp(current_page - 1, 0, page_amount)
 	UpdatePageButtons(0.75)
 	animation_player.play("Previous")
+	
 
 
 func _on_next_button_down():
 	current_page = clamp(current_page + 1, 0, page_amount)
 	UpdatePageButtons(0.75)
 	animation_player.play("Next")
+	

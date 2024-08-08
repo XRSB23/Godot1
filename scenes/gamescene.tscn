@@ -1,14 +1,18 @@
-[gd_scene load_steps=172 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=173 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
+[ext_resource type="Script" path="res://Scripts/LevelTheme_Manager.gd" id="2_2ith4"]
 [ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraBounds.gd" id="3_2i1fh"]
+[ext_resource type="Resource" uid="uid://bh35rfgmycbaq" path="res://Resources/LevelThemes/Glade_Theme.tres" id="3_cn8f1"]
 [ext_resource type="Shader" uid="uid://bb2tscdlsvyov" path="res://Art/UI/Shaders/monochrome_shader.tres" id="4_f7t2v"]
+[ext_resource type="Resource" uid="uid://cfmr2udaacrlb" path="res://Resources/LevelThemes/Cliff_Theme.tres" id="4_m7ja3"]
+[ext_resource type="Resource" uid="uid://cw2ygtbr511d0" path="res://Resources/LevelThemes/Sunset_Theme.tres" id="4_vfqvc"]
 [ext_resource type="Texture2D" uid="uid://bx070xg3hhki0" path="res://Art/UI/ShopPlaceholder.svg" id="4_wcnu3"]
 [ext_resource type="StyleBox" uid="uid://cc5a14af53fp5" path="res://Art/UI/Theme/LevelButton/button_style.tres" id="5_1yt0q"]
-[ext_resource type="PackedScene" uid="uid://bngunx6u5dfq7" path="res://scenes/BubbleSelectMenu_Button.tscn" id="5_2nx2p"]
 [ext_resource type="Script" path="res://Scripts/Sling/TrajectoryPreview.gd" id="5_6swga"]
 [ext_resource type="PackedScene" uid="uid://bkohxp01r1a8b" path="res://scenes/bubble.tscn" id="5_icqf6"]
+[ext_resource type="Resource" uid="uid://dj7ydxpdleuw5" path="res://Resources/LevelThemes/Neutral_Theme.tres" id="5_idyd8"]
 [ext_resource type="Shader" uid="uid://d2fhjui4q67pl" path="res://Art/UI/Shaders/h_border_fade_UV_shader.tres" id="5_ucnhw"]
 [ext_resource type="Script" path="res://Scripts/Sling/PickupRadius.gd" id="5_vwg2f"]
 [ext_resource type="Script" path="res://Scripts/Sling/NewtonTrajectoryPreview.gd" id="6_aqxdd"]
@@ -39,15 +43,15 @@
 [ext_resource type="Theme" uid="uid://dn6qy8xj1s3ch" path="res://Art/UI/Theme/power_up_menu_theme.tres" id="14_rueps"]
 [ext_resource type="StyleBox" uid="uid://c5up22doyuqwm" path="res://Art/UI/Theme/power_up_count_StyleBox_Green.tres" id="15_dvsbn"]
 [ext_resource type="Texture2D" uid="uid://b2eexg2334wf2" path="res://Art/UI/Theme/LevelButton/LevelButton.svg" id="15_p4r1u"]
-[ext_resource type="Texture2D" uid="uid://dhsriyl3j3gsv" path="res://Art/Background/SeasideCliff.png" id="18_vaaux"]
+[ext_resource type="Texture2D" uid="uid://dbko4ghfo4vml" path="res://Art/Background/Sunset.png" id="19_bmm86"]
 [ext_resource type="Texture2D" uid="uid://cbk7atqhpnm3x" path="res://Art/UI/PowerUpsIcons.svg" id="21_tfky2"]
 [ext_resource type="Script" path="res://Scripts/UI/ParticleController.gd" id="22_50gyi"]
-[ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="23_n35ni"]
+[ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/Effects/radialGradient.svg" id="23_n35ni"]
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpPanel.gd" id="28_a1ofm"]
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpButton.gd" id="29_vc8lb"]
 [ext_resource type="Texture2D" uid="uid://cmbyfnm3n0pm5" path="res://Art/UI/UI_Stars.svg" id="30_df1ht"]
 [ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/Shaders/grayscale_shader.tres" id="30_saxga"]
-[ext_resource type="Texture2D" uid="uid://dwo7jmqlgeeen" path="res://Art/Sling.svg" id="36_5vqpt"]
+[ext_resource type="Texture2D" uid="uid://dwo7jmqlgeeen" path="res://Art/Sling/Sling.svg" id="36_5vqpt"]
 [ext_resource type="Shader" uid="uid://dxnj1xto4ex41" path="res://Art/Sling/vector_shader.tres" id="44_t3pm5"]
 [ext_resource type="Texture2D" uid="uid://dbeuo7kbbujd2" path="res://Art/Sling/HologramLines.png" id="45_5ctud"]
 [ext_resource type="Texture2D" uid="uid://b4ss4b28rlg1j" path="res://Art/Sling/ColorPicker.svg" id="45_puaac"]
@@ -55,6 +59,7 @@
 [ext_resource type="Script" path="res://Editor/RotationSetter.gd" id="48_ejjtx"]
 [ext_resource type="Script" path="res://Scripts/LockRotation.gd" id="49_7fkp4"]
 [ext_resource type="Script" path="res://Scripts/Sling/UI/BubbleSelectMenu_Button.gd" id="50_wa58b"]
+[ext_resource type="Texture2D" uid="uid://pywbbh753864" path="res://Art/Bubble/Spritesheets/BubbleAtlas_Neutral.png" id="58_8sm6h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yj1tm"]
 font_size = 30
@@ -1003,6 +1008,25 @@ outline_color = Color(0, 0, 0, 1)
 _data = [Vector2(0, 0), 0.0, 2.425, 0, 0, Vector2(0.1, 0.4), 1.75882, 0.666667, 0, 0, Vector2(1, 1), 0.666667, 0.0, 0, 0]
 point_count = 3
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_urwes"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hmrp"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_urwes")
+
+[sub_resource type="PackedScene" id="PackedScene_bdtqi"]
+_bundled = {
+"conn_count": 1,
+"conns": PackedInt32Array(1073741825, 1073741824, 11, 10, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("BubbleSelectMenuButton", "TextureButton", "offset_right", "offset_bottom", "mouse_force_pass_scroll_events", "action_mode", "texture_normal", "ignore_texture_size", "stretch_mode", "script", "_on_pressed", "pressed"),
+"node_count": 1,
+"node_paths": [NodePath("."), NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 8, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 7, 0),
+"variants": [102.0, 102.0, false, 0, SubResource("AtlasTexture_6hmrp"), true, 0, ExtResource("50_wa58b")],
+"version": 3
+}
+
 [sub_resource type="Curve" id="Curve_nb6el"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
@@ -1545,54 +1569,33 @@ _data = {
 "RESET": SubResource("Animation_46eh3")
 }
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eja06"]
-load_path = "res://.godot/imported/Bubbles.svg-87314ac24e09233e959a48afe62838a4.ctex"
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ku3hc"]
-atlas = SubResource("CompressedTexture2D_eja06")
-region = Rect2(102.4, 0, 102.4, 102.4)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xgthv"]
-load_path = "res://.godot/imported/Bubbles.svg-87314ac24e09233e959a48afe62838a4.ctex"
+atlas = ExtResource("58_8sm6h")
+region = Rect2(102, 0, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_783pr"]
-atlas = SubResource("CompressedTexture2D_xgthv")
-region = Rect2(204.8, 0, 102.4, 102.4)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lbdiv"]
-load_path = "res://.godot/imported/Bubbles.svg-87314ac24e09233e959a48afe62838a4.ctex"
+atlas = ExtResource("58_8sm6h")
+region = Rect2(204, 0, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bxwxx"]
-atlas = SubResource("CompressedTexture2D_lbdiv")
-region = Rect2(307.2, 0, 102.4, 102.4)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ej8xp"]
-load_path = "res://.godot/imported/Bubbles.svg-87314ac24e09233e959a48afe62838a4.ctex"
+atlas = ExtResource("58_8sm6h")
+region = Rect2(306, 0, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4bwlr"]
-atlas = SubResource("CompressedTexture2D_ej8xp")
-region = Rect2(0, 102.4, 102.4, 102.4)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o7s6m"]
-load_path = "res://.godot/imported/Bubbles.svg-87314ac24e09233e959a48afe62838a4.ctex"
+atlas = ExtResource("58_8sm6h")
+region = Rect2(0, 102, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_crhhx"]
-atlas = SubResource("CompressedTexture2D_o7s6m")
-region = Rect2(102.4, 102.4, 102.4, 102.4)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qlj4m"]
-load_path = "res://.godot/imported/Bubbles.svg-87314ac24e09233e959a48afe62838a4.ctex"
+atlas = ExtResource("58_8sm6h")
+region = Rect2(102, 102, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bnnt7"]
-atlas = SubResource("CompressedTexture2D_qlj4m")
-region = Rect2(204.8, 102.4, 102.4, 102.4)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_83dke"]
-load_path = "res://.godot/imported/Bubbles.svg-87314ac24e09233e959a48afe62838a4.ctex"
+atlas = ExtResource("58_8sm6h")
+region = Rect2(204, 102, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0vj8o"]
-atlas = SubResource("CompressedTexture2D_83dke")
-region = Rect2(307.2, 102.4, 102.4, 102.4)
+atlas = ExtResource("58_8sm6h")
+region = Rect2(306, 102, 102, 102)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ruudt"]
 font_size = 120
@@ -1611,6 +1614,10 @@ cell_size = Vector2(106, 116)
 bubble_points = 1
 percentageperattempts = 0.1
 Math_expression = "P * X"
+
+[node name="LevelTheme_Manager" type="Node" parent="."]
+script = ExtResource("2_2ith4")
+themes = Array[Resource("res://Scripts/Class/LevelTheme.gd")]([ExtResource("5_idyd8"), ExtResource("4_m7ja3"), ExtResource("3_cn8f1"), ExtResource("4_vfqvc")])
 
 [node name="CameraSystem" type="Node" parent="."]
 
@@ -2757,7 +2764,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("18_vaaux")
+texture = ExtResource("19_bmm86")
 stretch_mode = 5
 
 [node name="TransitionCanvas" type="CanvasLayer" parent="."]
@@ -3598,7 +3605,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("18_vaaux")
+texture = ExtResource("19_bmm86")
 
 [node name="LevelSelect" type="GridContainer" parent="LevelSelectCanvas"]
 anchors_preset = 8
@@ -3619,6 +3626,7 @@ columns = 5
 script = ExtResource("13_gtr2x")
 stars_per_page = 25
 debug_max_levels = 30
+debug_unlock_all = true
 
 [node name="LevelButton0" parent="LevelSelectCanvas/LevelSelect" instance=ExtResource("14_jlmao")]
 layout_mode = 2
@@ -3809,7 +3817,7 @@ shoot_strength = 7.5
 min_drag = 20.0
 max_drag = 300.0
 drag_curve = SubResource("Curve_j361q")
-button_prefab = ExtResource("5_2nx2p")
+button_prefab = SubResource("PackedScene_bdtqi")
 
 [node name="Art" type="Sprite2D" parent="Sling"]
 z_index = -5

@@ -2,7 +2,7 @@ extends Line2D
 
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sling = $"../.."
-const COLOR_ATLAS_RESOURCE = preload("res://Resources/ColorAtlas_Resource.tres")
+var color_atlas : ColorAtlas
 
 @export var match_bubble_color : bool
 @export var trajectory_points_amount : int #more = more laggy but more precise
@@ -26,10 +26,10 @@ func display_trajectory(v : Vector2, shoot_strength : float):
 func SetColor():
 	if sling.ball :
 		var color = sling.ball.color
-		if !match_bubble_color : material.set_shader_parameter ("InputColor", COLOR_ATLAS_RESOURCE.GetColor(0))
-		elif color < COLOR_ATLAS_RESOURCE.colors.size() :
-			material.set_shader_parameter ("InputColor", COLOR_ATLAS_RESOURCE.GetColor(color))
+		if !match_bubble_color : material.set_shader_parameter ("InputColor", color_atlas.GetColor(0))
+		elif color < color_atlas.colors.size() :
+			material.set_shader_parameter ("InputColor", color_atlas.GetColor(color))
 		else :
-			material.set_shader_parameter ("InputColor", COLOR_ATLAS_RESOURCE.GetColor(0))
+			material.set_shader_parameter ("InputColor", color_atlas.GetColor(0))
 			push_warning("Sling Ball Color unrecognized by ColorAtlas, set to ColorAtlas[0] (White) by default")
 				

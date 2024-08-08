@@ -1,18 +1,15 @@
-[gd_scene load_steps=33 format=3 uid="uid://cixp0wridt6lu"]
+[gd_scene load_steps=32 format=3 uid="uid://cixp0wridt6lu"]
 
 [ext_resource type="Script" path="res://Scripts/Bubble/Bubble.gd" id="1_kstin"]
-[ext_resource type="Texture2D" uid="uid://bfmfr7tv11ykp" path="res://Art/Bubble/Gems.svg" id="2_iv44r"]
+[ext_resource type="Texture2D" uid="uid://pywbbh753864" path="res://Art/Bubble/Spritesheets/BubbleAtlas_Neutral.png" id="2_rjo7b"]
 [ext_resource type="Script" path="res://Scripts/Bubble/BubbleParticleSystem.gd" id="3_3b1th"]
-[ext_resource type="Texture2D" uid="uid://ttyw5anbspan" path="res://Art/Bubble/GemsShine.svg" id="3_bj3rh"]
-[ext_resource type="Texture2D" uid="uid://c6sk0w7i560do" path="res://Art/Bubble/Fragment1.svg" id="4_l67cd"]
-[ext_resource type="Texture2D" uid="uid://dxrsa7rbn1500" path="res://Art/Bubble/Backlight.svg" id="4_teg6f"]
+[ext_resource type="Texture2D" uid="uid://dxrsa7rbn1500" path="res://Art/Bubble/Effects/Backlight.svg" id="3_yafwr"]
 [ext_resource type="Script" path="res://Scripts/Bubble/ParticlesAtlasCoordinates.gd" id="5_balq6"]
-[ext_resource type="Texture2D" uid="uid://dyxu758m1wig7" path="res://Art/Bubble/Fragment2.svg" id="6_ob1on"]
-[ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/particleStar4.svg" id="7_qb1o2"]
+[ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/Effects/particleStar4.svg" id="6_1iqqi"]
+[ext_resource type="Texture2D" uid="uid://ct0n0s212lh1r" path="res://Art/Bubble/Effects/particleStar5.svg" id="8_skpib"]
 [ext_resource type="Script" path="res://Scripts/Bubble/TrailParticles.gd" id="8_xdgk7"]
-[ext_resource type="Texture2D" uid="uid://ct0n0s212lh1r" path="res://Art/Bubble/particleStar5.svg" id="9_eojx2"]
-[ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/radialGradient.svg" id="10_7mw2i"]
-[ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/trail_shader_material.tres" id="11_ivvow"]
+[ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/Effects/radialGradient.svg" id="9_pjavf"]
+[ext_resource type="Material" uid="uid://rj2025ri6ra" path="res://Art/Bubble/Shaders/trail_shader_material.tres" id="10_nsksb"]
 [ext_resource type="Script" path="res://addons/trail2D_plugin/Trail2D.gd" id="12_mqaht"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fyk6a"]
@@ -21,13 +18,21 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_75ebq"]
+atlas = ExtResource("2_rjo7b")
+region = Rect2(0, 612, 410, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gb0uj"]
+atlas = ExtResource("2_rjo7b")
+region = Rect2(0, 1224, 408, 204)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_o55xo"]
 radius = 52.0384
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gjrhs"]
 resource_local_to_scene = true
-atlas = ExtResource("4_l67cd")
-region = Rect2(571, 144, 400, 246)
+atlas = ExtResource("2_rjo7b")
+region = Rect2(102, 816, 102, 102)
 
 [sub_resource type="Curve" id="Curve_t2dma"]
 _data = [Vector2(0.59322, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.30981, 0.0, 0, 0]
@@ -35,11 +40,11 @@ point_count = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24rqh"]
 resource_local_to_scene = true
-atlas = ExtResource("6_ob1on")
-region = Rect2(621, 165, 289, 220)
+atlas = ExtResource("2_rjo7b")
+region = Rect2(102, 1020, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4h4d"]
-atlas = ExtResource("7_qb1o2")
+atlas = ExtResource("6_1iqqi")
 region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5v3if"]
@@ -415,26 +420,26 @@ angular_damp_mode = 1
 script = ExtResource("1_kstin")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_iv44r")
+texture = SubResource("AtlasTexture_75ebq")
 hframes = 4
 vframes = 2
 frame = 1
 
 [node name="Shine" type="Sprite2D" parent="."]
 z_index = 1
-texture = ExtResource("3_bj3rh")
+texture = SubResource("AtlasTexture_gb0uj")
 hframes = 4
 vframes = 2
 
 [node name="Backlight" type="Sprite2D" parent="."]
 show_behind_parent = true
-texture = ExtResource("4_teg6f")
+texture = ExtResource("3_yafwr")
 
 [node name="Backlight2" type="Sprite2D" parent="."]
 show_behind_parent = true
 rotation = 0.628319
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("4_teg6f")
+texture = ExtResource("3_yafwr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -459,12 +464,12 @@ initial_velocity_min = 80.0
 initial_velocity_max = 130.0
 angular_velocity_min = -360.0
 angular_velocity_max = 360.0
-scale_amount_min = 0.1
-scale_amount_max = 0.15
+scale_amount_min = 0.8
+scale_amount_max = 1.4
 scale_amount_curve = SubResource("Curve_t2dma")
 script = ExtResource("5_balq6")
-offset = Vector2(58, 144)
-spacing = Vector2(512, 513)
+origin = Vector2(0, 816)
+cell_size = Vector2(102, 102)
 hframe = 4
 vframe = 2
 
@@ -484,12 +489,12 @@ initial_velocity_min = 80.0
 initial_velocity_max = 130.0
 angular_velocity_min = -360.0
 angular_velocity_max = 360.0
-scale_amount_min = 0.08
-scale_amount_max = 0.13
+scale_amount_min = 0.8
+scale_amount_max = 1.4
 scale_amount_curve = SubResource("Curve_t2dma")
 script = ExtResource("5_balq6")
-offset = Vector2(109, 165)
-spacing = Vector2(512, 512)
+origin = Vector2(0, 1020)
+cell_size = Vector2(102, 102)
 hframe = 4
 vframe = 2
 
@@ -521,7 +526,7 @@ one_shot = true
 explosiveness = 1.0
 lifetime_randomness = 1.0
 local_coords = true
-texture = ExtResource("9_eojx2")
+texture = ExtResource("8_skpib")
 emission_shape = 1
 emission_sphere_radius = 50.0
 direction = Vector2(0, 0)
@@ -542,13 +547,13 @@ anim_offset_max = 0.4
 modulate = Color(1, 1, 1, 0)
 z_index = -1
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("10_7mw2i")
+texture = ExtResource("9_pjavf")
 
 [node name="ShinePrimary" type="CPUParticles2D" parent="ParticleSystem"]
 material = SubResource("CanvasItemMaterial_nk132")
 amount = 2
 lifetime = 0.8
-texture = ExtResource("7_qb1o2")
+texture = ExtResource("6_1iqqi")
 emission_shape = 5
 emission_points = PackedVector2Array(11, -26, -10, 25, 26, -11, -39, -4)
 emission_normals = PackedVector2Array()
@@ -567,7 +572,7 @@ anim_offset_max = 0.4
 material = SubResource("CanvasItemMaterial_nk132")
 amount = 1
 lifetime = 0.6
-texture = ExtResource("7_qb1o2")
+texture = ExtResource("6_1iqqi")
 emission_shape = 5
 emission_points = PackedVector2Array(36, -32, 28, 36, -28, -30)
 emission_normals = PackedVector2Array()
@@ -590,7 +595,7 @@ libraries = {
 [node name="Trail2D" type="Line2D" parent="."]
 top_level = true
 z_index = -2
-material = ExtResource("11_ivvow")
+material = ExtResource("10_nsksb")
 width = 100.0
 width_curve = SubResource("Curve_ulcjw")
 texture_mode = 2

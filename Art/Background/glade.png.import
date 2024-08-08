@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwo7jmqlgeeen"
-path="res://.godot/imported/Sling.svg-59e3729b3097952451510a6e798a3fec.ctex"
+uid="uid://bpactpm64frr1"
+path="res://.godot/imported/glade.png-9cb3d411ae03bb7b049b10463a9b648e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sling/Sling.svg"
-dest_files=["res://.godot/imported/Sling.svg-59e3729b3097952451510a6e798a3fec.ctex"]
+source_file="res://Art/Background/glade.png"
+dest_files=["res://.godot/imported/glade.png-9cb3d411ae03bb7b049b10463a9b648e.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

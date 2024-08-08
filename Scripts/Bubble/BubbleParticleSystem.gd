@@ -11,3 +11,8 @@ func _ready():
 func Init(color : level_data.BubbleColor) :
 	if fragment1 != null : fragment1.set_particle_sprite(color)
 	if fragment2 != null : fragment2.set_particle_sprite(color)
+
+func UpdateAtlas(atlas : CompressedTexture2D):
+	fragment1.texture.atlas = atlas
+	fragment2.texture.atlas = atlas
+	

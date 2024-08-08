@@ -3,15 +3,17 @@ class_name Bubble
 
 
 var game_scene 
-@onready var sprite :  Sprite2D = $Sprite2D
+@onready var sprite : Sprite2D = $Sprite2D
 @onready var collider = $CollisionShape2D
 @onready var particleSystem = $ParticleSystem
 @onready var animPlayer : AnimationPlayer = $AnimationPlayer
 @onready var trail : Trail2D = $Trail2D
-const COLOR_ATLAS_RESOURCE = preload("res://Resources/ColorAtlas_Resource.tres")
+
 
 @export var is_basic : bool = true
 @export var angular_impulse : float
+
+var color_atlas : ColorAtlas
 
 var scoreable : bool = false
 var color : level_data.BubbleColor
@@ -21,6 +23,7 @@ var shot_v : Vector2 = Vector2.ZERO
 signal animTrigger()
 func emitAnimTrigger():
 	animTrigger.emit()
+
 
 
 func _physics_process(delta):
@@ -42,8 +45,12 @@ func set_color():
 	if !self is Bubble_Paint :
 		sprite.frame = color
 	if particleSystem is BubbleParticleSystem : particleSystem.Init(color)
-	trail.material.set_shader_parameter ("TrailColor", COLOR_ATLAS_RESOURCE.GetColor(color))
+	trail.material.set_shader_parameter ("TrailColor", color_atlas.GetColor(color))
 
+func UpdateAtlas(atlas : CompressedTexture2D, colors : ColorAtlas):
+	color_atlas = colors
+	sprite.texture.atlas = atlas
+	particleSystem.UpdateAtlas(atlas)
 
 func OnDestroy():
 	animPlayer.play("Burst")

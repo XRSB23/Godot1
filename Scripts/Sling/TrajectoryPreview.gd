@@ -18,7 +18,10 @@ func UpdateGhost():
 	ghost.SetColor(last_color)
 	ghost.display_trajectory(last_v)
 	
-
+func UpdateAtlas(atlas : ColorAtlas):
+	vector.color_atlas = atlas
+	newton.color_atlas = atlas
+	ghost.color_atlas = atlas
 	
 func Display(mode : MODE, v : Vector2, shoot_strength : float):
 	ClearPreview()
