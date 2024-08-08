@@ -1,10 +1,16 @@
-[gd_resource type="Resource" script_class="LevelTheme" load_steps=4 format=3 uid="uid://dj7ydxpdleuw5"]
+[gd_resource type="Resource" script_class="LevelTheme" load_steps=6 format=3 uid="uid://dj7ydxpdleuw5"]
 
-[ext_resource type="Texture2D" uid="uid://dw6lf43dbhq81" path="res://Art/Bubble/Spritesheets/BubbleAtlas_Neutral.svg" id="1_uldqn"]
+[ext_resource type="Texture2D" uid="uid://pywbbh753864" path="res://Art/Bubble/Spritesheets/BubbleAtlas_Neutral.png" id="1_gvo8d"]
 [ext_resource type="Texture2D" uid="uid://dnp87slkwpbty" path="res://Art/Background/DesertTwillight.png" id="2_5conm"]
 [ext_resource type="Script" path="res://Scripts/Class/LevelTheme.gd" id="3_3ojam"]
+[ext_resource type="Script" path="res://Scripts/Class/ColorAtlas.gd" id="3_80g6v"]
+
+[sub_resource type="Resource" id="Resource_vmqf1"]
+script = ExtResource("3_80g6v")
+colors = Array[Color]([Color(0.643137, 0.643137, 0.643137, 1), Color(0.843137, 0.113725, 0.0509804, 1), Color(0.937255, 0.490196, 0.0392157, 1), Color(0.956863, 0.843137, 0.0666667, 1), Color(0.360784, 0.827451, 0.333333, 1), Color(0.0705882, 0.886275, 0.909804, 1), Color(0.0509804, 0.262745, 0.886275, 1), Color(0.741176, 0.0901961, 0.952941, 1)])
 
 [resource]
 script = ExtResource("3_3ojam")
-Atlas = ExtResource("1_uldqn")
+Atlas = ExtResource("1_gvo8d")
+ColorArray = SubResource("Resource_vmqf1")
 Background = ExtResource("2_5conm")

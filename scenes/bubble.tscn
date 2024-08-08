@@ -1,8 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://bkohxp01r1a8b"]
+[gd_scene load_steps=24 format=3 uid="uid://bkohxp01r1a8b"]
 
 [ext_resource type="Script" path="res://Scripts/Bubble/Bubble.gd" id="1_dxulh"]
-[ext_resource type="Texture2D" uid="uid://dw6lf43dbhq81" path="res://Art/Bubble/Spritesheets/BubbleAtlas_Neutral.svg" id="2_ohgif"]
-[ext_resource type="Texture2D" uid="uid://bq512y34dsqk7" path="res://Art/Bubble/Spritesheets/BubbleAtlas_Cliff.png" id="2_phx38"]
+[ext_resource type="Texture2D" uid="uid://pywbbh753864" path="res://Art/Bubble/Spritesheets/BubbleAtlas_Neutral.png" id="2_5bqr3"]
 [ext_resource type="Script" path="res://Scripts/Bubble/BubbleParticleSystem.gd" id="4_hgmxw"]
 [ext_resource type="Texture2D" uid="uid://dwp65udxlxesk" path="res://Art/Bubble/Effects/particleStar4.svg" id="5_k4pvb"]
 [ext_resource type="Script" path="res://Scripts/Bubble/ParticlesAtlasCoordinates.gd" id="6_b4px6"]
@@ -19,7 +18,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ipgr1"]
-atlas = ExtResource("2_phx38")
+atlas = ExtResource("2_5bqr3")
 region = Rect2(0, 0, 408, 204)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o55xo"]
@@ -27,7 +26,7 @@ radius = 52.0384
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gjrhs"]
 resource_local_to_scene = true
-atlas = ExtResource("2_ohgif")
+atlas = ExtResource("2_5bqr3")
 region = Rect2(102, 204, 102, 102)
 
 [sub_resource type="Curve" id="Curve_t2dma"]
@@ -36,7 +35,7 @@ point_count = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24rqh"]
 resource_local_to_scene = true
-atlas = ExtResource("2_ohgif")
+atlas = ExtResource("2_5bqr3")
 region = Rect2(102, 408, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4h4d"]
