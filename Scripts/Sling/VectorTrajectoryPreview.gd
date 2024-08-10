@@ -18,7 +18,7 @@ func display_trajectory(v : Vector2):
 	width = min_width + (max_width - min_width) * length_ratio
 	material.set_shader_parameter("LengthRatio", length_ratio)
 	add_point(Vector2.ZERO + v.normalized() * origin_offset)
-	add_point(v)
+	add_point(v + v.normalized() * origin_offset)
 
 func SetColor():
 	if sling.ball :

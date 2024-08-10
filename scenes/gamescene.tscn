@@ -1,4 +1,4 @@
-[gd_scene load_steps=173 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=186 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/LevelTheme_Manager.gd" id="2_2ith4"]
@@ -51,15 +51,14 @@
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpButton.gd" id="29_vc8lb"]
 [ext_resource type="Texture2D" uid="uid://cmbyfnm3n0pm5" path="res://Art/UI/UI_Stars.svg" id="30_df1ht"]
 [ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/Shaders/grayscale_shader.tres" id="30_saxga"]
-[ext_resource type="Texture2D" uid="uid://dwo7jmqlgeeen" path="res://Art/Sling/Sling.svg" id="36_5vqpt"]
 [ext_resource type="Shader" uid="uid://dxnj1xto4ex41" path="res://Art/Sling/vector_shader.tres" id="44_t3pm5"]
 [ext_resource type="Texture2D" uid="uid://dbeuo7kbbujd2" path="res://Art/Sling/HologramLines.png" id="45_5ctud"]
-[ext_resource type="Texture2D" uid="uid://b4ss4b28rlg1j" path="res://Art/Sling/ColorPicker.svg" id="45_puaac"]
 [ext_resource type="Texture2D" uid="uid://djiuyvr2vpmg3" path="res://Art/Sling/ColorButton.svg" id="47_6tkc1"]
 [ext_resource type="Script" path="res://Editor/RotationSetter.gd" id="48_ejjtx"]
 [ext_resource type="Script" path="res://Scripts/LockRotation.gd" id="49_7fkp4"]
 [ext_resource type="Script" path="res://Scripts/Sling/UI/BubbleSelectMenu_Button.gd" id="50_wa58b"]
 [ext_resource type="Texture2D" uid="uid://pywbbh753864" path="res://Art/Bubble/Spritesheets/BubbleAtlas_Neutral.png" id="58_8sm6h"]
+[ext_resource type="Texture2D" uid="uid://hvttd3nq0w3l" path="res://Art/Sling/SlingSpritesheet.svg" id="61_cdsvp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yj1tm"]
 font_size = 30
@@ -1027,6 +1026,88 @@ _bundled = {
 "version": 3
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyu3w"]
+atlas = ExtResource("61_cdsvp")
+region = Rect2(1242, 1476, 621, 621)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ujv1"]
+atlas = ExtResource("61_cdsvp")
+region = Rect2(621, 1476, 621, 621)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er0x2"]
+atlas = ExtResource("61_cdsvp")
+region = Rect2(984, 0, 492, 492)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8rpr5"]
+load_path = "res://.godot/imported/SlingSpritesheet.svg-9060c7349f9fa4c1b3dd15a56e306aab.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1u3q"]
+atlas = SubResource("CompressedTexture2D_8rpr5")
+region = Rect2(492, 0, 492, 492)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hexx"]
+atlas = ExtResource("61_cdsvp")
+region = Rect2(0, 0, 492, 492)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5gee"]
+atlas = ExtResource("61_cdsvp")
+region = Rect2(0, 492, 1968, 984)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmkq0"]
+atlas = ExtResource("61_cdsvp")
+region = Rect2(0, 1476, 621, 621)
+
+[sub_resource type="Animation" id="Animation_3mpxg"]
+resource_name = "Glow"
+length = 0.65
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cannon/CannonFront/Glow:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.35, 0.45, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_0j0pl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cannon/CannonFront/Glow:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_25jmw"]
+_data = {
+"Glow": SubResource("Animation_3mpxg"),
+"RESET": SubResource("Animation_0j0pl")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqerv"]
+atlas = ExtResource("61_cdsvp")
+region = Rect2(0, 2097, 342, 342)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4jca"]
+atlas = ExtResource("61_cdsvp")
+region = Rect2(684, 2097, 342, 342)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5bxw"]
+atlas = ExtResource("61_cdsvp")
+region = Rect2(342, 2097, 342, 342)
+
 [sub_resource type="Curve" id="Curve_nb6el"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
@@ -1040,7 +1121,7 @@ shader_parameter/Darken = 0.05
 shader_parameter/LengthRatio = 1.0
 shader_parameter/Invert = false
 shader_parameter/Hologram = true
-shader_parameter/ScrollSpeed = 0.1
+shader_parameter/ScrollSpeed = -0.1
 shader_parameter/HologramTexture = ExtResource("45_5ctud")
 
 [sub_resource type="Curve" id="Curve_4jdw3"]
@@ -1050,6 +1131,11 @@ point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ej865"]
 radius = 602.652
+
+[sub_resource type="LabelSettings" id="LabelSettings_ruudt"]
+font_size = 120
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_owk2k"]
 resource_name = "Open"
@@ -1596,11 +1682,6 @@ region = Rect2(204, 102, 102, 102)
 [sub_resource type="AtlasTexture" id="AtlasTexture_0vj8o"]
 atlas = ExtResource("58_8sm6h")
 region = Rect2(306, 102, 102, 102)
-
-[sub_resource type="LabelSettings" id="LabelSettings_ruudt"]
-font_size = 120
-font_color = Color(0, 0, 0, 1)
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swuy3"]
 size = Vector2(5115.88, 207)
@@ -3819,9 +3900,65 @@ max_drag = 300.0
 drag_curve = SubResource("Curve_j361q")
 button_prefab = SubResource("PackedScene_bdtqi")
 
-[node name="Art" type="Sprite2D" parent="Sling"]
-z_index = -5
-texture = ExtResource("36_5vqpt")
+[node name="Art" type="Node2D" parent="Sling"]
+position = Vector2(0, 152)
+
+[node name="SlingOutline" type="Sprite2D" parent="Sling/Art"]
+z_index = -6
+texture = SubResource("AtlasTexture_uyu3w")
+
+[node name="SlingBack" type="Sprite2D" parent="Sling/Art"]
+z_index = -3
+texture = SubResource("AtlasTexture_8ujv1")
+
+[node name="Cannon" type="Node2D" parent="Sling/Art"]
+position = Vector2(0, -152)
+
+[node name="CannonOutline" type="Sprite2D" parent="Sling/Art/Cannon"]
+z_index = -4
+texture = SubResource("AtlasTexture_er0x2")
+
+[node name="CannonBack" type="Sprite2D" parent="Sling/Art/Cannon"]
+z_index = -3
+texture = SubResource("AtlasTexture_c1u3q")
+
+[node name="CannonFront" type="Sprite2D" parent="Sling/Art/Cannon"]
+z_index = 4
+texture = SubResource("AtlasTexture_3hexx")
+
+[node name="Glow" type="Sprite2D" parent="Sling/Art/Cannon/CannonFront"]
+z_index = 5
+z_as_relative = false
+texture = SubResource("AtlasTexture_o5gee")
+hframes = 4
+vframes = 2
+frame = 7
+
+[node name="SlingFront" type="Sprite2D" parent="Sling/Art"]
+z_index = 6
+texture = SubResource("AtlasTexture_qmkq0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sling/Art"]
+libraries = {
+"": SubResource("AnimationLibrary_25jmw")
+}
+
+[node name="ColorPicker" type="Sprite2D" parent="Sling/Art"]
+position = Vector2(-276, -440)
+texture = SubResource("AtlasTexture_sqerv")
+
+[node name="ColorSelectButton" type="TextureButton" parent="Sling/Art/ColorPicker"]
+offset_left = -171.0
+offset_top = -171.0
+offset_right = 171.0
+offset_bottom = 171.0
+pivot_offset = Vector2(171, 171)
+texture_normal = SubResource("AtlasTexture_l4jca")
+stretch_mode = 5
+
+[node name="Outline" type="Sprite2D" parent="Sling/Art/ColorPicker"]
+z_index = -1
+texture = SubResource("AtlasTexture_y5bxw")
 
 [node name="TrajectoryPreview" type="Node2D" parent="Sling"]
 script = ExtResource("5_6swga")
@@ -3838,7 +3975,7 @@ end_cap_mode = 2
 antialiased = true
 script = ExtResource("6_b45vb")
 min_width = 40
-origin_offset = 15.0
+origin_offset = 200.0
 
 [node name="Newton" type="Line2D" parent="Sling/TrajectoryPreview"]
 texture_repeat = 2
@@ -3852,6 +3989,7 @@ script = ExtResource("6_aqxdd")
 match_bubble_color = true
 trajectory_points_amount = 1000
 max_trajectory_range = 10000.0
+origin_offset = 200.0
 
 [node name="Ghost" type="Line2D" parent="Sling/TrajectoryPreview"]
 modulate = Color(0, 0, 0, 0.443137)
@@ -3866,7 +4004,7 @@ end_cap_mode = 2
 antialiased = true
 script = ExtResource("11_o4i07")
 max_width = 70
-origin_offset = 100.0
+origin_offset = 200.0
 cap_offset = 30.0
 
 [node name="PickupRadius" type="Area2D" parent="Sling"]
@@ -3879,14 +4017,24 @@ script = ExtResource("5_vwg2f")
 scale = Vector2(0.36, 0.36)
 shape = SubResource("CircleShape2D_ej865")
 
-[node name="ColorSelectButton" type="TextureButton" parent="Sling"]
-offset_left = -361.125
-offset_top = -314.875
-offset_right = -143.125
-offset_bottom = -86.875
-texture_normal = ExtResource("45_puaac")
-ignore_texture_size = true
-stretch_mode = 5
+[node name="AttemptsLabel" type="Label" parent="Sling"]
+z_index = 10
+anchors_preset = -1
+anchor_right = 0.415625
+anchor_bottom = 0.133333
+offset_left = -68.0
+offset_top = 143.0
+offset_right = 70.0
+offset_bottom = 308.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "9
+"
+label_settings = SubResource("LabelSettings_ruudt")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sling"]
 libraries = {
@@ -3894,6 +4042,7 @@ libraries = {
 }
 
 [node name="ColorSelectMenu" type="Control" parent="Sling" node_paths=PackedStringArray("animator", "buttons")]
+z_index = 10
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 1
@@ -4173,24 +4322,6 @@ modulate_background_disabled = Color(0.576471, 0.576471, 0.576471, 0.235294)
 node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
-[node name="AttemptsLabel" type="Label" parent="Sling"]
-anchors_preset = -1
-anchor_right = 0.415625
-anchor_bottom = 0.133333
-offset_left = -323.125
-offset_top = 134.125
-offset_right = -185.125
-offset_bottom = 299.125
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 60
-text = "9
-"
-label_settings = SubResource("LabelSettings_ruudt")
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
 [node name="DeadzoneContainer" type="Node2D" parent="."]
 
 [node name="DeadZone" type="Area2D" parent="DeadzoneContainer"]
@@ -4243,8 +4374,8 @@ shape = SubResource("RectangleShape2D_kkwav")
 [connection signal="selected" from="HUD/PowerUpPanel/VBoxContainer/Paint" to="Sling" method="_on_paint_selected"]
 [connection signal="button_down" from="LevelSelectCanvas/Previous" to="LevelSelectCanvas/LevelSelect" method="_on_previous_button_down"]
 [connection signal="button_down" from="LevelSelectCanvas/Next" to="LevelSelectCanvas/LevelSelect" method="_on_next_button_down"]
+[connection signal="button_down" from="Sling/Art/ColorPicker/ColorSelectButton" to="Sling/ColorSelectMenu" method="_on_color_select_button_button_down"]
 [connection signal="input_event" from="Sling/PickupRadius" to="Sling/PickupRadius" method="_on_input_event"]
-[connection signal="button_down" from="Sling/ColorSelectButton" to="Sling/ColorSelectMenu" method="_on_color_select_button_button_down"]
 [connection signal="color_picked" from="Sling/ColorSelectMenu" to="Sling" method="_on_color_select_menu_color_picked"]
 [connection signal="opened" from="Sling/ColorSelectMenu" to="Sling" method="_on_color_select_menu_opened"]
 [connection signal="button_down" from="Sling/ColorSelectMenu/ColorButton1/Marker2D/TextureButton" to="Sling/ColorSelectMenu/ColorButton1/Marker2D/TextureButton" method="_on_button_down"]

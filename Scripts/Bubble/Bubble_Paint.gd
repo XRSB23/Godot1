@@ -14,3 +14,8 @@ func OnHit():
 func set_color():
 	super()
 	paint.frame = color
+
+func UpdateAtlas(atlas : CompressedTexture2D, colors : ColorAtlas):
+	color_atlas = colors
+	$Sprite2D/Paint.texture.atlas = atlas
+	#$ParticleSystem.UpdateAtlas(atlas)
