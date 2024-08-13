@@ -53,10 +53,10 @@
 [ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/Shaders/grayscale_shader.tres" id="30_saxga"]
 [ext_resource type="Shader" uid="uid://dxnj1xto4ex41" path="res://Art/Sling/vector_shader.tres" id="44_t3pm5"]
 [ext_resource type="Texture2D" uid="uid://dbeuo7kbbujd2" path="res://Art/Sling/HologramLines.png" id="45_5ctud"]
-[ext_resource type="Texture2D" uid="uid://djiuyvr2vpmg3" path="res://Art/Sling/ColorButton.svg" id="47_6tkc1"]
 [ext_resource type="Script" path="res://Editor/RotationSetter.gd" id="48_ejjtx"]
 [ext_resource type="Script" path="res://Scripts/LockRotation.gd" id="49_7fkp4"]
 [ext_resource type="Script" path="res://Scripts/Sling/UI/BubbleSelectMenu_Button.gd" id="50_wa58b"]
+[ext_resource type="Texture2D" uid="uid://6ow0tbflc1s7" path="res://Art/Sling/ColorButton.png" id="56_dg0lp"]
 [ext_resource type="Texture2D" uid="uid://pywbbh753864" path="res://Art/Bubble/Spritesheets/BubbleAtlas_Neutral.png" id="58_8sm6h"]
 [ext_resource type="Texture2D" uid="uid://hvttd3nq0w3l" path="res://Art/Sling/SlingSpritesheet.svg" id="61_cdsvp"]
 
@@ -4061,7 +4061,7 @@ points = Array[Vector2]([Vector2(-31.7603, -423.812), Vector2(193.89, -378.196),
 modulate = Color(1, 1, 1, 0)
 rotation = 1.496
 scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("47_6tkc1")
+texture = ExtResource("56_dg0lp")
 offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
 target = NodePath("../..")
@@ -4098,7 +4098,7 @@ modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 modulate = Color(1, 1, 1, 0)
 rotation = 2.04453
 scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("47_6tkc1")
+texture = ExtResource("56_dg0lp")
 offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
 id = 1
@@ -4136,7 +4136,7 @@ modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 modulate = Color(1, 1, 1, 0)
 rotation = 2.59306
 scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("47_6tkc1")
+texture = ExtResource("56_dg0lp")
 offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
 id = 2
@@ -4174,7 +4174,7 @@ modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 modulate = Color(1, 1, 1, 0)
 rotation = 3.14159
 scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("47_6tkc1")
+texture = ExtResource("56_dg0lp")
 offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
 id = 3
@@ -4212,7 +4212,7 @@ modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 modulate = Color(1, 1, 1, 0)
 rotation = 3.69012
 scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("47_6tkc1")
+texture = ExtResource("56_dg0lp")
 offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
 id = 4
@@ -4250,7 +4250,7 @@ modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 modulate = Color(1, 1, 1, 0)
 rotation = 4.23866
 scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("47_6tkc1")
+texture = ExtResource("56_dg0lp")
 offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
 id = 5
@@ -4286,9 +4286,9 @@ modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
 [node name="ColorButton7" type="Sprite2D" parent="Sling/ColorSelectMenu" node_paths=PackedStringArray("target")]
 modulate = Color(1, 1, 1, 0)
-rotation = -1.496
+rotation = -1.49433
 scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("47_6tkc1")
+texture = ExtResource("56_dg0lp")
 offset = Vector2(56.5, 0)
 script = ExtResource("48_ejjtx")
 id = 6
@@ -4297,7 +4297,7 @@ target = NodePath("../..")
 [node name="Marker2D" type="Marker2D" parent="Sling/ColorSelectMenu/ColorButton7"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Sling/ColorSelectMenu/ColorButton7/Marker2D"]
-rotation = 1.496
+rotation = 1.49433
 scale = Vector2(0.74777, 0.74777)
 texture = SubResource("AtlasTexture_0vj8o")
 script = ExtResource("49_7fkp4")
