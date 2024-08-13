@@ -103,7 +103,17 @@ func HandleDrag(event):
 		
 		var drag_ratio = input_direction.length()/max_drag
 		scaled_v = input_direction.normalized() * drag_curve.sample(drag_ratio) * max_drag
-		valid_shot = input_direction.x > 0 && input_direction.length() > min_drag #Replace If(Condition) true else false
+		valid_shot =  input_direction.length() > min_drag && !(
+			scaled_v.angle_to(Vector2(1, sin(deg_to_rad(6)))) <= 0 && Vector2.UP.angle_to(scaled_v) <= 0)
+		
+			
+		# Clamp Vector In Shooting Direction
+		if scaled_v.angle_to(Vector2(1, sin(deg_to_rad(6)))) <= 0 :
+			scaled_v = Vector2(1, sin(deg_to_rad(6))) * scaled_v.length()
+		if Vector2.UP.angle_to(scaled_v) <= 0:
+			scaled_v = Vector2.UP * scaled_v.length()
+			
+		print(scaled_v.angle_to(Vector2(1, sin(deg_to_rad(6)))))
 		
 		if valid_shot : 
 			trajectory_preview.Display(trajectory_mode, scaled_v, shoot_strength)
