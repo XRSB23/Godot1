@@ -18,7 +18,7 @@ var touch_points : Dictionary = {} #To track multiple fingers input, used as Dyn
 var start_point = Vector2.ZERO
 var input_direction = Vector2.ZERO
 var scaled_v
-var ball
+var ball : Bubble
 var valid_shot : bool
 
 @export_group("Prefabs")

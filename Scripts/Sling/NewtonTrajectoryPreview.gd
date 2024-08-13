@@ -18,8 +18,8 @@ func display_trajectory(v : Vector2, shoot_strength : float):
 		if pos.x < max_trajectory_range:
 			if (position-pos).length() > origin_offset :
 				add_point(pos)
-			velocity.y += gravity * get_process_delta_time()
-			pos += velocity * get_process_delta_time()
+			velocity.y += gravity * sling.ball.gravity_scale * get_physics_process_delta_time()
+			pos += velocity * get_physics_process_delta_time()
 		else : 
 			break
 
