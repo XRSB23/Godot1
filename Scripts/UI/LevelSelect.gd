@@ -1,10 +1,10 @@
 extends GridContainer
 class_name LevelSelect
 
-@onready var gamescene : GameScene = $"../.."
+@onready var gamescene : GameScene = $"../../.."
 @onready var previous_button = $"../Previous"
 @onready var next_button = $"../Next"
-@onready var animation_player = $"../AnimationPlayer"
+@onready var animation_player = $"../../AnimationPlayer"
 @onready var level_select_canvas = $".."
 @onready var transition_player : AnimationPlayer = $"../../TransitionCanvas/AnimationPlayer"
 

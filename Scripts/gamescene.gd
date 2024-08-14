@@ -32,7 +32,7 @@ var destroyed_count : int
 @onready var bubble_container = $BubbleContainer
 @onready var destroy_container = $DestroyContainer
 @onready var score_display : ScoreDisplay = $HUD/ScorePanel/ScoreDisplay
-@onready var level_select : LevelSelect = $LevelSelectCanvas/LevelSelect
+@onready var level_select : LevelSelect = $LevelSelectCanvas/PanelSkin/LevelSelect
 @onready var hud = $HUD
 @onready var transition_player : AnimationPlayer = $TransitionCanvas/AnimationPlayer
 @onready var attempts_label = $Sling/AttemptsLabel

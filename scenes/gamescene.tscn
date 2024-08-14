@@ -1,4 +1,4 @@
-[gd_scene load_steps=186 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=193 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/LevelTheme_Manager.gd" id="2_2ith4"]
@@ -51,6 +51,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpButton.gd" id="29_vc8lb"]
 [ext_resource type="Texture2D" uid="uid://cmbyfnm3n0pm5" path="res://Art/UI/UI_Stars.svg" id="30_df1ht"]
 [ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/Shaders/grayscale_shader.tres" id="30_saxga"]
+[ext_resource type="Texture2D" uid="uid://cfb2hpket4wgl" path="res://Art/UI/Theme/LevelSelect.png" id="37_o0qfq"]
 [ext_resource type="Shader" uid="uid://dxnj1xto4ex41" path="res://Art/Sling/vector_shader.tres" id="44_t3pm5"]
 [ext_resource type="Texture2D" uid="uid://dbeuo7kbbujd2" path="res://Art/Sling/HologramLines.png" id="45_5ctud"]
 [ext_resource type="Script" path="res://Editor/RotationSetter.gd" id="48_ejjtx"]
@@ -811,22 +812,54 @@ region = Rect2(306, 0, 48, 88)
 atlas = ExtResource("8_v8i6v")
 region = Rect2(306, 0, 48, 88)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kkgtq"]
-atlas = ExtResource("15_p4r1u")
-region = Rect2(256, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3itc1"]
+atlas = ExtResource("37_o0qfq")
+region = Rect2(0, 0, 1480, 928)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x0cpi"]
+load_path = "res://.godot/imported/LevelSelect.png-74f36bb708c53bdc144cac5af9f30083.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvxb5"]
+atlas = SubResource("CompressedTexture2D_x0cpi")
+region = Rect2(380, 928, 190, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3k5m"]
+atlas = ExtResource("37_o0qfq")
+region = Rect2(570, 928, 190, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dqup"]
+atlas = ExtResource("37_o0qfq")
+region = Rect2(380, 928, 190, 190)
 
 [sub_resource type="ImageTexture" id="ImageTexture_vcc1g"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8b45v"]
-atlas = ExtResource("15_p4r1u")
-region = Rect2(256, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0lgk"]
+atlas = ExtResource("37_o0qfq")
+region = Rect2(380, 928, 190, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bc0nw"]
+atlas = ExtResource("37_o0qfq")
+region = Rect2(380, 928, 190, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k81d4"]
+atlas = ExtResource("37_o0qfq")
+region = Rect2(380, 928, 190, 190)
 
 [sub_resource type="ImageTexture" id="ImageTexture_eb5nj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hf8nw"]
-font_size = 60
+font_size = 76
 outline_size = 14
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8bha6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6oxib"]
+font_size = 54
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n73i4"]
 
 [sub_resource type="Animation" id="Animation_am8oq"]
 resource_name = "Next"
@@ -834,7 +867,7 @@ step = 0.05
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("LevelSelect")
+tracks/0/path = NodePath("PanelSkin/LevelSelect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -848,7 +881,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("LevelSelect:modulate")
+tracks/1/path = NodePath("PanelSkin/LevelSelect:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -860,7 +893,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Next:scale")
+tracks/2/path = NodePath("PanelSkin/Next:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -872,14 +905,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("LevelSelect:position")
+tracks/3/path = NodePath("PanelSkin/LevelSelect:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.45, 0.55, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(485, 256), Vector2(-1000, 256), Vector2(2000, 256), Vector2(485, 256)]
+"values": [Vector2(272, 296), Vector2(-1273, 296), Vector2(1727, 296), Vector2(272, 296)]
 }
 
 [sub_resource type="Animation" id="Animation_kji1l"]
@@ -888,7 +921,7 @@ step = 0.05
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("LevelSelect")
+tracks/0/path = NodePath("PanelSkin/LevelSelect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -902,7 +935,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("LevelSelect:modulate")
+tracks/1/path = NodePath("PanelSkin/LevelSelect:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -914,7 +947,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Previous:scale")
+tracks/2/path = NodePath("PanelSkin/Previous:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -926,14 +959,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("LevelSelect:position")
+tracks/3/path = NodePath("PanelSkin/LevelSelect:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.45, 0.55, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(485, 256), Vector2(2000, 256), Vector2(-1000, 256), Vector2(485, 256)]
+"values": [Vector2(272, 296), Vector2(1727, 296), Vector2(-1273, 296), Vector2(272, 296)]
 }
 
 [sub_resource type="Animation" id="Animation_dstj5"]
@@ -941,7 +974,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("LevelSelect:modulate")
+tracks/0/path = NodePath("PanelSkin/LevelSelect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -953,7 +986,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Next:scale")
+tracks/1/path = NodePath("PanelSkin/Next:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -965,7 +998,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Previous:scale")
+tracks/2/path = NodePath("PanelSkin/Previous:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -977,14 +1010,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("LevelSelect:position")
+tracks/3/path = NodePath("PanelSkin/LevelSelect:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(485, 256)]
+"values": [Vector2(272, 296)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v383t"]
@@ -993,15 +1026,6 @@ _data = {
 "Previous": SubResource("Animation_kji1l"),
 "RESET": SubResource("Animation_dstj5")
 }
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8bha6"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_6oxib"]
-font_size = 54
-outline_size = 8
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n73i4"]
 
 [sub_resource type="Curve" id="Curve_j361q"]
 _data = [Vector2(0, 0), 0.0, 2.425, 0, 0, Vector2(0.1, 0.4), 1.75882, 0.666667, 0, 0, Vector2(1, 1), 0.666667, 0.0, 0, 0]
@@ -3676,10 +3700,95 @@ script = ExtResource("10_1mpiy")
 rectTrue = Vector2(306, 88)
 rectFalse = Vector2(306, 0)
 
+[node name="TestingCanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Background" type="TextureRect" parent="TestingCanvasLayer"]
+show_behind_parent = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="TestingCanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 240.0
+offset_top = 161.0
+offset_right = -241.0
+offset_bottom = -79.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="TestingCanvasLayer/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 441.0
+offset_top = -121.0
+offset_right = -447.0
+offset_bottom = 11.0
+grow_horizontal = 2
+
+[node name="Panel2" type="Panel" parent="TestingCanvasLayer/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 204.0
+offset_top = 77.0
+offset_right = -205.0
+offset_bottom = -153.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel3" type="Panel" parent="TestingCanvasLayer/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 36.0
+offset_top = -112.0
+offset_right = 168.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="Panel4" type="Panel" parent="TestingCanvasLayer/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1323.0
+offset_top = -112.0
+offset_right = 1455.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="Panel5" type="Panel" parent="TestingCanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -295.5
+offset_top = -137.0
+offset_right = 292.5
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 0
+
 [node name="LevelSelectCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
 
 [node name="Background" type="TextureRect" parent="LevelSelectCanvas"]
+visible = false
 show_behind_parent = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -3688,137 +3797,162 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("19_bmm86")
 
-[node name="LevelSelect" type="GridContainer" parent="LevelSelectCanvas"]
+[node name="PanelSkin" type="TextureRect" parent="LevelSelectCanvas"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -475.0
-offset_top = -284.0
-offset_right = 475.0
-offset_bottom = 284.0
+offset_left = -760.0
+offset_top = -516.0
+offset_right = 760.0
+offset_bottom = 516.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_3itc1")
+
+[node name="LevelSelect" type="GridContainer" parent="LevelSelectCanvas/PanelSkin"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -488.0
+offset_top = -220.0
+offset_right = 492.002
+offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(475, 284)
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
 columns = 5
 script = ExtResource("13_gtr2x")
 stars_per_page = 25
 debug_max_levels = 30
 debug_unlock_all = true
 
-[node name="LevelButton0" parent="LevelSelectCanvas/LevelSelect" instance=ExtResource("14_jlmao")]
+[node name="LevelButton0" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
 layout_mode = 2
 
-[node name="LevelButton1" parent="LevelSelectCanvas/LevelSelect" instance=ExtResource("14_jlmao")]
+[node name="LevelButton1" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
 layout_mode = 2
 text = "2
 "
 
-[node name="LevelButton2" parent="LevelSelectCanvas/LevelSelect" instance=ExtResource("14_jlmao")]
+[node name="LevelButton2" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
 layout_mode = 2
 text = "3"
 
-[node name="LevelButton3" parent="LevelSelectCanvas/LevelSelect" instance=ExtResource("14_jlmao")]
+[node name="LevelButton3" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
 layout_mode = 2
 text = "4"
 
-[node name="LevelButton4" parent="LevelSelectCanvas/LevelSelect" instance=ExtResource("14_jlmao")]
+[node name="LevelButton4" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
 layout_mode = 2
 text = "5"
 
-[node name="LevelButton5" parent="LevelSelectCanvas/LevelSelect" instance=ExtResource("14_jlmao")]
+[node name="LevelButton5" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
 layout_mode = 2
 text = "6"
 
-[node name="LevelButton6" parent="LevelSelectCanvas/LevelSelect" instance=ExtResource("14_jlmao")]
+[node name="LevelButton6" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
 layout_mode = 2
 text = "7"
 
-[node name="LevelButton7" parent="LevelSelectCanvas/LevelSelect" instance=ExtResource("14_jlmao")]
+[node name="LevelButton7" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
 layout_mode = 2
 text = "8"
 
-[node name="LevelButton8" parent="LevelSelectCanvas/LevelSelect" instance=ExtResource("14_jlmao")]
+[node name="LevelButton8" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
 layout_mode = 2
 text = "9"
 
-[node name="LevelButton9" parent="LevelSelectCanvas/LevelSelect" instance=ExtResource("14_jlmao")]
+[node name="LevelButton9" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
 layout_mode = 2
 text = "10"
 
-[node name="LevelButton10" parent="LevelSelectCanvas/LevelSelect" instance=ExtResource("14_jlmao")]
+[node name="LevelButton10" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
 layout_mode = 2
 text = "11"
 
-[node name="LevelButton11" parent="LevelSelectCanvas/LevelSelect" instance=ExtResource("14_jlmao")]
+[node name="LevelButton11" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
 layout_mode = 2
 text = "12"
 
-[node name="LevelButton12" parent="LevelSelectCanvas/LevelSelect" instance=ExtResource("14_jlmao")]
+[node name="LevelButton12" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
 layout_mode = 2
 text = "13"
 
-[node name="LevelButton13" parent="LevelSelectCanvas/LevelSelect" instance=ExtResource("14_jlmao")]
+[node name="LevelButton13" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
 layout_mode = 2
 text = "14"
 
-[node name="LevelButton14" parent="LevelSelectCanvas/LevelSelect" instance=ExtResource("14_jlmao")]
+[node name="LevelButton14" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
 layout_mode = 2
 text = "15"
 
-[node name="Previous" type="TextureButton" parent="LevelSelectCanvas"]
+[node name="Previous" type="TextureButton" parent="LevelSelectCanvas/PanelSkin"]
+layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 34.0
-offset_top = -40.0
-offset_right = 162.0
-offset_bottom = 88.0
+offset_left = 96.0
+offset_top = -4.0
+offset_right = 248.0
+offset_bottom = 148.0
 grow_vertical = 2
 pivot_offset = Vector2(64, 64)
-texture_normal = SubResource("AtlasTexture_kkgtq")
+texture_normal = SubResource("AtlasTexture_kvxb5")
+texture_pressed = SubResource("AtlasTexture_f3k5m")
+texture_hover = SubResource("AtlasTexture_7dqup")
 texture_disabled = SubResource("ImageTexture_vcc1g")
+ignore_texture_size = true
+stretch_mode = 5
 flip_h = true
 
-[node name="Next" type="TextureButton" parent="LevelSelectCanvas"]
+[node name="Next" type="TextureButton" parent="LevelSelectCanvas/PanelSkin"]
+layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -162.0
-offset_top = -40.0
-offset_right = -34.0
-offset_bottom = 88.0
+offset_left = -248.0
+offset_top = -4.0
+offset_right = -96.0
+offset_bottom = 148.0
 grow_horizontal = 0
 grow_vertical = 2
 pivot_offset = Vector2(64, 64)
-texture_normal = SubResource("AtlasTexture_8b45v")
+texture_normal = SubResource("AtlasTexture_e0lgk")
+texture_pressed = SubResource("AtlasTexture_bc0nw")
+texture_hover = SubResource("AtlasTexture_k81d4")
 texture_disabled = SubResource("ImageTexture_eb5nj")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="LevelSelectLabel" type="Label" parent="LevelSelectCanvas"]
+[node name="LevelSelectLabel" type="Label" parent="LevelSelectCanvas/PanelSkin"]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -171.0
-offset_right = 171.0
-offset_bottom = 83.0
+offset_left = -208.0
+offset_top = 64.0
+offset_right = 222.0
+offset_bottom = 169.0
 grow_horizontal = 2
 text = "Level Select"
 label_settings = SubResource("LabelSettings_hf8nw")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelSelectCanvas"]
-libraries = {
-"": SubResource("AnimationLibrary_v383t")
-}
-
-[node name="UnlockBanner" type="Panel" parent="LevelSelectCanvas"]
+[node name="UnlockBanner" type="Panel" parent="LevelSelectCanvas/PanelSkin"]
 visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -3834,7 +3968,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("14_rueps")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="LevelSelectCanvas/UnlockBanner"]
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelSelectCanvas/PanelSkin/UnlockBanner"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -3845,12 +3979,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 4
 
-[node name="VSeparator" type="VSeparator" parent="LevelSelectCanvas/UnlockBanner/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="LevelSelectCanvas/PanelSkin/UnlockBanner/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 23
 theme_override_styles/separator = SubResource("StyleBoxEmpty_8bha6")
 
-[node name="Text" type="Label" parent="LevelSelectCanvas/UnlockBanner/HBoxContainer"]
+[node name="Text" type="Label" parent="LevelSelectCanvas/PanelSkin/UnlockBanner/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 57
@@ -3861,12 +3995,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="VSeparator2" type="VSeparator" parent="LevelSelectCanvas/UnlockBanner/HBoxContainer"]
+[node name="VSeparator2" type="VSeparator" parent="LevelSelectCanvas/PanelSkin/UnlockBanner/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 theme_override_styles/separator = SubResource("StyleBoxEmpty_n73i4")
 
-[node name="Amount" type="Label" parent="LevelSelectCanvas/UnlockBanner/HBoxContainer"]
+[node name="Amount" type="Label" parent="LevelSelectCanvas/PanelSkin/UnlockBanner/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 57
@@ -3876,7 +4010,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="StarTexture" type="TextureRect" parent="LevelSelectCanvas/UnlockBanner/HBoxContainer"]
+[node name="StarTexture" type="TextureRect" parent="LevelSelectCanvas/PanelSkin/UnlockBanner/HBoxContainer"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -3885,6 +4019,11 @@ texture = SubResource("AtlasTexture_pr60w")
 expand_mode = 1
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelSelectCanvas"]
+libraries = {
+"": SubResource("AnimationLibrary_v383t")
+}
 
 [node name="BubbleContainer" type="Node2D" parent="."]
 
@@ -4323,6 +4462,7 @@ node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
 [node name="DeadzoneContainer" type="Node2D" parent="."]
+visible = false
 
 [node name="DeadZone" type="Area2D" parent="DeadzoneContainer"]
 collision_layer = 2
@@ -4372,8 +4512,8 @@ shape = SubResource("RectangleShape2D_kkwav")
 [connection signal="selected" from="HUD/PowerUpPanel/VBoxContainer/Metal" to="Sling" method="_on_metal_selected"]
 [connection signal="button_down" from="HUD/PowerUpPanel/VBoxContainer/Paint" to="HUD/PowerUpPanel/VBoxContainer/Paint" method="_on_button_down"]
 [connection signal="selected" from="HUD/PowerUpPanel/VBoxContainer/Paint" to="Sling" method="_on_paint_selected"]
-[connection signal="button_down" from="LevelSelectCanvas/Previous" to="LevelSelectCanvas/LevelSelect" method="_on_previous_button_down"]
-[connection signal="button_down" from="LevelSelectCanvas/Next" to="LevelSelectCanvas/LevelSelect" method="_on_next_button_down"]
+[connection signal="button_down" from="LevelSelectCanvas/PanelSkin/Previous" to="LevelSelectCanvas/PanelSkin/LevelSelect" method="_on_previous_button_down"]
+[connection signal="button_down" from="LevelSelectCanvas/PanelSkin/Next" to="LevelSelectCanvas/PanelSkin/LevelSelect" method="_on_next_button_down"]
 [connection signal="button_down" from="Sling/Art/ColorPicker/ColorSelectButton" to="Sling/ColorSelectMenu" method="_on_color_select_button_button_down"]
 [connection signal="input_event" from="Sling/PickupRadius" to="Sling/PickupRadius" method="_on_input_event"]
 [connection signal="color_picked" from="Sling/ColorSelectMenu" to="Sling" method="_on_color_select_menu_color_picked"]
