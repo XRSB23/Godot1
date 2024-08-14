@@ -9,7 +9,7 @@ class_name LevelSelect
 @onready var transition_player : AnimationPlayer = $"../../../TransitionCanvas/AnimationPlayer"
 
 @onready var unlock_banner = $"../UnlockBanner"
-@onready var unlock_amount : Label = $"../UnlockBanner/HBoxContainer/Amount"
+@onready var unlock_amount : Label = $"../UnlockBanner/VBoxContainer/HBoxContainer/Amount"
 #@onready var level_theme_manager : LevelTheme_Manager = $"../../LevelTheme_Manager"
 
 @export var stars_per_page : int
