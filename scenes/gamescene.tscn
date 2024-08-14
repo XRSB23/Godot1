@@ -1,4 +1,4 @@
-[gd_scene load_steps=193 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=194 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/LevelTheme_Manager.gd" id="2_2ith4"]
@@ -52,6 +52,7 @@
 [ext_resource type="Texture2D" uid="uid://cmbyfnm3n0pm5" path="res://Art/UI/UI_Stars.svg" id="30_df1ht"]
 [ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/Shaders/grayscale_shader.tres" id="30_saxga"]
 [ext_resource type="Texture2D" uid="uid://cfb2hpket4wgl" path="res://Art/UI/Theme/LevelSelect.png" id="37_o0qfq"]
+[ext_resource type="FontFile" uid="uid://d1hqcsdgemdae" path="res://Art/Font/Clean Cafe.otf" id="38_2mb0d"]
 [ext_resource type="Shader" uid="uid://dxnj1xto4ex41" path="res://Art/Sling/vector_shader.tres" id="44_t3pm5"]
 [ext_resource type="Texture2D" uid="uid://dbeuo7kbbujd2" path="res://Art/Sling/HologramLines.png" id="45_5ctud"]
 [ext_resource type="Script" path="res://Editor/RotationSetter.gd" id="48_ejjtx"]
@@ -848,7 +849,8 @@ region = Rect2(380, 928, 190, 190)
 [sub_resource type="ImageTexture" id="ImageTexture_eb5nj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hf8nw"]
-font_size = 76
+font = ExtResource("38_2mb0d")
+font_size = 70
 outline_size = 14
 outline_color = Color(0, 0, 0, 1)
 
@@ -3788,7 +3790,6 @@ grow_vertical = 0
 process_mode = 3
 
 [node name="Background" type="TextureRect" parent="LevelSelectCanvas"]
-visible = false
 show_behind_parent = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -3940,10 +3941,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -208.0
-offset_top = 64.0
-offset_right = 222.0
-offset_bottom = 169.0
+offset_left = -224.0
+offset_top = 72.0
+offset_right = 250.0
+offset_bottom = 177.0
 grow_horizontal = 2
 text = "Level Select"
 label_settings = SubResource("LabelSettings_hf8nw")
@@ -4462,7 +4463,6 @@ node_icon = NodePath("../Sprite2D")
 modulate_icon_disabled = Color(1, 1, 1, 0.556863)
 
 [node name="DeadzoneContainer" type="Node2D" parent="."]
-visible = false
 
 [node name="DeadZone" type="Area2D" parent="DeadzoneContainer"]
 collision_layer = 2
