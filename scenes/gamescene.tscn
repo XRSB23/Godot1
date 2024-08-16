@@ -1,4 +1,4 @@
-[gd_scene load_steps=197 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=215 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/LevelTheme_Manager.gd" id="2_2ith4"]
@@ -24,11 +24,12 @@
 [ext_resource type="Material" uid="uid://xohviejfgi4f" path="res://Art/Sling/newton_shader_material.tres" id="7_v80i2"]
 [ext_resource type="Texture2D" uid="uid://c2pkci0la5r1v" path="res://Art/UI/ButtonIcon.svg" id="8_7n0tw"]
 [ext_resource type="Texture2D" uid="uid://dafardwowxnka" path="res://Art/Sling/CartoonDottedLine.svg" id="8_il03c"]
+[ext_resource type="Texture2D" uid="uid://dje2nrekfqin8" path="res://Art/UI/UI_SpriteSheet.png" id="8_j3ke8"]
 [ext_resource type="Texture2D" uid="uid://dck3p41sfucay" path="res://icon.svg" id="8_nev1w"]
 [ext_resource type="Script" path="res://Scripts/UI/ScoreDisplay.gd" id="8_puymx"]
 [ext_resource type="PackedScene" uid="uid://c3w1tltsk73hb" path="res://scenes/bubble_metallic_new.tscn" id="8_pwao1"]
-[ext_resource type="Texture2D" uid="uid://bhco3igm4rgrp" path="res://Art/UI/ScoreBar.svg" id="8_v8i6v"]
 [ext_resource type="Script" path="res://Scripts/UI/StarTreshold.gd" id="10_1mpiy"]
+[ext_resource type="FontFile" uid="uid://bffefqymodf32" path="res://Art/Font/Lonely Cake.otf" id="10_42yl7"]
 [ext_resource type="Script" path="res://Scripts/UI/PausePanel.gd" id="10_lwgwo"]
 [ext_resource type="Texture2D" uid="uid://cq2oavcga4l3i" path="res://Art/Sling/Line2D_SmoothEdgeTexture.png" id="11_848u5"]
 [ext_resource type="Script" path="res://Scripts/UI/VolumeSlider.gd" id="11_n8bmv"]
@@ -63,14 +64,69 @@
 [ext_resource type="Texture2D" uid="uid://pywbbh753864" path="res://Art/Bubble/Spritesheets/BubbleAtlas_Neutral.png" id="58_8sm6h"]
 [ext_resource type="Texture2D" uid="uid://hvttd3nq0w3l" path="res://Art/Sling/SlingSpritesheet.svg" id="61_cdsvp"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ilr8p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yevrq"]
+atlas = ExtResource("8_j3ke8")
+region = Rect2(152, 0, 162, 76)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e35y8"]
+texture = SubResource("AtlasTexture_yevrq")
+texture_margin_left = 20.0
+texture_margin_right = 20.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_3on7y"]
+font = ExtResource("38_2mb0d")
+font_size = 20
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vf62u"]
+atlas = ExtResource("8_j3ke8")
+region = Rect2(0, 76, 76, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6busa"]
+atlas = ExtResource("8_j3ke8")
+region = Rect2(0, 0, 76, 76)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rlmnr"]
+font = ExtResource("10_42yl7")
+font_size = 50
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_klvnm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ntloa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5yrl4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0fc3g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1jdsm"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f83hv"]
+load_path = "res://.godot/imported/UI_SpriteSheet.png-27b8adb6a8b98635dc6033deabc6c27e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvycl"]
+atlas = SubResource("CompressedTexture2D_f83hv")
+region = Rect2(76, 76, 76, 76)
+
 [sub_resource type="LabelSettings" id="LabelSettings_yj1tm"]
 font_size = 30
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rkk5s"]
-atlas = ExtResource("8_7n0tw")
-region = Rect2(384, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gicfw"]
+atlas = ExtResource("8_j3ke8")
+region = Rect2(0, 380, 76, 76)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wo5lj"]
+load_path = "res://.godot/imported/UI_SpriteSheet.png-27b8adb6a8b98635dc6033deabc6c27e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdsb8"]
+atlas = SubResource("CompressedTexture2D_wo5lj")
+region = Rect2(76, 380, 76, 76)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_30p1y"]
 shader = ExtResource("4_f7t2v")
@@ -784,35 +840,41 @@ region = Rect2(0, 256, 256, 256)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pda5x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_e6qor"]
-font_size = 20
+font = ExtResource("10_42yl7")
+font_size = 30
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4kjox"]
-font_size = 40
+font = ExtResource("38_2mb0d")
+font_size = 50
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_68kct"]
-atlas = ExtResource("8_v8i6v")
-region = Rect2(0, 0, 306, 88)
+[sub_resource type="AtlasTexture" id="AtlasTexture_udioy"]
+atlas = ExtResource("8_j3ke8")
+region = Rect2(0, 304, 320, 76)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k1y5r"]
-atlas = ExtResource("8_v8i6v")
-region = Rect2(0, 88, 306, 88)
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc6pu"]
+atlas = ExtResource("8_j3ke8")
+region = Rect2(0, 152, 320, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i51r"]
+atlas = ExtResource("8_j3ke8")
+region = Rect2(0, 228, 320, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqm2n"]
-atlas = ExtResource("8_v8i6v")
-region = Rect2(306, 0, 48, 88)
+atlas = ExtResource("8_j3ke8")
+region = Rect2(152, 76, 76, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x6uui"]
 resource_local_to_scene = true
-atlas = ExtResource("8_v8i6v")
-region = Rect2(306, 0, 48, 88)
+atlas = ExtResource("8_j3ke8")
+region = Rect2(152, 76, 76, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tg6aj"]
-atlas = ExtResource("8_v8i6v")
-region = Rect2(306, 0, 48, 88)
+atlas = ExtResource("8_j3ke8")
+region = Rect2(152, 76, 76, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3itc1"]
 atlas = ExtResource("37_o0qfq")
@@ -1787,7 +1849,111 @@ script = ExtResource("3_2i1fh")
 process_mode = 3
 layer = 50
 
+[node name="PermanentOverlay" type="Panel" parent="PopupCanvas"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ilr8p")
+
+[node name="AmountDisplay" type="HBoxContainer" parent="PopupCanvas/PermanentOverlay"]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 568.0
+offset_bottom = 100.0
+alignment = 1
+
+[node name="Currency" type="Label" parent="PopupCanvas/PermanentOverlay/AmountDisplay"]
+custom_minimum_size = Vector2(180, 76)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/normal = SubResource("StyleBoxTexture_e35y8")
+text = "12085485"
+label_settings = SubResource("LabelSettings_3on7y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="PopupCanvas/PermanentOverlay/AmountDisplay/Currency"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_vertical = 2
+pivot_offset = Vector2(38, 38)
+texture = SubResource("AtlasTexture_vf62u")
+
+[node name="TextureRect" type="TextureRect" parent="PopupCanvas/PermanentOverlay/AmountDisplay/Currency"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -48.0
+offset_right = 36.0
+offset_bottom = 28.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_6busa")
+
+[node name="Label" type="Label" parent="PopupCanvas/PermanentOverlay/AmountDisplay/Currency/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "+"
+label_settings = SubResource("LabelSettings_rlmnr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PopupCanvas/PermanentOverlay/AmountDisplay/Currency"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_klvnm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ntloa")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5yrl4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0fc3g")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1jdsm")
+
+[node name="Stars" type="Label" parent="PopupCanvas/PermanentOverlay/AmountDisplay"]
+custom_minimum_size = Vector2(0, 76)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/normal = SubResource("StyleBoxTexture_e35y8")
+text = "    360 / 360"
+label_settings = SubResource("LabelSettings_3on7y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="PopupCanvas/PermanentOverlay/AmountDisplay/Stars"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_vertical = 2
+pivot_offset = Vector2(38, 38)
+texture = SubResource("AtlasTexture_qvycl")
+
 [node name="ShopButton" type="Panel" parent="PopupCanvas"]
+visible = false
 offset_left = -24.0
 offset_top = 16.0
 offset_right = 376.0
@@ -1837,21 +2003,23 @@ texture = ExtResource("8_nev1w")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Pause" type="Button" parent="PopupCanvas"]
+[node name="Pause" type="TextureButton" parent="PopupCanvas"]
 custom_minimum_size = Vector2(100, 100)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -128.0
+offset_left = -104.0
 offset_top = 16.0
-offset_right = 12.0
-offset_bottom = 156.0
+offset_right = 6.0
+offset_bottom = 126.0
 grow_horizontal = 0
 scale = Vector2(0.8, 0.8)
 theme = ExtResource("14_rueps")
-theme_override_constants/icon_max_width = 110
-icon = SubResource("AtlasTexture_rkk5s")
-icon_alignment = 1
+texture_normal = SubResource("AtlasTexture_gicfw")
+texture_pressed = SubResource("AtlasTexture_bdsb8")
+texture_hover = SubResource("AtlasTexture_gicfw")
+texture_focused = SubResource("AtlasTexture_gicfw")
+stretch_mode = 0
 
 [node name="BackgroundFilter" type="TextureRect" parent="PopupCanvas"]
 modulate = Color(0.0784314, 0.0784314, 0.0784314, 0)
@@ -3634,9 +3802,9 @@ self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -528.0
-offset_right = -32.0
-offset_bottom = 136.0
+offset_left = -296.0
+offset_right = 416.0
+offset_bottom = 120.0
 grow_horizontal = 2
 theme = ExtResource("14_rueps")
 
@@ -3645,47 +3813,51 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -32.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 60
 alignment = 1
 script = ExtResource("8_puymx")
 
-[node name="ScoreContainer" type="VBoxContainer" parent="HUD/ScorePanel/ScoreDisplay"]
-visible = false
-custom_minimum_size = Vector2(227, 0)
+[node name="LevelDisplay" type="VBoxContainer" parent="HUD/ScorePanel/ScoreDisplay"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = -1
 
-[node name="HSeparator" type="HSeparator" parent="HUD/ScorePanel/ScoreDisplay/ScoreContainer"]
+[node name="HSeparator" type="HSeparator" parent="HUD/ScorePanel/ScoreDisplay/LevelDisplay"]
 layout_mode = 2
 theme_override_constants/separation = 12
 theme_override_styles/separator = SubResource("StyleBoxEmpty_pda5x")
 
-[node name="Label" type="Label" parent="HUD/ScorePanel/ScoreDisplay/ScoreContainer"]
+[node name="Label" type="Label" parent="HUD/ScorePanel/ScoreDisplay/LevelDisplay"]
 layout_mode = 2
-text = "Score :"
+text = "Level :"
 label_settings = SubResource("LabelSettings_e6qor")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score" type="Label" parent="HUD/ScorePanel/ScoreDisplay/ScoreContainer"]
+[node name="HSeparator2" type="HSeparator" parent="HUD/ScorePanel/ScoreDisplay/LevelDisplay"]
 layout_mode = 2
-text = "123 456"
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxEmpty_pda5x")
+
+[node name="Score" type="Label" parent="HUD/ScorePanel/ScoreDisplay/LevelDisplay"]
+layout_mode = 2
+text = "152"
 label_settings = SubResource("LabelSettings_4kjox")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ScoreBar" type="TextureProgressBar" parent="HUD/ScorePanel/ScoreDisplay"]
+custom_minimum_size = Vector2(504, 120)
 layout_mode = 2
 size_flags_horizontal = 3
 value = 42.0
 allow_greater = true
 nine_patch_stretch = true
-texture_over = SubResource("AtlasTexture_68kct")
-texture_progress = SubResource("AtlasTexture_k1y5r")
+texture_under = SubResource("AtlasTexture_udioy")
+texture_over = SubResource("AtlasTexture_lc6pu")
+texture_progress = SubResource("AtlasTexture_3i51r")
 
 [node name="StarTreshold0" type="TextureRect" parent="HUD/ScorePanel/ScoreDisplay/ScoreBar"]
 layout_mode = 1
@@ -3693,17 +3865,16 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 103.0
-offset_top = -31.0
+offset_top = -16.0
 offset_right = 103.0
-offset_bottom = 9.0
+offset_bottom = 24.0
 grow_vertical = 2
-scale = Vector2(1.7, 1.7)
 texture = SubResource("AtlasTexture_hqm2n")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("10_1mpiy")
-rectTrue = Vector2(306, 88)
-rectFalse = Vector2(306, 0)
+rectTrue = Vector2(76, 76)
+rectFalse = Vector2(152, 76)
 
 [node name="StarTreshold1" type="TextureRect" parent="HUD/ScorePanel/ScoreDisplay/ScoreBar"]
 layout_mode = 1
@@ -3711,33 +3882,31 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 262.0
-offset_top = -31.0
+offset_top = -16.0
 offset_right = 262.0
-offset_bottom = 9.0
+offset_bottom = 24.0
 grow_vertical = 2
-scale = Vector2(1.7, 1.7)
 texture = SubResource("AtlasTexture_x6uui")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("10_1mpiy")
-rectTrue = Vector2(306, 88)
-rectFalse = Vector2(306, 0)
+rectTrue = Vector2(76, 76)
+rectFalse = Vector2(152, 76)
 
 [node name="StarTreshold2" type="TextureRect" parent="HUD/ScorePanel/ScoreDisplay/ScoreBar"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.993
 offset_left = 413.0
-offset_top = 38.0
-offset_right = -47.752
-offset_bottom = 78.0
-scale = Vector2(1.7, 1.7)
+offset_top = 44.0
+offset_right = -63.64
+offset_bottom = 84.0
 texture = SubResource("AtlasTexture_tg6aj")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("10_1mpiy")
-rectTrue = Vector2(306, 88)
-rectFalse = Vector2(306, 0)
+rectTrue = Vector2(76, 76)
+rectFalse = Vector2(152, 76)
 
 [node name="TestingCanvasLayer" type="CanvasLayer" parent="."]
 visible = false

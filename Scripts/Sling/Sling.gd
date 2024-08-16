@@ -113,7 +113,6 @@ func HandleDrag(event):
 		if Vector2.UP.angle_to(scaled_v) <= 0:
 			scaled_v = Vector2.UP * scaled_v.length()
 			
-		print(scaled_v.angle_to(Vector2(1, sin(deg_to_rad(6)))))
 		
 		if valid_shot : 
 			trajectory_preview.Display(trajectory_mode, scaled_v, shoot_strength)
