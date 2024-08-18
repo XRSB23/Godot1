@@ -3,7 +3,7 @@ class_name  PowerUpButton
 
 signal selected()
 
-@onready var gamescene : GameScene = $"../../../.."
+@onready var gamescene : GameScene = $"../../../../.."
 
 @export_category("Node Connexion")
 @export var powerUp_panel : PowerUpPanel
@@ -59,7 +59,8 @@ func Highlight(b :bool):
 	particle_controller.EnableEmission(b)
 
 func on_shoot():
-	if !powerUp_panel.infinite_powerups : gamescene.update_inventory(name,-1) 
+	if !powerUp_panel.infinite_powerups : gamescene.update_inventory(name,-1)
+	button_pressed = false
 	Init()
 	
 func _on_button_down():

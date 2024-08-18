@@ -1,4 +1,4 @@
-[gd_scene load_steps=224 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=229 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/LevelTheme_Manager.gd" id="2_2ith4"]
@@ -748,172 +748,6 @@ _data = {
 "SwipeLeft": SubResource("Animation_uevhi")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_te11g"]
-atlas = ExtResource("8_j3ke8")
-region = Rect2(0, 380, 512, 76)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2q2kv"]
-texture = SubResource("AtlasTexture_te11g")
-texture_margin_left = 110.0
-texture_margin_top = 15.0
-texture_margin_right = 110.0
-texture_margin_bottom = 15.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hld0g"]
-resource_local_to_scene = true
-shader = ExtResource("30_saxga")
-shader_parameter/is_grayscale = false
-shader_parameter/Brightness = 0.3
-shader_parameter/Hologram = false
-shader_parameter/ScrollSpeed = 1.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lunyl"]
-resource_local_to_scene = true
-atlas = ExtResource("21_tfky2")
-region = Rect2(0, 0, 100, 100)
-
-[sub_resource type="LabelSettings" id="LabelSettings_p0jsf"]
-font_size = 37
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mxlue"]
-load_path = "res://.godot/imported/UI Art.png-248d3f9583c56223e37c6538f7deced1.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eob0k"]
-resource_local_to_scene = true
-atlas = SubResource("CompressedTexture2D_mxlue")
-region = Rect2(0, 256, 256, 256)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrxh7"]
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dgy7f"]
-resource_local_to_scene = true
-shader = ExtResource("30_saxga")
-shader_parameter/is_grayscale = false
-shader_parameter/Brightness = 0.3
-shader_parameter/Hologram = false
-shader_parameter/ScrollSpeed = 1.0
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2tg4t"]
-load_path = "res://.godot/imported/PowerUpsIcons.svg-8096009b0535430e47b62dabe6cb7fb6.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vq3ra"]
-resource_local_to_scene = true
-atlas = SubResource("CompressedTexture2D_2tg4t")
-region = Rect2(100, 0, 100, 100)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5si2f"]
-load_path = "res://.godot/imported/UI Art.png-248d3f9583c56223e37c6538f7deced1.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3qcub"]
-resource_local_to_scene = true
-atlas = SubResource("CompressedTexture2D_5si2f")
-region = Rect2(0, 256, 256, 256)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rkfne"]
-resource_local_to_scene = true
-shader = ExtResource("30_saxga")
-shader_parameter/is_grayscale = false
-shader_parameter/Brightness = 0.3
-shader_parameter/Hologram = false
-shader_parameter/ScrollSpeed = 1.0
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mi6fq"]
-load_path = "res://.godot/imported/PowerUpsIcons.svg-8096009b0535430e47b62dabe6cb7fb6.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_60jng"]
-resource_local_to_scene = true
-atlas = SubResource("CompressedTexture2D_mi6fq")
-region = Rect2(200, 0, 100, 100)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wuetc"]
-load_path = "res://.godot/imported/UI Art.png-248d3f9583c56223e37c6538f7deced1.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_np6p6"]
-resource_local_to_scene = true
-atlas = SubResource("CompressedTexture2D_wuetc")
-region = Rect2(0, 256, 256, 256)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_psl2w"]
-resource_local_to_scene = true
-shader = ExtResource("30_saxga")
-shader_parameter/is_grayscale = false
-shader_parameter/Brightness = 0.3
-shader_parameter/Hologram = false
-shader_parameter/ScrollSpeed = 1.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_icg8l"]
-resource_local_to_scene = true
-atlas = SubResource("CompressedTexture2D_mi6fq")
-region = Rect2(300, 0, 100, 100)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fgdl5"]
-load_path = "res://.godot/imported/UI Art.png-248d3f9583c56223e37c6538f7deced1.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yj0fc"]
-resource_local_to_scene = true
-atlas = SubResource("CompressedTexture2D_fgdl5")
-region = Rect2(0, 256, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ncfuv"]
-atlas = ExtResource("8_j3ke8")
-region = Rect2(228, 76, 76, 76)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nte7p"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pda5x"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_e6qor"]
-font = ExtResource("10_42yl7")
-font_size = 28
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_4kjox"]
-font = ExtResource("38_2mb0d")
-font_size = 48
-outline_size = 6
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eamou"]
-atlas = ExtResource("8_j3ke8")
-region = Rect2(408, 228, 88, 76)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_15jwk"]
-texture = SubResource("AtlasTexture_eamou")
-texture_margin_left = 44.0
-texture_margin_right = 44.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_udioy"]
-atlas = ExtResource("8_j3ke8")
-region = Rect2(0, 304, 320, 76)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lc6pu"]
-atlas = ExtResource("8_j3ke8")
-region = Rect2(0, 152, 320, 76)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3i51r"]
-atlas = ExtResource("8_j3ke8")
-region = Rect2(0, 228, 320, 76)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hqm2n"]
-atlas = ExtResource("8_j3ke8")
-region = Rect2(152, 76, 76, 76)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x6uui"]
-resource_local_to_scene = true
-atlas = ExtResource("8_j3ke8")
-region = Rect2(152, 76, 76, 76)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tg6aj"]
-atlas = ExtResource("8_j3ke8")
-region = Rect2(152, 76, 76, 76)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_3itc1"]
 atlas = ExtResource("37_o0qfq")
 region = Rect2(0, 0, 1480, 928)
@@ -1165,6 +999,188 @@ _data = {
 "Previous": SubResource("Animation_kji1l"),
 "RESET": SubResource("Animation_dstj5")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hld0g"]
+resource_local_to_scene = true
+shader = ExtResource("30_saxga")
+shader_parameter/is_grayscale = false
+shader_parameter/Brightness = 0.3
+shader_parameter/Hologram = false
+shader_parameter/ScrollSpeed = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lunyl"]
+resource_local_to_scene = true
+atlas = ExtResource("21_tfky2")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p0jsf"]
+font = ExtResource("38_2mb0d")
+font_size = 34
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mxlue"]
+load_path = "res://.godot/imported/UI Art.png-248d3f9583c56223e37c6538f7deced1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eob0k"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_mxlue")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dgy7f"]
+resource_local_to_scene = true
+shader = ExtResource("30_saxga")
+shader_parameter/is_grayscale = false
+shader_parameter/Brightness = 0.3
+shader_parameter/Hologram = false
+shader_parameter/ScrollSpeed = 1.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2tg4t"]
+load_path = "res://.godot/imported/PowerUpsIcons.svg-8096009b0535430e47b62dabe6cb7fb6.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq3ra"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_2tg4t")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5si2f"]
+load_path = "res://.godot/imported/UI Art.png-248d3f9583c56223e37c6538f7deced1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qcub"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_5si2f")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rkfne"]
+resource_local_to_scene = true
+shader = ExtResource("30_saxga")
+shader_parameter/is_grayscale = false
+shader_parameter/Brightness = 0.3
+shader_parameter/Hologram = false
+shader_parameter/ScrollSpeed = 1.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mi6fq"]
+load_path = "res://.godot/imported/PowerUpsIcons.svg-8096009b0535430e47b62dabe6cb7fb6.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60jng"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_mi6fq")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wuetc"]
+load_path = "res://.godot/imported/UI Art.png-248d3f9583c56223e37c6538f7deced1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np6p6"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_wuetc")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_psl2w"]
+resource_local_to_scene = true
+shader = ExtResource("30_saxga")
+shader_parameter/is_grayscale = false
+shader_parameter/Brightness = 0.3
+shader_parameter/Hologram = false
+shader_parameter/ScrollSpeed = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icg8l"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_mi6fq")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fgdl5"]
+load_path = "res://.godot/imported/UI Art.png-248d3f9583c56223e37c6538f7deced1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj0fc"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_fgdl5")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o5vwy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsck5"]
+atlas = ExtResource("8_j3ke8")
+region = Rect2(228, 643, 152, 76)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vesf5"]
+texture = SubResource("AtlasTexture_dsck5")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xcleu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjemm"]
+atlas = ExtResource("8_j3ke8")
+region = Rect2(0, 606, 450, 38)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q8ylw"]
+texture = SubResource("AtlasTexture_vjemm")
+texture_margin_left = 30.0
+texture_margin_right = 30.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_te11g"]
+atlas = ExtResource("8_j3ke8")
+region = Rect2(0, 380, 512, 76)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2q2kv"]
+texture = SubResource("AtlasTexture_te11g")
+texture_margin_left = 110.0
+texture_margin_top = 15.0
+texture_margin_right = 110.0
+texture_margin_bottom = 15.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncfuv"]
+atlas = ExtResource("8_j3ke8")
+region = Rect2(228, 76, 76, 76)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nte7p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pda5x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e6qor"]
+font = ExtResource("10_42yl7")
+font_size = 28
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4kjox"]
+font = ExtResource("38_2mb0d")
+font_size = 48
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eamou"]
+atlas = ExtResource("8_j3ke8")
+region = Rect2(408, 228, 88, 76)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_15jwk"]
+texture = SubResource("AtlasTexture_eamou")
+texture_margin_left = 44.0
+texture_margin_right = 44.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udioy"]
+atlas = ExtResource("8_j3ke8")
+region = Rect2(0, 304, 320, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc6pu"]
+atlas = ExtResource("8_j3ke8")
+region = Rect2(0, 152, 320, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i51r"]
+atlas = ExtResource("8_j3ke8")
+region = Rect2(0, 228, 320, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqm2n"]
+atlas = ExtResource("8_j3ke8")
+region = Rect2(152, 76, 76, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6uui"]
+resource_local_to_scene = true
+atlas = ExtResource("8_j3ke8")
+region = Rect2(152, 76, 76, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg6aj"]
+atlas = ExtResource("8_j3ke8")
+region = Rect2(152, 76, 76, 76)
 
 [sub_resource type="Curve" id="Curve_j361q"]
 _data = [Vector2(0, 0), 0.0, 2.425, 0, 0, Vector2(0.1, 0.4), 1.75882, 0.666667, 0, 0, Vector2(1, 1), 0.666667, 0.0, 0, 0]
@@ -3198,60 +3214,293 @@ libraries = {
 "": SubResource("AnimationLibrary_pxjn4")
 }
 
-[node name="HUD" type="CanvasLayer" parent="."]
-visible = false
+[node name="LevelSelectCanvas" type="CanvasLayer" parent="."]
+process_mode = 3
 
-[node name="HeaderPanel" type="Panel" parent="HUD"]
-anchors_preset = 10
+[node name="Background" type="TextureRect" parent="LevelSelectCanvas"]
+show_behind_parent = true
+anchors_preset = 15
 anchor_right = 1.0
-offset_bottom = 120.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_2q2kv")
+grow_vertical = 2
+texture = ExtResource("19_bmm86")
 
-[node name="PowerUpPanel" type="Panel" parent="HUD"]
+[node name="PanelSkin" type="TextureRect" parent="LevelSelectCanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = 24.0
+offset_right = -200.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_3itc1")
+
+[node name="LevelSelect" type="GridContainer" parent="LevelSelectCanvas/PanelSkin"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 272.0
+offset_top = 296.0
+offset_right = -267.996
+offset_bottom = -156.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(475, 284)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 5
+script = ExtResource("13_gtr2x")
+stars_per_page = 25
+debug_max_levels = 30
+debug_unlock_all = true
+
+[node name="LevelButton0" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
+layout_mode = 2
+
+[node name="LevelButton1" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
+layout_mode = 2
+text = "2
+"
+
+[node name="LevelButton2" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
+layout_mode = 2
+text = "3"
+
+[node name="LevelButton3" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
+layout_mode = 2
+text = "4"
+
+[node name="LevelButton4" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
+layout_mode = 2
+text = "5"
+
+[node name="LevelButton5" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
+layout_mode = 2
+text = "6"
+
+[node name="LevelButton6" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
+layout_mode = 2
+text = "7"
+
+[node name="LevelButton7" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
+layout_mode = 2
+text = "8"
+
+[node name="LevelButton8" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
+layout_mode = 2
+text = "9"
+
+[node name="LevelButton9" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
+layout_mode = 2
+text = "10"
+
+[node name="LevelButton10" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
+layout_mode = 2
+text = "11"
+
+[node name="LevelButton11" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
+layout_mode = 2
+text = "12"
+
+[node name="LevelButton12" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
+layout_mode = 2
+text = "13"
+
+[node name="LevelButton13" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
+layout_mode = 2
+text = "14"
+
+[node name="LevelButton14" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
+layout_mode = 2
+text = "15"
+
+[node name="LevelSelectLabel" type="Label" parent="LevelSelectCanvas/PanelSkin"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -224.0
+offset_top = 72.0
+offset_right = 250.0
+offset_bottom = 177.0
+grow_horizontal = 2
+text = "Level Select"
+label_settings = SubResource("LabelSettings_hf8nw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UnlockBanner" type="Panel" parent="LevelSelectCanvas/PanelSkin"]
+visible = false
+material = ExtResource("39_4jqx5")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 280.0
+offset_top = 288.0
+offset_right = -279.999
+offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_5wb8b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelectCanvas/PanelSkin/UnlockBanner"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.861
+offset_bottom = 0.0639648
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="LevelSelectCanvas/PanelSkin/UnlockBanner/VBoxContainer"]
+material = ExtResource("39_4jqx5")
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 57
+text = "This page unlocks in :
+"
+label_settings = SubResource("LabelSettings_6pimy")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelSelectCanvas/PanelSkin/UnlockBanner/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="Amount" type="Label" parent="LevelSelectCanvas/PanelSkin/UnlockBanner/VBoxContainer/HBoxContainer"]
+material = ExtResource("39_4jqx5")
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 57
+text = "25"
+label_settings = SubResource("LabelSettings_1y01t")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VSeparator" type="VSeparator" parent="LevelSelectCanvas/PanelSkin/UnlockBanner/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 9
+theme_override_styles/separator = SubResource("StyleBoxEmpty_24x6a")
+
+[node name="StarTexture" type="TextureRect" parent="LevelSelectCanvas/PanelSkin/UnlockBanner/VBoxContainer/HBoxContainer"]
+material = ExtResource("39_4jqx5")
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_pr60w")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Previous" type="TextureButton" parent="LevelSelectCanvas/PanelSkin"]
+layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = -24.0
-offset_top = -364.0
-offset_right = 160.0
-offset_bottom = 212.0
+offset_left = 96.0
+offset_top = -4.0
+offset_right = 248.0
+offset_bottom = 148.0
 grow_vertical = 2
-theme = ExtResource("14_rueps")
-script = ExtResource("28_a1ofm")
+pivot_offset = Vector2(64, 64)
+texture_normal = SubResource("AtlasTexture_kvxb5")
+texture_pressed = SubResource("AtlasTexture_f3k5m")
+texture_hover = SubResource("AtlasTexture_7dqup")
+texture_disabled = SubResource("ImageTexture_vcc1g")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/PowerUpPanel"]
+[node name="Next" type="TextureButton" parent="LevelSelectCanvas/PanelSkin"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -144.0
-offset_top = -272.0
-offset_right = -24.0
-offset_bottom = 268.0
+offset_left = -248.0
+offset_top = -4.0
+offset_right = -96.0
+offset_bottom = 148.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_constants/separation = 10
+pivot_offset = Vector2(64, 64)
+texture_normal = SubResource("AtlasTexture_e0lgk")
+texture_pressed = SubResource("AtlasTexture_bc0nw")
+texture_hover = SubResource("AtlasTexture_k81d4")
+texture_disabled = SubResource("ImageTexture_eb5nj")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="Precision Shot" type="Button" parent="HUD/PowerUpPanel/VBoxContainer" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelSelectCanvas"]
+libraries = {
+"": SubResource("AnimationLibrary_v383t")
+}
+
+[node name="HUD" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="PowerUpPanel" type="Panel" parent="HUD"]
+anchors_preset = -1
+offset_left = 40.0
+offset_top = 88.0
+offset_right = 440.0
+offset_bottom = 525.0
+grow_vertical = 2
 theme = ExtResource("14_rueps")
+script = ExtResource("28_a1ofm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/PowerUpPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 75.0
+offset_right = -12.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="HUD/PowerUpPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="Precision Shot" type="Button" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource("14_rueps")
+toggle_mode = true
 icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_hld0g"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(83, 83),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_lunyl"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
 
 icon_alignment = 1
 script = ExtResource("29_vc8lb")
-powerUp_panel = NodePath("../..")
+powerUp_panel = NodePath("../../..")
 amount_label = NodePath("Amount")
 highlight = NodePath("Highlight")
 icon = NodePath("Icon")
 particle_controller = NodePath("Particles")
 
-[node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot"]
+[node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Precision Shot"]
 material = SubResource("ShaderMaterial_hld0g")
 custom_minimum_size = Vector2(83, 83)
 layout_mode = 1
@@ -3264,7 +3513,7 @@ texture = SubResource("AtlasTexture_lunyl")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Particles" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot"]
+[node name="Particles" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Precision Shot"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -3273,7 +3522,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("22_50gyi")
 
-[node name="ControlD" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot/Particles"]
+[node name="ControlD" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Precision Shot/Particles"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -3283,7 +3532,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot/Particles/ControlD"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Precision Shot/Particles/ControlD"]
 emitting = false
 amount = 12
 lifetime = 0.4
@@ -3294,7 +3543,7 @@ gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlL" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot/Particles"]
+[node name="ControlL" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Precision Shot/Particles"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -3303,7 +3552,7 @@ offset_top = -4.0
 offset_bottom = -4.0
 grow_vertical = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot/Particles/ControlL"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Precision Shot/Particles/ControlL"]
 emitting = false
 amount = 12
 lifetime = 0.7
@@ -3314,14 +3563,14 @@ gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlU" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot/Particles"]
+[node name="ControlU" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Precision Shot/Particles"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot/Particles/ControlU"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Precision Shot/Particles/ControlU"]
 emitting = false
 amount = 10
 lifetime = 0.5
@@ -3332,7 +3581,7 @@ gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlR" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot/Particles"]
+[node name="ControlR" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Precision Shot/Particles"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -3344,7 +3593,7 @@ offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot/Particles/ControlR"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Precision Shot/Particles/ControlR"]
 emitting = false
 amount = 12
 lifetime = 0.7
@@ -3355,7 +3604,7 @@ gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="Amount" type="Label" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot"]
+[node name="Amount" type="Label" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Precision Shot"]
 custom_minimum_size = Vector2(52, 52)
 layout_mode = 1
 anchors_preset = 3
@@ -3377,7 +3626,7 @@ label_settings = SubResource("LabelSettings_p0jsf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/Precision Shot"]
+[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Precision Shot"]
 modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
 layout_mode = 1
@@ -3393,28 +3642,24 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_eob0k")
 expand_mode = 1
 
-[node name="VSeparator5" type="HSeparator" parent="HUD/PowerUpPanel/VBoxContainer"]
+[node name="Explosive" type="Button" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
+custom_minimum_size = Vector2(140, 140)
 layout_mode = 2
-theme_override_constants/separation = 20
-theme_override_styles/separator = SubResource("StyleBoxFlat_xrxh7")
-
-[node name="Explosive" type="Button" parent="HUD/PowerUpPanel/VBoxContainer" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 6
+size_flags_vertical = 6
 theme = ExtResource("14_rueps")
+toggle_mode = true
 icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_dgy7f"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(84, 84),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":11.0,"offset_top":4.0,"offset_right":-11.0,"offset_bottom":-4.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_vq3ra"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
 
 script = ExtResource("29_vc8lb")
-powerUp_panel = NodePath("../..")
+powerUp_panel = NodePath("../../..")
 amount_label = NodePath("Amount")
 highlight = NodePath("Highlight")
 icon = NodePath("Icon")
 particle_controller = NodePath("Particles")
 type = 1
 
-[node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/Explosive"]
+[node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Explosive"]
 material = SubResource("ShaderMaterial_dgy7f")
 custom_minimum_size = Vector2(84, 84)
 layout_mode = 1
@@ -3431,7 +3676,7 @@ texture = SubResource("AtlasTexture_vq3ra")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Particles" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Explosive"]
+[node name="Particles" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Explosive"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -3440,7 +3685,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("22_50gyi")
 
-[node name="ControlD" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Explosive/Particles"]
+[node name="ControlD" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Explosive/Particles"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -3450,7 +3695,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Explosive/Particles/ControlD"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Explosive/Particles/ControlD"]
 emitting = false
 amount = 12
 lifetime = 0.4
@@ -3461,7 +3706,7 @@ gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlL" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Explosive/Particles"]
+[node name="ControlL" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Explosive/Particles"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -3470,7 +3715,7 @@ offset_top = -4.0
 offset_bottom = -4.0
 grow_vertical = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Explosive/Particles/ControlL"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Explosive/Particles/ControlL"]
 emitting = false
 amount = 12
 lifetime = 0.7
@@ -3481,14 +3726,14 @@ gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlU" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Explosive/Particles"]
+[node name="ControlU" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Explosive/Particles"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Explosive/Particles/ControlU"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Explosive/Particles/ControlU"]
 emitting = false
 amount = 10
 lifetime = 0.5
@@ -3499,7 +3744,7 @@ gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlR" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Explosive/Particles"]
+[node name="ControlR" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Explosive/Particles"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -3511,7 +3756,7 @@ offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Explosive/Particles/ControlR"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Explosive/Particles/ControlR"]
 emitting = false
 amount = 12
 lifetime = 0.7
@@ -3522,7 +3767,7 @@ gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="Amount" type="Label" parent="HUD/PowerUpPanel/VBoxContainer/Explosive"]
+[node name="Amount" type="Label" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Explosive"]
 custom_minimum_size = Vector2(52, 52)
 layout_mode = 1
 anchors_preset = 3
@@ -3543,7 +3788,7 @@ label_settings = SubResource("LabelSettings_p0jsf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/Explosive"]
+[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Explosive"]
 modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
 layout_mode = 1
@@ -3559,23 +3804,24 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_3qcub")
 expand_mode = 1
 
-[node name="Metal" type="Button" parent="HUD/PowerUpPanel/VBoxContainer" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
-custom_minimum_size = Vector2(120, 120)
+[node name="Metal" type="Button" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
+custom_minimum_size = Vector2(140, 140)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 6
+size_flags_vertical = 6
 theme = ExtResource("14_rueps")
+toggle_mode = true
 icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_rkfne"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(70, 70),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":11.0,"offset_top":12.0,"offset_right":-11.0,"offset_bottom":-12.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_60jng"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
 
 script = ExtResource("29_vc8lb")
-powerUp_panel = NodePath("../..")
+powerUp_panel = NodePath("../../..")
 amount_label = NodePath("Amount")
 highlight = NodePath("Highlight")
 icon = NodePath("Icon")
 particle_controller = NodePath("Particles")
 type = 1
 
-[node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/Metal"]
+[node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Metal"]
 material = SubResource("ShaderMaterial_rkfne")
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 1
@@ -3592,7 +3838,7 @@ texture = SubResource("AtlasTexture_60jng")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Particles" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Metal"]
+[node name="Particles" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Metal"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -3601,7 +3847,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("22_50gyi")
 
-[node name="ControlD" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Metal/Particles"]
+[node name="ControlD" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Metal/Particles"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -3611,7 +3857,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Metal/Particles/ControlD"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Metal/Particles/ControlD"]
 emitting = false
 amount = 12
 lifetime = 0.4
@@ -3622,7 +3868,7 @@ gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlL" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Metal/Particles"]
+[node name="ControlL" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Metal/Particles"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -3631,7 +3877,7 @@ offset_top = -4.0
 offset_bottom = -4.0
 grow_vertical = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Metal/Particles/ControlL"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Metal/Particles/ControlL"]
 emitting = false
 amount = 12
 lifetime = 0.7
@@ -3642,14 +3888,14 @@ gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlU" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Metal/Particles"]
+[node name="ControlU" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Metal/Particles"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Metal/Particles/ControlU"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Metal/Particles/ControlU"]
 emitting = false
 amount = 10
 lifetime = 0.5
@@ -3660,7 +3906,7 @@ gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlR" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Metal/Particles"]
+[node name="ControlR" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Metal/Particles"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -3672,7 +3918,7 @@ offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Metal/Particles/ControlR"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Metal/Particles/ControlR"]
 emitting = false
 amount = 12
 lifetime = 0.7
@@ -3683,7 +3929,7 @@ gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="Amount" type="Label" parent="HUD/PowerUpPanel/VBoxContainer/Metal"]
+[node name="Amount" type="Label" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Metal"]
 custom_minimum_size = Vector2(52, 52)
 layout_mode = 1
 anchors_preset = 3
@@ -3704,7 +3950,7 @@ label_settings = SubResource("LabelSettings_p0jsf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/Metal"]
+[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Metal"]
 modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
 layout_mode = 1
@@ -3720,23 +3966,24 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_np6p6")
 expand_mode = 1
 
-[node name="Paint" type="Button" parent="HUD/PowerUpPanel/VBoxContainer" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
-custom_minimum_size = Vector2(120, 120)
+[node name="Paint" type="Button" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer" node_paths=PackedStringArray("powerUp_panel", "amount_label", "highlight", "icon", "particle_controller")]
+custom_minimum_size = Vector2(140, 140)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 6
+size_flags_vertical = 6
 theme = ExtResource("14_rueps")
+toggle_mode = true
 icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_psl2w"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(70, 70),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":11.0,"offset_top":12.0,"offset_right":-11.0,"offset_bottom":-12.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_icg8l"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
 
 script = ExtResource("29_vc8lb")
-powerUp_panel = NodePath("../..")
+powerUp_panel = NodePath("../../..")
 amount_label = NodePath("Amount")
 highlight = NodePath("Highlight")
 icon = NodePath("Icon")
 particle_controller = NodePath("Particles")
 type = 1
 
-[node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/Paint"]
+[node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Paint"]
 material = SubResource("ShaderMaterial_psl2w")
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 1
@@ -3753,7 +4000,7 @@ texture = SubResource("AtlasTexture_icg8l")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Particles" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Paint"]
+[node name="Particles" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Paint"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -3762,7 +4009,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("22_50gyi")
 
-[node name="ControlD" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Paint/Particles"]
+[node name="ControlD" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Paint/Particles"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -3772,7 +4019,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Paint/Particles/ControlD"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Paint/Particles/ControlD"]
 emitting = false
 amount = 12
 lifetime = 0.4
@@ -3783,7 +4030,7 @@ gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlL" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Paint/Particles"]
+[node name="ControlL" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Paint/Particles"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -3792,7 +4039,7 @@ offset_top = -4.0
 offset_bottom = -4.0
 grow_vertical = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Paint/Particles/ControlL"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Paint/Particles/ControlL"]
 emitting = false
 amount = 12
 lifetime = 0.7
@@ -3803,14 +4050,14 @@ gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlU" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Paint/Particles"]
+[node name="ControlU" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Paint/Particles"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Paint/Particles/ControlU"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Paint/Particles/ControlU"]
 emitting = false
 amount = 10
 lifetime = 0.5
@@ -3821,7 +4068,7 @@ gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="ControlR" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/Paint/Particles"]
+[node name="ControlR" type="Control" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Paint/Particles"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -3833,7 +4080,7 @@ offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/Paint/Particles/ControlR"]
+[node name="Highlight" type="CPUParticles2D" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Paint/Particles/ControlR"]
 emitting = false
 amount = 12
 lifetime = 0.7
@@ -3844,7 +4091,7 @@ gravity = Vector2(0, -100)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
 
-[node name="Amount" type="Label" parent="HUD/PowerUpPanel/VBoxContainer/Paint"]
+[node name="Amount" type="Label" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Paint"]
 custom_minimum_size = Vector2(52, 52)
 layout_mode = 1
 anchors_preset = 3
@@ -3866,7 +4113,7 @@ label_settings = SubResource("LabelSettings_p0jsf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/Paint"]
+[node name="Highlight" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Paint"]
 modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
 layout_mode = 1
@@ -3881,6 +4128,44 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_yj0fc")
 expand_mode = 1
+
+[node name="HSeparator" type="HSeparator" parent="HUD/PowerUpPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 7
+theme_override_styles/separator = SubResource("StyleBoxEmpty_o5vwy")
+
+[node name="Button" type="Button" parent="HUD/PowerUpPanel/VBoxContainer"]
+custom_minimum_size = Vector2(150, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_vesf5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vesf5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vesf5")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_vesf5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xcleu")
+
+[node name="Panel" type="Panel" parent="HUD/PowerUpPanel/VBoxContainer/Button"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.24
+anchor_top = 0.533
+anchor_right = 1.0
+anchor_bottom = 1.24
+offset_top = -0.975002
+offset_right = 36.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_q8ylw")
+
+[node name="HeaderPanel" type="Panel" parent="HUD"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2q2kv")
 
 [node name="ScorePanel" type="Panel" parent="HUD"]
 self_modulate = Color(1, 1, 1, 0)
@@ -4053,341 +4338,12 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_ncfuv")
 stretch_mode = 5
 
-[node name="TestingCanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Background" type="TextureRect" parent="TestingCanvasLayer"]
-show_behind_parent = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="TestingCanvasLayer"]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 240.0
-offset_top = 161.0
-offset_right = -241.0
-offset_bottom = -79.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="TestingCanvasLayer/Panel"]
-visible = false
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 441.0
-offset_top = -121.0
-offset_right = -447.0
-offset_bottom = 11.0
-grow_horizontal = 2
-
-[node name="Panel2" type="Panel" parent="TestingCanvasLayer/Panel"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 204.0
-offset_top = 77.0
-offset_right = -205.0
-offset_bottom = -153.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel3" type="Panel" parent="TestingCanvasLayer/Panel"]
-visible = false
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 36.0
-offset_top = -112.0
-offset_right = 168.0
-offset_bottom = 20.0
-grow_vertical = 2
-
-[node name="Panel4" type="Panel" parent="TestingCanvasLayer/Panel"]
-visible = false
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 1323.0
-offset_top = -112.0
-offset_right = 1455.0
-offset_bottom = 20.0
-grow_vertical = 2
-
-[node name="Panel5" type="Panel" parent="TestingCanvasLayer/Panel"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -295.5
-offset_top = -137.0
-offset_right = 292.5
-offset_bottom = -63.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="LevelSelectCanvas" type="CanvasLayer" parent="."]
-process_mode = 3
-
-[node name="Background" type="TextureRect" parent="LevelSelectCanvas"]
-show_behind_parent = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("19_bmm86")
-
-[node name="PanelSkin" type="TextureRect" parent="LevelSelectCanvas"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -760.0
-offset_top = -516.0
-offset_right = 760.0
-offset_bottom = 516.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_3itc1")
-
-[node name="LevelSelect" type="GridContainer" parent="LevelSelectCanvas/PanelSkin"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -488.0
-offset_top = -220.0
-offset_right = 492.004
-offset_bottom = 360.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(475, 284)
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/h_separation = 20
-theme_override_constants/v_separation = 20
-columns = 5
-script = ExtResource("13_gtr2x")
-stars_per_page = 25
-debug_max_levels = 30
-debug_unlock_all = true
-
-[node name="LevelButton0" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
-layout_mode = 2
-
-[node name="LevelButton1" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
-layout_mode = 2
-text = "2
-"
-
-[node name="LevelButton2" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
-layout_mode = 2
-text = "3"
-
-[node name="LevelButton3" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
-layout_mode = 2
-text = "4"
-
-[node name="LevelButton4" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
-layout_mode = 2
-text = "5"
-
-[node name="LevelButton5" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
-layout_mode = 2
-text = "6"
-
-[node name="LevelButton6" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
-layout_mode = 2
-text = "7"
-
-[node name="LevelButton7" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
-layout_mode = 2
-text = "8"
-
-[node name="LevelButton8" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
-layout_mode = 2
-text = "9"
-
-[node name="LevelButton9" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
-layout_mode = 2
-text = "10"
-
-[node name="LevelButton10" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
-layout_mode = 2
-text = "11"
-
-[node name="LevelButton11" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
-layout_mode = 2
-text = "12"
-
-[node name="LevelButton12" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
-layout_mode = 2
-text = "13"
-
-[node name="LevelButton13" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
-layout_mode = 2
-text = "14"
-
-[node name="LevelButton14" parent="LevelSelectCanvas/PanelSkin/LevelSelect" instance=ExtResource("14_jlmao")]
-layout_mode = 2
-text = "15"
-
-[node name="LevelSelectLabel" type="Label" parent="LevelSelectCanvas/PanelSkin"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -224.0
-offset_top = 72.0
-offset_right = 250.0
-offset_bottom = 177.0
-grow_horizontal = 2
-text = "Level Select"
-label_settings = SubResource("LabelSettings_hf8nw")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="UnlockBanner" type="Panel" parent="LevelSelectCanvas/PanelSkin"]
-visible = false
-material = ExtResource("39_4jqx5")
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -480.0
-offset_top = -228.0
-offset_right = 480.001
-offset_bottom = 348.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_5wb8b")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelectCanvas/PanelSkin/UnlockBanner"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.861
-offset_bottom = 0.0639648
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Text" type="Label" parent="LevelSelectCanvas/PanelSkin/UnlockBanner/VBoxContainer"]
-material = ExtResource("39_4jqx5")
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 57
-text = "This page unlocks in :
-"
-label_settings = SubResource("LabelSettings_6pimy")
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="LevelSelectCanvas/PanelSkin/UnlockBanner/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme_override_constants/separation = 4
-
-[node name="Amount" type="Label" parent="LevelSelectCanvas/PanelSkin/UnlockBanner/VBoxContainer/HBoxContainer"]
-material = ExtResource("39_4jqx5")
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 57
-text = "25"
-label_settings = SubResource("LabelSettings_1y01t")
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="VSeparator" type="VSeparator" parent="LevelSelectCanvas/PanelSkin/UnlockBanner/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 9
-theme_override_styles/separator = SubResource("StyleBoxEmpty_24x6a")
-
-[node name="StarTexture" type="TextureRect" parent="LevelSelectCanvas/PanelSkin/UnlockBanner/VBoxContainer/HBoxContainer"]
-material = ExtResource("39_4jqx5")
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-texture = SubResource("AtlasTexture_pr60w")
-expand_mode = 1
-stretch_mode = 4
-metadata/_edit_use_anchors_ = true
-
-[node name="Previous" type="TextureButton" parent="LevelSelectCanvas/PanelSkin"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 96.0
-offset_top = -4.0
-offset_right = 248.0
-offset_bottom = 148.0
-grow_vertical = 2
-pivot_offset = Vector2(64, 64)
-texture_normal = SubResource("AtlasTexture_kvxb5")
-texture_pressed = SubResource("AtlasTexture_f3k5m")
-texture_hover = SubResource("AtlasTexture_7dqup")
-texture_disabled = SubResource("ImageTexture_vcc1g")
-ignore_texture_size = true
-stretch_mode = 5
-flip_h = true
-
-[node name="Next" type="TextureButton" parent="LevelSelectCanvas/PanelSkin"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -248.0
-offset_top = -4.0
-offset_right = -96.0
-offset_bottom = 148.0
-grow_horizontal = 0
-grow_vertical = 2
-pivot_offset = Vector2(64, 64)
-texture_normal = SubResource("AtlasTexture_e0lgk")
-texture_pressed = SubResource("AtlasTexture_bc0nw")
-texture_hover = SubResource("AtlasTexture_k81d4")
-texture_disabled = SubResource("ImageTexture_eb5nj")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelSelectCanvas"]
-libraries = {
-"": SubResource("AnimationLibrary_v383t")
-}
-
 [node name="BubbleContainer" type="Node2D" parent="."]
 
 [node name="DestroyContainer" type="Node2D" parent="."]
 
 [node name="Sling" type="Node2D" parent="."]
-position = Vector2(-940, 292)
+position = Vector2(-992, 392)
 script = ExtResource("2_jejid")
 bubble_prefabs = Array[PackedScene]([ExtResource("5_icqf6"), ExtResource("6_rw0qp"), ExtResource("7_nrvhg"), ExtResource("8_pwao1")])
 shoot_strength = 7.5
@@ -4440,7 +4396,7 @@ libraries = {
 }
 
 [node name="ColorPicker" type="Sprite2D" parent="Sling/Art"]
-position = Vector2(-276, -440)
+position = Vector2(-504, -376)
 texture = SubResource("AtlasTexture_sqerv")
 
 [node name="ColorSelectButton" type="TextureButton" parent="Sling/Art/ColorPicker"]
@@ -4858,18 +4814,18 @@ shape = SubResource("RectangleShape2D_kkwav")
 [connection signal="button_down" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Paint/Buttons/BuyMultiple/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_multiple_paint"]
 [connection signal="button_down" from="PopupCanvas/ShopPanel/CloseButton" to="PopupCanvas/ShopPanel" method="_on_close_button_button_down"]
 [connection signal="gui_input" from="BackgroundCanvas/Background" to="Sling/ColorSelectMenu" method="_on_background_gui_input"]
-[connection signal="deselect_projectile" from="HUD/PowerUpPanel" to="Sling" method="_on_consumable_panel_deselect_projectile"]
-[connection signal="deselect_shootmode" from="HUD/PowerUpPanel" to="Sling" method="_on_consumable_panel_deselect_shootmode"]
-[connection signal="button_down" from="HUD/PowerUpPanel/VBoxContainer/Precision Shot" to="HUD/PowerUpPanel/VBoxContainer/Precision Shot" method="_on_button_down"]
-[connection signal="selected" from="HUD/PowerUpPanel/VBoxContainer/Precision Shot" to="Sling" method="_on_precision_shot_selected"]
-[connection signal="button_down" from="HUD/PowerUpPanel/VBoxContainer/Explosive" to="HUD/PowerUpPanel/VBoxContainer/Explosive" method="_on_button_down"]
-[connection signal="selected" from="HUD/PowerUpPanel/VBoxContainer/Explosive" to="Sling" method="_on_explosive_selected"]
-[connection signal="button_down" from="HUD/PowerUpPanel/VBoxContainer/Metal" to="HUD/PowerUpPanel/VBoxContainer/Metal" method="_on_button_down"]
-[connection signal="selected" from="HUD/PowerUpPanel/VBoxContainer/Metal" to="Sling" method="_on_metal_selected"]
-[connection signal="button_down" from="HUD/PowerUpPanel/VBoxContainer/Paint" to="HUD/PowerUpPanel/VBoxContainer/Paint" method="_on_button_down"]
-[connection signal="selected" from="HUD/PowerUpPanel/VBoxContainer/Paint" to="Sling" method="_on_paint_selected"]
 [connection signal="button_down" from="LevelSelectCanvas/PanelSkin/Previous" to="LevelSelectCanvas/PanelSkin/LevelSelect" method="_on_previous_button_down"]
 [connection signal="button_down" from="LevelSelectCanvas/PanelSkin/Next" to="LevelSelectCanvas/PanelSkin/LevelSelect" method="_on_next_button_down"]
+[connection signal="deselect_projectile" from="HUD/PowerUpPanel" to="Sling" method="_on_consumable_panel_deselect_projectile"]
+[connection signal="deselect_shootmode" from="HUD/PowerUpPanel" to="Sling" method="_on_consumable_panel_deselect_shootmode"]
+[connection signal="button_down" from="HUD/PowerUpPanel/VBoxContainer/GridContainer/Precision Shot" to="HUD/PowerUpPanel/VBoxContainer/GridContainer/Precision Shot" method="_on_button_down"]
+[connection signal="selected" from="HUD/PowerUpPanel/VBoxContainer/GridContainer/Precision Shot" to="Sling" method="_on_precision_shot_selected"]
+[connection signal="button_down" from="HUD/PowerUpPanel/VBoxContainer/GridContainer/Explosive" to="HUD/PowerUpPanel/VBoxContainer/GridContainer/Explosive" method="_on_button_down"]
+[connection signal="selected" from="HUD/PowerUpPanel/VBoxContainer/GridContainer/Explosive" to="Sling" method="_on_explosive_selected"]
+[connection signal="button_down" from="HUD/PowerUpPanel/VBoxContainer/GridContainer/Metal" to="HUD/PowerUpPanel/VBoxContainer/GridContainer/Metal" method="_on_button_down"]
+[connection signal="selected" from="HUD/PowerUpPanel/VBoxContainer/GridContainer/Metal" to="Sling" method="_on_metal_selected"]
+[connection signal="button_down" from="HUD/PowerUpPanel/VBoxContainer/GridContainer/Paint" to="HUD/PowerUpPanel/VBoxContainer/GridContainer/Paint" method="_on_button_down"]
+[connection signal="selected" from="HUD/PowerUpPanel/VBoxContainer/GridContainer/Paint" to="Sling" method="_on_paint_selected"]
 [connection signal="button_down" from="Sling/Art/ColorPicker/ColorSelectButton" to="Sling/ColorSelectMenu" method="_on_color_select_button_button_down"]
 [connection signal="input_event" from="Sling/PickupRadius" to="Sling/PickupRadius" method="_on_input_event"]
 [connection signal="color_picked" from="Sling/ColorSelectMenu" to="Sling" method="_on_color_select_menu_color_picked"]

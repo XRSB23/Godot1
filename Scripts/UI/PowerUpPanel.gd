@@ -11,6 +11,8 @@ var is_locked : bool = false
 signal deselect_shootmode(bypass : bool)
 signal deselect_projectile(bypass : bool)
 
+@onready var button_container : Container = $VBoxContainer/GridContainer
+
 @export_category("Debug")
 @export var infinite_powerups : bool = false :
 	set(value) : 
@@ -25,9 +27,7 @@ func _ready():
 	mode_buttons.clear()
 	projectile_buttons.clear()
 	
-	var button_container : Container
-	for child in get_children():
-		if child is Container : button_container = child 
+	
 	for child in button_container.get_children() :
 		if child is PowerUpButton : buttons.append(child)
 		
