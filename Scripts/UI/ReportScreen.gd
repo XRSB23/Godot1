@@ -14,7 +14,7 @@ class_name ReportScreen
 @onready var transition_player : AnimationPlayer = $"../../TransitionCanvas/AnimationPlayer"
 @onready var locked_display = $Buttons/Next/LockedDisplay
 @onready var locked_stars_label : Label = $Buttons/Next/LockedDisplay/HBoxContainer/Label
-
+@onready var hud_modulate  = $"../PermanentOverlay/AmountDisplay"
 
 var score : int = 0 :
 	set(value):
@@ -88,6 +88,7 @@ func _select_level():
 	transition_player.play("SwipeDown")
 	await  get_tree().create_timer(0.5).timeout
 	hud.visible = false
+	hud_modulate.Set(false)
 	level_select_canvas.visible = true
 	popup_canvas_anim.play("RESET")
 	

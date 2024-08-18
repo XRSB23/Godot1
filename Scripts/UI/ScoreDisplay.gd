@@ -2,7 +2,7 @@ extends HBoxContainer
 class_name ScoreDisplay
 
 #@onready var score_display : Label = $ScoreContainer/Score
-@onready var score_bar : TextureProgressBar = $ScoreBar
+@onready var score_bar : TextureProgressBar = $ScoreBar/Bar
 @onready var report_screen : ReportScreen = $"../../../PopupCanvas/ReportScreen"
 
 var treshold_markers : Array[StarTreshold]

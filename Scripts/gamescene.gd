@@ -38,6 +38,7 @@ var destroyed_count : int
 @onready var attempts_label = $Sling/AttemptsLabel
 @onready var power_up_panel : PowerUpPanel = $HUD/PowerUpPanel
 @onready var level_theme_manager : LevelTheme_Manager = $LevelTheme_Manager
+@onready var hud_modulate  = $PopupCanvas/PermanentOverlay/AmountDisplay
 
 
 
@@ -62,6 +63,7 @@ func load_level(_level):
 		_tr.append(int(t))
 	score_display.Init(_tr, current_level_id)
 	hud.visible = true
+	hud_modulate.Set(true)
 	attempts = levelres.attempts
 	root_node_pos = levelres.root_node_coord
 	for i in range(levelres.coord.size()):
