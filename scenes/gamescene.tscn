@@ -1,4 +1,4 @@
-[gd_scene load_steps=232 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=231 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/LevelTheme_Manager.gd" id="2_2ith4"]
@@ -55,6 +55,7 @@
 [ext_resource type="Shader" uid="uid://tbraee5kahrp" path="res://Art/UI/Shaders/grayscale_shader.tres" id="30_saxga"]
 [ext_resource type="Texture2D" uid="uid://cfb2hpket4wgl" path="res://Art/UI/Theme/LevelSelect.png" id="37_o0qfq"]
 [ext_resource type="FontFile" uid="uid://d1hqcsdgemdae" path="res://Art/Font/Clean Cafe.otf" id="38_2mb0d"]
+[ext_resource type="Texture2D" uid="uid://c6faj5pgcnw3a" path="res://Art/UI/PowerUpsIcons.png" id="38_vxr2c"]
 [ext_resource type="Material" uid="uid://cri24iq3a1215" path="res://Art/UI/Shaders/h_fade_screen_shaderMat.tres" id="39_4jqx5"]
 [ext_resource type="Shader" uid="uid://dxnj1xto4ex41" path="res://Art/Sling/vector_shader.tres" id="44_t3pm5"]
 [ext_resource type="Texture2D" uid="uid://dbeuo7kbbujd2" path="res://Art/Sling/HologramLines.png" id="45_5ctud"]
@@ -1010,7 +1011,7 @@ shader_parameter/ScrollSpeed = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lunyl"]
 resource_local_to_scene = true
-atlas = ExtResource("21_tfky2")
+atlas = ExtResource("38_vxr2c")
 region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="LabelSettings" id="LabelSettings_p0jsf"]
@@ -1035,12 +1036,9 @@ shader_parameter/Brightness = 0.3
 shader_parameter/Hologram = false
 shader_parameter/ScrollSpeed = 1.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2tg4t"]
-load_path = "res://.godot/imported/PowerUpsIcons.svg-8096009b0535430e47b62dabe6cb7fb6.ctex"
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_vq3ra"]
 resource_local_to_scene = true
-atlas = SubResource("CompressedTexture2D_2tg4t")
+atlas = ExtResource("38_vxr2c")
 region = Rect2(100, 0, 100, 100)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5si2f"]
@@ -1059,12 +1057,9 @@ shader_parameter/Brightness = 0.3
 shader_parameter/Hologram = false
 shader_parameter/ScrollSpeed = 1.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mi6fq"]
-load_path = "res://.godot/imported/PowerUpsIcons.svg-8096009b0535430e47b62dabe6cb7fb6.ctex"
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_60jng"]
 resource_local_to_scene = true
-atlas = SubResource("CompressedTexture2D_mi6fq")
+atlas = ExtResource("38_vxr2c")
 region = Rect2(200, 0, 100, 100)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wuetc"]
@@ -1085,7 +1080,7 @@ shader_parameter/ScrollSpeed = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_icg8l"]
 resource_local_to_scene = true
-atlas = SubResource("CompressedTexture2D_mi6fq")
+atlas = ExtResource("38_vxr2c")
 region = Rect2(300, 0, 100, 100)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fgdl5"]
@@ -3464,6 +3459,7 @@ libraries = {
 }
 
 [node name="HUD" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PowerUpPanel" type="Panel" parent="HUD"]
 offset_left = 40.0
@@ -3498,7 +3494,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 theme = ExtResource("14_rueps")
 toggle_mode = true
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_hld0g"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(83, 83),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_lunyl"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
+icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_hld0g"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(125, 125),"layout_direction":0,"layout_mode":1,"anchors_preset":-1,"anchor_left":0.054,"anchor_top":0.054,"anchor_right":0.946,"anchor_bottom":0.946,"offset_left":-0.0600004,"offset_top":-0.0600004,"offset_right":0.0599976,"offset_bottom":0.0599976,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_lunyl"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
 
 icon_alignment = 1
 script = ExtResource("29_vc8lb")
@@ -3510,11 +3506,17 @@ particle_controller = NodePath("Particles")
 
 [node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Precision Shot"]
 material = SubResource("ShaderMaterial_hld0g")
-custom_minimum_size = Vector2(83, 83)
+custom_minimum_size = Vector2(125, 125)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.054
+anchor_top = 0.054
+anchor_right = 0.946
+anchor_bottom = 0.946
+offset_left = -0.0600004
+offset_top = -0.0600004
+offset_right = 0.0599976
+offset_bottom = 0.0599976
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_lunyl")
@@ -3657,7 +3659,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 theme = ExtResource("14_rueps")
 toggle_mode = true
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_dgy7f"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(84, 84),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":11.0,"offset_top":4.0,"offset_right":-11.0,"offset_bottom":-4.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_vq3ra"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
+icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_dgy7f"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(115, 115),"layout_direction":0,"layout_mode":1,"anchors_preset":8,"anchor_left":0.5,"anchor_top":0.5,"anchor_right":0.5,"anchor_bottom":0.5,"offset_left":-57.5,"offset_top":-57.5,"offset_right":57.5,"offset_bottom":57.5,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_vq3ra"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
 
 script = ExtResource("29_vc8lb")
 powerUp_panel = NodePath("../../..")
@@ -3669,15 +3671,17 @@ type = 1
 
 [node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Explosive"]
 material = SubResource("ShaderMaterial_dgy7f")
-custom_minimum_size = Vector2(84, 84)
+custom_minimum_size = Vector2(115, 115)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 11.0
-offset_top = 4.0
-offset_right = -11.0
-offset_bottom = -4.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.5
+offset_top = -57.5
+offset_right = 57.5
+offset_bottom = 57.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_vq3ra")
@@ -3981,7 +3985,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 theme = ExtResource("14_rueps")
 toggle_mode = true
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_psl2w"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(70, 70),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":11.0,"offset_top":12.0,"offset_right":-11.0,"offset_bottom":-12.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_icg8l"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
+icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":SubResource("ShaderMaterial_psl2w"),"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(125, 125),"layout_direction":0,"layout_mode":1,"anchors_preset":8,"anchor_left":0.5,"anchor_top":0.5,"anchor_right":0.5,"anchor_bottom":0.5,"offset_left":-62.5,"offset_top":-62.5,"offset_right":62.5,"offset_bottom":62.5,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":SubResource("AtlasTexture_icg8l"),"expand_mode":1,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
 
 script = ExtResource("29_vc8lb")
 powerUp_panel = NodePath("../../..")
@@ -3993,15 +3997,17 @@ type = 1
 
 [node name="Icon" type="TextureRect" parent="HUD/PowerUpPanel/VBoxContainer/GridContainer/Paint"]
 material = SubResource("ShaderMaterial_psl2w")
-custom_minimum_size = Vector2(70, 70)
+custom_minimum_size = Vector2(125, 125)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 11.0
-offset_top = 12.0
-offset_right = -11.0
-offset_bottom = -12.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -62.5
+offset_right = 62.5
+offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_icg8l")
