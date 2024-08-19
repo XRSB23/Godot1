@@ -1,4 +1,4 @@
-[gd_scene load_steps=229 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=232 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/LevelTheme_Manager.gd" id="2_2ith4"]
@@ -1100,10 +1100,20 @@ region = Rect2(0, 256, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dsck5"]
 atlas = ExtResource("8_j3ke8")
-region = Rect2(228, 643, 152, 76)
+region = Rect2(320, 76, 152, 76)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vesf5"]
 texture = SubResource("AtlasTexture_dsck5")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kl7y8"]
+load_path = "res://.godot/imported/UI_SpriteSheet.png-27b8adb6a8b98635dc6033deabc6c27e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4l60"]
+atlas = SubResource("CompressedTexture2D_kl7y8")
+region = Rect2(320, 152, 152, 76)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tk154"]
+texture = SubResource("AtlasTexture_b4l60")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xcleu"]
 
@@ -3454,10 +3464,8 @@ libraries = {
 }
 
 [node name="HUD" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="PowerUpPanel" type="Panel" parent="HUD"]
-anchors_preset = -1
 offset_left = 40.0
 offset_top = 88.0
 offset_right = 440.0
@@ -4134,25 +4142,25 @@ layout_mode = 2
 theme_override_constants/separation = 7
 theme_override_styles/separator = SubResource("StyleBoxEmpty_o5vwy")
 
-[node name="Button" type="Button" parent="HUD/PowerUpPanel/VBoxContainer"]
+[node name="ShopButton" type="Button" parent="HUD/PowerUpPanel/VBoxContainer"]
 custom_minimum_size = Vector2(150, 75)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_vesf5")
 theme_override_styles/hover = SubResource("StyleBoxTexture_vesf5")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_vesf5")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_vesf5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tk154")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_tk154")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_xcleu")
 
-[node name="Panel" type="Panel" parent="HUD/PowerUpPanel/VBoxContainer/Button"]
+[node name="Panel" type="Panel" parent="HUD/PowerUpPanel/VBoxContainer/ShopButton"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.24
-anchor_top = 0.533
+anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.24
-offset_top = -0.975002
+offset_top = -0.5
 offset_right = 36.0
 offset_bottom = -1.0
 grow_horizontal = 2

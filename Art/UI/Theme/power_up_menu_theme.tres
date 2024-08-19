@@ -39,9 +39,9 @@ region = Rect2(0, 456, 450, 186)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nojcc"]
 texture = SubResource("AtlasTexture_fv0p4")
-texture_margin_left = 145.0
+texture_margin_left = 120.0
 texture_margin_top = 90.0
-texture_margin_right = 145.0
+texture_margin_right = 120.0
 texture_margin_bottom = 40.0
 
 [resource]
