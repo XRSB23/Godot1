@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnpdmjy53lnpb"
-path="res://.godot/imported/PowerUps.svg-b15c915440703e00353e0d6550bb7caa.ctex"
+uid="uid://c6faj5pgcnw3a"
+path="res://.godot/imported/PowerUpsIcons.png-6a1f646865bf337a5f0cc8f652013220.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/PowerUps.svg"
-dest_files=["res://.godot/imported/PowerUps.svg-b15c915440703e00353e0d6550bb7caa.ctex"]
+source_file="res://Art/UI/PowerUpsIcons.png"
+dest_files=["res://.godot/imported/PowerUpsIcons.png-6a1f646865bf337a5f0cc8f652013220.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

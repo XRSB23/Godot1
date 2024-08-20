@@ -4,5 +4,5 @@
 
 [resource]
 shader = ExtResource("1_de3iy")
-shader_parameter/HorizontalEdge = 0.12
+shader_parameter/HorizontalEdge = 0.18
 shader_parameter/Size = 0.07

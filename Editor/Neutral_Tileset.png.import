@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbk7atqhpnm3x"
-path="res://.godot/imported/PowerUpsIcons.svg-8096009b0535430e47b62dabe6cb7fb6.ctex"
+uid="uid://dsallys8rqksd"
+path="res://.godot/imported/Neutral_Tileset.png-f796fd86225404a95ce26a4c2cc8e7fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/PowerUpsIcons.svg"
-dest_files=["res://.godot/imported/PowerUpsIcons.svg-8096009b0535430e47b62dabe6cb7fb6.ctex"]
+source_file="res://Editor/Neutral_Tileset.png"
+dest_files=["res://.godot/imported/Neutral_Tileset.png-f796fd86225404a95ce26a4c2cc8e7fa.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

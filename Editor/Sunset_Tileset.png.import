@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsallys8rqksd"
-path="res://.godot/imported/Editor_Tileset.png-d5e88be02801c28a3f04dd00e2a9e968.ctex"
+uid="uid://du3c2pvbjpnjd"
+path="res://.godot/imported/Sunset_Tileset.png-788ac7e382520e4c8548d579e08a4ffa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Editor/Editor_Tileset.png"
-dest_files=["res://.godot/imported/Editor_Tileset.png-d5e88be02801c28a3f04dd00e2a9e968.ctex"]
+source_file="res://Editor/Sunset_Tileset.png"
+dest_files=["res://.godot/imported/Sunset_Tileset.png-788ac7e382520e4c8548d579e08a4ffa.ctex"]
 
 [params]
 

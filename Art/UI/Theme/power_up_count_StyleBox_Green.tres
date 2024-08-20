@@ -1,12 +1,15 @@
 [gd_resource type="StyleBoxTexture" load_steps=3 format=3 uid="uid://c5up22doyuqwm"]
 
-[ext_resource type="Texture2D" uid="uid://ctntcxri8oack" path="res://Art/UI/Theme/UI Art.png" id="1_r3pdu"]
+[ext_resource type="Texture2D" uid="uid://dje2nrekfqin8" path="res://Art/UI/UI_SpriteSheet.png" id="1_knay3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_20pmy"]
 resource_local_to_scene = true
-atlas = ExtResource("1_r3pdu")
-region = Rect2(768, 0, 256, 256)
+atlas = ExtResource("1_knay3")
+region = Rect2(0, 0, 76, 76)
 
 [resource]
 texture = SubResource("AtlasTexture_20pmy")
-modulate_color = Color(1, 1, 1, 0.827451)
+expand_margin_left = 14.0
+expand_margin_top = 14.0
+expand_margin_right = 14.0
+expand_margin_bottom = 14.0

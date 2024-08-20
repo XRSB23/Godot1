@@ -1,16 +1,16 @@
 extends GridContainer
 class_name LevelSelect
 
-@onready var gamescene : GameScene = $"../.."
+@onready var gamescene : GameScene = $"../../.."
 @onready var previous_button = $"../Previous"
 @onready var next_button = $"../Next"
-@onready var animation_player = $"../AnimationPlayer"
-@onready var level_select_canvas = $".."
-@onready var transition_player : AnimationPlayer = $"../../TransitionCanvas/AnimationPlayer"
+@onready var animation_player = $"../../AnimationPlayer"
+@onready var level_select_canvas = $"../.."
+@onready var transition_player : AnimationPlayer = $"../../../TransitionCanvas/AnimationPlayer"
 
 @onready var unlock_banner = $"../UnlockBanner"
-@onready var unlock_amount : Label = $"../UnlockBanner/HBoxContainer/Amount"
-@onready var level_theme_manager : LevelTheme_Manager = $"../../LevelTheme_Manager"
+@onready var unlock_amount : Label = $"../UnlockBanner/VBoxContainer/HBoxContainer/Amount"
+#@onready var level_theme_manager : LevelTheme_Manager = $"../../LevelTheme_Manager"
 
 @export var stars_per_page : int
 @export var debug_max_levels : int
@@ -42,14 +42,17 @@ func Init():
 	UpdatePageButtons()
 	Update()
 
-func CenterAnimPosition(anim_name : String):
+func CenterAnimPosition(_anim_name : String):
 	
-	var position_centered = get_viewport_rect().size/2 - size/2
-	var anim : Animation = animation_player.get_animation(anim_name)
-	var anim_idx = anim.find_track("LevelSelect:position", Animation.TYPE_VALUE)
-	anim.track_set_key_value(anim_idx,0,position_centered)
-	anim.track_set_key_value(anim_idx,3,position_centered)
-
+	pass
+	#var position_centered = get_viewport_rect().size/2 - size/2
+	#var anim : Animation = animation_player.get_animation(anim_name)
+	#var anim_idx = anim.find_track("LevelSelect:position", Animation.TYPE_VALUE)
+	#anim.track_set_key_value(anim_idx,0,position_centered)
+	#anim.track_set_key_value(anim_idx,3,position_centered)
+	#anim_idx = anim.find_track("UnlockBanner:position", Animation.TYPE_VALUE)
+	#anim.track_set_key_value(anim_idx,0,position_centered)
+	#anim.track_set_key_value(anim_idx,3,position_centered)
 
 func Update():
 	#
@@ -102,7 +105,7 @@ func UpdatePageButtons(delay : float = 0):
 	
 
 func LoadLevel(id : int):
-	level_theme_manager.UpdateTheme(current_page)
+	gamescene.level_theme_manager.UpdateTheme(current_page)
 	transition_player.play("SwipeLeft")
 	await get_tree().create_timer(0.5).timeout
 	gamescene.current_level_id = id

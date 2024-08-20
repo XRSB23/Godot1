@@ -18,7 +18,7 @@ func display_trajectory(v : Vector2):
 	length_ratio = v.length() / sling.max_drag
 	width = min_width + (max_width - min_width) * length_ratio
 	add_point(Vector2.ZERO + v.normalized() * origin_offset)
-	add_point(v + v.normalized() * cap_offset)
+	add_point(v + v.normalized() * origin_offset)
 
 func SetColor(color : int):
 	if color < color_atlas.colors.size() :

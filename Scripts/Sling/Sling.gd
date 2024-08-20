@@ -8,6 +8,8 @@ class_name Sling
 @onready var trajectory_preview : TrajectoryPreview = $TrajectoryPreview 
 @onready var color_select_menu = $ColorSelectMenu
 @onready var powerUp_panel = $"../HUD/PowerUpPanel"
+@onready var cannon = $Art/Cannon
+@onready var cannon_anim = $Art/AnimationPlayer
 
 
 
@@ -16,7 +18,7 @@ var touch_points : Dictionary = {} #To track multiple fingers input, used as Dyn
 var start_point = Vector2.ZERO
 var input_direction = Vector2.ZERO
 var scaled_v
-var ball
+var ball : Bubble
 var valid_shot : bool
 
 @export_group("Prefabs")
@@ -101,9 +103,20 @@ func HandleDrag(event):
 		
 		var drag_ratio = input_direction.length()/max_drag
 		scaled_v = input_direction.normalized() * drag_curve.sample(drag_ratio) * max_drag
-		valid_shot = input_direction.x > 0 && input_direction.length() > min_drag #Replace If(Condition) true else false
+		valid_shot =  input_direction.length() > min_drag && !(
+			scaled_v.angle_to(Vector2(1, sin(deg_to_rad(6)))) <= 0 && Vector2.UP.angle_to(scaled_v) <= 0)
 		
-		if valid_shot : trajectory_preview.Display(trajectory_mode, scaled_v, shoot_strength)
+			
+		# Clamp Vector In Shooting Direction
+		if scaled_v.angle_to(Vector2(1, sin(deg_to_rad(6)))) <= 0 :
+			scaled_v = Vector2(1, sin(deg_to_rad(6))) * scaled_v.length()
+		if Vector2.UP.angle_to(scaled_v) <= 0:
+			scaled_v = Vector2.UP * scaled_v.length()
+			
+		
+		if valid_shot : 
+			trajectory_preview.Display(trajectory_mode, scaled_v, shoot_strength)
+			cannon.look_at(position+scaled_v)
 		else : trajectory_preview.ClearPreview()
 #endregion
 
@@ -115,6 +128,7 @@ func cancel_shot() :
 
 func shoot_ball(v : Vector2):
 	ball.set_ball_launchable(false)
+	ball.scale = Vector2.ONE
 	ball.shot_v = v*shoot_strength
 	trajectory_preview.ClearPreview()
 	trajectory_preview.last_v = v
@@ -140,6 +154,7 @@ func load_ball():
 	if game_scene.get_remaining_colors().size() == 0 :
 		return
 	ball = bubble_prefabs[0].instantiate() as Bubble
+	ball.scale = Vector2.ONE * 1.2
 	bubble_container.call_deferred("add_child",ball)
 	ball.game_scene = game_scene
 	ball.set_global_position(position)
@@ -165,10 +180,15 @@ func load_consumable(color  : level_data.BubbleColor  ):
 
 	match powerUp_panel.selected_projectile.name :
 		"Explosive" : ball = bubble_prefabs[1].instantiate()
-		"Paint" : ball = bubble_prefabs[2].instantiate()
+		"Paint" : 
+			ball = bubble_prefabs[2].instantiate()
+			ball.call_deferred("UpdateAtlas",
+				game_scene.level_theme_manager.current_theme.Atlas,
+				game_scene.level_theme_manager.current_theme.ColorArray)
 		"Metal" : ball = bubble_prefabs[3].instantiate()
 		_: pass
 	
+	ball.scale = Vector2.ONE * 1.2
 	bubble_container.call_deferred("add_child",ball)
 	ball.set_global_position(position)
 	ball.set_ball_launchable(true)
@@ -239,9 +259,11 @@ func _on_consumable_panel_deselect_projectile(bypass : bool):
 
 func _on_consumable_panel_deselect_shootmode():
 	trajectory_mode = TrajectoryPreview.MODE.VECTOR
+	cannon_anim.play("RESET")
 
 func _on_precision_shot_selected():
 	trajectory_mode = TrajectoryPreview.MODE.NEWTON
+	cannon_anim.play("Glow")
 
 func _on_explosive_selected():
 	if color_select_menu.is_open : color_select_menu.Close()

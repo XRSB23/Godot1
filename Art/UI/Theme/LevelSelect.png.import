@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4ss4b28rlg1j"
-path="res://.godot/imported/ColorPicker.svg-b338cc33cdd628d1ade31ab5a5d4bc5e.ctex"
+uid="uid://cfb2hpket4wgl"
+path="res://.godot/imported/LevelSelect.png-74f36bb708c53bdc144cac5af9f30083.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sling/ColorPicker.svg"
-dest_files=["res://.godot/imported/ColorPicker.svg-b338cc33cdd628d1ade31ab5a5d4bc5e.ctex"]
+source_file="res://Art/UI/Theme/LevelSelect.png"
+dest_files=["res://.godot/imported/LevelSelect.png-74f36bb708c53bdc144cac5af9f30083.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

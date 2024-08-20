@@ -7,6 +7,7 @@ var color_atlas : ColorAtlas
 @export var match_bubble_color : bool
 @export var trajectory_points_amount : int #more = more laggy but more precise
 @export var max_trajectory_range : float
+@export var origin_offset : float
 
 
 func display_trajectory(v : Vector2, shoot_strength : float):
@@ -15,10 +16,10 @@ func display_trajectory(v : Vector2, shoot_strength : float):
 	var velocity = v * shoot_strength
 	for i in trajectory_points_amount :
 		if pos.x < max_trajectory_range:
-			
-			add_point(pos)
-			velocity.y += gravity * get_process_delta_time()
-			pos += velocity * get_process_delta_time()
+			if (position-pos).length() > origin_offset :
+				add_point(pos)
+			velocity.y += gravity * sling.ball.gravity_scale * get_physics_process_delta_time()
+			pos += velocity * get_physics_process_delta_time()
 		else : 
 			break
 

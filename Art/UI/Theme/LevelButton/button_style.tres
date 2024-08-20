@@ -1,14 +1,12 @@
 [gd_resource type="StyleBoxTexture" load_steps=3 format=3 uid="uid://cc5a14af53fp5"]
 
-[ext_resource type="Texture2D" uid="uid://b2eexg2334wf2" path="res://Art/UI/Theme/LevelButton/LevelButton.svg" id="1_22s48"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_emdy8"]
+load_path = "res://.godot/imported/LevelSelect.png-74f36bb708c53bdc144cac5af9f30083.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vwcrx"]
-atlas = ExtResource("1_22s48")
-region = Rect2(0, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypdqw"]
+atlas = SubResource("CompressedTexture2D_emdy8")
+region = Rect2(0, 928, 190, 190)
 
 [resource]
-texture = SubResource("AtlasTexture_vwcrx")
-texture_margin_left = 28.0
-texture_margin_top = 28.0
-texture_margin_right = 28.0
-texture_margin_bottom = 28.0
+content_margin_bottom = 20.0
+texture = SubResource("AtlasTexture_ypdqw")

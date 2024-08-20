@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhco3igm4rgrp"
-path="res://.godot/imported/ScoreBar.svg-d5138c386a9e217c2ff53ba708823d86.ctex"
+uid="uid://dje2nrekfqin8"
+path="res://.godot/imported/UI_SpriteSheet.png-27b8adb6a8b98635dc6033deabc6c27e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/ScoreBar.svg"
-dest_files=["res://.godot/imported/ScoreBar.svg-d5138c386a9e217c2ff53ba708823d86.ctex"]
+source_file="res://Art/UI/UI_SpriteSheet.png"
+dest_files=["res://.godot/imported/UI_SpriteSheet.png-27b8adb6a8b98635dc6033deabc6c27e.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

@@ -32,12 +32,13 @@ var destroyed_count : int
 @onready var bubble_container = $BubbleContainer
 @onready var destroy_container = $DestroyContainer
 @onready var score_display : ScoreDisplay = $HUD/ScorePanel/ScoreDisplay
-@onready var level_select : LevelSelect = $LevelSelectCanvas/LevelSelect
+@onready var level_select : LevelSelect = $LevelSelectCanvas/PanelSkin/LevelSelect
 @onready var hud = $HUD
 @onready var transition_player : AnimationPlayer = $TransitionCanvas/AnimationPlayer
 @onready var attempts_label = $Sling/AttemptsLabel
 @onready var power_up_panel : PowerUpPanel = $HUD/PowerUpPanel
 @onready var level_theme_manager : LevelTheme_Manager = $LevelTheme_Manager
+@onready var hud_modulate  = $PopupCanvas/PermanentOverlay/AmountDisplay
 
 
 
@@ -62,6 +63,7 @@ func load_level(_level):
 		_tr.append(int(t))
 	score_display.Init(_tr, current_level_id)
 	hud.visible = true
+	hud_modulate.Set(true)
 	attempts = levelres.attempts
 	root_node_pos = levelres.root_node_coord
 	for i in range(levelres.coord.size()):
