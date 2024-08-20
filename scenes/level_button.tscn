@@ -3,22 +3,23 @@
 [ext_resource type="Material" uid="uid://cri24iq3a1215" path="res://Art/UI/Shaders/h_fade_screen_shaderMat.tres" id="1_l7w5g"]
 [ext_resource type="Theme" uid="uid://cbqxgobhsmy6h" path="res://Art/UI/Theme/LevelButton/LevelButton_Theme.tres" id="1_t2o8o"]
 [ext_resource type="Script" path="res://Scripts/UI/LevelButton.gd" id="2_4yton"]
-[ext_resource type="Texture2D" uid="uid://bhco3igm4rgrp" path="res://Art/UI/ScoreBar.svg" id="3_3cv20"]
 [ext_resource type="Script" path="res://Scripts/UI/StarTreshold.gd" id="4_wodsr"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eodjf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iuyg5"]
 resource_local_to_scene = true
-atlas = ExtResource("3_3cv20")
+atlas = SubResource("CompressedTexture2D_eodjf")
 region = Rect2(314, 52, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kyyna"]
 resource_local_to_scene = true
-atlas = ExtResource("3_3cv20")
+atlas = SubResource("CompressedTexture2D_eodjf")
 region = Rect2(314, 52, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f00k2"]
 resource_local_to_scene = true
-atlas = ExtResource("3_3cv20")
+atlas = SubResource("CompressedTexture2D_eodjf")
 region = Rect2(314, 52, 32, 31)
 
 [node name="LevelButton" type="Button"]

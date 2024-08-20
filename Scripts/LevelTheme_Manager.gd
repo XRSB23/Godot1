@@ -18,4 +18,5 @@ func UpdateTheme(page : int):
 	
 	
 func ConvertPageToTheme(page : int) -> LevelTheme :
+	@warning_ignore("integer_division")
 	return themes[clampi(page/2,0,themes.size())]

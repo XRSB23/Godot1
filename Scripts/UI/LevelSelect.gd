@@ -42,7 +42,7 @@ func Init():
 	UpdatePageButtons()
 	Update()
 
-func CenterAnimPosition(anim_name : String):
+func CenterAnimPosition(_anim_name : String):
 	
 	pass
 	#var position_centered = get_viewport_rect().size/2 - size/2

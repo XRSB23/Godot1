@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqe5ubn5a3fc"]
+[gd_scene load_steps=14 format=3 uid="uid://bqe5ubn5a3fc"]
 
-[ext_resource type="Texture2D" uid="uid://dsallys8rqksd" path="res://Editor/Editor_Tileset.png" id="1_lapq2"]
+[ext_resource type="Texture2D" uid="uid://dsallys8rqksd" path="res://Editor/Neutral_Tileset.png" id="1_lapq2"]
 [ext_resource type="Texture2D" uid="uid://vdibn34fnl06" path="res://Editor/Digits_Tileset.png" id="2_00431"]
 [ext_resource type="Script" path="res://Editor/TileMap.gd" id="2_ftr2k"]
+[ext_resource type="Texture2D" uid="uid://dwuy31052mtqc" path="res://Editor/Cliff_Tileset.png" id="2_jcuf2"]
+[ext_resource type="Texture2D" uid="uid://bo88w6ycooxpf" path="res://Editor/Glade_Tileset.png" id="3_4kwwl"]
 [ext_resource type="Script" path="res://Editor/Sling Marker.gd" id="4_3jh8g"]
+[ext_resource type="Texture2D" uid="uid://du3c2pvbjpnjd" path="res://Editor/Sunset_Tileset.png" id="4_gws1b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_13g0a"]
 texture = ExtResource("1_lapq2")
@@ -24,6 +27,42 @@ texture_region_size = Vector2i(128, 128)
 2:1/0/custom_data_0 = "Blue"
 3:1/0 = 0
 3:1/0/custom_data_0 = "Purple"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nv2b5"]
+texture = ExtResource("2_jcuf2")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1efa2"]
+texture = ExtResource("3_4kwwl")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c1bip"]
+texture = ExtResource("4_gws1b")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_keney"]
 texture = ExtResource("2_00431")
@@ -48,6 +87,9 @@ custom_data_layer_0/name = "color"
 custom_data_layer_0/type = 4
 sources/0 = SubResource("TileSetAtlasSource_13g0a")
 sources/5 = SubResource("TileSetAtlasSource_keney")
+sources/1 = SubResource("TileSetAtlasSource_nv2b5")
+sources/2 = SubResource("TileSetAtlasSource_1efa2")
+sources/3 = SubResource("TileSetAtlasSource_c1bip")
 
 [node name="EditorOnlyScene" type="Node2D"]
 
