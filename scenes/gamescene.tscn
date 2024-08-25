@@ -1,4 +1,4 @@
-[gd_scene load_steps=227 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=252 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/LevelTheme_Manager.gd" id="2_2ith4"]
@@ -47,6 +47,8 @@
 [ext_resource type="Texture2D" uid="uid://dbko4ghfo4vml" path="res://Art/Background/Sunset.png" id="19_bmm86"]
 [ext_resource type="Script" path="res://Scripts/UI/ParticleController.gd" id="22_50gyi"]
 [ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/Effects/radialGradient.svg" id="23_n35ni"]
+[ext_resource type="Texture2D" uid="uid://devkwuhk54ar1" path="res://Art/UI/Theme/ShopUI.png" id="24_1p1oc"]
+[ext_resource type="Theme" uid="uid://tjjwtmxhmunc" path="res://Art/UI/Theme/shop_button_theme.tres" id="25_sib7n"]
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpPanel.gd" id="28_a1ofm"]
 [ext_resource type="Script" path="res://Scripts/UI/PowerUpButton.gd" id="29_vc8lb"]
 [ext_resource type="Texture2D" uid="uid://cmbyfnm3n0pm5" path="res://Art/UI/UI_Stars.svg" id="30_df1ht"]
@@ -63,6 +65,12 @@
 [ext_resource type="Script" path="res://Scripts/Sling/UI/BubbleSelectMenu_Button.gd" id="50_wa58b"]
 [ext_resource type="Texture2D" uid="uid://6ow0tbflc1s7" path="res://Art/Sling/ColorButton.png" id="56_dg0lp"]
 [ext_resource type="Texture2D" uid="uid://pywbbh753864" path="res://Art/Bubble/Spritesheets/BubbleAtlas_Neutral.png" id="58_8sm6h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_30p1y"]
+shader = ExtResource("4_f7t2v")
+shader_parameter/Color = Color(0.215686, 0.215686, 0.215686, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2bu5c"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ilr8p"]
 
@@ -92,8 +100,11 @@ font_size = 20
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vf62u"]
-atlas = ExtResource("8_j3ke8")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1sace"]
+load_path = "res://.godot/imported/UI_SpriteSheet.png-27b8adb6a8b98635dc6033deabc6c27e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjo1o"]
+atlas = SubResource("CompressedTexture2D_1sace")
 region = Rect2(0, 76, 76, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6busa"]
@@ -125,20 +136,14 @@ region = Rect2(76, 76, 76, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gicfw"]
 atlas = ExtResource("8_j3ke8")
-region = Rect2(320, 304, 76, 76)
+region = Rect2(320, 303, 76, 76)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xijxg"]
 load_path = "res://.godot/imported/UI_SpriteSheet.png-27b8adb6a8b98635dc6033deabc6c27e.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ptraf"]
 atlas = SubResource("CompressedTexture2D_xijxg")
-region = Rect2(396, 304, 76, 76)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_30p1y"]
-shader = ExtResource("4_f7t2v")
-shader_parameter/Color = Color(0.215686, 0.215686, 0.215686, 1)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2bu5c"]
+region = Rect2(396, 303, 76, 76)
 
 [sub_resource type="LabelSettings" id="LabelSettings_p0bmt"]
 font_size = 25
@@ -241,7 +246,107 @@ outline_color = Color(0, 0, 0, 1)
 atlas = ExtResource("30_df1ht")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_av6lq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbyly"]
+atlas = ExtResource("24_1p1oc")
+region = Rect2(0, 0, 450, 950)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m2lgb"]
+texture = SubResource("AtlasTexture_xbyly")
+texture_margin_left = 80.0
+texture_margin_top = 80.0
+texture_margin_right = 80.0
+texture_margin_bottom = 80.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_jryeu"]
+font = ExtResource("10_42yl7")
+font_size = 50
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukl8v"]
+atlas = ExtResource("24_1p1oc")
+region = Rect2(250, 950, 250, 250)
+
+[sub_resource type="LabelSettings" id="LabelSettings_r726b"]
+font = ExtResource("10_42yl7")
+font_size = 80
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tt10g"]
+load_path = "res://.godot/imported/ShopUI.png-d4e9ea762bc6d2d7dcc7075342a09c3e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgj1e"]
+atlas = SubResource("CompressedTexture2D_tt10g")
+region = Rect2(0, 0, 450, 950)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cp41a"]
+texture = SubResource("AtlasTexture_jgj1e")
+texture_margin_left = 80.0
+texture_margin_top = 80.0
+texture_margin_right = 80.0
+texture_margin_bottom = 80.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vuyid"]
+load_path = "res://.godot/imported/ShopUI.png-d4e9ea762bc6d2d7dcc7075342a09c3e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86024"]
+atlas = SubResource("CompressedTexture2D_vuyid")
+region = Rect2(0, 950, 250, 250)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6hiks"]
+load_path = "res://.godot/imported/ShopUI.png-d4e9ea762bc6d2d7dcc7075342a09c3e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4x8l"]
+atlas = SubResource("CompressedTexture2D_6hiks")
+region = Rect2(450, 0, 450, 450)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8le36"]
+texture = SubResource("AtlasTexture_h4x8l")
+texture_margin_left = 80.0
+texture_margin_top = 80.0
+texture_margin_right = 80.0
+texture_margin_bottom = 80.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mwami"]
+load_path = "res://.godot/imported/ShopUI.png-d4e9ea762bc6d2d7dcc7075342a09c3e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqhqt"]
+atlas = SubResource("CompressedTexture2D_mwami")
+region = Rect2(450, 450, 450, 450)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iqig7"]
+texture = SubResource("AtlasTexture_bqhqt")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnj8f"]
+atlas = ExtResource("38_vxr2c")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vf62u"]
+atlas = ExtResource("8_j3ke8")
+region = Rect2(0, 76, 76, 76)
+margin = Rect2(-40, -4, 0, 0)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f7sb1"]
+load_path = "res://.godot/imported/PowerUpsIcons.png-6a1f646865bf337a5f0cc8f652013220.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmt4b"]
+atlas = SubResource("CompressedTexture2D_f7sb1")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8s66w"]
+load_path = "res://.godot/imported/PowerUpsIcons.png-6a1f646865bf337a5f0cc8f652013220.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivv7n"]
+atlas = SubResource("CompressedTexture2D_8s66w")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oc65y"]
+load_path = "res://.godot/imported/PowerUpsIcons.png-6a1f646865bf337a5f0cc8f652013220.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_856hg"]
+atlas = SubResource("CompressedTexture2D_oc65y")
+region = Rect2(300, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iybfl"]
 atlas = ExtResource("14_7vew4")
@@ -257,10 +362,6 @@ texture_margin_bottom = 20.0
 [sub_resource type="AtlasTexture" id="AtlasTexture_xbc7x"]
 atlas = ExtResource("14_7vew4")
 region = Rect2(256, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nnj8f"]
-atlas = ExtResource("38_vxr2c")
-region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="LabelSettings" id="LabelSettings_c5wb0"]
 font_size = 24
@@ -306,7 +407,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.0784314, 0.0784314, 0.0784314, 0), Color(0.0784314, 0.0784314, 0.0784314, 0.678431)]
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 0), Color(0.0784314, 0.0784314, 0.0784314, 0.901961)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -371,7 +472,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.0784314, 0.0784314, 0.0784314, 0), Color(0.0784314, 0.0784314, 0.0784314, 0.678431)]
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 0), Color(0.0784314, 0.0784314, 0.0784314, 0.901961)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -436,7 +537,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.0784314, 0.0784314, 0.0784314, 0), Color(0.0784314, 0.0784314, 0.0784314, 0.678431)]
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 0), Color(0.0784314, 0.0784314, 0.0784314, 0.901961)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -1892,6 +1993,18 @@ script = ExtResource("3_2i1fh")
 process_mode = 3
 layer = 50
 
+[node name="BackgroundFilter" type="TextureRect" parent="PopupCanvas"]
+modulate = Color(0.0784314, 0.0784314, 0.0784314, 0)
+material = SubResource("ShaderMaterial_30p1y")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("PlaceholderTexture2D_2bu5c")
+expand_mode = 3
+
 [node name="PermanentOverlay" type="Panel" parent="PopupCanvas"]
 anchors_preset = 10
 anchor_right = 1.0
@@ -1949,7 +2062,7 @@ offset_right = 36.0
 offset_bottom = 36.0
 grow_vertical = 2
 pivot_offset = Vector2(38, 38)
-texture = SubResource("AtlasTexture_vf62u")
+texture = SubResource("AtlasTexture_bjo1o")
 
 [node name="TextureRect" type="TextureRect" parent="PopupCanvas/PermanentOverlay/AmountDisplay/Panel/Currency"]
 layout_mode = 1
@@ -1978,7 +2091,7 @@ label_settings = SubResource("LabelSettings_rlmnr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="PopupCanvas/PermanentOverlay/AmountDisplay/Panel/Currency"]
+[node name="Shop Button" type="Button" parent="PopupCanvas/PermanentOverlay/AmountDisplay/Panel/Currency"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2052,18 +2165,6 @@ texture_pressed = SubResource("AtlasTexture_ptraf")
 texture_hover = SubResource("AtlasTexture_gicfw")
 texture_focused = SubResource("AtlasTexture_gicfw")
 stretch_mode = 0
-
-[node name="BackgroundFilter" type="TextureRect" parent="PopupCanvas"]
-modulate = Color(0.0784314, 0.0784314, 0.0784314, 0)
-material = SubResource("ShaderMaterial_30p1y")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = SubResource("PlaceholderTexture2D_2bu5c")
-expand_mode = 3
 
 [node name="PausePanel" type="Panel" parent="PopupCanvas"]
 visible = false
@@ -2493,30 +2594,376 @@ expand_mode = 1
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="ShopPanel" type="Panel" parent="PopupCanvas"]
+[node name="ShopPanel" type="MarginContainer" parent="PopupCanvas"]
 visible = false
 modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+script = ExtResource("12_gbqcd")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupCanvas/ShopPanel"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="NoAds" type="Panel" parent="PopupCanvas/ShopPanel/HBoxContainer"]
+custom_minimum_size = Vector2(400, 850)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_m2lgb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupCanvas/ShopPanel/HBoxContainer/NoAds"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 85.0
+offset_right = -40.0
+offset_bottom = -184.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PopupCanvas/ShopPanel/HBoxContainer/NoAds/VBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+text = "Remove short ads forever +"
+label_settings = SubResource("LabelSettings_jryeu")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="PopupCanvas/ShopPanel/HBoxContainer/NoAds/VBoxContainer"]
+custom_minimum_size = Vector2(280, 280)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("AtlasTexture_ukl8v")
+
+[node name="Label2" type="Label" parent="PopupCanvas/ShopPanel/HBoxContainer/NoAds/VBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+text = "x 15000"
+label_settings = SubResource("LabelSettings_r726b")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="PopupCanvas/ShopPanel/HBoxContainer/NoAds"]
+custom_minimum_size = Vector2(250, 125)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -190.0
+offset_right = 125.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("25_sib7n")
+text = "USD 0.80$"
+
+[node name="GetCurrency" type="Panel" parent="PopupCanvas/ShopPanel/HBoxContainer"]
+custom_minimum_size = Vector2(400, 850)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_cp41a")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupCanvas/ShopPanel/HBoxContainer/GetCurrency"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 85.0
+offset_right = -38.0
+offset_bottom = -208.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PopupCanvas/ShopPanel/HBoxContainer/GetCurrency/VBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+text = "Watch 30s ads and Recieve"
+label_settings = SubResource("LabelSettings_jryeu")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="PopupCanvas/ShopPanel/HBoxContainer/GetCurrency/VBoxContainer"]
+custom_minimum_size = Vector2(280, 280)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("AtlasTexture_86024")
+
+[node name="Label2" type="Label" parent="PopupCanvas/ShopPanel/HBoxContainer/GetCurrency/VBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+text = "x 250"
+label_settings = SubResource("LabelSettings_r726b")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="PopupCanvas/ShopPanel/HBoxContainer/GetCurrency"]
+custom_minimum_size = Vector2(250, 125)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -190.0
+offset_right = 125.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("25_sib7n")
+text = "Watch AD"
+
+[node name="GridContainer" type="GridContainer" parent="PopupCanvas/ShopPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 15
+columns = 2
+
+[node name="Aim" type="Panel" parent="PopupCanvas/ShopPanel/HBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_8le36")
+
+[node name="Panel" type="Panel" parent="PopupCanvas/ShopPanel/HBoxContainer/GridContainer/Aim"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 88.0
+offset_top = 48.0
+offset_right = -92.0
+offset_bottom = -165.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_iqig7")
+
+[node name="TextureRect" type="TextureRect" parent="PopupCanvas/ShopPanel/HBoxContainer/GridContainer/Aim/Panel"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -603.0
-offset_top = -373.0
-offset_right = 603.0
-offset_bottom = 373.0
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_av6lq")
-script = ExtResource("12_gbqcd")
+texture = SubResource("AtlasTexture_nnj8f")
 
-[node name="ShopTabs" type="TabContainer" parent="PopupCanvas/ShopPanel"]
+[node name="Button" type="Button" parent="PopupCanvas/ShopPanel/HBoxContainer/GridContainer/Aim"]
+custom_minimum_size = Vector2(250, 125)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -163.0
+offset_right = 125.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme = ExtResource("25_sib7n")
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 50
+text = "150"
+icon = SubResource("AtlasTexture_vf62u")
+icon_alignment = 2
+
+[node name="Bomb" type="Panel" parent="PopupCanvas/ShopPanel/HBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_8le36")
+
+[node name="Panel" type="Panel" parent="PopupCanvas/ShopPanel/HBoxContainer/GridContainer/Bomb"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 92.0
+offset_top = 48.0
+offset_right = -88.0
+offset_bottom = -165.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_iqig7")
+
+[node name="TextureRect" type="TextureRect" parent="PopupCanvas/ShopPanel/HBoxContainer/GridContainer/Bomb/Panel"]
+custom_minimum_size = Vector2(230, 230)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_qmt4b")
+
+[node name="Button" type="Button" parent="PopupCanvas/ShopPanel/HBoxContainer/GridContainer/Bomb"]
+custom_minimum_size = Vector2(250, 125)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -163.0
+offset_right = 125.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("25_sib7n")
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 50
+text = "150"
+icon = SubResource("AtlasTexture_vf62u")
+icon_alignment = 2
+
+[node name="Metal" type="Panel" parent="PopupCanvas/ShopPanel/HBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_8le36")
+
+[node name="Panel" type="Panel" parent="PopupCanvas/ShopPanel/HBoxContainer/GridContainer/Metal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 88.0
+offset_top = 52.0
+offset_right = -92.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_iqig7")
+
+[node name="TextureRect" type="TextureRect" parent="PopupCanvas/ShopPanel/HBoxContainer/GridContainer/Metal/Panel"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_ivv7n")
+
+[node name="Button" type="Button" parent="PopupCanvas/ShopPanel/HBoxContainer/GridContainer/Metal"]
+custom_minimum_size = Vector2(250, 125)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -163.0
+offset_right = 125.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("25_sib7n")
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 50
+text = "150"
+icon = SubResource("AtlasTexture_vf62u")
+icon_alignment = 2
+
+[node name="Paint" type="Panel" parent="PopupCanvas/ShopPanel/HBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_8le36")
+
+[node name="Panel" type="Panel" parent="PopupCanvas/ShopPanel/HBoxContainer/GridContainer/Paint"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 92.0
+offset_top = 52.0
+offset_right = -88.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_iqig7")
+
+[node name="TextureRect" type="TextureRect" parent="PopupCanvas/ShopPanel/HBoxContainer/GridContainer/Paint/Panel"]
+custom_minimum_size = Vector2(260, 260)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_856hg")
+
+[node name="Button" type="Button" parent="PopupCanvas/ShopPanel/HBoxContainer/GridContainer/Paint"]
+custom_minimum_size = Vector2(250, 125)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -163.0
+offset_right = 125.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("25_sib7n")
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 50
+text = "150"
+icon = SubResource("AtlasTexture_vf62u")
+icon_alignment = 2
+
+[node name="ShopTabs" type="TabContainer" parent="PopupCanvas/ShopPanel"]
+visible = false
+layout_mode = 2
 theme_override_constants/side_margin = 0
 theme_override_font_sizes/font_size = 36
 
@@ -3013,16 +3460,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CloseButton" type="Button" parent="PopupCanvas/ShopPanel"]
+visible = false
 custom_minimum_size = Vector2(85, 0)
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -56.0
-offset_top = -8.0
-offset_right = 29.0
-offset_bottom = 82.0
-grow_horizontal = 0
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 24
@@ -3030,12 +3470,8 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_hsecm")
 text = "X"
 
 [node name="CurrencyDisplay" type="Control" parent="PopupCanvas/ShopPanel"]
-layout_mode = 1
-anchors_preset = 0
-offset_left = -16.0
-offset_top = 32.0
-offset_right = 212.0
-offset_bottom = 132.0
+visible = false
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
@@ -4724,6 +5160,7 @@ position = Vector2(2800, -1648)
 shape = SubResource("RectangleShape2D_kkwav")
 
 [connection signal="value_changed" from="CameraSystem/CameraBounds" to="CameraSystem/Camera2D" method="_on_camera_bounds_value_changed"]
+[connection signal="button_down" from="PopupCanvas/PermanentOverlay/AmountDisplay/Panel/Currency/Shop Button" to="PopupCanvas/ShopPanel" method="_on_shop_button_button_down"]
 [connection signal="button_down" from="PopupCanvas/Pause" to="PopupCanvas/PausePanel" method="_on_pause_button_down"]
 [connection signal="button_down" from="PopupCanvas/PausePanel/[Debug]ResetProgress/Button" to="PopupCanvas/PausePanel" method="_on_debug_reset_progress_button_down"]
 [connection signal="button_down" from="PopupCanvas/PausePanel/Buttons/LevelSelect" to="PopupCanvas/ReportScreen" method="_on_level_select_button_down"]
@@ -4732,6 +5169,10 @@ shape = SubResource("RectangleShape2D_kkwav")
 [connection signal="button_down" from="PopupCanvas/ReportScreen/Buttons/LevelSelect" to="PopupCanvas/ReportScreen" method="_on_level_select_button_down"]
 [connection signal="button_down" from="PopupCanvas/ReportScreen/Buttons/Retry" to="PopupCanvas/ReportScreen" method="_on_retry_button_down"]
 [connection signal="button_down" from="PopupCanvas/ReportScreen/Buttons/Next" to="PopupCanvas/ReportScreen" method="_on_next_button_down"]
+[connection signal="button_down" from="PopupCanvas/ShopPanel/HBoxContainer/GridContainer/Aim/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_single_precision_shot"]
+[connection signal="button_down" from="PopupCanvas/ShopPanel/HBoxContainer/GridContainer/Bomb/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_single_bomb"]
+[connection signal="button_down" from="PopupCanvas/ShopPanel/HBoxContainer/GridContainer/Metal/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_single_spiked"]
+[connection signal="button_down" from="PopupCanvas/ShopPanel/HBoxContainer/GridContainer/Paint/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_single_paint"]
 [connection signal="button_down" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Buttons/BuySingle/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_single_precision_shot"]
 [connection signal="button_down" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/PrecisionShot/Buttons/BuyMultiple/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_multiple_precision_shot"]
 [connection signal="button_down" from="PopupCanvas/ShopPanel/ShopTabs/PowerUps/HBoxContainer/Bomb/Buttons/BuySingle/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_single_bomb"]

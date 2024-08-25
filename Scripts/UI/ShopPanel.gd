@@ -1,4 +1,4 @@
-extends Panel
+extends MarginContainer
 
 #@onready var shop_button_currency = $"../PermanentButtons/Shop/Label"
 @onready var shop_window_currency = $CurrencyDisplay/Amount
