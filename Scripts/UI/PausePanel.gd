@@ -5,6 +5,9 @@ extends Panel
 @onready var level_select_button = $Buttons/LevelSelect
 @onready var retry_button = $Buttons/Retry
 @onready var level_select_canvas = $"../../LevelSelectCanvas"
+@onready var currency = $"../PermanentOverlay/AmountDisplay/Panel/Currency"
+@onready var shop_panel = $"../ShopPanel"
+
 
 
 func Open():
@@ -30,5 +33,7 @@ func _on_debug_reset_progress_button_down():
 	gamescene.debug_reset_data()
 	gamescene.level_select.Update()
 	gamescene.power_up_panel.UpdatePanel()
+	currency.Update()
+	shop_panel.Update()
 
  

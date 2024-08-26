@@ -2,6 +2,8 @@ class_name user_data
 extends Resource
 
 @export var first_launch : bool = true
+@export var paid_no_ads : bool = false
+
 
 @export var inventory = {
 	"Precision Shot" : 40, # Set to KeyID 0 since it's the only mode, excule ID 0 from loops if you wannt to check only the special bubbles
