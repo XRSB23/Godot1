@@ -41,7 +41,6 @@ var destroyed_count : int
 @onready var hud_modulate  = $PopupCanvas/PermanentOverlay/AmountDisplay
 
 
-
 func _ready():
 	set_neighbors_coord(cell_size)
 	score_formula.parse(Math_expression,["P","X"])
@@ -365,6 +364,11 @@ func init_save_data(user_res : user_data):
 		user_res.level_saveData.append(Level_SaveData.new())
 	user_res.first_launch = false
 	save_user_data(user_res)
+
+func update_no_ads(b : bool):
+	var data : user_data = load_user_data()
+	data.paid_no_ads = b
+	save_user_data(data)
 
 func debug_reset_data():
 	init_save_data(user_data.new())

@@ -7,3 +7,5 @@ resource_local_to_scene = true
 shader = ExtResource("1_cpsni")
 shader_parameter/is_grayscale = false
 shader_parameter/Brightness = 0.3
+shader_parameter/Hologram = false
+shader_parameter/ScrollSpeed = 0.0

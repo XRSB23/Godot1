@@ -3,7 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://devkwuhk54ar1" path="res://Art/UI/Theme/ShopUI.png" id="1_uo8y2"]
 [ext_resource type="FontFile" uid="uid://d1hqcsdgemdae" path="res://Art/Font/Clean Cafe.otf" id="2_dv4s2"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xjugl"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lay08"]
+load_path = "res://.godot/imported/ShopUI.png-d4e9ea762bc6d2d7dcc7075342a09c3e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgmt4"]
+atlas = SubResource("CompressedTexture2D_lay08")
+region = Rect2(500, 1075, 250, 125)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nx3y7"]
+texture = SubResource("AtlasTexture_qgmt4")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_18v6x"]
 
@@ -17,24 +25,18 @@ texture = SubResource("AtlasTexture_dymmh")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wcbrk"]
 texture = SubResource("AtlasTexture_dymmh")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lay08"]
-load_path = "res://.godot/imported/ShopUI.png-d4e9ea762bc6d2d7dcc7075342a09c3e.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qgmt4"]
-atlas = SubResource("CompressedTexture2D_lay08")
-region = Rect2(500, 1075, 250, 125)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yi5h7"]
 texture = SubResource("AtlasTexture_qgmt4")
 
 [resource]
 default_font = ExtResource("2_dv4s2")
 Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(0.337255, 0.337255, 0.337255, 1)
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/colors/font_pressed_color = Color(0.431373, 0.431373, 0.431373, 1)
 Button/constants/outline_size = 6
 Button/font_sizes/font_size = 34
-Button/styles/disabled = SubResource("StyleBoxEmpty_xjugl")
+Button/styles/disabled = SubResource("StyleBoxTexture_nx3y7")
 Button/styles/focus = SubResource("StyleBoxEmpty_18v6x")
 Button/styles/hover = SubResource("StyleBoxTexture_mlvt6")
 Button/styles/normal = SubResource("StyleBoxTexture_wcbrk")
