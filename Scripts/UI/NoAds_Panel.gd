@@ -5,9 +5,9 @@ class_name  NoAds_Panel
 @onready var label : Label = $VBoxContainer/Label
 @onready var gem_label : Label = $VBoxContainer/Label2
 @onready var button : Button = $Button
-@onready var gamescene : GameScene = $"../../../.."
+@onready var gamescene : GameScene = $"../../../../.."
 @onready var icon : TextureRect = $VBoxContainer/TextureRect
-@onready var shop_panel : ShopPanel = $"../.."
+@onready var shop_panel : ShopPanel = $"../../.."
 
 
 

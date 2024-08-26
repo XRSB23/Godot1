@@ -1,7 +1,7 @@
 @tool
 extends Panel
 
-@onready var shop_panel : ShopPanel = $"../.."
+@onready var shop_panel : ShopPanel = $"../../.."
 @onready var label : Label = $VBoxContainer/Label2
 
 @export var gem_reward : int :

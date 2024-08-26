@@ -2,7 +2,7 @@ extends Label
 
 
 @export var power_up_name : String
-@onready var gamescene : GameScene = $"../../../../../../.."
+@onready var gamescene : GameScene = $"../../../../../../../.."
 
 func _ready():
 	Update()

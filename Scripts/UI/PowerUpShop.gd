@@ -2,8 +2,8 @@
 extends Panel
 
 @onready var button : Button = $Button
-@onready var gamescene : GameScene = $"../../../../.."
-@onready var shop_panel : ShopPanel = $"../../.."
+@onready var gamescene : GameScene = $"../../../../../.."
+@onready var shop_panel : ShopPanel = $"../../../.."
 
 
 @export var price : int :

@@ -1,4 +1,4 @@
-extends MarginContainer
+extends Panel
 class_name ShopPanel
 
 #@onready var shop_button_currency = $"../PermanentButtons/Shop/Label"
@@ -7,25 +7,29 @@ class_name ShopPanel
 @onready var gamescene = $"../.."
 @onready var power_up_panel : PowerUpPanel = $"../../HUD/PowerUpPanel"
 @onready var shop_anim = $ShopAnim
+@onready var amount_display = $"../PermanentOverlay/AmountDisplay"
+@onready var hud = $"../../HUD"
 
 signal update_currency_display
 
 func Open():
 	get_tree().paused = true
 	animation_player.play("OpenShopPanel")
+	amount_display.Set(false)
 	
 
 func Close():
 	animation_player.play_backwards("OpenShopPanel")
 	await animation_player.animation_finished
+	amount_display.Set(true if hud.visible else false)
 	get_tree().paused = false
 	
 func Update():
-	$HBoxContainer/NoAds.Update()
-	$HBoxContainer/GridContainer/Aim/Panel/Amount.Update()
-	$HBoxContainer/GridContainer/Bomb/Panel/Amount.Update()
-	$HBoxContainer/GridContainer/Metal/Panel/Amount.Update()
-	$HBoxContainer/GridContainer/Paint/Panel/Amount.Update()
+	$MarginContainer/HBoxContainer/NoAds.Update()
+	$MarginContainer/HBoxContainer/GridContainer/Aim/Panel/Amount.Update()
+	$MarginContainer/HBoxContainer/GridContainer/Bomb/Panel/Amount.Update()
+	$MarginContainer/HBoxContainer/GridContainer/Metal/Panel/Amount.Update()
+	$MarginContainer/HBoxContainer/GridContainer/Paint/Panel/Amount.Update()
 	update_currency_display.emit()
 	
 func _set_currency(value : int):
