@@ -1,4 +1,4 @@
-[gd_scene load_steps=274 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=267 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/LevelTheme_Manager.gd" id="2_2ith4"]
@@ -43,10 +43,13 @@
 [ext_resource type="Theme" uid="uid://dn6qy8xj1s3ch" path="res://Art/UI/Theme/power_up_menu_theme.tres" id="14_rueps"]
 [ext_resource type="StyleBox" uid="uid://c5up22doyuqwm" path="res://Art/UI/Theme/power_up_count_StyleBox_Green.tres" id="15_dvsbn"]
 [ext_resource type="Texture2D" uid="uid://b2eexg2334wf2" path="res://Art/UI/Theme/LevelButton/LevelButton.svg" id="15_p4r1u"]
-[ext_resource type="Texture2D" uid="uid://ppny7uyj3svf" path="res://Art/UI/HSlider.png" id="17_2sgcp"]
+[ext_resource type="Texture2D" uid="uid://bj6mmekw1uuxc" path="res://Art/UI/PauseMenu_SpriteSheet.png" id="16_i87h5"]
 [ext_resource type="Theme" uid="uid://cbqxgobhsmy6h" path="res://Art/UI/Theme/LevelButton/LevelButton_Theme.tres" id="17_d4a4f"]
+[ext_resource type="Theme" uid="uid://i6h0hyw57m8n" path="res://Art/UI/Theme/HSlider_Theme.tres" id="18_fkg2v"]
 [ext_resource type="Texture2D" uid="uid://dbko4ghfo4vml" path="res://Art/Background/Sunset.png" id="19_bmm86"]
+[ext_resource type="Theme" uid="uid://ccun4v06qaai" path="res://Art/UI/Theme/Nav_Button_Theme.tres" id="20_76cf3"]
 [ext_resource type="Script" path="res://Scripts/UI/ParticleController.gd" id="22_50gyi"]
+[ext_resource type="Theme" uid="uid://rls8dax4or0x" path="res://Art/UI/Theme/Close_Button_Theme.tres" id="22_mcq7y"]
 [ext_resource type="Texture2D" uid="uid://c7ib2slaua6yj" path="res://Art/Bubble/Effects/radialGradient.svg" id="23_n35ni"]
 [ext_resource type="Texture2D" uid="uid://devkwuhk54ar1" path="res://Art/UI/Theme/ShopUI.png" id="24_1p1oc"]
 [ext_resource type="Theme" uid="uid://tjjwtmxhmunc" path="res://Art/UI/Theme/shop_button_theme.tres" id="25_sib7n"]
@@ -151,55 +154,24 @@ load_path = "res://.godot/imported/UI_SpriteSheet.png-27b8adb6a8b98635dc6033deab
 atlas = SubResource("CompressedTexture2D_xijxg")
 region = Rect2(396, 303, 76, 76)
 
-[sub_resource type="LabelSettings" id="LabelSettings_p0bmt"]
-font_size = 25
-outline_size = 9
-outline_color = Color(0, 0, 0, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_28bl4"]
+atlas = ExtResource("16_i87h5")
+region = Rect2(0, 0, 620, 718)
 
-[sub_resource type="LabelSettings" id="LabelSettings_wbjgh"]
-font_size = 24
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vfihs"]
+texture = SubResource("AtlasTexture_28bl4")
+
+[sub_resource type="LabelSettings" id="LabelSettings_p0bmt"]
+font = ExtResource("38_2mb0d")
+font_size = 64
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_omf84"]
-atlas = ExtResource("17_2sgcp")
-region = Rect2(0, 0, 60, 50)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iufc0"]
-texture = SubResource("AtlasTexture_omf84")
-texture_margin_left = 20.0
-texture_margin_right = 20.0
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xo14e"]
-load_path = "res://.godot/imported/HSlider.png-987680849804d560741d481cb914e722.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jqeey"]
-atlas = SubResource("CompressedTexture2D_xo14e")
-region = Rect2(60, 0, 60, 50)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8mfys"]
-texture = SubResource("AtlasTexture_jqeey")
-texture_margin_left = 20.0
-texture_margin_right = 20.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k1rlr"]
-atlas = ExtResource("8_7n0tw")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_10h6m"]
-atlas = ExtResource("8_7n0tw")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vwcrx"]
-atlas = ExtResource("8_j3ke8")
-region = Rect2(314, 0, 76, 76)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hsecm"]
-texture = SubResource("AtlasTexture_vwcrx")
-texture_margin_left = 28.0
-texture_margin_top = 28.0
-texture_margin_right = 28.0
-texture_margin_bottom = 28.0
+[sub_resource type="LabelSettings" id="LabelSettings_wbjgh"]
+font = ExtResource("38_2mb0d")
+font_size = 40
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ktcax"]
 load_path = "res://.godot/imported/UI_Stars.svg-81c8b1844452c4bdbc387d6cd906465c.ctex"
@@ -242,6 +214,14 @@ outline_color = Color(0, 0, 0, 1)
 font_size = 24
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1rlr"]
+atlas = ExtResource("8_7n0tw")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10h6m"]
+atlas = ExtResource("8_7n0tw")
+region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bmy1l"]
 load_path = "res://.godot/imported/LevelSelect.png-74f36bb708c53bdc144cac5af9f30083.ctex"
@@ -286,24 +266,6 @@ font = ExtResource("10_42yl7")
 font_size = 100
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1hmj2"]
-load_path = "res://.godot/imported/UI_SpriteSheet.png-27b8adb6a8b98635dc6033deabc6c27e.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0050l"]
-atlas = SubResource("CompressedTexture2D_1hmj2")
-region = Rect2(390, 0, 76, 76)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_khwgu"]
-texture = SubResource("AtlasTexture_0050l")
-texture_margin_left = 28.0
-texture_margin_top = 28.0
-texture_margin_right = 28.0
-texture_margin_bottom = 28.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y1rb2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0npdt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_adky6"]
 resource_local_to_scene = true
@@ -748,7 +710,7 @@ tracks/1/path = NodePath("PausePanel:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -760,7 +722,7 @@ tracks/2/path = NodePath("PausePanel:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.45, 0.6),
+"times": PackedFloat32Array(0.3, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -776,6 +738,42 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [2, 0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pause:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Pause:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PausePanel:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.15, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.2, 1.2)]
 }
 
 [sub_resource type="Animation" id="Animation_ci1rc"]
@@ -1102,6 +1100,42 @@ tracks/12/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(645, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Pause:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Pause:disabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("PausePanel:scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.2, 1.2)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bdacy"]
@@ -2648,30 +2682,33 @@ stretch_mode = 0
 [node name="PausePanel" type="Panel" parent="PopupCanvas"]
 visible = false
 modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(620, 718)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -472.0
-offset_top = -348.0
-offset_right = 472.0
-offset_bottom = 348.0
+offset_left = -310.0
+offset_top = -359.0
+offset_right = 310.0
+offset_bottom = 359.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("5_1yt0q")
+scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(310, 359)
+size_flags_horizontal = 6
+theme_override_styles/panel = SubResource("StyleBoxTexture_vfihs")
 script = ExtResource("10_lwgwo")
 
 [node name="Label" type="Label" parent="PopupCanvas/PausePanel"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 312.0
-offset_top = -32.0
-offset_right = -312.0
-offset_bottom = 59.0
+offset_left = 196.667
+offset_top = 31.5
+offset_right = -190.333
+offset_bottom = 122.5
 grow_horizontal = 2
-theme_override_styles/normal = ExtResource("5_1yt0q")
 text = "Pause"
 label_settings = SubResource("LabelSettings_p0bmt")
 horizontal_alignment = 1
@@ -2682,10 +2719,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 152.0
-offset_top = 96.0
-offset_right = -152.0
-offset_bottom = -272.0
+offset_left = 63.0
+offset_top = 212.0
+offset_right = -63.0
+offset_bottom = -121.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -2700,31 +2737,16 @@ label_settings = SubResource("LabelSettings_wbjgh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Volume Slider" type="HBoxContainer" parent="PopupCanvas/PausePanel/VolumeControls/BGM"]
-layout_mode = 2
-
-[node name="HSlider" type="HSlider" parent="PopupCanvas/PausePanel/VolumeControls/BGM/Volume Slider" node_paths=PackedStringArray("label")]
-custom_minimum_size = Vector2(0, 50)
+[node name="HSlider" type="HSlider" parent="PopupCanvas/PausePanel/VolumeControls/BGM"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-theme_override_styles/slider = SubResource("StyleBoxTexture_iufc0")
-theme_override_styles/grabber_area = SubResource("StyleBoxTexture_8mfys")
+theme = ExtResource("18_fkg2v")
 max_value = 1.0
-step = 0.01
-value = 0.26
+step = 0.05
+value = 0.8
 script = ExtResource("11_n8bmv")
 bus_name = "BGM"
-label = NodePath("../Volume Display")
-
-[node name="Volume Display" type="Label" parent="PopupCanvas/PausePanel/VolumeControls/BGM/Volume Slider"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-text = "0"
-label_settings = SubResource("LabelSettings_wbjgh")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="SFX" type="VBoxContainer" parent="PopupCanvas/PausePanel/VolumeControls"]
 layout_mode = 2
@@ -2737,53 +2759,35 @@ label_settings = SubResource("LabelSettings_wbjgh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Volume Slider" type="HBoxContainer" parent="PopupCanvas/PausePanel/VolumeControls/SFX"]
-layout_mode = 2
-
-[node name="HSlider" type="HSlider" parent="PopupCanvas/PausePanel/VolumeControls/SFX/Volume Slider" node_paths=PackedStringArray("label")]
+[node name="HSlider" type="HSlider" parent="PopupCanvas/PausePanel/VolumeControls/SFX"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+theme = ExtResource("18_fkg2v")
 max_value = 1.0
-step = 0.01
+step = 0.05
+value = 0.8
 script = ExtResource("11_n8bmv")
 bus_name = "SFX"
-label = NodePath("../Volume Display")
-
-[node name="Volume Display" type="Label" parent="PopupCanvas/PausePanel/VolumeControls/SFX/Volume Slider"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-text = "0"
-label_settings = SubResource("LabelSettings_wbjgh")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="[Debug]ResetProgress" type="HBoxContainer" parent="PopupCanvas/PausePanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 272.0
-offset_top = 442.0
-offset_right = -272.0
-offset_bottom = -154.0
+offset_left = 743.333
+offset_top = 320.667
+offset_right = 305.333
+offset_bottom = -277.333
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="PopupCanvas/PausePanel/[Debug]ResetProgress"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Debug Reset Progress"
-label_settings = SubResource("LabelSettings_p0bmt")
-
 [node name="Button" type="Button" parent="PopupCanvas/PausePanel/[Debug]ResetProgress"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(182.4, 91.2)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("17_d4a4f")
-theme_override_font_sizes/font_size = 25
+theme = ExtResource("20_76cf3")
 text = "Reset"
 
 [node name="Buttons" type="HBoxContainer" parent="PopupCanvas/PausePanel"]
@@ -2792,47 +2796,46 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 274.0
-offset_top = -109.0
-offset_right = -272.0
-offset_bottom = 43.0
+offset_left = 97.0
+offset_top = -184.0
+offset_right = -85.0004
+offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 0
-
-[node name="LevelSelect" type="Button" parent="PopupCanvas/PausePanel/Buttons"]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-theme = ExtResource("17_d4a4f")
-icon = SubResource("AtlasTexture_k1rlr")
-icon_alignment = 1
+theme_override_constants/separation = 20
 
 [node name="Retry" type="Button" parent="PopupCanvas/PausePanel/Buttons"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(152, 76)
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 7
 size_flags_vertical = 4
-theme = ExtResource("17_d4a4f")
-icon = SubResource("AtlasTexture_10h6m")
+theme = ExtResource("20_76cf3")
+text = "RETRY"
+icon_alignment = 1
+
+[node name="LevelSelect" type="Button" parent="PopupCanvas/PausePanel/Buttons"]
+custom_minimum_size = Vector2(152, 76)
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 4
+theme = ExtResource("20_76cf3")
+text = "Menu"
 icon_alignment = 1
 
 [node name="CloseButton" type="Button" parent="PopupCanvas/PausePanel"]
-custom_minimum_size = Vector2(85, 0)
+custom_minimum_size = Vector2(76, 76)
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -64.0
-offset_top = -28.0
-offset_right = 21.0
-offset_bottom = 62.0
+offset_left = -43.3333
+offset_top = 4.00002
+offset_right = 41.6667
+offset_bottom = 94.0
 grow_horizontal = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxTexture_hsecm")
-text = "X"
+theme = ExtResource("22_mcq7y")
 
 [node name="ReportScreen" type="Panel" parent="PopupCanvas"]
 visible = false
@@ -3091,12 +3094,7 @@ scale = Vector2(2, 2)
 pivot_offset = Vector2(38, 38)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxTexture_hsecm")
-theme_override_styles/hover = SubResource("StyleBoxTexture_hsecm")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_khwgu")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_y1rb2")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_0npdt")
+theme = ExtResource("22_mcq7y")
 
 [node name="MarginContainer" type="MarginContainer" parent="PopupCanvas/ShopPanel"]
 layout_mode = 1
@@ -3108,7 +3106,7 @@ anchor_bottom = 1.0
 offset_left = -920.0
 offset_top = -920.0
 offset_right = 920.0
-offset_bottom = -0.00927734
+offset_bottom = -0.0100098
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -3853,7 +3851,7 @@ anchor_left = 0.184
 anchor_top = 0.279
 anchor_right = 0.826
 anchor_bottom = 0.845
-offset_left = 0.319977
+offset_left = 0.320007
 offset_top = 0.071991
 offset_right = 0.47998
 offset_bottom = -0.0400391
@@ -5319,8 +5317,8 @@ shape = SubResource("RectangleShape2D_kkwav")
 [connection signal="button_down" from="PopupCanvas/PermanentOverlay/AmountDisplay/Panel/Currency/Shop Button" to="PopupCanvas/ShopPanel" method="_on_shop_button_button_down"]
 [connection signal="button_down" from="PopupCanvas/Pause" to="PopupCanvas/PausePanel" method="_on_pause_button_down"]
 [connection signal="button_down" from="PopupCanvas/PausePanel/[Debug]ResetProgress/Button" to="PopupCanvas/PausePanel" method="_on_debug_reset_progress_button_down"]
-[connection signal="button_down" from="PopupCanvas/PausePanel/Buttons/LevelSelect" to="PopupCanvas/ReportScreen" method="_on_level_select_button_down"]
 [connection signal="button_down" from="PopupCanvas/PausePanel/Buttons/Retry" to="PopupCanvas/ReportScreen" method="_on_retry_button_down"]
+[connection signal="button_down" from="PopupCanvas/PausePanel/Buttons/LevelSelect" to="PopupCanvas/ReportScreen" method="_on_level_select_button_down"]
 [connection signal="pressed" from="PopupCanvas/PausePanel/CloseButton" to="PopupCanvas/PausePanel" method="_on_close_button_pressed"]
 [connection signal="button_down" from="PopupCanvas/ReportScreen/Buttons/LevelSelect" to="PopupCanvas/ReportScreen" method="_on_level_select_button_down"]
 [connection signal="button_down" from="PopupCanvas/ReportScreen/Buttons/Retry" to="PopupCanvas/ReportScreen" method="_on_retry_button_down"]

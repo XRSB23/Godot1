@@ -1,0 +1,43 @@
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://rls8dax4or0x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lyral"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x4gev"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3ufwn"]
+load_path = "res://.godot/imported/UI_SpriteSheet.png-27b8adb6a8b98635dc6033deabc6c27e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5eldr"]
+atlas = SubResource("CompressedTexture2D_3ufwn")
+region = Rect2(314, 0, 76, 76)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j8df4"]
+texture = SubResource("AtlasTexture_5eldr")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_br3pq"]
+load_path = "res://.godot/imported/UI_SpriteSheet.png-27b8adb6a8b98635dc6033deabc6c27e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i08kw"]
+atlas = SubResource("CompressedTexture2D_br3pq")
+region = Rect2(314, 0, 76, 76)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sruip"]
+texture = SubResource("AtlasTexture_i08kw")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lqsns"]
+load_path = "res://.godot/imported/UI_SpriteSheet.png-27b8adb6a8b98635dc6033deabc6c27e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rhn7"]
+atlas = SubResource("CompressedTexture2D_lqsns")
+region = Rect2(390, 0, 76, 76)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jsk3n"]
+texture = SubResource("AtlasTexture_0rhn7")
+
+[resource]
+Button/font_sizes/font_size = 24
+Button/styles/disabled = SubResource("StyleBoxEmpty_lyral")
+Button/styles/focus = SubResource("StyleBoxEmpty_x4gev")
+Button/styles/hover = SubResource("StyleBoxTexture_j8df4")
+Button/styles/normal = SubResource("StyleBoxTexture_sruip")
+Button/styles/pressed = SubResource("StyleBoxTexture_jsk3n")
