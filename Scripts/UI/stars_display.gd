@@ -8,5 +8,5 @@ func _ready():
 
 func Update():
 	var data : user_data = gamescene.load_user_data()
-	if data != null : text = str(data.currency)
+	if data != null : text = "    " + str(data.stars_amount)
 

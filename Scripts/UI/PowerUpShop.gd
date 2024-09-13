@@ -20,5 +20,5 @@ func on_button_down():
 	shop_panel.update_currency_display.emit()
 
 func Update():
-	var _currency = gamescene.load_user_data().currency
-	button.disabled = true if _currency < price else false
+	var data = gamescene.load_user_data()
+	if data != null : button.disabled = true if data.currency < price else false
