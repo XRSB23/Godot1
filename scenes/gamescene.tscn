@@ -1,4 +1,4 @@
-[gd_scene load_steps=267 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=274 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/LevelTheme_Manager.gd" id="2_2ith4"]
@@ -37,11 +37,13 @@
 [ext_resource type="Script" path="res://Scripts/UI/currency_display.gd" id="12_5w5ov"]
 [ext_resource type="Script" path="res://Scripts/UI/ShopPanel.gd" id="12_gbqcd"]
 [ext_resource type="Script" path="res://Scripts/UI/LevelSelect.gd" id="13_gtr2x"]
+[ext_resource type="Script" path="res://Scripts/UI/stars_display.gd" id="14_ag8p3"]
 [ext_resource type="PackedScene" uid="uid://dmouyuwn7moq0" path="res://scenes/level_button.tscn" id="14_jlmao"]
 [ext_resource type="Script" path="res://addons/radialcontainer_plugin/RadialContainer.gd" id="14_rlae7"]
 [ext_resource type="Theme" uid="uid://dn6qy8xj1s3ch" path="res://Art/UI/Theme/power_up_menu_theme.tres" id="14_rueps"]
 [ext_resource type="StyleBox" uid="uid://c5up22doyuqwm" path="res://Art/UI/Theme/power_up_count_StyleBox_Green.tres" id="15_dvsbn"]
 [ext_resource type="Texture2D" uid="uid://b2eexg2334wf2" path="res://Art/UI/Theme/LevelButton/LevelButton.svg" id="15_p4r1u"]
+[ext_resource type="Texture2D" uid="uid://ppny7uyj3svf" path="res://Art/UI/HSlider.png" id="17_2sgcp"]
 [ext_resource type="Theme" uid="uid://cbqxgobhsmy6h" path="res://Art/UI/Theme/LevelButton/LevelButton_Theme.tres" id="17_d4a4f"]
 [ext_resource type="Texture2D" uid="uid://dbko4ghfo4vml" path="res://Art/Background/Sunset.png" id="19_bmm86"]
 [ext_resource type="Script" path="res://Scripts/UI/ParticleController.gd" id="22_50gyi"]
@@ -158,6 +160,27 @@ outline_color = Color(0, 0, 0, 1)
 font_size = 24
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omf84"]
+atlas = ExtResource("17_2sgcp")
+region = Rect2(0, 0, 60, 50)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iufc0"]
+texture = SubResource("AtlasTexture_omf84")
+texture_margin_left = 20.0
+texture_margin_right = 20.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xo14e"]
+load_path = "res://.godot/imported/HSlider.png-987680849804d560741d481cb914e722.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqeey"]
+atlas = SubResource("CompressedTexture2D_xo14e")
+region = Rect2(60, 0, 60, 50)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8mfys"]
+texture = SubResource("AtlasTexture_jqeey")
+texture_margin_left = 20.0
+texture_margin_right = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k1rlr"]
 atlas = ExtResource("8_7n0tw")
@@ -1511,6 +1534,30 @@ tracks/3/keys = {
 "update": 1,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PanelSkin/UnlockBanner:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(976, 584)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PanelSkin/LevelSelect:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(980, 580)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v383t"]
 _data = {
@@ -2476,7 +2523,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 theme_override_styles/normal = SubResource("StyleBoxTexture_e35y8")
-text = "12085485"
+text = "0"
 label_settings = SubResource("LabelSettings_3on7y")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -2561,10 +2608,11 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 theme_override_styles/normal = SubResource("StyleBoxTexture_e35y8")
-text = "    360 / 360"
+text = "    0 / 360"
 label_settings = SubResource("LabelSettings_3on7y")
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("14_ag8p3")
 
 [node name="Icon" type="TextureRect" parent="PopupCanvas/PermanentOverlay/AmountDisplay/Panel2/Stars"]
 layout_mode = 1
@@ -2641,39 +2689,6 @@ offset_bottom = -272.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Master" type="VBoxContainer" parent="PopupCanvas/PausePanel/VolumeControls"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="PopupCanvas/PausePanel/VolumeControls/Master"]
-layout_mode = 2
-text = "Main Volume"
-label_settings = SubResource("LabelSettings_wbjgh")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Volume Slider" type="HBoxContainer" parent="PopupCanvas/PausePanel/VolumeControls/Master"]
-layout_mode = 2
-
-[node name="HSlider" type="HSlider" parent="PopupCanvas/PausePanel/VolumeControls/Master/Volume Slider" node_paths=PackedStringArray("label")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-max_value = 1.0
-step = 0.01
-script = ExtResource("11_n8bmv")
-bus_name = "Master"
-label = NodePath("../Volume Display")
-
-[node name="Volume Display" type="Label" parent="PopupCanvas/PausePanel/VolumeControls/Master/Volume Slider"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-text = "0"
-label_settings = SubResource("LabelSettings_wbjgh")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="BGM" type="VBoxContainer" parent="PopupCanvas/PausePanel/VolumeControls"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -2689,11 +2704,15 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="HSlider" type="HSlider" parent="PopupCanvas/PausePanel/VolumeControls/BGM/Volume Slider" node_paths=PackedStringArray("label")]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxTexture_iufc0")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_8mfys")
 max_value = 1.0
 step = 0.01
+value = 0.26
 script = ExtResource("11_n8bmv")
 bus_name = "BGM"
 label = NodePath("../Volume Display")
@@ -3830,12 +3849,14 @@ visible = false
 material = ExtResource("39_4jqx5")
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 280.0
-offset_top = 288.0
-offset_right = 1240.0
-offset_bottom = 864.0
+anchor_left = 0.184
+anchor_top = 0.279
+anchor_right = 0.826
+anchor_bottom = 0.845
+offset_left = 0.319977
+offset_top = 0.071991
+offset_right = 0.47998
+offset_bottom = -0.0400391
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -5312,14 +5333,14 @@ shape = SubResource("RectangleShape2D_kkwav")
 [connection signal="button_down" from="PopupCanvas/ShopPanel/Label/CloseButton" to="PopupCanvas/ShopPanel" method="_on_close_button_button_down"]
 [connection signal="button_down" from="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/NoAds/Button" to="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/NoAds" method="_on_button_down"]
 [connection signal="button_down" from="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GetCurrency/Button" to="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GetCurrency" method="on_button_down"]
-[connection signal="button_down" from="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GridContainer/Aim/Button" to="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GridContainer/Aim" method="on_button_down"]
 [connection signal="button_down" from="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GridContainer/Aim/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_single_precision_shot"]
-[connection signal="button_down" from="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GridContainer/Bomb/Button" to="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GridContainer/Bomb" method="on_button_down"]
+[connection signal="button_down" from="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GridContainer/Aim/Button" to="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GridContainer/Aim" method="on_button_down"]
 [connection signal="button_down" from="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GridContainer/Bomb/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_single_bomb"]
-[connection signal="button_down" from="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GridContainer/Metal/Button" to="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GridContainer/Metal" method="on_button_down"]
+[connection signal="button_down" from="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GridContainer/Bomb/Button" to="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GridContainer/Bomb" method="on_button_down"]
 [connection signal="button_down" from="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GridContainer/Metal/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_single_spiked"]
-[connection signal="button_down" from="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GridContainer/Paint/Button" to="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GridContainer/Paint" method="on_button_down"]
+[connection signal="button_down" from="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GridContainer/Metal/Button" to="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GridContainer/Metal" method="on_button_down"]
 [connection signal="button_down" from="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GridContainer/Paint/Button" to="PopupCanvas/ShopPanel" method="_on_button_down_single_paint"]
+[connection signal="button_down" from="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GridContainer/Paint/Button" to="PopupCanvas/ShopPanel/MarginContainer/HBoxContainer/GridContainer/Paint" method="on_button_down"]
 [connection signal="gui_input" from="BackgroundCanvas/Background" to="Sling/ColorSelectMenu" method="_on_background_gui_input"]
 [connection signal="button_down" from="LevelSelectCanvas/PanelSkin/Previous" to="LevelSelectCanvas/PanelSkin/LevelSelect" method="_on_previous_button_down"]
 [connection signal="button_down" from="LevelSelectCanvas/PanelSkin/Next" to="LevelSelectCanvas/PanelSkin/LevelSelect" method="_on_next_button_down"]

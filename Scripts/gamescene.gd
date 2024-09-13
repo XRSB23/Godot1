@@ -39,6 +39,7 @@ var destroyed_count : int
 @onready var power_up_panel : PowerUpPanel = $HUD/PowerUpPanel
 @onready var level_theme_manager : LevelTheme_Manager = $LevelTheme_Manager
 @onready var hud_modulate  = $PopupCanvas/PermanentOverlay/AmountDisplay
+@onready var stars_display = $PopupCanvas/PermanentOverlay/AmountDisplay/Panel2/Stars
 
 
 func _ready():
@@ -352,6 +353,7 @@ func update_settings(_setting_name : String, value : int):
 func update_stars_amount(amount):
 	var data : user_data = load_user_data()
 	data.stars_amount += amount
+	stars_display.Update()
 	save_user_data(data)
 
 func update_last_opened(id):

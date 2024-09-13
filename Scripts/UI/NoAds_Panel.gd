@@ -26,7 +26,10 @@ func _ready():
 	Update()
 
 func Update() :
-	if gamescene.load_user_data().paid_no_ads : LockPanel()
+	var data = gamescene.load_user_data()
+	if data == null : return
+	
+	if data.paid_no_ads : LockPanel()
 	else : UnlockPanel()
 
 func LockPanel():
