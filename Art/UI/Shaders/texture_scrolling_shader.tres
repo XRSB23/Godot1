@@ -1,0 +1,136 @@
+[gd_resource type="VisualShader" load_steps=12 format=3 uid="uid://c25fb4rblyfd2"]
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_0uqrn"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_lcy0y"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_wvpam"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_i3oix"]
+expanded_output_ports = [0]
+parameter_name = "Speed"
+default_value_enabled = true
+default_value = Vector2(1, 1)
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_7wr1s"]
+parameter_name = "Scale"
+default_value_enabled = true
+default_value = Vector2(1, 1)
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_cujf0"]
+expanded_output_ports = [0]
+source = 2
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_ntjyw"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_wcrhu"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_ntjf5"]
+default_input_values = [0, 2.925, 1, 0.0, 2, 0.0]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_78hft"]
+
+[sub_resource type="VisualShaderNodeVectorFunc" id="VisualShaderNodeVectorFunc_wh6x1"]
+default_input_values = [0, Vector2(0, 0)]
+op_type = 0
+function = 2
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform vec2 Scale = vec2(1.000000, 1.000000);
+uniform vec2 Speed = vec2(1.000000, 1.000000);
+
+
+
+void fragment() {
+// Vector2Parameter:16
+	vec2 n_out16p0 = Scale;
+
+
+// Input:5
+	float n_out5p0 = TIME;
+
+
+// Vector2Parameter:15
+	vec2 n_out15p0 = Speed;
+	float n_out15p1 = n_out15p0.r;
+	float n_out15p2 = n_out15p0.g;
+
+
+// FloatOp:12
+	float n_out12p0 = n_out5p0 * n_out15p1;
+
+
+// Input:13
+	float n_out13p0 = TIME;
+
+
+// FloatOp:14
+	float n_out14p0 = n_out15p2 * n_out13p0;
+
+
+// VectorCompose:6
+	vec2 n_out6p0 = vec2(n_out12p0, n_out14p0);
+
+
+// VectorFunc:9
+	vec2 n_out9p0 = -(n_out6p0);
+
+
+// UVFunc:4
+	vec2 n_out4p0 = n_out9p0 * n_out16p0 + UV;
+
+
+	vec4 n_out3p0;
+// Texture2D:3
+	n_out3p0 = texture(TEXTURE, n_out4p0);
+	float n_out3p1 = n_out3p0.r;
+	float n_out3p2 = n_out3p0.g;
+	float n_out3p3 = n_out3p0.b;
+	float n_out3p4 = n_out3p0.a;
+
+
+// VectorCompose:7
+	vec3 n_out7p0 = vec3(n_out3p1, n_out3p2, n_out3p3);
+
+
+// Output:0
+	COLOR.rgb = n_out7p0;
+	COLOR.a = n_out3p4;
+
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(20, 140)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_cujf0")
+nodes/fragment/3/position = Vector2(-420, 40)
+nodes/fragment/4/node = SubResource("VisualShaderNodeUVFunc_ntjyw")
+nodes/fragment/4/position = Vector2(-720, 40)
+nodes/fragment/5/node = SubResource("VisualShaderNodeInput_wcrhu")
+nodes/fragment/5/position = Vector2(-1540, -40)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorCompose_ntjf5")
+nodes/fragment/6/position = Vector2(-1040, 120)
+nodes/fragment/7/node = SubResource("VisualShaderNodeVectorCompose_78hft")
+nodes/fragment/7/position = Vector2(-180, 20)
+nodes/fragment/9/node = SubResource("VisualShaderNodeVectorFunc_wh6x1")
+nodes/fragment/9/position = Vector2(-900, 120)
+nodes/fragment/12/node = SubResource("VisualShaderNodeFloatOp_0uqrn")
+nodes/fragment/12/position = Vector2(-1220, 20)
+nodes/fragment/13/node = SubResource("VisualShaderNodeInput_lcy0y")
+nodes/fragment/13/position = Vector2(-1540, 300)
+nodes/fragment/14/node = SubResource("VisualShaderNodeFloatOp_wvpam")
+nodes/fragment/14/position = Vector2(-1220, 240)
+nodes/fragment/15/node = SubResource("VisualShaderNodeVec2Parameter_i3oix")
+nodes/fragment/15/position = Vector2(-1520, 40)
+nodes/fragment/16/node = SubResource("VisualShaderNodeVec2Parameter_7wr1s")
+nodes/fragment/16/position = Vector2(-1020, -120)
+nodes/fragment/connections = PackedInt32Array(4, 0, 3, 0, 3, 1, 7, 0, 3, 2, 7, 1, 3, 3, 7, 2, 7, 0, 0, 0, 3, 4, 0, 1, 13, 0, 14, 1, 5, 0, 12, 0, 14, 0, 6, 1, 6, 0, 9, 0, 12, 0, 6, 0, 9, 0, 4, 2, 15, 1, 12, 1, 15, 2, 14, 0, 16, 0, 4, 1)

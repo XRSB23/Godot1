@@ -80,7 +80,8 @@ func Open():
 		#Do Win Anim Here
 		pass
 		
-	popup_canvas_anim.play("OpenReportScreen")
+	#popup_canvas_anim.play("OpenReportScreen")
+	popup_canvas_anim.play("OpenVictory")
 
 
 func _select_level():

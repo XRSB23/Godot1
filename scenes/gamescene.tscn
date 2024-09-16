@@ -1,10 +1,11 @@
-[gd_scene load_steps=267 format=3 uid="uid://c8m5dy2w8a44w"]
+[gd_scene load_steps=293 format=3 uid="uid://c8m5dy2w8a44w"]
 
 [ext_resource type="Script" path="res://Scripts/gamescene.gd" id="1_scxi1"]
 [ext_resource type="Script" path="res://Scripts/LevelTheme_Manager.gd" id="2_2ith4"]
 [ext_resource type="Script" path="res://Scripts/Sling/Sling.gd" id="2_jejid"]
 [ext_resource type="Script" path="res://Scripts/Camera/CameraBounds.gd" id="3_2i1fh"]
 [ext_resource type="Resource" uid="uid://bh35rfgmycbaq" path="res://Resources/LevelThemes/Glade_Theme.tres" id="3_cn8f1"]
+[ext_resource type="Texture2D" uid="uid://p4fahl4ne65m" path="res://Art/UI/GameOverBack.png" id="3_ni0wp"]
 [ext_resource type="Shader" uid="uid://bb2tscdlsvyov" path="res://Art/UI/Shaders/monochrome_shader.tres" id="4_f7t2v"]
 [ext_resource type="Resource" uid="uid://cfmr2udaacrlb" path="res://Resources/LevelThemes/Cliff_Theme.tres" id="4_m7ja3"]
 [ext_resource type="Resource" uid="uid://cw2ygtbr511d0" path="res://Resources/LevelThemes/Sunset_Theme.tres" id="4_vfqvc"]
@@ -27,9 +28,11 @@
 [ext_resource type="Texture2D" uid="uid://dje2nrekfqin8" path="res://Art/UI/UI_SpriteSheet.png" id="8_j3ke8"]
 [ext_resource type="Script" path="res://Scripts/UI/ScoreDisplay.gd" id="8_puymx"]
 [ext_resource type="PackedScene" uid="uid://c3w1tltsk73hb" path="res://scenes/bubble_metallic_new.tscn" id="8_pwao1"]
+[ext_resource type="Texture2D" uid="uid://dnvhsbut410s1" path="res://Art/UI/VictoryBack.png" id="9_mkbci"]
 [ext_resource type="Script" path="res://Scripts/UI/StarTreshold.gd" id="10_1mpiy"]
 [ext_resource type="FontFile" uid="uid://bffefqymodf32" path="res://Art/Font/Lonely Cake.otf" id="10_42yl7"]
 [ext_resource type="Script" path="res://Scripts/UI/PausePanel.gd" id="10_lwgwo"]
+[ext_resource type="Script" path="res://Scripts/UI/WaveShaderControl.gd" id="11_648bh"]
 [ext_resource type="Texture2D" uid="uid://cq2oavcga4l3i" path="res://Art/Sling/Line2D_SmoothEdgeTexture.png" id="11_848u5"]
 [ext_resource type="Script" path="res://Scripts/UI/VolumeSlider.gd" id="11_n8bmv"]
 [ext_resource type="Script" path="res://Scripts/Sling/GhostTrajectoryPreview.gd" id="11_o4i07"]
@@ -80,6 +83,265 @@ shader = ExtResource("4_f7t2v")
 shader_parameter/Color = Color(0.215686, 0.215686, 0.215686, 1)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2bu5c"]
+
+[sub_resource type="Animation" id="Animation_dbaeq"]
+resource_name = "Idle"
+length = 3.0
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.5, 2.25, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.35, 1.35), Vector2(1.65, 1.65), Vector2(1.35, 1.35), Vector2(1.65, 1.65), Vector2(1.35, 1.35)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5708, 3.14159]
+}
+
+[sub_resource type="Animation" id="Animation_5lhyt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8y2ac"]
+_data = {
+"Idle": SubResource("Animation_dbaeq"),
+"RESET": SubResource("Animation_5lhyt")
+}
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_qtgfr"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_6st6m"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_qdcut"]
+expanded_output_ports = [0]
+parameter_name = "Speed"
+default_value_enabled = true
+default_value = Vector2(1, 1)
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_sgdn1"]
+parameter_name = "Scale"
+default_value_enabled = true
+default_value = Vector2(1, 1)
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_xe08r"]
+function = 1
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_wqx85"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_7d26n"]
+expanded_output_ports = [0]
+parameter_name = "InitialOffset"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_65jw8"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_jxsco"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_ma12y"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_dvvrc"]
+parameter_name = "Time"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_4qide"]
+expanded_output_ports = [0]
+source = 2
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_diysy"]
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_exx2p"]
+default_input_values = [0, 2.925, 1, 0.0, 2, 0.0]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_fjhgp"]
+
+[sub_resource type="VisualShaderNodeVectorFunc" id="VisualShaderNodeVectorFunc_7722o"]
+default_input_values = [0, Vector2(0, 0)]
+op_type = 0
+function = 2
+
+[sub_resource type="VisualShader" id="VisualShader_rmab2"]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform vec2 Scale = vec2(1.000000, 1.000000);
+uniform float Time = 0;
+uniform vec2 Speed = vec2(1.000000, 1.000000);
+uniform vec2 InitialOffset = vec2(0.000000, 0.000000);
+
+
+
+void fragment() {
+// Input:21
+	vec2 n_out21p0 = UV;
+
+
+// Vector2Parameter:16
+	vec2 n_out16p0 = Scale;
+
+
+// UVFunc:17
+	vec2 n_in17p2 = vec2(0.00000, 0.00000);
+	vec2 n_out17p0 = (n_out21p0 - n_in17p2) * n_out16p0 + n_in17p2;
+
+
+// Input:22
+	vec2 n_out22p0 = UV;
+
+
+// FloatParameter:23
+	float n_out23p0 = Time;
+
+
+// Vector2Parameter:15
+	vec2 n_out15p0 = Speed;
+	float n_out15p1 = n_out15p0.r;
+	float n_out15p2 = n_out15p0.g;
+
+
+// FloatOp:12
+	float n_out12p0 = n_out23p0 * n_out15p1;
+
+
+// FloatOp:14
+	float n_out14p0 = n_out15p2 * n_out23p0;
+
+
+// VectorCompose:6
+	vec2 n_out6p0 = vec2(n_out12p0, n_out14p0);
+
+
+// VectorFunc:9
+	vec2 n_out9p0 = -(n_out6p0);
+
+
+// Vector2Parameter:19
+	vec2 n_out19p0 = InitialOffset;
+
+
+// VectorOp:20
+	vec2 n_out20p0 = n_out9p0 + n_out19p0;
+
+
+// UVFunc:4
+	vec2 n_in4p1 = vec2(1.00000, 1.00000);
+	vec2 n_out4p0 = n_out20p0 * n_in4p1 + n_out22p0;
+
+
+// VectorOp:18
+	vec2 n_out18p0 = n_out17p0 + n_out4p0;
+
+
+	vec4 n_out3p0;
+// Texture2D:3
+	n_out3p0 = texture(TEXTURE, n_out18p0);
+	float n_out3p1 = n_out3p0.r;
+	float n_out3p2 = n_out3p0.g;
+	float n_out3p3 = n_out3p0.b;
+	float n_out3p4 = n_out3p0.a;
+
+
+// VectorCompose:7
+	vec3 n_out7p0 = vec3(n_out3p1, n_out3p2, n_out3p3);
+
+
+// Output:0
+	COLOR.rgb = n_out7p0;
+	COLOR.a = n_out3p4;
+
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(180, 40)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_4qide")
+nodes/fragment/3/position = Vector2(-260, -60)
+nodes/fragment/4/node = SubResource("VisualShaderNodeUVFunc_diysy")
+nodes/fragment/4/position = Vector2(-720, 40)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorCompose_exx2p")
+nodes/fragment/6/position = Vector2(-1200, 20)
+nodes/fragment/7/node = SubResource("VisualShaderNodeVectorCompose_fjhgp")
+nodes/fragment/7/position = Vector2(-20, -80)
+nodes/fragment/9/node = SubResource("VisualShaderNodeVectorFunc_7722o")
+nodes/fragment/9/position = Vector2(-1060, 20)
+nodes/fragment/12/node = SubResource("VisualShaderNodeFloatOp_qtgfr")
+nodes/fragment/12/position = Vector2(-1380, -80)
+nodes/fragment/14/node = SubResource("VisualShaderNodeFloatOp_6st6m")
+nodes/fragment/14/position = Vector2(-1380, 60)
+nodes/fragment/15/node = SubResource("VisualShaderNodeVec2Parameter_qdcut")
+nodes/fragment/15/position = Vector2(-1720, -160)
+nodes/fragment/16/node = SubResource("VisualShaderNodeVec2Parameter_sgdn1")
+nodes/fragment/16/position = Vector2(-1040, -280)
+nodes/fragment/17/node = SubResource("VisualShaderNodeUVFunc_xe08r")
+nodes/fragment/17/position = Vector2(-720, -140)
+nodes/fragment/18/node = SubResource("VisualShaderNodeVectorOp_wqx85")
+nodes/fragment/18/position = Vector2(-420, -100)
+nodes/fragment/19/node = SubResource("VisualShaderNodeVec2Parameter_7d26n")
+nodes/fragment/19/position = Vector2(-1200, 160)
+nodes/fragment/20/node = SubResource("VisualShaderNodeVectorOp_65jw8")
+nodes/fragment/20/position = Vector2(-900, 120)
+nodes/fragment/21/node = SubResource("VisualShaderNodeInput_jxsco")
+nodes/fragment/21/position = Vector2(-1080, -360)
+nodes/fragment/22/node = SubResource("VisualShaderNodeInput_ma12y")
+nodes/fragment/22/position = Vector2(-1080, -60)
+nodes/fragment/23/node = SubResource("VisualShaderNodeFloatParameter_dvvrc")
+nodes/fragment/23/position = Vector2(-1720, 140)
+nodes/fragment/connections = PackedInt32Array(3, 1, 7, 0, 3, 2, 7, 1, 3, 3, 7, 2, 7, 0, 0, 0, 3, 4, 0, 1, 14, 0, 6, 1, 6, 0, 9, 0, 12, 0, 6, 0, 15, 1, 12, 1, 15, 2, 14, 0, 16, 0, 17, 1, 17, 0, 18, 0, 4, 0, 18, 1, 18, 0, 3, 0, 19, 0, 20, 1, 9, 0, 20, 0, 20, 0, 4, 2, 22, 0, 4, 0, 21, 0, 17, 0, 23, 0, 12, 0, 23, 0, 14, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6g5ie"]
+shader = SubResource("VisualShader_rmab2")
+shader_parameter/Scale = Vector2(1.5, 2)
+shader_parameter/Time = 0.0
+shader_parameter/Speed = Vector2(0, 0)
+shader_parameter/InitialOffset = Vector2(0, -0.22)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ilr8p"]
 
@@ -687,6 +949,94 @@ _data = {
 "RESET": SubResource("Animation_hqifj")
 }
 
+[sub_resource type="Animation" id="Animation_ryd0i"]
+resource_name = "OpenGameOver"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameOverBackground:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1616, -4680), Vector2(40, -1944)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameOverBackground:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GameOverBackground/Wave:material:shader_parameter/Speed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GameOverBackground/Wave:active")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GameOverBackground/Wave:material:shader_parameter/Time")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PermanentOverlay/AmountDisplay/Panel:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PermanentOverlay/AmountDisplay/Panel2:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_kmfl3"]
 resource_name = "OpenPausePanel"
 length = 0.6
@@ -942,6 +1292,73 @@ tracks/8/keys = {
 "values": [Vector2(24, 4), Vector2(174, 4)]
 }
 
+[sub_resource type="Animation" id="Animation_vw0pn"]
+resource_name = "OpenVictory"
+length = 3.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VictoryBackground/TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.5, 2.25, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.35, 1.35), Vector2(1.65, 1.65), Vector2(1.35, 1.35), Vector2(1.65, 1.65)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VictoryBackground/TextureRect:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5708, 3.14159]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VictoryBackground/AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["Idle", -1, 1.0, false],
+"method": &"play"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PermanentOverlay/AmountDisplay/Panel:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PermanentOverlay/AmountDisplay/Panel2:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_1rv5b"]
 length = 0.001
 step = 0.01
@@ -1137,12 +1554,98 @@ tracks/15/keys = {
 "update": 0,
 "values": [Vector2(1.2, 1.2)]
 }
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("GameOverBackground:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1584, -4616)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("GameOverBackground:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("VictoryBackground/TextureRect:scale")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("VictoryBackground/TextureRect:rotation")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("GameOverBackground/Wave:active")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("GameOverBackground/Wave:material:shader_parameter/Time")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("GameOverBackground/Wave:material:shader_parameter/Speed")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bdacy"]
 _data = {
+"OpenGameOver": SubResource("Animation_ryd0i"),
 "OpenPausePanel": SubResource("Animation_kmfl3"),
 "OpenReportScreen": SubResource("Animation_ci1rc"),
 "OpenShopPanel": SubResource("Animation_uhti5"),
+"OpenVictory": SubResource("Animation_vw0pn"),
 "RESET": SubResource("Animation_1rv5b")
 }
 
@@ -2515,6 +3018,77 @@ grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("PlaceholderTexture2D_2bu5c")
 expand_mode = 3
+
+[node name="VictoryBackground" type="Control" parent="PopupCanvas"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="PopupCanvas/VictoryBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -500.0
+offset_right = 500.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(1000, 1000)
+mouse_filter = 2
+texture = ExtResource("9_mkbci")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PopupCanvas/VictoryBackground"]
+libraries = {
+"": SubResource("AnimationLibrary_8y2ac")
+}
+
+[node name="GameOverBackground" type="Control" parent="PopupCanvas"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1584.0
+offset_top = -4616.0
+offset_right = 1584.22
+offset_bottom = -4616.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.523599
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="PopupCanvas/GameOverBackground"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -222.0
+offset_right = 4203.0
+offset_bottom = 3585.0
+mouse_filter = 2
+color = Color(0.894118, 0.286275, 0.160784, 1)
+
+[node name="Wave" type="TextureRect" parent="PopupCanvas/GameOverBackground"]
+material = SubResource("ShaderMaterial_6g5ie")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2281.75
+offset_bottom = 2655.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_ni0wp")
+stretch_mode = 1
+script = ExtResource("11_648bh")
 
 [node name="PermanentOverlay" type="Panel" parent="PopupCanvas"]
 anchors_preset = 10
